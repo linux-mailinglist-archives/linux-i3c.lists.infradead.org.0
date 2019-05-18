@@ -2,69 +2,58 @@ Return-Path: <linux-i3c-bounces+lists+linux-i3c=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-i3c@lfdr.de
 Delivered-To: lists+linux-i3c@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id C8B02168FB
-	for <lists+linux-i3c@lfdr.de>; Tue,  7 May 2019 19:20:08 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 6635D22214
+	for <lists+linux-i3c@lfdr.de>; Sat, 18 May 2019 09:34:27 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:To:Date:Message-Id:
-	References:In-Reply-To:From:Subject:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RoIY9wQOC2nDVqXUpdraz4awNJew96PW/FSD5n3mInc=; b=HZH8Ucol5ELhhM
-	C0T0ErZPt2CuMHGW0bSF9jMViX6Ejp2CNzwbGcpZQvA031KmepnnkIidM6GV+v5gWQr41pGq21IMD
-	T0gozE6fKUeedPX40zMakAhvvd9rQgD0pvhYiRr1nxLMUR6Al7R+p+vfMBHtnjcGCT/5OenXwJXSS
-	PhOKUCqucTdpXfsQErNwg4IarbngE5oM774mXoTssteVxUQlByHlDNdPIZpWCHWeQY/KPkr8EuRSC
-	bEIAmEDFxJZj0lUikBAMoDGuCilAxekfp9b20mtFhTIgtzr/3wRJV5RIITSOrW/7ETWKLjRkg0Kyf
-	qYFZCADToD14B5wkKFtA==;
+	List-Owner; bh=v7JAanEFqQS8LoXk6no5hIbdMtfCQVrm7kN+t+1JaBk=; b=DtN11xG6RRN8Os
+	k2XXSlds5xQ0pitxt/O/37u/eCWw9LhKmO6FKjN3l4s9SaEKW6cT0jYU2BhSy4OtoDTgSKvaVgDws
+	+8EY3+60XfMUbVUL85wZ5cS1v6ST7Yp8fjGraszXUSAgxy8bcNugbfqFaewXRgYWMHhvEQxdl4Vfo
+	zfDGgpxJLxi3GWREya5qfQww2KXVAaKKkDDVeAnN43KUSEZK+rLOugGkjZmbTLSgXwK9ImUCiOyeQ
+	W4czAzuFvsDjSutKBrwUtBGU+T9uLMHwY1mO/i5f04wPQACZa0tgCBa74OPLKiCZEZkSX0QAzLIp6
+	BdcmntP+cp79zp4vHL8A==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hO3l9-0000OQ-96
-	for lists+linux-i3c@lfdr.de; Tue, 07 May 2019 17:20:07 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1hRtrO-0003Aj-5A
+	for lists+linux-i3c@lfdr.de; Sat, 18 May 2019 07:34:26 +0000
+Received: from bhuna.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e3e3])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hO3l6-0008Gd-5d
- for linux-i3c@lists.infradead.org; Tue, 07 May 2019 17:20:05 +0000
-Subject: Re: [GIT PULL] i3c: Changes for 5.2
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1557249603;
- bh=gWwe0zFb3P+pIl4cNVlAWOBbo7Fxyfh4BDTraeJSBXs=;
- h=From:In-Reply-To:References:Date:To:Cc:From;
- b=Z63emYpAUv+3pQ2Gja0JVsX9cPFnGv6lEBfWlYmiMthk1LRhNBdj02vZjF4Ezk1bm
- U6mcNWU6yNimyIwvqwGutzEtb4xW++8QOlj9zJCO+uP47sK8M3/U07/w8VObz2CH2M
- xGuY8SzXdcp5FhtIq0qiE3SLNDfyXAEpQtTFS9i8=
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <20190506085835.61688fd2@collabora.com>
-References: <20190506085835.61688fd2@collabora.com>
-X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
-X-PR-Tracked-Message-Id: <20190506085835.61688fd2@collabora.com>
-X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/i3c/linux.git tags/i3c/for-5.2
-X-PR-Tracked-Commit-Id: 476c7e1d34f2a03b1aa5a924c50703053fe5f77c
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: 80104bb06b17497b570b11a187131dca7d445b40
-Message-Id: <155724960355.23705.11213415373851030230.pr-tracker-bot@kernel.org>
-Date: Tue, 07 May 2019 17:20:03 +0000
-To: Boris Brezillon <boris.brezillon@collabora.com>
+ id 1hRtrL-00039C-LH
+ for linux-i3c@lists.infradead.org; Sat, 18 May 2019 07:34:25 +0000
+Received: from localhost (unknown [IPv6:2a01:e0a:2c:6930:5cf4:84a1:2763:fe0d])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
+ bits)) (No client certificate requested)
+ (Authenticated sender: bbrezillon)
+ by bhuna.collabora.co.uk (Postfix) with ESMTPSA id 2C8E7280AB5;
+ Sat, 18 May 2019 08:34:18 +0100 (BST)
+Date: Sat, 18 May 2019 09:34:14 +0200
+From: Boris Brezillon <boris.brezillon@collabora.com>
+To: Przemyslaw Gaj <pgaj@cadence.com>
+Subject: Re: [PATCH v4 4/6] i3c: master: cdns: add support for mastership
+ request to Cadence I3C master driver.
+Message-ID: <20190518093414.4033dd2b@collabora.com>
+In-Reply-To: <20190429103639.GA19777@global.cadence.com>
+References: <20190310135843.21154-1-pgaj@cadence.com>
+ <20190310135843.21154-5-pgaj@cadence.com>
+ <20190330164409.45e6edfb@collabora.com>
+ <20190429103639.GA19777@global.cadence.com>
+Organization: Collabora
+X-Mailer: Claws Mail 3.17.3 (GTK+ 2.24.32; x86_64-redhat-linux-gnu)
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190507_102004_235144_0CE325A5 
-X-CRM114-Status: UNSURE (   0.58  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -5.2 (-----)
+X-CRM114-CacheID: sfid-20190518_003423_956336_9380332A 
+X-CRM114-Status: GOOD (  30.54  )
+X-Spam-Score: -0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-5.2 points)
+ Content analysis details:   (-0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
- high trust [198.145.29.99 listed in list.dnswl.org]
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- -0.0 T_DKIMWL_WL_HIGH       DKIMwl.org - Whitelisted High sender
 X-BeenThere: linux-i3c@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -76,29 +65,140 @@ List-Post: <mailto:linux-i3c@lists.infradead.org>
 List-Help: <mailto:linux-i3c-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-i3c>,
  <mailto:linux-i3c-request@lists.infradead.org?subject=subscribe>
-Cc: linux-i3c <linux-i3c@lists.infradead.org>,
- Przemyslaw Gaj <pgaj@cadence.com>,
- Linus Torvalds <torvalds@linux-foundation.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Vitor Soares <vitor.soares@synopsys.com>
-MIME-Version: 1.0
+Cc: linux-i3c@lists.infradead.org, vitor.soares@synopsys.com,
+ rafalc@cadence.com, agolec@cadence.com, bbrezillon@kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-i3c" <linux-i3c-bounces@lists.infradead.org>
 Errors-To: linux-i3c-bounces+lists+linux-i3c=lfdr.de@lists.infradead.org
 
-The pull request you sent on Mon, 6 May 2019 08:58:35 +0200:
+On Mon, 29 Apr 2019 11:36:42 +0100
+Przemyslaw Gaj <pgaj@cadence.com> wrote:
 
-> git://git.kernel.org/pub/scm/linux/kernel/git/i3c/linux.git tags/i3c/for-5.2
+> Hi Boris,
+> 
+> I'm sorry for my late response. I hope you remember this thread :-)
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/80104bb06b17497b570b11a187131dca7d445b40
+Unfortunately not :-/, and it's now my turn to apologize for the late
+reply.
 
-Thank you!
+> I'm implementing this and have some questions.
+> 
+> The 03/30/2019 16:44, Boris Brezillon wrote:
+> > >  
+> > > @@ -1274,9 +1353,32 @@ static int cdns_i3c_master_bus_init(struct i3c_master_controller *m)
+> > >  
+> > >  	cdns_i3c_master_enable(master);
+> > >  
+> > > +	if (m->secondary) {
+> > > +		i3c_bus_maintenance_lock(&master->base.bus);
+> > > +		cdns_i3c_master_update_devs(&master->base);
+> > > +		i3c_bus_maintenance_unlock(&master->base.bus);
+> > > +	}  
+> > 
+> > Okay, I changed my mind on this solution (it's not the first time that
+> > happens, and unfortunately won't be the last time either :-)). I think
+> > I don't like the idea of exposing the i3c_bus_maintenance_unlock/lock()
+> > functions in the end.  
+> 
+> Ok :-)
+> 
+> > 
+> > I'd like to reconsider what you initially proposed: having an  
+> > ->update_devs() hook that is called by the core, except I'd call it
+> > ->populate_bus().  
+> 
+> Ok, we can back to previous approach.
+> 
+> > 
+> > BTW, there's still something that's unclear to me. You seem to populate
+> > the bus here and also when acquiring bus ownership. Is this correct?  
+> 
+> Yes, this is correct. I'm doing this here to register all the devices received
+> by DEFSLVS on master initialization time. I'm also populating new devices when
+> acquiring the bus because some device could join the bus dynamically and we
+> want to register this new devices on our side also.
 
--- 
-Deet-doot-dot, I am a bot.
-https://korg.wiki.kernel.org/userdoc/prtracker
+Hm, I don't get that part. I thought we were supposed to add devices as
+soon as we know about them. In case of HJ and assuming your master is
+not currently owning the bus, the active master should send you a
+DEFSLVS which should serve as a trigger for registering new devs on all
+non active masters. Since registering new devices will trigger a
+mastership handover to query devs info (PID + other stuff) we should be
+all good, right?
+
+> 
+> > I'd expect it to be 'partially' populated at bus-init+defslvs time,
+> > which would trigger a mastership request if I3C devices are present (as
+> > we need to send a GETPID to know more about I3C devs).  
+> 
+> So, you want to allocate and attach devices and then, when possible get devices
+> info and register them? I mean when mastership request is possible. If not,
+> just leave devices allocated and register them when ENEC(MR) received, correct?
+
+Kind of, yes. We can probably just have a "want_to_acquire_bus" flag
+set, and the partially registered/discovered devices present in the
+master list would be registered automatically every time the master
+acquires bus ownership. This way we can re-use this logic for any
+operation that requires the master to own the bus to do something
+specific.
+
+> 
+> Previously, I allocated and registered all the devices after successful
+> mastership request. Which way is better in your opinion?
+
+That's a solution too, but it feels like a lot of generic code is
+open-coded in the driver if we do it this way. I know I'm the one who
+suggested this approach, but now that I see the code, I realize I was
+wrong (sorry about that).
+
+> 
+> >
+> > Also, what happens if i3c_master_add_i3c_dev_locked() fails? You
+> > don't seem to handle that case at all.  
+> 
+> For now, I just skipped it silently.
+
+We should at least print an error/warning.
+
+> 
+> >   
+> > > +
+> > > +static void cdns_i3c_master_mastership_takeover(struct cdns_i3c_master *master)
+> > > +{
+> > > +	if (master->base.init_done) {  
+> > 
+> > Can this really happen that init_done is not set when you reach this
+> > point.  
+> 
+> Yes, it was possible. Mastership was taken but master wasn't registered yet.
+> With new approach I think this won't happen.
+
+One more reason to switch to the new approach.
+
+> 
+> >   
+> > > +		i3c_bus_maintenance_lock(&master->base.bus);
+> > > +		cdns_i3c_master_update_devs(&master->base);
+> > > +		i3c_bus_maintenance_unlock(&master->base.bus);
+> > > +
+> > > +		i3c_master_register_new_devs(&master->base);  
+> > 
+> > The core will somehow be informed that this master now owns the bus, so
+> > it can call i3c_master_register_new_devs() for us, right?  
+> 
+> I think it can. I'm sure it worked like that before. When HC driver changed
+> cur_master, new devices were populated.
+> 
+> > 
+> > But as said above, I'm not even sure this is correct to do it from
+> > here. I'd expect this to happen at DEFSLVS or BUS init time.
+> >   
+> 
+> Ok. New(Previous) approach allows that.
+> 
+
+Ok, good.
 
 _______________________________________________
 linux-i3c mailing list
