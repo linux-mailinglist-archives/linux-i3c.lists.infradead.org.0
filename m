@@ -2,157 +2,62 @@ Return-Path: <linux-i3c-bounces+lists+linux-i3c=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-i3c@lfdr.de
 Delivered-To: lists+linux-i3c@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id DC74F37CCC
-	for <lists+linux-i3c@lfdr.de>; Thu,  6 Jun 2019 20:54:34 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 0C46C37CCD
+	for <lists+linux-i3c@lfdr.de>; Thu,  6 Jun 2019 20:54:35 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JZfZUYv94knk3OQqKgtCu8f6WobDVB3yEBshm5DaeI4=; b=f+LolVCt3e2o3M
-	ct0L83dhsKnG5R26d5vOqGOpcuJebLYGsyE2wDL0ZmUdvtw13K7b3ykC+OW0HGj0Y9wpOZWaHbrpx
-	I2XE669cGxklb/DHhLX8oDQXCkhqHzsavyqnBaR1fgxUBVsE2cCddPsAiKDhHEcrotB8jYj+JocJs
-	3/NBDoL2GGwV3U387cfmFEPSh0AVYdzNNXoRbKRgaOQYvBag94A9BxMRjGl7ROMubwjHr/aTNw1zW
-	yTyWhCctgLU9PzO1lMWj3l+kfdCBePvzfLDzbT2OUh+7sugXPr4J3bXi0wC08Tgj4AzXXsnuYLiDf
-	n9vwWFrQjI7qisRQoJpQ==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=bVLRXfeHl4w8RtSvNc29w9dZkxvcGs/2o4Zru3MuziM=; b=e7fK8J9V9DrQUCnsqot5YzSon
+	Hcw2Orpdh1V/WE8UI0br06VqoiynJdajyG37DXSL3R5ILR4mTqPjLLOWwRkG64wMiWEst4OqIcP3i
+	R1ekh9cacM4NBf+P/62Z0/ana6CDvxJvE9yRkJDmsO18P5tGWfUc1YV/OKmArYILdqbxQ72v5ZKli
+	fMlvdJXHARuqy4KRw7rWpS+0P8saLFO1v8hVSZMfswdlLdJBUES3Zhpt+nvIYhaYXibnGl34d6K5B
+	7Jpgni5d6o8LBCxwJNtXS+C9v5Rdbeq3P+QDw37DPGAPZ53s46moY6Xy3ZJNbK84C7zTS8khJGuMt
+	LNWO0iwfw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hYxWz-0000Ao-4R
+	id 1hYxWz-0000Av-AS
 	for lists+linux-i3c@lfdr.de; Thu, 06 Jun 2019 18:54:33 +0000
-Received: from dc8-smtprelay2.synopsys.com ([198.182.47.102]
- helo=smtprelay-out1.synopsys.com)
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hYvTP-0006Ii-9X
- for linux-i3c@lists.infradead.org; Thu, 06 Jun 2019 16:42:44 +0000
-Received: from mailhost.synopsys.com (dc8-mailhost2.synopsys.com
- [10.13.135.210])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
+ id 1hYviz-0008BP-Ud
+ for linux-i3c@lists.infradead.org; Thu, 06 Jun 2019 16:58:52 +0000
+Received: from localhost.localdomain (nat-pool-mxp-t.redhat.com
+ [149.6.153.186])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by smtprelay-out1.synopsys.com (Postfix) with ESMTPS id 1A280C0B60;
- Thu,  6 Jun 2019 16:42:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=synopsys.com; s=mail;
- t=1559839372; bh=NAnmacenLx871+vYyac6bxY9/6/POaXDdl2AGEQ9TZ4=;
- h=From:To:CC:Subject:Date:References:In-Reply-To:From;
- b=Fu9Ldb+lnu5YPTh8lmoDjzd8tcinAiP8TZZl+N5uN4COzQbb+C50n8uCxgL0+VrUA
- PDCkg5EBc1Lmnr0rv6MD7+K0SqiUmTQu47Lz5dAjMhUdkhl3vTBjVjgYaQPaSfZvXS
- aDu9FnFuaao/g5YMgwghNsOHEihnNkQdVqcn6fZ/RLVHpjAnOIfkVToxA7KZyUHu3I
- JHoG/liJeKhdjCPkEAROBMUdwNDANZ0IbKMg2Vhg4WRtFA4bYU+eeyrYRQ7cXYXCBp
- Nx5qNufYePGSGwvLJBTnALGy8L+5Y/Sqo3QToFoDHNItkWQZCM6e9o6pK9+vlk2u+f
- 9d1LBbsl/IRNg==
-Received: from us01wehtc1.internal.synopsys.com
- (us01wehtc1-vip.internal.synopsys.com [10.12.239.236])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
- (No client certificate requested)
- by mailhost.synopsys.com (Postfix) with ESMTPS id 59F38A0067;
- Thu,  6 Jun 2019 16:42:37 +0000 (UTC)
-Received: from DE02WEHTCB.internal.synopsys.com (10.225.19.94) by
- us01wehtc1.internal.synopsys.com (10.12.239.235) with Microsoft SMTP Server
- (TLS) id 14.3.408.0; Thu, 6 Jun 2019 09:42:37 -0700
-Received: from DE02WEMBXB.internal.synopsys.com ([fe80::95ce:118a:8321:a099])
- by DE02WEHTCB.internal.synopsys.com ([::1]) with mapi id
- 14.03.0415.000; Thu, 6 Jun 2019 18:42:35 +0200
-From: Vitor Soares <Vitor.Soares@synopsys.com>
-To: Wolfram Sang <wsa@the-dreams.de>, Vitor Soares <Vitor.Soares@synopsys.com>
-Subject: RE: [PATCH v2 0/3] Add ST lsm6dso i3c support
-Thread-Topic: [PATCH v2 0/3] Add ST lsm6dso i3c support
-Thread-Index: AQHVHHo44zPwTswqGE2xcyuxzKkZ+6aOrmWAgAAipJA=
-Date: Thu, 6 Jun 2019 16:42:34 +0000
-Message-ID: <13D59CF9CEBAF94592A12E8AE55501350AABE7B3@DE02WEMBXB.internal.synopsys.com>
+ by mail.kernel.org (Postfix) with ESMTPSA id 0155E20693;
+ Thu,  6 Jun 2019 16:58:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1559840329;
+ bh=YfQPguzAqsesPyTNbKdNkGI/9IVehUonN3ApIuvgM/o=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=BO9DcAvctY5CqhrOEHCKrQaw5dPq052snhzErz+eQQ3sarmxOJrJxPVSPJDGsTjoD
+ Lvn4A0JWh9rX+Izwfj18tsW9Yk91iMgrOFiUiXyYqsa9kgqV9OSbDMra0sL7NKkItT
+ MOd0UClPaAvU+xEuZqBTsYrA7cbqzyKPv2S5DIrI=
+Date: Thu, 6 Jun 2019 18:58:43 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Vitor Soares <Vitor.Soares@synopsys.com>
+Subject: Re: [PATCH v2 3/3] iio: imu: st_lsm6dsx: add i3c basic support for
+ LSM6DSO and LSM6DSR
+Message-ID: <20190606165841.GA10356@localhost.localdomain>
 References: <cover.1559831663.git.vitor.soares@synopsys.com>
- <20190606162522.GA3782@kunai>
-In-Reply-To: <20190606162522.GA3782@kunai>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-dg-ref: =?us-ascii?Q?PG1ldGE+PGF0IG5tPSJib2R5LnR4dCIgcD0iYzpcdXNlcnNcc29hcmVzXGFw?=
- =?us-ascii?Q?cGRhdGFccm9hbWluZ1wwOWQ4NDliNi0zMmQzLTRhNDAtODVlZS02Yjg0YmEy?=
- =?us-ascii?Q?OWUzNWJcbXNnc1xtc2ctMTQxYzBlNTUtODg3YS0xMWU5LTgyNDYtYjgwOGNm?=
- =?us-ascii?Q?NTlkN2ZjXGFtZS10ZXN0XDE0MWMwZTU2LTg4N2EtMTFlOS04MjQ2LWI4MDhj?=
- =?us-ascii?Q?ZjU5ZDdmY2JvZHkudHh0IiBzej0iNTk5IiB0PSIxMzIwNDMxMjk1MzEyODEy?=
- =?us-ascii?Q?NTAiIGg9IjFDbEs3KzhUL0xHNkxzSHpENWRuei94Q2swST0iIGlkPSIiIGJs?=
- =?us-ascii?Q?PSIwIiBibz0iMSIgY2k9ImNBQUFBRVJIVTFSU1JVRk5DZ1VBQUJRSkFBQmlM?=
- =?us-ascii?Q?NzdXaGh6VkFiaDdabW8rbkRCRHVIdG1hajZjTUVNT0FBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFIQUFBQUNrQ0FBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFF?=
- =?us-ascii?Q?QUFRQUJBQUFBVnpkaEdnQUFBQUFBQUFBQUFBQUFBSjRBQUFCbUFHa0FiZ0Jo?=
- =?us-ascii?Q?QUc0QVl3QmxBRjhBY0FCc0FHRUFiZ0J1QUdrQWJnQm5BRjhBZHdCaEFIUUFa?=
- =?us-ascii?Q?UUJ5QUcwQVlRQnlBR3NBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUVB?=
- =?us-ascii?Q?QUFBQUFBQUFBZ0FBQUFBQW5nQUFBR1lBYndCMUFHNEFaQUJ5QUhrQVh3QndB?=
- =?us-ascii?Q?R0VBY2dCMEFHNEFaUUJ5QUhNQVh3Qm5BR1lBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFRQUFBQUFBQUFBQ0FBQUFB?=
- =?us-ascii?Q?QUNlQUFBQVpnQnZBSFVBYmdCa0FISUFlUUJmQUhBQVlRQnlBSFFBYmdCbEFI?=
- =?us-ascii?Q?SUFjd0JmQUhNQVlRQnRBSE1BZFFCdUFHY0FYd0JqQUc4QWJnQm1BQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFCQUFBQUFBQUFBQUlBQUFBQUFKNEFBQUJtQUc4QWRR?=
- =?us-ascii?Q?QnVBR1FBY2dCNUFGOEFjQUJoQUhJQWRBQnVBR1VBY2dCekFGOEFjd0JoQUcw?=
- =?us-ascii?Q?QWN3QjFBRzRBWndCZkFISUFaUUJ6QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?RUFBQUFBQUFBQUFnQUFBQUFBbmdBQUFHWUFid0IxQUc0QVpBQnlBSGtBWHdC?=
- =?us-ascii?Q?d0FHRUFjZ0IwQUc0QVpRQnlBSE1BWHdCekFHMEFhUUJqQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQVFBQUFBQUFBQUFDQUFB?=
- =?us-ascii?Q?QUFBQ2VBQUFBWmdCdkFIVUFiZ0JrQUhJQWVRQmZBSEFBWVFCeUFIUUFiZ0Js?=
- =?us-ascii?Q?QUhJQWN3QmZBSE1BZEFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUJBQUFBQUFBQUFBSUFBQUFBQUo0QUFBQm1BRzhB?=
- =?us-ascii?Q?ZFFCdUFHUUFjZ0I1QUY4QWNBQmhBSElBZEFCdUFHVUFjZ0J6QUY4QWRBQnpB?=
- =?us-ascii?Q?RzBBWXdBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFFQUFBQUFBQUFBQWdBQUFBQUFuZ0FBQUdZQWJ3QjFBRzRBWkFCeUFIa0FY?=
- =?us-ascii?Q?d0J3QUdFQWNnQjBBRzRBWlFCeUFITUFYd0IxQUcwQVl3QUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBUUFBQUFBQUFBQUNB?=
- =?us-ascii?Q?QUFBQUFDZUFBQUFad0IwQUhNQVh3QndBSElBYndCa0FIVUFZd0IwQUY4QWRB?=
- =?us-ascii?Q?QnlBR0VBYVFCdUFHa0FiZ0JuQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQkFBQUFBQUFBQUFJQUFBQUFBSjRBQUFCekFH?=
- =?us-ascii?Q?RUFiQUJsQUhNQVh3QmhBR01BWXdCdkFIVUFiZ0IwQUY4QWNBQnNBR0VBYmdB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUVBQUFBQUFBQUFBZ0FBQUFBQW5nQUFBSE1BWVFCc0FHVUFjd0JmQUhF?=
- =?us-ascii?Q?QWRRQnZBSFFBWlFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFRQUFBQUFBQUFB?=
- =?us-ascii?Q?Q0FBQUFBQUNlQUFBQWN3QnVBSEFBY3dCZkFHd0FhUUJqQUdVQWJnQnpBR1VB?=
- =?us-ascii?Q?WHdCMEFHVUFjZ0J0QUY4QU1RQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFCQUFBQUFBQUFBQUlBQUFBQUFKNEFBQUJ6?=
- =?us-ascii?Q?QUc0QWNBQnpBRjhBYkFCcEFHTUFaUUJ1QUhNQVpRQmZBSFFBWlFCeUFHMEFY?=
- =?us-ascii?Q?d0J6QUhRQWRRQmtBR1VBYmdCMEFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBRUFBQUFBQUFBQUFnQUFBQUFBbmdBQUFIWUFad0JmQUdzQVpRQjVB?=
- =?us-ascii?Q?SGNBYndCeUFHUUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQVFBQUFBQUFB?=
- =?us-ascii?Q?QUFDQUFBQUFBQT0iLz48L21ldGE+?=
-x-originating-ip: [10.107.19.103]
+ <6195f3cd21636a5f85c0107b5c3b217be868a4b9.1559831663.git.vitor.soares@synopsys.com>
 MIME-Version: 1.0
+In-Reply-To: <6195f3cd21636a5f85c0107b5c3b217be868a4b9.1559831663.git.vitor.soares@synopsys.com>
+User-Agent: Mutt/1.11.4 (2019-03-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190606_094243_338827_40977C57 
-X-CRM114-Status: UNSURE (   9.86  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -0.2 (/)
+X-CRM114-CacheID: sfid-20190606_095850_018222_8D40F88B 
+X-CRM114-Status: GOOD (  19.64  )
+X-Spam-Score: -5.2 (-----)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-0.2 points)
+ Content analysis details:   (-5.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
+ -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
+ high trust [198.145.29.99 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
@@ -162,6 +67,7 @@ X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  envelope-from domain
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
+ -0.0 T_DKIMWL_WL_HIGH       DKIMwl.org - Whitelisted High sender
 X-Mailman-Approved-At: Thu, 06 Jun 2019 11:54:30 -0700
 X-BeenThere: linux-i3c@lists.infradead.org
 X-Mailman-Version: 2.1.21
@@ -174,40 +80,184 @@ List-Post: <mailto:linux-i3c@lists.infradead.org>
 List-Help: <mailto:linux-i3c-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-i3c>,
  <mailto:linux-i3c-request@lists.infradead.org?subject=subscribe>
-Cc: "Joao.Pinto@synopsys.com" <Joao.Pinto@synopsys.com>,
- "rafael@kernel.org" <rafael@kernel.org>,
- "linux-iio@vger.kernel.org" <linux-iio@vger.kernel.org>,
- "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
- "bbrezillon@kernel.org" <bbrezillon@kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "broonie@kernel.org" <broonie@kernel.org>,
- "linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>,
- "lorenzo.bianconi83@gmail.com" <lorenzo.bianconi83@gmail.com>,
- "linux-i3c@lists.infradead.org" <linux-i3c@lists.infradead.org>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Joao.Pinto@synopsys.com, rafael@kernel.org, linux-iio@vger.kernel.org,
+ gregkh@linuxfoundation.org, bbrezillon@kernel.org,
+ linux-kernel@vger.kernel.org, broonie@kernel.org, linux-i2c@vger.kernel.org,
+ lorenzo.bianconi83@gmail.com, linux-i3c@lists.infradead.org
+Content-Type: multipart/mixed; boundary="===============3467876716178012450=="
 Sender: "linux-i3c" <linux-i3c-bounces@lists.infradead.org>
 Errors-To: linux-i3c-bounces+lists+linux-i3c=lfdr.de@lists.infradead.org
 
-Hi Wolfram,
 
-I think I2C ecosystem is also part interested in I3C due the 
-compatibility and maybe they can provide some feedback.
-If you think differently, sorry I will remove I2C list next time.
+--===============3467876716178012450==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="mP3DRpeJDSE+ciuQ"
+Content-Disposition: inline
+
+
+--mP3DRpeJDSE+ciuQ
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+> For today the st_lsm6dsx driver support LSM6DSO and LSM6DSR sensor only in
+> spi and i2c mode.
+>=20
+> The LSM6DSO and LSM6DSR are also i3c capable so lets give i3c support to
+> them.
+>=20
+> Signed-off-by: Vitor Soares <vitor.soares@synopsys.com>
+> ---
+
+Hi Vitor,
+
+just a nit inline, but you can add my acked-by for st_lsm6dsx part in v3
+
+Acked-by: Lorenzo Bianconi <lorenzo@kernel.org>
 
 Regards,
-Vitor Soares
+Lorenzo
 
-From: Wolfram Sang <wsa@the-dreams.de>
-Date: Thu, Jun 06, 2019 at 17:25:23
+> Changes in v2:
+>   Add support for LSM6DSR
+>   Set pm_ops to st_lsm6dsx_pm_ops
+>=20
+>  drivers/iio/imu/st_lsm6dsx/Kconfig          |  8 ++-
+>  drivers/iio/imu/st_lsm6dsx/Makefile         |  1 +
+>  drivers/iio/imu/st_lsm6dsx/st_lsm6dsx_i3c.c | 76 +++++++++++++++++++++++=
+++++++
+>  3 files changed, 84 insertions(+), 1 deletion(-)
+>  create mode 100644 drivers/iio/imu/st_lsm6dsx/st_lsm6dsx_i3c.c
+>=20
+> diff --git a/drivers/iio/imu/st_lsm6dsx/Kconfig b/drivers/iio/imu/st_lsm6=
+dsx/Kconfig
+> index 002a423..8115936 100644
+> --- a/drivers/iio/imu/st_lsm6dsx/Kconfig
+> +++ b/drivers/iio/imu/st_lsm6dsx/Kconfig
+> @@ -2,11 +2,12 @@
+> =20
+>  config IIO_ST_LSM6DSX
+>  	tristate "ST_LSM6DSx driver for STM 6-axis IMU MEMS sensors"
+> -	depends on (I2C || SPI)
+> +	depends on (I2C || SPI || I3C)
+>  	select IIO_BUFFER
+>  	select IIO_KFIFO_BUF
+>  	select IIO_ST_LSM6DSX_I2C if (I2C)
+>  	select IIO_ST_LSM6DSX_SPI if (SPI_MASTER)
+> +	select IIO_ST_LSM6DSX_I3C if (I3C)
+>  	help
+>  	  Say yes here to build support for STMicroelectronics LSM6DSx imu
+>  	  sensor. Supported devices: lsm6ds3, lsm6ds3h, lsm6dsl, lsm6dsm,
+> @@ -24,3 +25,8 @@ config IIO_ST_LSM6DSX_SPI
+>  	tristate
+>  	depends on IIO_ST_LSM6DSX
+>  	select REGMAP_SPI
+> +
 
-> On Thu, Jun 06, 2019 at 05:12:01PM +0200, Vitor Soares wrote:
-> > This patch series add i3c support for STM LSM6DSO and LSM6DSR sensors.
-> 
-> Why is the I2C list on CC? Is there something relevant I missed?
+[...]
 
+> +#include <linux/kernel.h>
+> +#include <linux/module.h>
+> +#include <linux/i3c/device.h>
+> +#include <linux/i3c/master.h>
+> +#include <linux/slab.h>
+> +#include <linux/of.h>
+> +#include <linux/regmap.h>
+> +
+> +#include "st_lsm6dsx.h"
+> +
+> +#define NAME_SIZE	32
+> +
+> +struct st_lsm6dsx_i3c_data {
+> +	const char name[NAME_SIZE];
+> +	enum st_lsm6dsx_hw_id id;
+> +};
+> +
+> +enum st_lsm6dsx_i3c_data_id {
+> +	ST_LSM6DSO_I3C_DATA_ID,
+> +	ST_LSM6DSR_I3C_DATA_ID,
+> +};
+
+do we really need them? maybe just use hw_data[n] adding a comment to indic=
+ate
+the related sensor defining st_lsm6dsx_i3c_ids[]
+
+> +
+> +static const struct st_lsm6dsx_i3c_data hw_data[] =3D {
+> +	{ ST_LSM6DSO_DEV_NAME, ST_LSM6DSO_ID },
+> +	{ ST_LSM6DSR_DEV_NAME, ST_LSM6DSR_ID },
+> +};
+> +
+> +static const struct regmap_config st_lsm6dsx_i3c_regmap_config =3D {
+> +	.reg_bits =3D 8,
+> +	.val_bits =3D 8,
+> +};
+> +
+> +static int st_lsm6dsx_i3c_probe(struct i3c_device *i3cdev)
+> +{
+> +	const struct i3c_device_id *id =3D i3c_get_device_id(i3cdev);
+> +	const struct st_lsm6dsx_i3c_data *hw_data =3D id->data;
+> +	struct regmap *regmap;
+> +
+> +	regmap =3D devm_regmap_init_i3c(i3cdev, &st_lsm6dsx_i3c_regmap_config);
+> +	if (IS_ERR(regmap)) {
+> +		dev_err(&i3cdev->dev, "Failed to register i3c regmap %d\n",
+> +			(int)PTR_ERR(regmap));
+> +		return PTR_ERR(regmap);
+> +	}
+> +
+> +	return st_lsm6dsx_probe(&i3cdev->dev, 0, hw_data->id,
+> +				hw_data->name, regmap);
+> +}
+> +
+> +static const struct i3c_device_id st_lsm6dsx_i3c_ids[] =3D {
+> +	I3C_DEVICE(0x0104, 0x006C, &hw_data[ST_LSM6DSO_I3C_DATA_ID]),
+> +	I3C_DEVICE(0x0104, 0x006B, &hw_data[ST_LSM6DSR_I3C_DATA_ID]),
+> +	{ /* sentinel */ },
+> +};
+> +MODULE_DEVICE_TABLE(i3c, st_lsm6dsx_i3c_ids);
+> +
+> +static struct i3c_driver st_lsm6dsx_driver =3D {
+> +	.driver =3D {
+> +		.name =3D "st_lsm6dsx_i3c",
+> +		.pm =3D &st_lsm6dsx_pm_ops,
+> +	},
+> +	.probe =3D st_lsm6dsx_i3c_probe,
+> +	.id_table =3D st_lsm6dsx_i3c_ids,
+> +};
+> +module_i3c_driver(st_lsm6dsx_driver);
+> +
+> +MODULE_AUTHOR("Vitor Soares <vitor.soares@synopsys.com>");
+> +MODULE_DESCRIPTION("STMicroelectronics st_lsm6dsx i3c driver");
+> +MODULE_LICENSE("GPL v2");
+> --=20
+> 2.7.4
+>=20
+
+--mP3DRpeJDSE+ciuQ
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCXPlGPwAKCRA6cBh0uS2t
+rPqMAP44h3ZeX39OaxRtCeAjFaVA461EPlzIZOpxST1c3RRKvwD/S/enVcgJjWIc
+SSwRn2zrrKVUs7mYZsyKAcRBo9+Pvgs=
+=G/Yz
+-----END PGP SIGNATURE-----
+
+--mP3DRpeJDSE+ciuQ--
+
+
+--===============3467876716178012450==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-i3c mailing list
 linux-i3c@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-i3c
+
+--===============3467876716178012450==--
+
