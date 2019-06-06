@@ -2,166 +2,57 @@ Return-Path: <linux-i3c-bounces+lists+linux-i3c=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-i3c@lfdr.de
 Delivered-To: lists+linux-i3c@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id E9FF937ACA
-	for <lists+linux-i3c@lfdr.de>; Thu,  6 Jun 2019 19:18:06 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 6531337CCF
+	for <lists+linux-i3c@lfdr.de>; Thu,  6 Jun 2019 20:54:35 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CvIperGjQc6MXSVFAMD9pPdHgj73SqHNFK7Cv/4PdUs=; b=J5AaVoCkBD0vh5
-	tUhnfNlGEPQTpYu1vOEH9aYi0ezXpKpHrZmI/b4u3H0ZaTcGu3acGey7qxyv9HYNn+36Mb1jhgzfJ
-	prnHR3qAaWKpdEHlBSPwYQ0K+hNYHBlcPWCkK43np0c5OcXYvj9bxRW27JWud/11495JtjHjb6ISu
-	XUFp1Q11ibPTMDA9ElKM3Rn1PKUO7qehuXGOCdY87kONH03Ax/jUX/tAF7QAlzVlalzGfYTveHyrm
-	yoAAJefK1y8F9F9kEHEEa9uKGTVeunZ1PkZC4oXF+8RL1VJSnKSIcjCnxxcNb9sC8tDgYWbUmoRQg
-	s2GWNvMhsAJ0Nnf5HPNQ==;
+	List-Owner; bh=IUy+0NKbZ0C2Ln/EVtVI9/Z3+E5fLEGXb7gRPiRHoZQ=; b=nTsNV2lPUenSGW
+	65KMueZd0fzZTodsweZA7oGfqn0IZMFEyPq+TAt3yoA8xfTFwmCEvCiNVJurT2sKs0i3QZBhIMy6W
+	aDg6EZOTlfUs775nzfNI0G/8bVEXUvCDVRiBRu2xTBjC0tZpVrnNMX42eSz5TgYCqquwdEs55CYXq
+	wDd0Gw0k+Vbg90uxbw9K/iV9c2UnfWX96EvQWaM0yKrnsnLnaaPWxQ9wfeiH+a2P33YPV49ewfRiI
+	FHoeLZFRl/3s2OTXgharABS1/Nm23CdSIWGYxnnHwROr9q3E56UzMwRZup29YBhv9C27tGgS2v5M8
+	jbGzn9WkJ+M5/Hc+VvYw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hYw1d-0006na-M6
-	for lists+linux-i3c@lfdr.de; Thu, 06 Jun 2019 17:18:05 +0000
-Received: from smtprelay-out1.synopsys.com ([198.182.47.102])
+	id 1hYxWz-0000BE-Jj
+	for lists+linux-i3c@lfdr.de; Thu, 06 Jun 2019 18:54:33 +0000
+Received: from bhuna.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e3e3])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hYw1a-0006mT-FG
- for linux-i3c@lists.infradead.org; Thu, 06 Jun 2019 17:18:04 +0000
-Received: from mailhost.synopsys.com (dc2-mailhost2.synopsys.com
- [10.12.135.162])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
- (No client certificate requested)
- by smtprelay-out1.synopsys.com (Postfix) with ESMTPS id 97E87C0B52;
- Thu,  6 Jun 2019 17:18:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=synopsys.com; s=mail;
- t=1559841492; bh=SKUWBfmcZwHcJJysdCCUSp18SgeyHGCkrPy4Igt1I60=;
- h=From:To:CC:Subject:Date:References:In-Reply-To:From;
- b=V38AfP2xLj41xSeVhhcr0oSPabO18l4YzMO4DUcHvW39Ktbpi/xjT1g3ddFkP2IWI
- wzlk4o+Fjpm7R7QytBpf1NOlnQW/dllIe6iGPb3i368FWTj/SOhwIQL6jfxDTOdQwf
- 1lOM0DpNp1Rl44v2pNsLySV61nbw4H3KSv/CaCA1UWin6NxUlTr2TfPGHKuBrkG7Zg
- xh4TvRV7bgsSOuLdCbVitg4mrDtmqkdS8J4m3jkswPeLMU1rd7auu8bwNouULpZZeU
- L+Coje5tTHKXZ6JSyfpktbplU8pMV6TGdblmrKKwoJqSrlu+y1a3qV8Vx41ovIqDGH
- NQfbp6ZXDsjhA==
-Received: from US01WXQAHTC1.internal.synopsys.com
- (us01wxqahtc1.internal.synopsys.com [10.12.238.230])
- (using TLSv1.2 with cipher AES128-SHA256 (128/128 bits))
- (No client certificate requested)
- by mailhost.synopsys.com (Postfix) with ESMTPS id 7676FA0093;
- Thu,  6 Jun 2019 17:17:54 +0000 (UTC)
-Received: from DE02WEHTCB.internal.synopsys.com (10.225.19.94) by
- US01WXQAHTC1.internal.synopsys.com (10.12.238.230) with Microsoft SMTP Server
- (TLS) id 14.3.408.0; Thu, 6 Jun 2019 10:16:58 -0700
-Received: from DE02WEMBXB.internal.synopsys.com ([fe80::95ce:118a:8321:a099])
- by DE02WEHTCB.internal.synopsys.com ([::1]) with mapi id
- 14.03.0415.000; Thu, 6 Jun 2019 19:16:56 +0200
-From: Vitor Soares <Vitor.Soares@synopsys.com>
-To: Boris Brezillon <boris.brezillon@collabora.com>,
- Vitor Soares <Vitor.Soares@synopsys.com>
-Subject: RE: [PATCH v2 1/3] i3c: fix i2c and i3c scl rate by bus mode
-Thread-Topic: [PATCH v2 1/3] i3c: fix i2c and i3c scl rate by bus mode
-Thread-Index: AQHVHGF3lXrsgZbBP0uzVGVfPAtbX6aOizQAgABOUdA=
-Date: Thu, 6 Jun 2019 17:16:55 +0000
-Message-ID: <13D59CF9CEBAF94592A12E8AE55501350AABE7FC@DE02WEMBXB.internal.synopsys.com>
-References: <cover.1559821227.git.vitor.soares@synopsys.com>
- <47de89f2335930df0ed6903be9afe6de4f46e503.1559821228.git.vitor.soares@synopsys.com>
- <20190606161844.4a6b759c@collabora.com>
-In-Reply-To: <20190606161844.4a6b759c@collabora.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-dg-ref: =?us-ascii?Q?PG1ldGE+PGF0IG5tPSJib2R5LnR4dCIgcD0iYzpcdXNlcnNcc29hcmVzXGFw?=
- =?us-ascii?Q?cGRhdGFccm9hbWluZ1wwOWQ4NDliNi0zMmQzLTRhNDAtODVlZS02Yjg0YmEy?=
- =?us-ascii?Q?OWUzNWJcbXNnc1xtc2ctZTA0YjkzMzctODg3ZS0xMWU5LTgyNDYtYjgwOGNm?=
- =?us-ascii?Q?NTlkN2ZjXGFtZS10ZXN0XGUwNGI5MzM4LTg4N2UtMTFlOS04MjQ2LWI4MDhj?=
- =?us-ascii?Q?ZjU5ZDdmY2JvZHkudHh0IiBzej0iNjEzNiIgdD0iMTMyMDQzMTUwMTQ1ODQ4?=
- =?us-ascii?Q?NDA0IiBoPSJtWllrNkJsZ1BWTVJQdCtGYWpsS0VRVDQ3TGM9IiBpZD0iIiBi?=
- =?us-ascii?Q?bD0iMCIgYm89IjEiIGNpPSJjQUFBQUVSSFUxUlNSVUZOQ2dVQUFCUUpBQUJV?=
- =?us-ascii?Q?aEhlaml4elZBYWl3MG5yRCtlUkpxTERTZXNQNTVFa09BQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBSEFBQUFDa0NBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?RUFBUUFCQUFBQVZ6ZGhHZ0FBQUFBQUFBQUFBQUFBQUo0QUFBQm1BR2tBYmdC?=
- =?us-ascii?Q?aEFHNEFZd0JsQUY4QWNBQnNBR0VBYmdCdUFHa0FiZ0JuQUY4QWR3QmhBSFFB?=
- =?us-ascii?Q?WlFCeUFHMEFZUUJ5QUdzQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFF?=
- =?us-ascii?Q?QUFBQUFBQUFBQWdBQUFBQUFuZ0FBQUdZQWJ3QjFBRzRBWkFCeUFIa0FYd0J3?=
- =?us-ascii?Q?QUdFQWNnQjBBRzRBWlFCeUFITUFYd0JuQUdZQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBUUFBQUFBQUFBQUNBQUFB?=
- =?us-ascii?Q?QUFDZUFBQUFaZ0J2QUhVQWJnQmtBSElBZVFCZkFIQUFZUUJ5QUhRQWJnQmxB?=
- =?us-ascii?Q?SElBY3dCZkFITUFZUUJ0QUhNQWRRQnVBR2NBWHdCakFHOEFiZ0JtQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQkFBQUFBQUFBQUFJQUFBQUFBSjRBQUFCbUFHOEFk?=
- =?us-ascii?Q?UUJ1QUdRQWNnQjVBRjhBY0FCaEFISUFkQUJ1QUdVQWNnQnpBRjhBY3dCaEFH?=
- =?us-ascii?Q?MEFjd0IxQUc0QVp3QmZBSElBWlFCekFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUVBQUFBQUFBQUFBZ0FBQUFBQW5nQUFBR1lBYndCMUFHNEFaQUJ5QUhrQVh3?=
- =?us-ascii?Q?QndBR0VBY2dCMEFHNEFaUUJ5QUhNQVh3QnpBRzBBYVFCakFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFRQUFBQUFBQUFBQ0FB?=
- =?us-ascii?Q?QUFBQUNlQUFBQVpnQnZBSFVBYmdCa0FISUFlUUJmQUhBQVlRQnlBSFFBYmdC?=
- =?us-ascii?Q?bEFISUFjd0JmQUhNQWRBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFCQUFBQUFBQUFBQUlBQUFBQUFKNEFBQUJtQUc4?=
- =?us-ascii?Q?QWRRQnVBR1FBY2dCNUFGOEFjQUJoQUhJQWRBQnVBR1VBY2dCekFGOEFkQUJ6?=
- =?us-ascii?Q?QUcwQVl3QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBRUFBQUFBQUFBQUFnQUFBQUFBbmdBQUFHWUFid0IxQUc0QVpBQnlBSGtB?=
- =?us-ascii?Q?WHdCd0FHRUFjZ0IwQUc0QVpRQnlBSE1BWHdCMUFHMEFZd0FBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQVFBQUFBQUFBQUFD?=
- =?us-ascii?Q?QUFBQUFBQ2VBQUFBWndCMEFITUFYd0J3QUhJQWJ3QmtBSFVBWXdCMEFGOEFk?=
- =?us-ascii?Q?QUJ5QUdFQWFRQnVBR2tBYmdCbkFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUJBQUFBQUFBQUFBSUFBQUFBQUo0QUFBQnpB?=
- =?us-ascii?Q?R0VBYkFCbEFITUFYd0JoQUdNQVl3QnZBSFVBYmdCMEFGOEFjQUJzQUdFQWJn?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFFQUFBQUFBQUFBQWdBQUFBQUFuZ0FBQUhNQVlRQnNBR1VBY3dCZkFI?=
- =?us-ascii?Q?RUFkUUJ2QUhRQVpRQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBUUFBQUFBQUFB?=
- =?us-ascii?Q?QUNBQUFBQUFDZUFBQUFjd0J1QUhBQWN3QmZBR3dBYVFCakFHVUFiZ0J6QUdV?=
- =?us-ascii?Q?QVh3QjBBR1VBY2dCdEFGOEFNUUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQkFBQUFBQUFBQUFJQUFBQUFBSjRBQUFC?=
- =?us-ascii?Q?ekFHNEFjQUJ6QUY4QWJBQnBBR01BWlFCdUFITUFaUUJmQUhRQVpRQnlBRzBB?=
- =?us-ascii?Q?WHdCekFIUUFkUUJrQUdVQWJnQjBBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUVBQUFBQUFBQUFBZ0FBQUFBQW5nQUFBSFlBWndCZkFHc0FaUUI1?=
- =?us-ascii?Q?QUhjQWJ3QnlBR1FBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFB?=
- =?us-ascii?Q?QUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFRQUFBQUFB?=
- =?us-ascii?Q?QUFBQ0FBQUFBQUE9Ii8+PC9tZXRhPg=3D=3D?=
-x-originating-ip: [10.107.19.103]
+ id 1hYw53-0000Ck-71
+ for linux-i3c@lists.infradead.org; Thu, 06 Jun 2019 17:21:39 +0000
+Received: from localhost (unknown [IPv6:2a01:e0a:2c:6930:5cf4:84a1:2763:fe0d])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
+ bits)) (No client certificate requested)
+ (Authenticated sender: bbrezillon)
+ by bhuna.collabora.co.uk (Postfix) with ESMTPSA id 1043A263B33;
+ Thu,  6 Jun 2019 18:21:35 +0100 (BST)
+Date: Thu, 6 Jun 2019 19:21:31 +0200
+From: Boris Brezillon <boris.brezillon@collabora.com>
+To: Vitor Soares <Vitor.Soares@synopsys.com>
+Subject: Re: [PATCH v2 3/3] iio: imu: st_lsm6dsx: add i3c basic support for
+ LSM6DSO and LSM6DSR
+Message-ID: <20190606192131.355c9556@collabora.com>
+In-Reply-To: <6195f3cd21636a5f85c0107b5c3b217be868a4b9.1559831663.git.vitor.soares@synopsys.com>
+References: <cover.1559831663.git.vitor.soares@synopsys.com>
+ <6195f3cd21636a5f85c0107b5c3b217be868a4b9.1559831663.git.vitor.soares@synopsys.com>
+Organization: Collabora
+X-Mailer: Claws Mail 3.17.3 (GTK+ 2.24.32; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190606_101803_057255_8395DDD2 
-X-CRM114-Status: GOOD (  23.55  )
-X-Spam-Score: -0.2 (/)
+X-CRM114-CacheID: sfid-20190606_102137_511426_A97F0A87 
+X-CRM114-Status: GOOD (  23.68  )
+X-Spam-Score: -0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-0.2 points)
+ Content analysis details:   (-0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
+X-Mailman-Approved-At: Thu, 06 Jun 2019 11:54:30 -0700
 X-BeenThere: linux-i3c@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -173,176 +64,193 @@ List-Post: <mailto:linux-i3c@lists.infradead.org>
 List-Help: <mailto:linux-i3c-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-i3c>,
  <mailto:linux-i3c-request@lists.infradead.org?subject=subscribe>
-Cc: "linux-i3c@lists.infradead.org" <linux-i3c@lists.infradead.org>,
- "Joao.Pinto@synopsys.com" <Joao.Pinto@synopsys.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "stable@vger.kernel.org" <stable@vger.kernel.org>,
- Boris Brezillon <bbrezillon@kernel.org>
+Cc: Joao.Pinto@synopsys.com, rafael@kernel.org, linux-iio@vger.kernel.org,
+ gregkh@linuxfoundation.org, bbrezillon@kernel.org,
+ linux-kernel@vger.kernel.org, broonie@kernel.org, linux-i2c@vger.kernel.org,
+ lorenzo.bianconi83@gmail.com, linux-i3c@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-i3c" <linux-i3c-bounces@lists.infradead.org>
 Errors-To: linux-i3c-bounces+lists+linux-i3c=lfdr.de@lists.infradead.org
 
-From: Boris Brezillon <boris.brezillon@collabora.com>
-Date: Thu, Jun 06, 2019 at 15:18:44
+On Thu,  6 Jun 2019 17:12:04 +0200
+Vitor Soares <Vitor.Soares@synopsys.com> wrote:
 
-> On Thu,  6 Jun 2019 16:00:01 +0200
-> Vitor Soares <Vitor.Soares@synopsys.com> wrote:
+> For today the st_lsm6dsx driver support LSM6DSO and LSM6DSR sensor only in
+> spi and i2c mode.
 > 
-> > Currently the I3C framework limits SCL frequency to FM speed when
-> > dealing with a mixed slow bus, even if all I2C devices are FM+ capable.
-> > 
-> > The core was also not accounting for I3C speed limitations when
-> > operating in mixed slow mode and was erroneously using FM+ speed as the
-> > max I2C speed when operating in mixed fast mode.
-> > 
-> > Fixes: 3a379bbcea0a ("i3c: Add core I3C infrastructure")
-> > Signed-off-by: Vitor Soares <vitor.soares@synopsys.com>
-> > Cc: Boris Brezillon <bbrezillon@kernel.org>
-> > Cc: <stable@vger.kernel.org>
-> > Cc: <linux-kernel@vger.kernel.org>
-> > ---
-> > Changes in v2:
-> >   Enhance commit message
-> >   Add dev_warn() in case user-defined i2c rate doesn't match LVR constraint
-> >   Add dev_warn() in case user-defined i3c rate lower than i2c rate.
-> > 
-> >  drivers/i3c/master.c | 61 +++++++++++++++++++++++++++++++++++++++++-----------
-> >  1 file changed, 48 insertions(+), 13 deletions(-)
-> > 
-> > diff --git a/drivers/i3c/master.c b/drivers/i3c/master.c
-> > index 5f4bd52..8cd5824 100644
-> > --- a/drivers/i3c/master.c
-> > +++ b/drivers/i3c/master.c
-> > @@ -91,6 +91,12 @@ void i3c_bus_normaluse_unlock(struct i3c_bus *bus)
-> >  	up_read(&bus->lock);
-> >  }
-> >  
-> > +static struct i3c_master_controller *
-> > +i3c_bus_to_i3c_master(struct i3c_bus *i3cbus)
-> > +{
-> > +	return container_of(i3cbus, struct i3c_master_controller, bus);
-> > +}
-> > +
-> >  static struct i3c_master_controller *dev_to_i3cmaster(struct device *dev)
-> >  {
-> >  	return container_of(dev, struct i3c_master_controller, dev);
-> > @@ -565,20 +571,48 @@ static const struct device_type i3c_masterdev_type = {
-> >  	.groups	= i3c_masterdev_groups,
-> >  };
-> >  
-> > -int i3c_bus_set_mode(struct i3c_bus *i3cbus, enum i3c_bus_mode mode)
-> > +int i3c_bus_set_mode(struct i3c_bus *i3cbus, enum i3c_bus_mode mode,
-> > +		     unsigned long max_i2c_scl_rate)
-> >  {
-> > -	i3cbus->mode = mode;
-> >  
-> > -	if (!i3cbus->scl_rate.i3c)
-> > -		i3cbus->scl_rate.i3c = I3C_BUS_TYP_I3C_SCL_RATE;
-> > +	struct i3c_master_controller *master = i3c_bus_to_i3c_master(i3cbus);
-> >  
-> > -	if (!i3cbus->scl_rate.i2c) {
-> > -		if (i3cbus->mode == I3C_BUS_MODE_MIXED_SLOW)
-> > -			i3cbus->scl_rate.i2c = I3C_BUS_I2C_FM_SCL_RATE;
-> > -		else
-> > -			i3cbus->scl_rate.i2c = I3C_BUS_I2C_FM_PLUS_SCL_RATE;
-> > +	i3cbus->mode = mode;
-> > +
-> > +	switch (i3cbus->mode) {
-> > +	case I3C_BUS_MODE_PURE:
-> > +		if (!i3cbus->scl_rate.i3c)
-> > +			i3cbus->scl_rate.i3c = I3C_BUS_TYP_I3C_SCL_RATE;
-> > +		break;
-> > +	case I3C_BUS_MODE_MIXED_FAST:
-> > +		if (!i3cbus->scl_rate.i3c)
-> > +			i3cbus->scl_rate.i3c = I3C_BUS_TYP_I3C_SCL_RATE;
-> > +		if (!i3cbus->scl_rate.i2c)
-> > +			i3cbus->scl_rate.i2c = max_i2c_scl_rate;
-> > +		break;
-> > +	case I3C_BUS_MODE_MIXED_SLOW:
-> > +		if (!i3cbus->scl_rate.i2c)
-> > +			i3cbus->scl_rate.i2c = max_i2c_scl_rate;
-> > +		if (!i3cbus->scl_rate.i3c ||
-> > +		    i3cbus->scl_rate.i3c > i3cbus->scl_rate.i2c)
-> > +			i3cbus->scl_rate.i3c = i3cbus->scl_rate.i2c;
-> > +		break;
-> > +	default:
-> > +		return -EINVAL;
-> >  	}
-> >  
-> > +	if (i3cbus->scl_rate.i3c < i3cbus->scl_rate.i2c)
-> > +		dev_warn(&master->dev,
-> > +			 "i3c-scl-hz=%ld lower than i2c-scl-hz=%ld\n",
-> > +			 i3cbus->scl_rate.i3c, i3cbus->scl_rate.i2c);
-> > +
-> > +	if (i3cbus->scl_rate.i2c != I3C_BUS_I2C_FM_SCL_RATE &&
-> > +	    i3cbus->scl_rate.i2c != I3C_BUS_I2C_FM_PLUS_SCL_RATE &&
-> > +	    i3cbus->mode != I3C_BUS_MODE_PURE)
+> The LSM6DSO and LSM6DSR are also i3c capable so lets give i3c support to
+> them.
 > 
-> If you are so strict, there's clearly no point exposing an i2c-scl-hz
-> property. I'm still not convinced having an i2c rate that's slower than
-> what the I2C/I3C spec defines as the *typical* rate is a bad thing, 
-
-I'm not been strictive, I just inform the user about that case.
-
-> just
-> like I'm not convinced having an I3C rate that's slower than the I2C
-> one is a problem (it's definitely a weird situation, but there's nothing
-> preventing that in the spec).
-
-You agree that there is no point for case where i3c rate < i2c rate yet 
-you are not convinced.
-Do you thing that will be users for this case?
-
-Anyway, this isn't a high requirement for me. The all point of this patch 
-is to introduce the limited bus configuration.
-
+> Signed-off-by: Vitor Soares <vitor.soares@synopsys.com>
+> ---
+> Changes in v2:
+>   Add support for LSM6DSR
+>   Set pm_ops to st_lsm6dsx_pm_ops
 > 
-> > +		dev_warn(&master->dev,
-> > +			 "i2c-scl-hz=%ld not defined according MIPI I3C spec\n"
-> > +			 , i3cbus->scl_rate.i2c);
+>  drivers/iio/imu/st_lsm6dsx/Kconfig          |  8 ++-
+>  drivers/iio/imu/st_lsm6dsx/Makefile         |  1 +
+>  drivers/iio/imu/st_lsm6dsx/st_lsm6dsx_i3c.c | 76 +++++++++++++++++++++++++++++
+>  3 files changed, 84 insertions(+), 1 deletion(-)
+>  create mode 100644 drivers/iio/imu/st_lsm6dsx/st_lsm6dsx_i3c.c
 > 
-> The comma should be on the previous line.
-> 
-> > +
-> >  	/*
-> >  	 * I3C/I2C frequency may have been overridden, check that user-provided
-> >  	 * values are not exceeding max possible frequency.
-> > @@ -1966,9 +2000,6 @@ of_i3c_master_add_i2c_boardinfo(struct i3c_master_controller *master,
-> >  	/* LVR is encoded in reg[2]. */
-> >  	boardinfo->lvr = reg[2];
-> >  
-> > -	if (boardinfo->lvr & I3C_LVR_I2C_FM_MODE)
-> > -		master->bus.scl_rate.i2c = I3C_BUS_I2C_FM_SCL_RATE;
-> > -
-> >  	list_add_tail(&boardinfo->node, &master->boardinfo.i2c);
-> >  	of_node_get(node);
-> >  
-> > @@ -2417,6 +2448,7 @@ int i3c_master_register(struct i3c_master_controller *master,
-> >  			const struct i3c_master_controller_ops *ops,
-> >  			bool secondary)
-> >  {
-> > +	unsigned long i2c_scl_rate = I3C_BUS_I2C_FM_PLUS_SCL_RATE;
-> >  	struct i3c_bus *i3cbus = i3c_master_get_bus(master);
-> >  	enum i3c_bus_mode mode = I3C_BUS_MODE_PURE;
-> >  	struct i2c_dev_boardinfo *i2cbi;
-> > @@ -2466,9 +2498,12 @@ int i3c_master_register(struct i3c_master_controller *master,
-> >  			ret = -EINVAL;
-> >  			goto err_put_dev;
-> >  		}
-> > +
-> > +		if (i2cbi->lvr & I3C_LVR_I2C_FM_MODE)
-> > +			i2c_scl_rate = I3C_BUS_I2C_FM_SCL_RATE;
-> >  	}
-> >  
-> > -	ret = i3c_bus_set_mode(i3cbus, mode);
-> > +	ret = i3c_bus_set_mode(i3cbus, mode, i2c_scl_rate);
-> >  	if (ret)
-> >  		goto err_put_dev;
-> >  
+> diff --git a/drivers/iio/imu/st_lsm6dsx/Kconfig b/drivers/iio/imu/st_lsm6dsx/Kconfig
+> index 002a423..8115936 100644
+> --- a/drivers/iio/imu/st_lsm6dsx/Kconfig
+> +++ b/drivers/iio/imu/st_lsm6dsx/Kconfig
+> @@ -2,11 +2,12 @@
+>  
+>  config IIO_ST_LSM6DSX
+>  	tristate "ST_LSM6DSx driver for STM 6-axis IMU MEMS sensors"
+> -	depends on (I2C || SPI)
+> +	depends on (I2C || SPI || I3C)
+>  	select IIO_BUFFER
+>  	select IIO_KFIFO_BUF
+>  	select IIO_ST_LSM6DSX_I2C if (I2C)
+>  	select IIO_ST_LSM6DSX_SPI if (SPI_MASTER)
+> +	select IIO_ST_LSM6DSX_I3C if (I3C)
+>  	help
+>  	  Say yes here to build support for STMicroelectronics LSM6DSx imu
+>  	  sensor. Supported devices: lsm6ds3, lsm6ds3h, lsm6dsl, lsm6dsm,
+> @@ -24,3 +25,8 @@ config IIO_ST_LSM6DSX_SPI
+>  	tristate
+>  	depends on IIO_ST_LSM6DSX
+>  	select REGMAP_SPI
+> +
+> +config IIO_ST_LSM6DSX_I3C
+> +	tristate
+> +	depends on IIO_ST_LSM6DSX
+> +	select REGMAP_I3C
+> diff --git a/drivers/iio/imu/st_lsm6dsx/Makefile b/drivers/iio/imu/st_lsm6dsx/Makefile
+> index 28cc673..57cbcd6 100644
+> --- a/drivers/iio/imu/st_lsm6dsx/Makefile
+> +++ b/drivers/iio/imu/st_lsm6dsx/Makefile
+> @@ -5,3 +5,4 @@ st_lsm6dsx-y := st_lsm6dsx_core.o st_lsm6dsx_buffer.o \
+>  obj-$(CONFIG_IIO_ST_LSM6DSX) += st_lsm6dsx.o
+>  obj-$(CONFIG_IIO_ST_LSM6DSX_I2C) += st_lsm6dsx_i2c.o
+>  obj-$(CONFIG_IIO_ST_LSM6DSX_SPI) += st_lsm6dsx_spi.o
+> +obj-$(CONFIG_IIO_ST_LSM6DSX_I3C) += st_lsm6dsx_i3c.o
+> diff --git a/drivers/iio/imu/st_lsm6dsx/st_lsm6dsx_i3c.c b/drivers/iio/imu/st_lsm6dsx/st_lsm6dsx_i3c.c
+> new file mode 100644
+> index 0000000..70b70d1
+> --- /dev/null
+> +++ b/drivers/iio/imu/st_lsm6dsx/st_lsm6dsx_i3c.c
+> @@ -0,0 +1,76 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Copyright (c) 2018 Synopsys, Inc. and/or its affiliates.
+> + *
+> + * Author: Vitor Soares <vitor.soares@synopsys.com>
+> + */
+> +
+> +#include <linux/kernel.h>
+> +#include <linux/module.h>
+> +#include <linux/i3c/device.h>
+> +#include <linux/i3c/master.h>
+> +#include <linux/slab.h>
+> +#include <linux/of.h>
+> +#include <linux/regmap.h>
+> +
+> +#include "st_lsm6dsx.h"
+> +
+> +#define NAME_SIZE	32
+> +
+> +struct st_lsm6dsx_i3c_data {
+> +	const char name[NAME_SIZE];
 
-Best regards,
-Vitor Soares
+I think I mentioned already that you can simply have
+
+	const char *name;
+
+> +	enum st_lsm6dsx_hw_id id;
+> +};
+> +
+> +enum st_lsm6dsx_i3c_data_id {
+> +	ST_LSM6DSO_I3C_DATA_ID,
+> +	ST_LSM6DSR_I3C_DATA_ID,
+> +};
+> +
+> +static const struct st_lsm6dsx_i3c_data hw_data[] = {
+> +	{ ST_LSM6DSO_DEV_NAME, ST_LSM6DSO_ID },
+> +	{ ST_LSM6DSR_DEV_NAME, ST_LSM6DSR_ID },
+> +};
+> +
+> +static const struct regmap_config st_lsm6dsx_i3c_regmap_config = {
+> +	.reg_bits = 8,
+> +	.val_bits = 8,
+> +};
+> +
+> +static int st_lsm6dsx_i3c_probe(struct i3c_device *i3cdev)
+> +{
+> +	const struct i3c_device_id *id = i3c_get_device_id(i3cdev);
+> +	const struct st_lsm6dsx_i3c_data *hw_data = id->data;
+> +	struct regmap *regmap;
+> +
+> +	regmap = devm_regmap_init_i3c(i3cdev, &st_lsm6dsx_i3c_regmap_config);
+> +	if (IS_ERR(regmap)) {
+> +		dev_err(&i3cdev->dev, "Failed to register i3c regmap %d\n",
+> +			(int)PTR_ERR(regmap));
+> +		return PTR_ERR(regmap);
+> +	}
+> +
+> +	return st_lsm6dsx_probe(&i3cdev->dev, 0, hw_data->id,
+> +				hw_data->name, regmap);
+> +}
+> +
+> +static const struct i3c_device_id st_lsm6dsx_i3c_ids[] = {
+> +	I3C_DEVICE(0x0104, 0x006C, &hw_data[ST_LSM6DSO_I3C_DATA_ID]),
+> +	I3C_DEVICE(0x0104, 0x006B, &hw_data[ST_LSM6DSR_I3C_DATA_ID]),
+
+Still find that form counter-intuitive since you'd have to first go
+look at what's the value of ST_LSM6DSO_I3C_DATA_ID, then go check the
+entry in hw_data to find what's in there. Too many ways to get things
+wrong IMHO.
+
+The following form would make it much more obvious/easy to follow:
+
+static const st_lsm6dsx_i3c_data st_lsm6dso_i3c_data = {
+	ST_LSM6DSO_DEV_NAME, ST_LSM6DSO_ID,
+};
+
+static const st_lsm6dsx_i3c_data st_lsm6dsr_i3c_data = {
+	ST_LSM6DSR_DEV_NAME, ST_LSM6DSR_ID,
+};
+
+static const struct i3c_device_id st_lsm6dsx_i3c_ids[] = {
+	I3C_DEVICE(0x0104, 0x006C, &st_lsm6dso_i3c_data),
+	I3C_DEVICE(0x0104, 0x006B, &st_lsm6dsr_i3c_data),
+};
+
+Note that I don't see why we need to pass both the name and the ID to
+st_lsm6dsx_probe(). I'd expect the name to be easily deducible from the
+ID (using a name table whose index would match the ST_XXX_ID).
+
+If you do this change you would actually get rid of the
+st_lsm6dsx_i3c_data struct and instead have:
+
+static const struct i3c_device_id st_lsm6dsx_i3c_ids[] = {
+	I3C_DEVICE(0x0104, 0x006C, (void *)ST_LSM6DSO_ID),
+	I3C_DEVICE(0x0104, 0x006B, (void *)ST_LSM6DSR_ID),
+};
+
+> +	{ /* sentinel */ },
+> +};
+> +MODULE_DEVICE_TABLE(i3c, st_lsm6dsx_i3c_ids);
+> +
+> +static struct i3c_driver st_lsm6dsx_driver = {
+> +	.driver = {
+> +		.name = "st_lsm6dsx_i3c",
+> +		.pm = &st_lsm6dsx_pm_ops,
+> +	},
+> +	.probe = st_lsm6dsx_i3c_probe,
+> +	.id_table = st_lsm6dsx_i3c_ids,
+> +};
+> +module_i3c_driver(st_lsm6dsx_driver);
+> +
+> +MODULE_AUTHOR("Vitor Soares <vitor.soares@synopsys.com>");
+> +MODULE_DESCRIPTION("STMicroelectronics st_lsm6dsx i3c driver");
+> +MODULE_LICENSE("GPL v2");
+
 
 _______________________________________________
 linux-i3c mailing list
