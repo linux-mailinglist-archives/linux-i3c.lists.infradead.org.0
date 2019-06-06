@@ -2,61 +2,67 @@ Return-Path: <linux-i3c-bounces+lists+linux-i3c=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-i3c@lfdr.de
 Delivered-To: lists+linux-i3c@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 98CD537CC6
-	for <lists+linux-i3c@lfdr.de>; Thu,  6 Jun 2019 20:54:33 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 1B61437CC8
+	for <lists+linux-i3c@lfdr.de>; Thu,  6 Jun 2019 20:54:34 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=Hrk2N85iv1fEQEW8QxQ5GCIaJXPHppMn2nX3IbPEi60=; b=Awg
-	0Cw7HQjSq9JIzGQPpxm16LmX6FoTb/PMf47Y113DKl2NpB7JnmLtCbWhaOhiyiUR2TCAE/GdCBisp
-	wZ/nE9mtyk8CvX340m89DsXV1MUWpRWkMqXI122rDiqnD2d9/cSpjaMV/FD17LO3AUl917ZyNDjTr
-	Irkxwo39Xj07yrrizS1ux2Vw85a2xy8/HDh0TZcvcKys0hraAWG20qaftxJxzMU0/JukZVIOb3Am9
-	4rabVIfemdCOQtOdP8Vqn9zie4/Sk0eQbnrYlcav+u30r9h5gSakBDsgdqO6Bs5oyl+bRZvkiiez1
-	WyRit3W68CDGHeco36qPgxm5cdg48hA==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
+	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=wNu5X8DbDCo1xfV3Z8hky/sszqQd3v4skhVKgkNgFiM=; b=UhpqRXSoyFlAh6CQMg4Jep5zjd
+	fh8ChNrVBQS2mf59px6/6Q1ymMfEboPG3uvf1VIib0W2R+zq7OYurXuEzAPpPOxFuDcjh3O0seTil
+	C5p7H3qzKR7+g51VYwQYw4Qc3oZ6fikW1KvpklOX+9uw9viVLfz0v41q8SuEWDGKMW4/Y/3YNMwu8
+	X1AQASQuEiUJD2H1uYqNgJ8nquHuhDa32NLFhFh/GAvDbtIRt1IsaFmdctD8e4U6nTx5J2jP8yNiT
+	o4QHLL5P1lx1z1eXYS0rmsiIEk/+UCy/0wHWHGLxykhzzpqpw4DGedPQjAtMHhhdmsuaOUAZZJl4X
+	C5TPHcDg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hYxWy-00009x-7j
+	id 1hYxWy-0000AC-I3
 	for lists+linux-i3c@lfdr.de; Thu, 06 Jun 2019 18:54:32 +0000
 Received: from dc2-smtprelay2.synopsys.com ([198.182.61.142]
  helo=smtprelay-out1.synopsys.com)
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hYu3m-0005Of-NK
- for linux-i3c@lists.infradead.org; Thu, 06 Jun 2019 15:12:11 +0000
+ id 1hYu3m-0005Oe-NM
+ for linux-i3c@lists.infradead.org; Thu, 06 Jun 2019 15:12:13 +0000
 Received: from mailhost.synopsys.com (mdc-mailhost1.synopsys.com
  [10.225.0.209])
  (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
  (No client certificate requested)
- by smtprelay-out1.synopsys.com (Postfix) with ESMTPS id 0FA1CC0BA5;
+ by smtprelay-out1.synopsys.com (Postfix) with ESMTPS id 14B86C0BA6;
  Thu,  6 Jun 2019 15:11:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=synopsys.com; s=mail;
- t=1559833908; bh=0xawz4OatXGzaBqtYj6nS/EfNnp/z+E5VwinuXJDtLQ=;
- h=From:To:Cc:Subject:Date:From;
- b=AZg1Yd1UvRb7GN5XhHpGuTWa45lSMBb5oho1rMamz+DMIBTzwL7++qDfU0zRK/ahA
- GL9HjOsdNcdTlNAkVuCluuUghwxxrgmekwGebFyCrdpFFyyQJOWnWlFEqZwjSXxobr
- mUh2O0o/TCY6YpLwj4d1ABhXEm58H6PjjJ27rDuUqPUAcu3mo10VKCLQ4mcLs44dNy
- uPfDqNBjHAqLhdpiFcU4mV1ccs66S84iMhQtdaeeYUmh8CmhsnbM99oJgU4fqZ1l7K
- LbM9q8e1/1+IFyl3At97an0TMptIBW+3AkKYmTP2gGdH3h0y9HG6uf3p4LB/tc1CWf
- Ra6x0KQZRT2cg==
-Received: from de02.synopsys.com (de02.internal.synopsys.com [10.225.17.21])
- by mailhost.synopsys.com (Postfix) with ESMTP id AF36DA0057;
- Thu,  6 Jun 2019 15:12:06 +0000 (UTC)
+ t=1559833908; bh=3f7/q2BglQTljnvAoJoA7QvsI9bDMDsZY3M0zTPkEu8=;
+ h=From:To:Cc:Subject:Date:In-Reply-To:References:In-Reply-To:
+ References:From;
+ b=MoUVLOyvqY8XckBqcY8qZMv7wHegsXlDpLf0Y84Jjs7pAz91nF1EXHC5WJaJiNb6g
+ a+vdtyYg3AJy+CzFeH6Tvx/bVxatFZ2UwzVnO56ZiCk94LaekjIOVKy/53Drb9PU1d
+ v2/5k8j8uiDj/HQPePE7nxfqUUGzg0dzyaC9u1Nq018tn67X4W6s21d+A/SRJApenv
+ Ti2WjzzaVlYWE8YJUulsLS6juY3LAsQ0I5Sz+Kpdal75S/kvbkxhyzFdwBm+KsrqBZ
+ ADjDTziwQCNVM9bnRHaF7FZ7m2irKgm1dS2RJrsNiJM3YeXCzklm/roohbCXjmIYoZ
+ qHZ1XixS0f6xQ==
+Received: from de02.synopsys.com (germany.internal.synopsys.com [10.225.17.21])
+ by mailhost.synopsys.com (Postfix) with ESMTP id C2282A005F;
+ Thu,  6 Jun 2019 15:12:07 +0000 (UTC)
 Received: from de02dwia024.internal.synopsys.com
  (de02dwia024.internal.synopsys.com [10.225.19.81])
- by de02.synopsys.com (Postfix) with ESMTP id 9191D3FECC;
- Thu,  6 Jun 2019 17:12:06 +0200 (CEST)
+ by de02.synopsys.com (Postfix) with ESMTP id AC9823FECF;
+ Thu,  6 Jun 2019 17:12:07 +0200 (CEST)
 From: Vitor Soares <Vitor.Soares@synopsys.com>
 To: linux-iio@vger.kernel.org, linux-i2c@vger.kernel.org,
  linux-i3c@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: [PATCH v2 0/3] Add ST lsm6dso i3c support
-Date: Thu,  6 Jun 2019 17:12:01 +0200
-Message-Id: <cover.1559831663.git.vitor.soares@synopsys.com>
+Subject: [PATCH v2 1/3] regmap: add i3c bus support
+Date: Thu,  6 Jun 2019 17:12:02 +0200
+Message-Id: <ff5e96bdd6b2789122afe1980bb20cfa22900760.1559831663.git.vitor.soares@synopsys.com>
 X-Mailer: git-send-email 2.7.4
+In-Reply-To: <cover.1559831663.git.vitor.soares@synopsys.com>
+References: <cover.1559831663.git.vitor.soares@synopsys.com>
+In-Reply-To: <cover.1559831663.git.vitor.soares@synopsys.com>
+References: <cover.1559831663.git.vitor.soares@synopsys.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190606_081210_765576_8DF44362 
-X-CRM114-Status: GOOD (  11.10  )
+X-CRM114-CacheID: sfid-20190606_081210_766617_BC0A174F 
+X-CRM114-Status: GOOD (  16.29  )
 X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (-0.2 points)
@@ -92,34 +98,163 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-i3c" <linux-i3c-bounces@lists.infradead.org>
 Errors-To: linux-i3c-bounces+lists+linux-i3c=lfdr.de@lists.infradead.org
 
-This patch series add i3c support for STM LSM6DSO and LSM6DSR sensors.
+Add basic support for i3c bus.
+This is a simple implementation that only give support
+for SDR Read and Write commands.
 
-It is also introduced i3c support on regmap api. Due the lack of
-i3c devices HDR capables on the market the support for now is only for
-i3c sdr mode by using i3c_device_do_priv_xfers() method.
-
+Signed-off-by: Vitor Soares <vitor.soares@synopsys.com>
+---
 Changes in v2:
-  Change i3c_get_device_id() to drivers/i3c/device.c
-  Add support for LSM6DSR
+  None
 
-Vitor Soares (3):
-  regmap: add i3c bus support
-  i3c: Add i3c_get_device_id helper
-  iio: imu: st_lsm6dsx: add i3c basic support for LSM6DSO and LSM6DSR
-
- drivers/base/regmap/Kconfig                 |  6 ++-
- drivers/base/regmap/Makefile                |  1 +
- drivers/base/regmap/regmap-i3c.c            | 60 +++++++++++++++++++++++
- drivers/i3c/device.c                        |  8 +++
- drivers/iio/imu/st_lsm6dsx/Kconfig          |  8 ++-
- drivers/iio/imu/st_lsm6dsx/Makefile         |  1 +
- drivers/iio/imu/st_lsm6dsx/st_lsm6dsx_i3c.c | 76 +++++++++++++++++++++++++++++
- include/linux/i3c/device.h                  |  1 +
- include/linux/regmap.h                      | 20 ++++++++
- 9 files changed, 179 insertions(+), 2 deletions(-)
+ drivers/base/regmap/Kconfig      |  6 +++-
+ drivers/base/regmap/Makefile     |  1 +
+ drivers/base/regmap/regmap-i3c.c | 60 ++++++++++++++++++++++++++++++++++++++++
+ include/linux/regmap.h           | 20 ++++++++++++++
+ 4 files changed, 86 insertions(+), 1 deletion(-)
  create mode 100644 drivers/base/regmap/regmap-i3c.c
- create mode 100644 drivers/iio/imu/st_lsm6dsx/st_lsm6dsx_i3c.c
 
+diff --git a/drivers/base/regmap/Kconfig b/drivers/base/regmap/Kconfig
+index 6ad5ef4..c8bbf53 100644
+--- a/drivers/base/regmap/Kconfig
++++ b/drivers/base/regmap/Kconfig
+@@ -4,7 +4,7 @@
+ # subsystems should select the appropriate symbols.
+ 
+ config REGMAP
+-	default y if (REGMAP_I2C || REGMAP_SPI || REGMAP_SPMI || REGMAP_W1 || REGMAP_AC97 || REGMAP_MMIO || REGMAP_IRQ)
++	default y if (REGMAP_I2C || REGMAP_SPI || REGMAP_SPMI || REGMAP_W1 || REGMAP_AC97 || REGMAP_MMIO || REGMAP_IRQ || REGMAP_I3C)
+ 	select IRQ_DOMAIN if REGMAP_IRQ
+ 	bool
+ 
+@@ -49,3 +49,7 @@ config REGMAP_SOUNDWIRE
+ config REGMAP_SCCB
+ 	tristate
+ 	depends on I2C
++
++config REGMAP_I3C
++	tristate
++	depends on I3C
+diff --git a/drivers/base/regmap/Makefile b/drivers/base/regmap/Makefile
+index f5b4e88..ff6c7d8 100644
+--- a/drivers/base/regmap/Makefile
++++ b/drivers/base/regmap/Makefile
+@@ -16,3 +16,4 @@ obj-$(CONFIG_REGMAP_IRQ) += regmap-irq.o
+ obj-$(CONFIG_REGMAP_W1) += regmap-w1.o
+ obj-$(CONFIG_REGMAP_SOUNDWIRE) += regmap-sdw.o
+ obj-$(CONFIG_REGMAP_SCCB) += regmap-sccb.o
++obj-$(CONFIG_REGMAP_I3C) += regmap-i3c.o
+diff --git a/drivers/base/regmap/regmap-i3c.c b/drivers/base/regmap/regmap-i3c.c
+new file mode 100644
+index 0000000..1578fb5
+--- /dev/null
++++ b/drivers/base/regmap/regmap-i3c.c
+@@ -0,0 +1,60 @@
++// SPDX-License-Identifier: GPL-2.0
++// Copyright (c) 2018 Synopsys, Inc. and/or its affiliates.
++
++#include <linux/regmap.h>
++#include <linux/i3c/device.h>
++#include <linux/i3c/master.h>
++#include <linux/module.h>
++
++static int regmap_i3c_write(void *context, const void *data, size_t count)
++{
++	struct device *dev = context;
++	struct i3c_device *i3c = dev_to_i3cdev(dev);
++	struct i3c_priv_xfer xfers[] = {
++		{
++			.rnw = false,
++			.len = count,
++			.data.out = data,
++		},
++	};
++
++	return i3c_device_do_priv_xfers(i3c, xfers, 1);
++}
++
++static int regmap_i3c_read(void *context,
++			   const void *reg, size_t reg_size,
++			   void *val, size_t val_size)
++{
++	struct device *dev = context;
++	struct i3c_device *i3c = dev_to_i3cdev(dev);
++	struct i3c_priv_xfer xfers[2];
++
++	xfers[0].rnw = false;
++	xfers[0].len = reg_size;
++	xfers[0].data.out = reg;
++
++	xfers[1].rnw = true;
++	xfers[1].len = val_size;
++	xfers[1].data.in = val;
++
++	return i3c_device_do_priv_xfers(i3c, xfers, 2);
++}
++
++static struct regmap_bus regmap_i3c = {
++	.write = regmap_i3c_write,
++	.read = regmap_i3c_read,
++};
++
++struct regmap *__devm_regmap_init_i3c(struct i3c_device *i3c,
++				      const struct regmap_config *config,
++				      struct lock_class_key *lock_key,
++				      const char *lock_name)
++{
++	return __devm_regmap_init(&i3c->dev, &regmap_i3c, &i3c->dev, config,
++				  lock_key, lock_name);
++}
++EXPORT_SYMBOL_GPL(__devm_regmap_init_i3c);
++
++MODULE_AUTHOR("Vitor Soares <vitor.soares@synopsys.com>");
++MODULE_DESCRIPTION("Regmap I3C Module");
++MODULE_LICENSE("GPL v2");
+diff --git a/include/linux/regmap.h b/include/linux/regmap.h
+index daeec7d..f65984d 100644
+--- a/include/linux/regmap.h
++++ b/include/linux/regmap.h
+@@ -25,6 +25,7 @@ struct module;
+ struct clk;
+ struct device;
+ struct i2c_client;
++struct i3c_device;
+ struct irq_domain;
+ struct slim_device;
+ struct spi_device;
+@@ -624,6 +625,10 @@ struct regmap *__devm_regmap_init_slimbus(struct slim_device *slimbus,
+ 				 const struct regmap_config *config,
+ 				 struct lock_class_key *lock_key,
+ 				 const char *lock_name);
++struct regmap *__devm_regmap_init_i3c(struct i3c_device *i3c,
++				 const struct regmap_config *config,
++				 struct lock_class_key *lock_key,
++				 const char *lock_name);
+ /*
+  * Wrapper for regmap_init macros to include a unique lockdep key and name
+  * for each call. No-op if CONFIG_LOCKDEP is not set.
+@@ -982,6 +987,21 @@ bool regmap_ac97_default_volatile(struct device *dev, unsigned int reg);
+ #define devm_regmap_init_slimbus(slimbus, config)			\
+ 	__regmap_lockdep_wrapper(__devm_regmap_init_slimbus, #config,	\
+ 				slimbus, config)
++
++/**
++ * devm_regmap_init_i3c() - Initialise managed register map
++ *
++ * @i3c: Device that will be interacted with
++ * @config: Configuration for register map
++ *
++ * The return value will be an ERR_PTR() on error or a valid pointer
++ * to a struct regmap.  The regmap will be automatically freed by the
++ * device management code.
++ */
++#define devm_regmap_init_i3c(i3c, config)				\
++	__regmap_lockdep_wrapper(__devm_regmap_init_i3c, #config,	\
++				i3c, config)
++
+ int regmap_mmio_attach_clk(struct regmap *map, struct clk *clk);
+ void regmap_mmio_detach_clk(struct regmap *map);
+ void regmap_exit(struct regmap *map);
 -- 
 2.7.4
 
