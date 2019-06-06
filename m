@@ -2,57 +2,74 @@ Return-Path: <linux-i3c-bounces+lists+linux-i3c=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-i3c@lfdr.de
 Delivered-To: lists+linux-i3c@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 84FFC37B21
-	for <lists+linux-i3c@lfdr.de>; Thu,  6 Jun 2019 19:35:49 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 6E98F37CD0
+	for <lists+linux-i3c@lfdr.de>; Thu,  6 Jun 2019 20:54:35 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ixBG3s0V8XFU0fRuC2BJ33W3GuQ0yRH34m5RfRU0Fgw=; b=XupDmc1Vf38+y2
-	riWmnZm7qf3Qb72r2oaY+rh5IiJtbgp+Qpmm+bsCjULfpNKhnBEGUoCkNCQw63yJ3E3ZWkKMowVyH
-	LRulhf97DD0D6SM+aIqLNRi3jse2BnsmJPIiK4G1QdkqcUBe2kPuF0wp14jFQP08mcdT4CbKgC7y/
-	B/eYs3HRCtGvomTuuUXil5MscnByREvVQTbYBviq2LO0o/+HFkfzi9mZKwI6mYJNcae5RSOt0rXYE
-	X7UVt+19IpIDDQTEgxnldzNVrqW57gbuD5QsYPSzzYNuReGT3z5QjseGZO6IkeWSY5hZW/LZIGz/Z
-	rDgQGAgsvOzSOlpTyeQA==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=XEeFmMPV7/kirVprzOOxrbnG5AzpkCkskyKjcodFnjc=; b=EcEhc7zO1/nt19YYwkrYenS0o
+	eYcbDvyPZSSqM9lUuwrXFPO9UQzD+ah8zeZHflMhZ+aOfzkg63+uhwx49NnORtNx0qPcL64t/+IYs
+	tUBtgWQ496MOsFsM/rEH6DQG5/g7FsZseZJhESKnPa1GocbpG7w4gN3WR222DRsAjKcQdCgQzc3tj
+	t4gcJpoIjT28TEXo0kgMaojEjhbn1WzL2WyrsJAS/r1/6P/BbtPR4cwmp4gT+fdTw1Wy4BIqNtsMn
+	e9JYIBQasQyIZ6SiBibwL9BWE4xpMqet7zDedsPK2ouHslT3O4ekwVVOBokNWR1yQT7sy8K2NdBIz
+	ONHyi99Zg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.90_1 #2 (Red Hat Linux))
-	id 1hYwIm-0005ol-9D
-	for lists+linux-i3c@lfdr.de; Thu, 06 Jun 2019 17:35:48 +0000
-Received: from bhuna.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e3e3])
+	id 1hYxWz-0000BM-Pw
+	for lists+linux-i3c@lfdr.de; Thu, 06 Jun 2019 18:54:33 +0000
+Received: from mail.kernel.org ([198.145.29.99])
  by bombadil.infradead.org with esmtps (Exim 4.90_1 #2 (Red Hat Linux))
- id 1hYwIj-0005oQ-Sj
- for linux-i3c@lists.infradead.org; Thu, 06 Jun 2019 17:35:47 +0000
-Received: from localhost (unknown [IPv6:2a01:e0a:2c:6930:5cf4:84a1:2763:fe0d])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
- bits)) (No client certificate requested)
- (Authenticated sender: bbrezillon)
- by bhuna.collabora.co.uk (Postfix) with ESMTPSA id E47C82605F9;
- Thu,  6 Jun 2019 18:35:43 +0100 (BST)
-Date: Thu, 6 Jun 2019 19:35:40 +0200
-From: Boris Brezillon <boris.brezillon@collabora.com>
-To: Vitor Soares <Vitor.Soares@synopsys.com>
-Subject: Re: [PATCH v2 1/3] i3c: fix i2c and i3c scl rate by bus mode
-Message-ID: <20190606193540.680d391b@collabora.com>
-In-Reply-To: <13D59CF9CEBAF94592A12E8AE55501350AABE7FC@DE02WEMBXB.internal.synopsys.com>
-References: <cover.1559821227.git.vitor.soares@synopsys.com>
- <47de89f2335930df0ed6903be9afe6de4f46e503.1559821228.git.vitor.soares@synopsys.com>
- <20190606161844.4a6b759c@collabora.com>
- <13D59CF9CEBAF94592A12E8AE55501350AABE7FC@DE02WEMBXB.internal.synopsys.com>
-Organization: Collabora
-X-Mailer: Claws Mail 3.17.3 (GTK+ 2.24.32; x86_64-redhat-linux-gnu)
+ id 1hYwWe-0003G7-AB
+ for linux-i3c@lists.infradead.org; Thu, 06 Jun 2019 17:50:09 +0000
+Received: from localhost.localdomain (nat-pool-mxp-t.redhat.com
+ [149.6.153.186])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by mail.kernel.org (Postfix) with ESMTPSA id 5EA2120868;
+ Thu,  6 Jun 2019 17:50:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=default; t=1559843407;
+ bh=WMiN8khMVfY2k+C2UTgA1ksdMhPzmtWk/dznX9kkpTU=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=y6eqiUOcEDhTt5/flE4170FW36V1tzhuJkU03TwK+erRmflXWwMRdbMdWzO94guU2
+ uOabnHeA0WJ6I2ab/91agveZ1X0ld5CVM+TXC6EjPUM9Ok9ZYawbb6W1AUwhhhoVi2
+ 5gQsd7ME8TsRcDYwVnINBHWJLIBM3qD9jNCzjz4k=
+Date: Thu, 6 Jun 2019 19:50:01 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Boris Brezillon <boris.brezillon@collabora.com>
+Subject: Re: [PATCH v2 3/3] iio: imu: st_lsm6dsx: add i3c basic support for
+ LSM6DSO and LSM6DSR
+Message-ID: <20190606175000.GA12547@localhost.localdomain>
+References: <cover.1559831663.git.vitor.soares@synopsys.com>
+ <6195f3cd21636a5f85c0107b5c3b217be868a4b9.1559831663.git.vitor.soares@synopsys.com>
+ <20190606192131.355c9556@collabora.com>
 MIME-Version: 1.0
+In-Reply-To: <20190606192131.355c9556@collabora.com>
+User-Agent: Mutt/1.11.4 (2019-03-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190606_103546_190606_710D0972 
-X-CRM114-Status: GOOD (  27.44  )
-X-Spam-Score: -0.0 (/)
+X-CRM114-CacheID: sfid-20190606_105008_387925_359D4B74 
+X-CRM114-Status: GOOD (  26.93  )
+X-Spam-Score: -5.2 (-----)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-0.0 points)
+ Content analysis details:   (-5.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+ -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
+ high trust [198.145.29.99 listed in list.dnswl.org]
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.0 T_DKIMWL_WL_HIGH       DKIMwl.org - Whitelisted High sender
+X-Mailman-Approved-At: Thu, 06 Jun 2019 11:54:30 -0700
 X-BeenThere: linux-i3c@lists.infradead.org
 X-Mailman-Version: 2.1.21
 Precedence: list
@@ -64,147 +81,244 @@ List-Post: <mailto:linux-i3c@lists.infradead.org>
 List-Help: <mailto:linux-i3c-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-i3c>,
  <mailto:linux-i3c-request@lists.infradead.org?subject=subscribe>
-Cc: "linux-i3c@lists.infradead.org" <linux-i3c@lists.infradead.org>,
- "Joao.Pinto@synopsys.com" <Joao.Pinto@synopsys.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "stable@vger.kernel.org" <stable@vger.kernel.org>,
- Boris Brezillon <bbrezillon@kernel.org>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Joao.Pinto@synopsys.com, rafael@kernel.org, linux-iio@vger.kernel.org,
+ gregkh@linuxfoundation.org, bbrezillon@kernel.org,
+ linux-kernel@vger.kernel.org, Vitor Soares <Vitor.Soares@synopsys.com>,
+ broonie@kernel.org, linux-i2c@vger.kernel.org, lorenzo.bianconi83@gmail.com,
+ linux-i3c@lists.infradead.org
+Content-Type: multipart/mixed; boundary="===============8663713655302429428=="
 Sender: "linux-i3c" <linux-i3c-bounces@lists.infradead.org>
 Errors-To: linux-i3c-bounces+lists+linux-i3c=lfdr.de@lists.infradead.org
 
-On Thu, 6 Jun 2019 17:16:55 +0000
-Vitor Soares <Vitor.Soares@synopsys.com> wrote:
 
-> From: Boris Brezillon <boris.brezillon@collabora.com>
-> Date: Thu, Jun 06, 2019 at 15:18:44
-> 
-> > On Thu,  6 Jun 2019 16:00:01 +0200
-> > Vitor Soares <Vitor.Soares@synopsys.com> wrote:
-> >   
-> > > Currently the I3C framework limits SCL frequency to FM speed when
-> > > dealing with a mixed slow bus, even if all I2C devices are FM+ capable.
-> > > 
-> > > The core was also not accounting for I3C speed limitations when
-> > > operating in mixed slow mode and was erroneously using FM+ speed as the
-> > > max I2C speed when operating in mixed fast mode.
-> > > 
-> > > Fixes: 3a379bbcea0a ("i3c: Add core I3C infrastructure")
-> > > Signed-off-by: Vitor Soares <vitor.soares@synopsys.com>
-> > > Cc: Boris Brezillon <bbrezillon@kernel.org>
-> > > Cc: <stable@vger.kernel.org>
-> > > Cc: <linux-kernel@vger.kernel.org>
-> > > ---
-> > > Changes in v2:
-> > >   Enhance commit message
-> > >   Add dev_warn() in case user-defined i2c rate doesn't match LVR constraint
-> > >   Add dev_warn() in case user-defined i3c rate lower than i2c rate.
-> > > 
-> > >  drivers/i3c/master.c | 61 +++++++++++++++++++++++++++++++++++++++++-----------
-> > >  1 file changed, 48 insertions(+), 13 deletions(-)
-> > > 
-> > > diff --git a/drivers/i3c/master.c b/drivers/i3c/master.c
-> > > index 5f4bd52..8cd5824 100644
-> > > --- a/drivers/i3c/master.c
-> > > +++ b/drivers/i3c/master.c
-> > > @@ -91,6 +91,12 @@ void i3c_bus_normaluse_unlock(struct i3c_bus *bus)
-> > >  	up_read(&bus->lock);
-> > >  }
-> > >  
-> > > +static struct i3c_master_controller *
-> > > +i3c_bus_to_i3c_master(struct i3c_bus *i3cbus)
-> > > +{
-> > > +	return container_of(i3cbus, struct i3c_master_controller, bus);
-> > > +}
-> > > +
-> > >  static struct i3c_master_controller *dev_to_i3cmaster(struct device *dev)
-> > >  {
-> > >  	return container_of(dev, struct i3c_master_controller, dev);
-> > > @@ -565,20 +571,48 @@ static const struct device_type i3c_masterdev_type = {
-> > >  	.groups	= i3c_masterdev_groups,
-> > >  };
-> > >  
-> > > -int i3c_bus_set_mode(struct i3c_bus *i3cbus, enum i3c_bus_mode mode)
-> > > +int i3c_bus_set_mode(struct i3c_bus *i3cbus, enum i3c_bus_mode mode,
-> > > +		     unsigned long max_i2c_scl_rate)
-> > >  {
-> > > -	i3cbus->mode = mode;
-> > >  
-> > > -	if (!i3cbus->scl_rate.i3c)
-> > > -		i3cbus->scl_rate.i3c = I3C_BUS_TYP_I3C_SCL_RATE;
-> > > +	struct i3c_master_controller *master = i3c_bus_to_i3c_master(i3cbus);
-> > >  
-> > > -	if (!i3cbus->scl_rate.i2c) {
-> > > -		if (i3cbus->mode == I3C_BUS_MODE_MIXED_SLOW)
-> > > -			i3cbus->scl_rate.i2c = I3C_BUS_I2C_FM_SCL_RATE;
-> > > -		else
-> > > -			i3cbus->scl_rate.i2c = I3C_BUS_I2C_FM_PLUS_SCL_RATE;
-> > > +	i3cbus->mode = mode;
-> > > +
-> > > +	switch (i3cbus->mode) {
-> > > +	case I3C_BUS_MODE_PURE:
-> > > +		if (!i3cbus->scl_rate.i3c)
-> > > +			i3cbus->scl_rate.i3c = I3C_BUS_TYP_I3C_SCL_RATE;
-> > > +		break;
-> > > +	case I3C_BUS_MODE_MIXED_FAST:
-> > > +		if (!i3cbus->scl_rate.i3c)
-> > > +			i3cbus->scl_rate.i3c = I3C_BUS_TYP_I3C_SCL_RATE;
-> > > +		if (!i3cbus->scl_rate.i2c)
-> > > +			i3cbus->scl_rate.i2c = max_i2c_scl_rate;
-> > > +		break;
-> > > +	case I3C_BUS_MODE_MIXED_SLOW:
-> > > +		if (!i3cbus->scl_rate.i2c)
-> > > +			i3cbus->scl_rate.i2c = max_i2c_scl_rate;
-> > > +		if (!i3cbus->scl_rate.i3c ||
-> > > +		    i3cbus->scl_rate.i3c > i3cbus->scl_rate.i2c)
-> > > +			i3cbus->scl_rate.i3c = i3cbus->scl_rate.i2c;
-> > > +		break;
-> > > +	default:
-> > > +		return -EINVAL;
-> > >  	}
-> > >  
-> > > +	if (i3cbus->scl_rate.i3c < i3cbus->scl_rate.i2c)
-> > > +		dev_warn(&master->dev,
-> > > +			 "i3c-scl-hz=%ld lower than i2c-scl-hz=%ld\n",
-> > > +			 i3cbus->scl_rate.i3c, i3cbus->scl_rate.i2c);
-> > > +
-> > > +	if (i3cbus->scl_rate.i2c != I3C_BUS_I2C_FM_SCL_RATE &&
-> > > +	    i3cbus->scl_rate.i2c != I3C_BUS_I2C_FM_PLUS_SCL_RATE &&
-> > > +	    i3cbus->mode != I3C_BUS_MODE_PURE)  
-> > 
-> > If you are so strict, there's clearly no point exposing an i2c-scl-hz
-> > property. I'm still not convinced having an i2c rate that's slower than
-> > what the I2C/I3C spec defines as the *typical* rate is a bad thing,   
-> 
-> I'm not been strictive, I just inform the user about that case.
+--===============8663713655302429428==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="Q68bSM7Ycu6FN28Q"
+Content-Disposition: inline
 
-Then use dev_debug() and don't make the trace conditional on
-i2c_rate != typical_rate. The only case where we should warn users
-is i2c_rate > typical_rate, because that might lead to malfunctions.
 
-> 
-> > just
-> > like I'm not convinced having an I3C rate that's slower than the I2C
-> > one is a problem (it's definitely a weird situation, but there's nothing
-> > preventing that in the spec).  
-> 
-> You agree that there is no point for case where i3c rate < i2c rate yet 
-> you are not convinced.
+--Q68bSM7Ycu6FN28Q
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-I didn't say that, there might be use cases where one wants to slow
-down the I3C bus to be able to probe it or use a slower rate when
-things do not work properly. It's rather unlikely to happen, but I
-don't think it deserves a warning message when that's the case.
+> On Thu,  6 Jun 2019 17:12:04 +0200
+> Vitor Soares <Vitor.Soares@synopsys.com> wrote:
+>=20
+> > For today the st_lsm6dsx driver support LSM6DSO and LSM6DSR sensor only=
+ in
+> > spi and i2c mode.
+> >=20
+> > The LSM6DSO and LSM6DSR are also i3c capable so lets give i3c support to
+> > them.
+> >=20
+> > Signed-off-by: Vitor Soares <vitor.soares@synopsys.com>
+> > ---
+> > Changes in v2:
+> >   Add support for LSM6DSR
+> >   Set pm_ops to st_lsm6dsx_pm_ops
+> >=20
+> >  drivers/iio/imu/st_lsm6dsx/Kconfig          |  8 ++-
+> >  drivers/iio/imu/st_lsm6dsx/Makefile         |  1 +
+> >  drivers/iio/imu/st_lsm6dsx/st_lsm6dsx_i3c.c | 76 +++++++++++++++++++++=
+++++++++
+> >  3 files changed, 84 insertions(+), 1 deletion(-)
+> >  create mode 100644 drivers/iio/imu/st_lsm6dsx/st_lsm6dsx_i3c.c
+> >=20
+> > diff --git a/drivers/iio/imu/st_lsm6dsx/Kconfig b/drivers/iio/imu/st_ls=
+m6dsx/Kconfig
+> > index 002a423..8115936 100644
+> > --- a/drivers/iio/imu/st_lsm6dsx/Kconfig
+> > +++ b/drivers/iio/imu/st_lsm6dsx/Kconfig
+> > @@ -2,11 +2,12 @@
+> > =20
+> >  config IIO_ST_LSM6DSX
+> >  	tristate "ST_LSM6DSx driver for STM 6-axis IMU MEMS sensors"
+> > -	depends on (I2C || SPI)
+> > +	depends on (I2C || SPI || I3C)
+> >  	select IIO_BUFFER
+> >  	select IIO_KFIFO_BUF
+> >  	select IIO_ST_LSM6DSX_I2C if (I2C)
+> >  	select IIO_ST_LSM6DSX_SPI if (SPI_MASTER)
+> > +	select IIO_ST_LSM6DSX_I3C if (I3C)
+> >  	help
+> >  	  Say yes here to build support for STMicroelectronics LSM6DSx imu
+> >  	  sensor. Supported devices: lsm6ds3, lsm6ds3h, lsm6dsl, lsm6dsm,
+> > @@ -24,3 +25,8 @@ config IIO_ST_LSM6DSX_SPI
+> >  	tristate
+> >  	depends on IIO_ST_LSM6DSX
+> >  	select REGMAP_SPI
+> > +
+> > +config IIO_ST_LSM6DSX_I3C
+> > +	tristate
+> > +	depends on IIO_ST_LSM6DSX
+> > +	select REGMAP_I3C
+> > diff --git a/drivers/iio/imu/st_lsm6dsx/Makefile b/drivers/iio/imu/st_l=
+sm6dsx/Makefile
+> > index 28cc673..57cbcd6 100644
+> > --- a/drivers/iio/imu/st_lsm6dsx/Makefile
+> > +++ b/drivers/iio/imu/st_lsm6dsx/Makefile
+> > @@ -5,3 +5,4 @@ st_lsm6dsx-y :=3D st_lsm6dsx_core.o st_lsm6dsx_buffer.o=
+ \
+> >  obj-$(CONFIG_IIO_ST_LSM6DSX) +=3D st_lsm6dsx.o
+> >  obj-$(CONFIG_IIO_ST_LSM6DSX_I2C) +=3D st_lsm6dsx_i2c.o
+> >  obj-$(CONFIG_IIO_ST_LSM6DSX_SPI) +=3D st_lsm6dsx_spi.o
+> > +obj-$(CONFIG_IIO_ST_LSM6DSX_I3C) +=3D st_lsm6dsx_i3c.o
+> > diff --git a/drivers/iio/imu/st_lsm6dsx/st_lsm6dsx_i3c.c b/drivers/iio/=
+imu/st_lsm6dsx/st_lsm6dsx_i3c.c
+> > new file mode 100644
+> > index 0000000..70b70d1
+> > --- /dev/null
+> > +++ b/drivers/iio/imu/st_lsm6dsx/st_lsm6dsx_i3c.c
+> > @@ -0,0 +1,76 @@
+> > +// SPDX-License-Identifier: GPL-2.0
+> > +/*
+> > + * Copyright (c) 2018 Synopsys, Inc. and/or its affiliates.
+> > + *
+> > + * Author: Vitor Soares <vitor.soares@synopsys.com>
+> > + */
+> > +
+> > +#include <linux/kernel.h>
+> > +#include <linux/module.h>
+> > +#include <linux/i3c/device.h>
+> > +#include <linux/i3c/master.h>
+> > +#include <linux/slab.h>
+> > +#include <linux/of.h>
+> > +#include <linux/regmap.h>
+> > +
+> > +#include "st_lsm6dsx.h"
+> > +
+> > +#define NAME_SIZE	32
+> > +
+> > +struct st_lsm6dsx_i3c_data {
+> > +	const char name[NAME_SIZE];
+>=20
+> I think I mentioned already that you can simply have
+>=20
+> 	const char *name;
+>=20
+> > +	enum st_lsm6dsx_hw_id id;
+> > +};
+> > +
+> > +enum st_lsm6dsx_i3c_data_id {
+> > +	ST_LSM6DSO_I3C_DATA_ID,
+> > +	ST_LSM6DSR_I3C_DATA_ID,
+> > +};
+> > +
+> > +static const struct st_lsm6dsx_i3c_data hw_data[] =3D {
+> > +	{ ST_LSM6DSO_DEV_NAME, ST_LSM6DSO_ID },
+> > +	{ ST_LSM6DSR_DEV_NAME, ST_LSM6DSR_ID },
+> > +};
+> > +
+> > +static const struct regmap_config st_lsm6dsx_i3c_regmap_config =3D {
+> > +	.reg_bits =3D 8,
+> > +	.val_bits =3D 8,
+> > +};
+> > +
+> > +static int st_lsm6dsx_i3c_probe(struct i3c_device *i3cdev)
+> > +{
+> > +	const struct i3c_device_id *id =3D i3c_get_device_id(i3cdev);
+> > +	const struct st_lsm6dsx_i3c_data *hw_data =3D id->data;
+> > +	struct regmap *regmap;
+> > +
+> > +	regmap =3D devm_regmap_init_i3c(i3cdev, &st_lsm6dsx_i3c_regmap_config=
+);
+> > +	if (IS_ERR(regmap)) {
+> > +		dev_err(&i3cdev->dev, "Failed to register i3c regmap %d\n",
+> > +			(int)PTR_ERR(regmap));
+> > +		return PTR_ERR(regmap);
+> > +	}
+> > +
+> > +	return st_lsm6dsx_probe(&i3cdev->dev, 0, hw_data->id,
+> > +				hw_data->name, regmap);
+> > +}
+> > +
+> > +static const struct i3c_device_id st_lsm6dsx_i3c_ids[] =3D {
+> > +	I3C_DEVICE(0x0104, 0x006C, &hw_data[ST_LSM6DSO_I3C_DATA_ID]),
+> > +	I3C_DEVICE(0x0104, 0x006B, &hw_data[ST_LSM6DSR_I3C_DATA_ID]),
+>=20
+> Still find that form counter-intuitive since you'd have to first go
+> look at what's the value of ST_LSM6DSO_I3C_DATA_ID, then go check the
+> entry in hw_data to find what's in there. Too many ways to get things
+> wrong IMHO.
+>=20
+> The following form would make it much more obvious/easy to follow:
+>=20
+> static const st_lsm6dsx_i3c_data st_lsm6dso_i3c_data =3D {
+> 	ST_LSM6DSO_DEV_NAME, ST_LSM6DSO_ID,
+> };
+>=20
+> static const st_lsm6dsx_i3c_data st_lsm6dsr_i3c_data =3D {
+> 	ST_LSM6DSR_DEV_NAME, ST_LSM6DSR_ID,
+> };
+>=20
+> static const struct i3c_device_id st_lsm6dsx_i3c_ids[] =3D {
+> 	I3C_DEVICE(0x0104, 0x006C, &st_lsm6dso_i3c_data),
+> 	I3C_DEVICE(0x0104, 0x006B, &st_lsm6dsr_i3c_data),
+> };
+>=20
+> Note that I don't see why we need to pass both the name and the ID to
+> st_lsm6dsx_probe(). I'd expect the name to be easily deducible from the
+> ID (using a name table whose index would match the ST_XXX_ID).
 
-> Do you thing that will be users for this case?
-> 
-> Anyway, this isn't a high requirement for me. The all point of this patch 
-> is to introduce the limited bus configuration.
+for spi/i2c we got it for free since spi_device_id/i2c_device_id has a name
+field we can use but we can probably align it to i3c case
 
-And yet, you keep insisting (and ignoring my feedback) on that point :P.
+Regards,
+Lorenzo
+
+>=20
+> If you do this change you would actually get rid of the
+> st_lsm6dsx_i3c_data struct and instead have:
+>=20
+> static const struct i3c_device_id st_lsm6dsx_i3c_ids[] =3D {
+> 	I3C_DEVICE(0x0104, 0x006C, (void *)ST_LSM6DSO_ID),
+> 	I3C_DEVICE(0x0104, 0x006B, (void *)ST_LSM6DSR_ID),
+> };
+>=20
+> > +	{ /* sentinel */ },
+> > +};
+> > +MODULE_DEVICE_TABLE(i3c, st_lsm6dsx_i3c_ids);
+> > +
+> > +static struct i3c_driver st_lsm6dsx_driver =3D {
+> > +	.driver =3D {
+> > +		.name =3D "st_lsm6dsx_i3c",
+> > +		.pm =3D &st_lsm6dsx_pm_ops,
+> > +	},
+> > +	.probe =3D st_lsm6dsx_i3c_probe,
+> > +	.id_table =3D st_lsm6dsx_i3c_ids,
+> > +};
+> > +module_i3c_driver(st_lsm6dsx_driver);
+> > +
+> > +MODULE_AUTHOR("Vitor Soares <vitor.soares@synopsys.com>");
+> > +MODULE_DESCRIPTION("STMicroelectronics st_lsm6dsx i3c driver");
+> > +MODULE_LICENSE("GPL v2");
+>=20
+
+--Q68bSM7Ycu6FN28Q
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCXPlSRQAKCRA6cBh0uS2t
+rLEbAQDShUoAEBwugEIBvecd1NAaSnzEbNtUq9v4lIoGu7b2cQEAtDgn0/tqxTST
+gXTU+GM/RiETHy0mQguQlbkgs5atkQc=
+=eqnU
+-----END PGP SIGNATURE-----
+
+--Q68bSM7Ycu6FN28Q--
+
+
+--===============8663713655302429428==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-i3c mailing list
 linux-i3c@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-i3c
+
+--===============8663713655302429428==--
+
