@@ -2,64 +2,56 @@ Return-Path: <linux-i3c-bounces+lists+linux-i3c=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-i3c@lfdr.de
 Delivered-To: lists+linux-i3c@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0CA3B5F61E
-	for <lists+linux-i3c@lfdr.de>; Thu,  4 Jul 2019 11:56:39 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id F14435F72F
+	for <lists+linux-i3c@lfdr.de>; Thu,  4 Jul 2019 13:25:43 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=MpeAh0/aKyKFgPO/i6Fr64pUOf/a/2ts32hJhOiwPfI=; b=CKE1gV5Ku++aIJ
-	f5zxfJVcEROYFy/kDMVjrYhufXfg3kWGhgBUyvp3+ghk71BRgXgqck3esmonmA/pu5eEMLjzEtHbs
-	72Ni9ee3HocRe6pQVm6PiRdwiIz7/4mAucTCc2IxT62wcwKzZcWYC7naHyi9e+9nH+o9o7MW2P8aS
-	8i8Q/hziCO7D+yRGV+I//gwBVIoUP9fhEl+Jw2lDJ2ZPiy1wxhuxnzLj2BQBG8Jxy++wnHk/5NDfs
-	XF7tnzewm1KKRQRAggPzWERUQtJ0CpEI6rgaPx2vPgeJkIMXJBjRLJSYx335FlrUkhxahNuhuUnfj
-	O/WIx1XrOBUpfUR6jm8g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=rOrO7M8WxdwrE12PdV8JhRpF1e4/H5pnfHm0y087SlQ=; b=RMrRM7ulyfYfUq
+	j7+J9S8Dr8SJGhXncwegA+4Ykm+1pMoIoJkb4KTXPNUp8Ags53CXuXB3vg5/pWC/TWqzBZWLtE7qN
+	oM/DJ3MLhGzjJrU+VjoEANTYXxFmOB6VhYwN1W4G0KWiH9kVltelFaN0vW2is8/aZYJa7tLBboddP
+	ogCAVameAhJEq/mo6JNv2BNXKiLb9iL9CQGqNgZl0dqq8ZfnJM/gns+sgRpYQRpPAt2HTMPf/a3t9
+	TVnSAC8J2O1NcpxBXSMCIqy17Ixg/pfFs56RxruBHg6df7kJCEQx3uguzZiK5GOZbtgEjugefGtCp
+	y1yR1jRZJSHxJi230+OQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1hiyTl-0007uy-Qh
-	for lists+linux-i3c@lfdr.de; Thu, 04 Jul 2019 09:56:37 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1hizry-00011o-KU
+	for lists+linux-i3c@lfdr.de; Thu, 04 Jul 2019 11:25:42 +0000
+Received: from bhuna.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e3e3])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1hhq13-0006hb-Dg; Mon, 01 Jul 2019 06:42:19 +0000
-X-UUID: 43b04da3542b440abceb5b9ed713376d-20190630
-X-UUID: 43b04da3542b440abceb5b9ed713376d-20190630
-Received: from mtkcas66.mediatek.inc [(172.29.193.44)] by mailgw02.mediatek.com
- (envelope-from <qii.wang@mediatek.com>)
- (musrelay.mediatek.com ESMTP with TLS)
- with ESMTP id 630599795; Sun, 30 Jun 2019 22:42:08 -0800
-Received: from mtkmbs07n1.mediatek.inc (172.21.101.16) by
- MTKMBS62N2.mediatek.inc (172.29.193.42) with Microsoft SMTP Server (TLS) id
- 15.0.1395.4; Sun, 30 Jun 2019 23:42:07 -0700
-Received: from mtkcas09.mediatek.inc (172.21.101.178) by
- mtkmbs07n1.mediatek.inc (172.21.101.16) with Microsoft SMTP Server (TLS) id
- 15.0.1395.4; Mon, 1 Jul 2019 14:42:05 +0800
-Received: from localhost.localdomain (10.17.3.153) by mtkcas09.mediatek.inc
- (172.21.101.73) with Microsoft SMTP Server id 15.0.1395.4 via Frontend
- Transport; Mon, 1 Jul 2019 14:42:04 +0800
-From: <qii.wang@mediatek.com>
-To: <bbrezillon@kernel.org>
-Subject: [PATCH] dt-bindings: i3c: cdns: Use correct cells for I2C device
-Date: Mon, 1 Jul 2019 14:42:02 +0800
-Message-ID: <1561963322-11513-1-git-send-email-qii.wang@mediatek.com>
-X-Mailer: git-send-email 1.7.9.5
+ id 1hiyXa-0001Qi-W4; Thu, 04 Jul 2019 10:00:36 +0000
+Received: from localhost (unknown [IPv6:2a01:e0a:2c:6930:5cf4:84a1:2763:fe0d])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
+ bits)) (No client certificate requested)
+ (Authenticated sender: bbrezillon)
+ by bhuna.collabora.co.uk (Postfix) with ESMTPSA id 087ED28A379;
+ Thu,  4 Jul 2019 11:00:33 +0100 (BST)
+Date: Thu, 4 Jul 2019 12:00:29 +0200
+From: Boris Brezillon <boris.brezillon@collabora.com>
+To: Qii Wang <qii.wang@mediatek.com>
+Subject: Re: [PATCH v2 1/2] dt-bindings: i3c: Document MediaTek I3C master
+ bindings
+Message-ID: <20190704120029.4cc6d151@collabora.com>
+In-Reply-To: <1561527388-4829-2-git-send-email-qii.wang@mediatek.com>
+References: <1561527388-4829-1-git-send-email-qii.wang@mediatek.com>
+ <1561527388-4829-2-git-send-email-qii.wang@mediatek.com>
+Organization: Collabora
+X-Mailer: Claws Mail 3.17.3 (GTK+ 2.24.32; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190630_234217_469843_B32E0C71 
-X-CRM114-Status: UNSURE (   7.84  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: 0.0 (/)
+X-CRM114-CacheID: sfid-20190704_030035_158599_B8EC0320 
+X-CRM114-Status: GOOD (  15.03  )
+X-Spam-Score: -0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (0.0 points)
+ Content analysis details:   (-0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.0 UNPARSEABLE_RELAY      Informational: message has unparseable relay
- lines
-X-Mailman-Approved-At: Thu, 04 Jul 2019 02:56:35 -0700
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+X-Mailman-Approved-At: Thu, 04 Jul 2019 04:25:41 -0700
 X-BeenThere: linux-i3c@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -72,38 +64,83 @@ List-Help: <mailto:linux-i3c-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-i3c>,
  <mailto:linux-i3c-request@lists.infradead.org?subject=subscribe>
 Cc: devicetree@vger.kernel.org, srv_heupstream@mediatek.com,
- linux-kernel@vger.kernel.org, robh+dt@kernel.org,
- linux-mediatek@lists.infradead.org, qii.wang@mediatek.com,
+ bbrezillon@kernel.org, leilk.liu@mediatek.com, gregkh@linuxfoundation.org,
+ linux-kernel@vger.kernel.org, liguo.zhang@mediatek.com,
+ linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
  matthias.bgg@gmail.com, linux-i3c@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org
+ xinping.qian@mediatek.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-i3c" <linux-i3c-bounces@lists.infradead.org>
 Errors-To: linux-i3c-bounces+lists+linux-i3c=lfdr.de@lists.infradead.org
 
-From: Qii Wang <qii.wang@mediatek.com>
+On Wed, 26 Jun 2019 13:36:27 +0800
+Qii Wang <qii.wang@mediatek.com> wrote:
 
-I2C device reg should be "reg = <0x52 0x0 0x10>;"
+> Document MediaTek I3C master DT bindings.
+> 
 
-Signed-off-by: Qii Wang <qii.wang@mediatek.com>
----
- .../devicetree/bindings/i3c/cdns,i3c-master.txt    |    2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+You forgot to Cc the DT maintainers/ML.
 
-diff --git a/Documentation/devicetree/bindings/i3c/cdns,i3c-master.txt b/Documentation/devicetree/bindings/i3c/cdns,i3c-master.txt
-index 69da211..1cf6182 100644
---- a/Documentation/devicetree/bindings/i3c/cdns,i3c-master.txt
-+++ b/Documentation/devicetree/bindings/i3c/cdns,i3c-master.txt
-@@ -38,6 +38,6 @@ Example:
- 
- 		nunchuk: nunchuk@52 {
- 			compatible = "nintendo,nunchuk";
--			reg = <0x52 0x80000010 0>;
-+			reg = <0x52 0x0 0x10>;
- 		};
- 	};
--- 
-1.7.9.5
+> Signed-off-by: Qii Wang <qii.wang@mediatek.com>
+> ---
+>  .../devicetree/bindings/i3c/mtk,i3c-master.txt     |   47 ++++++++++++++++++++
+>  1 file changed, 47 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/i3c/mtk,i3c-master.txt
+> 
+> diff --git a/Documentation/devicetree/bindings/i3c/mtk,i3c-master.txt b/Documentation/devicetree/bindings/i3c/mtk,i3c-master.txt
+> new file mode 100644
+> index 0000000..3fd4f17
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/i3c/mtk,i3c-master.txt
+> @@ -0,0 +1,47 @@
+> +Bindings for MediaTek I3C master block
+> +=====================================
+> +
+> +Required properties:
+> +--------------------
+> +- compatible: shall be "mediatek,i3c-master"
+> +- reg: physical base address of the controller and apdma base, length of
+> +  memory mapped region.
+> +- reg-names: should be "main" for controller and "dma" for apdma.
+> +- interrupts: interrupt number to the cpu.
+> +- clocks: clock name from clock manager.
+> +- clock-names: must include "main" and "dma".
+> +
+> +Mandatory properties defined by the generic binding (see
+> +Documentation/devicetree/bindings/i3c/i3c.txt for more details):
+> +
+> +- #address-cells: shall be set to 3
+> +- #size-cells: shall be set to 0
+> +
+> +Optional properties defined by the generic binding (see
+> +Documentation/devicetree/bindings/i3c/i3c.txt for more details):
+> +
+> +- i2c-scl-hz
+> +- i3c-scl-hz
+> +
+> +I3C device connected on the bus follow the generic description (see
+> +Documentation/devicetree/bindings/i3c/i3c.txt for more details).
+> +
+> +Example:
+> +
+> +	i3c0: i3c@1100d000 {
+> +		compatible = "mediatek,i3c-master";
+> +		reg = <0x1100d000 0x100>,
+> +		      <0x11000300 0x80>;
+> +		reg-names = "main", "dma";
+> +		interrupts = <GIC_SPI 44 IRQ_TYPE_LEVEL_LOW>;
+> +		clocks = <&i3c0_ck>, <&ap_dma_ck>;
+> +		clock-names = "main", "dma";
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
+> +		i2c-scl-hz = <100000>;
+> +
+> +		nunchuk: nunchuk@52 {
+> +			compatible = "nintendo,nunchuk";
+> +			reg = <0x52 0x80000010 0>;
+> +		};
+> +	};
 
 
 _______________________________________________
