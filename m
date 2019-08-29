@@ -2,83 +2,58 @@ Return-Path: <linux-i3c-bounces+lists+linux-i3c=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-i3c@lfdr.de
 Delivered-To: lists+linux-i3c@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id C046AA15B7
-	for <lists+linux-i3c@lfdr.de>; Thu, 29 Aug 2019 12:20:14 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 1D123A166F
+	for <lists+linux-i3c@lfdr.de>; Thu, 29 Aug 2019 12:41:31 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
-	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=Vos2Tu54DXo3lGgln8liuzUro9XWaOsWwGuKpMNR9hk=; b=b4t/QfJ19TlIJWyb+xQNRU7S0/
-	4iit84lp0PeGUWGsOqLDBsWBIA1dNJT2jcAxkx2uSa+5dgFU24QiYus2E4/Dkn9VpIJuaHwNS8QGC
-	57xkogl4SREoCxF8KoSxz70VGo8g6XFxvFkQ6YnZ0u37AmLtAYZGiFF9JzVHq08rbDnrZPf9huxRp
-	SN0Q+198k4+xxfqIDmsNzByMWjoYtqEYNguQeVqTeK/cYRo2mcFS90Zibih7O7pkMU0FEmPdyFH1D
-	h4umUqVm2NfCgYfJsCjHkuIz9YjJZXBZPMCss6Lq+A3CgV9cjan9hcl/8ei0dstYDk3fj0QWUviK9
-	cPKS6NmA==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ykDvJkyjYkJAwHxnV+UmJZiZFVJ/sbP/59rRk0OCv/E=; b=mADIp0r/hHNYZJ
+	8nMF/Ko0RSfjNKvA2VdOoy5q1aWlPPf3Lph1V/lpxm6mEQqBst2eIu3XmoPVlNTzzUeUKHk12LLCF
+	zwSh2zXpw+/osgLwxA4hdBWq/onEXSsc8lRfy3G33oWJAQQ4eeZgEkb+M212LTVZ7ihcTDWvh7FLO
+	hzaOyKhI9Kaa2s2fCVW+c6wlm352KLSO+XKgFtL+y34zkXINP8RDLFjINSjoI1YBMUxij9VPqpIKb
+	UTur+1y7oXEWh19Biq90ETfTrinejYkWvOj4BHqL5BB6f7bOwjJ9PtisyQo4agFhn34bNx0ZmAlXz
+	SME8EUmelXDZEikkFeCw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1i3HXJ-0006Yq-BA
-	for lists+linux-i3c@lfdr.de; Thu, 29 Aug 2019 10:20:13 +0000
-Received: from dc2-smtprelay2.synopsys.com ([198.182.61.142]
- helo=smtprelay-out1.synopsys.com)
+	id 1i3Hrs-0005CO-HK
+	for lists+linux-i3c@lfdr.de; Thu, 29 Aug 2019 10:41:28 +0000
+Received: from bhuna.collabora.co.uk ([46.235.227.227])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1i3HWp-00054d-Ui
- for linux-i3c@lists.infradead.org; Thu, 29 Aug 2019 10:19:45 +0000
-Received: from mailhost.synopsys.com (mdc-mailhost2.synopsys.com
- [10.225.0.210])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
- (No client certificate requested)
- by smtprelay-out1.synopsys.com (Postfix) with ESMTPS id 0FC50C038D;
- Thu, 29 Aug 2019 10:19:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=synopsys.com; s=mail;
- t=1567073980; bh=FlHiWTvjjWp92vQF4e0yCZ0JuIXNBAhd+K3GIva9RJg=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:In-Reply-To:
- References:From;
- b=QVJpf1sLq+rfJ8rhKJNfxOMIiM0OrL7JRc4PRug5hYDZb8XJTJ8y/5n7FLPC7FUHb
- dpe0zoiIKN9qRcex+kxoIwk3M/2FnA9yMRusnzLobmeUQKLVzlBidZ1m8lIvCYrCuF
- wJfwEr1qpW8fg5VLVhqkG6+lKwhkK9h1UBrfnyWpEvFP3eyH2op32RsyXbl7DScYfS
- 9Dh7+FqvjJ4wtuAeqsxIjyyhm00rUEm2bgFLiPqNQ0DcecSAvJAwn2q/31tjNeGN7C
- CiU2qliVIaqcXUnoBPaKbputLw1IgiT1GlwWHvC+VLbC8Kjben9JZrf+vnj3GCRDyu
- uws2mUAWl1bPw==
-Received: from de02.synopsys.com (de02.internal.synopsys.com [10.225.17.21])
- by mailhost.synopsys.com (Postfix) with ESMTP id 7F6E0A0065;
- Thu, 29 Aug 2019 10:19:38 +0000 (UTC)
-Received: from de02dwia024.internal.synopsys.com
- (de02dwia024.internal.synopsys.com [10.225.19.81])
- by de02.synopsys.com (Postfix) with ESMTP id 53B8F3B651;
- Thu, 29 Aug 2019 12:19:38 +0200 (CEST)
-From: Vitor Soares <Vitor.Soares@synopsys.com>
-To: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-i3c@lists.infradead.org
-Subject: [PATCH 4/4] i3c: master: dw: reattach device on first available
- location of address table
-Date: Thu, 29 Aug 2019 12:19:35 +0200
-Message-Id: <e03fb41054a8431b27cc84c3d83ada9464172ef7.1567071213.git.vitor.soares@synopsys.com>
-X-Mailer: git-send-email 2.7.4
-In-Reply-To: <cover.1567071213.git.vitor.soares@synopsys.com>
+ id 1i3Hro-0005BS-HS
+ for linux-i3c@lists.infradead.org; Thu, 29 Aug 2019 10:41:27 +0000
+Received: from localhost (unknown [IPv6:2a01:e0a:2c:6930:5cf4:84a1:2763:fe0d])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
+ bits)) (No client certificate requested)
+ (Authenticated sender: bbrezillon)
+ by bhuna.collabora.co.uk (Postfix) with ESMTPSA id 34DE028626E;
+ Thu, 29 Aug 2019 11:41:20 +0100 (BST)
+Date: Thu, 29 Aug 2019 12:41:15 +0200
+From: Boris Brezillon <boris.brezillon@collabora.com>
+To: Vitor Soares <Vitor.Soares@synopsys.com>
+Subject: Re: [PATCH 1/4] i3c: master: detach and free device if
+ pre_assign_dyn_addr() fails
+Message-ID: <20190829124115.482cd8ec@collabora.com>
+In-Reply-To: <e26948eaaf765f683d8fe0618a31a98e2ecc0e65.1567071213.git.vitor.soares@synopsys.com>
 References: <cover.1567071213.git.vitor.soares@synopsys.com>
-In-Reply-To: <cover.1567071213.git.vitor.soares@synopsys.com>
-References: <cover.1567071213.git.vitor.soares@synopsys.com>
+ <e26948eaaf765f683d8fe0618a31a98e2ecc0e65.1567071213.git.vitor.soares@synopsys.com>
+Organization: Collabora
+X-Mailer: Claws Mail 3.17.3 (GTK+ 2.24.32; x86_64-redhat-linux-gnu)
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190829_031944_094176_9811343C 
-X-CRM114-Status: UNSURE (   9.90  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -0.2 (/)
+X-CRM114-CacheID: sfid-20190829_034124_846949_07E625A5 
+X-CRM114-Status: GOOD (  17.66  )
+X-Spam-Score: -0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-0.2 points)
+ Content analysis details:   (-0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [46.235.227.227 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
 X-BeenThere: linux-i3c@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -90,55 +65,92 @@ List-Post: <mailto:linux-i3c@lists.infradead.org>
 List-Help: <mailto:linux-i3c-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-i3c>,
  <mailto:linux-i3c-request@lists.infradead.org?subject=subscribe>
-Cc: mark.rutland@arm.com, Joao.Pinto@synopsys.com, robh+dt@kernel.org,
- Vitor Soares <Vitor.Soares@synopsys.com>, bbrezillon@kernel.org
-MIME-Version: 1.0
+Cc: mark.rutland@arm.com, devicetree@vger.kernel.org, Joao.Pinto@synopsys.com,
+ bbrezillon@kernel.org, linux-kernel@vger.kernel.org,
+ Przemyslaw Gaj <pgaj@cadence.com>, robh+dt@kernel.org,
+ linux-i3c@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-i3c" <linux-i3c-bounces@lists.infradead.org>
 Errors-To: linux-i3c-bounces+lists+linux-i3c=lfdr.de@lists.infradead.org
 
-For today the reattach function only update the device address on the
-controller.
++Przemek
 
-Update the location to the first available too, will optimize the
-enumeration process avoiding additional checks to keep the available
-positions on address table consecutive.
+Please try to Cc active I3C contributors so they get a chance to
+comment on your patches.
 
-Signed-off-by: Vitor Soares <vitor.soares@synopsys.com>
----
- drivers/i3c/master/dw-i3c-master.c | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
+On Thu, 29 Aug 2019 12:19:32 +0200
+Vitor Soares <Vitor.Soares@synopsys.com> wrote:
 
-diff --git a/drivers/i3c/master/dw-i3c-master.c b/drivers/i3c/master/dw-i3c-master.c
-index 1d83c97..62261ac 100644
---- a/drivers/i3c/master/dw-i3c-master.c
-+++ b/drivers/i3c/master/dw-i3c-master.c
-@@ -898,6 +898,22 @@ static int dw_i3c_master_reattach_i3c_dev(struct i3c_dev_desc *dev,
- 	struct dw_i3c_i2c_dev_data *data = i3c_dev_get_master_data(dev);
- 	struct i3c_master_controller *m = i3c_dev_get_master(dev);
- 	struct dw_i3c_master *master = to_dw_i3c_master(m);
-+	int pos;
-+
-+	pos = dw_i3c_master_get_free_pos(master);
-+
-+	if (data->index > pos && pos > 0) {
-+		writel(0,
-+		       master->regs +
-+		       DEV_ADDR_TABLE_LOC(master->datstartaddr, data->index));
-+
-+		master->addrs[data->index] = 0;
-+		master->free_pos |= BIT(data->index);
-+
-+		data->index = pos;
-+		master->addrs[pos] = dev->info.dyn_addr;
-+		master->free_pos &= ~BIT(pos);
-+	}
- 
- 	writel(DEV_ADDR_TABLE_DYNAMIC_ADDR(dev->info.dyn_addr),
- 	       master->regs +
--- 
-2.7.4
+> On pre_assing_dyn_addr() the devices that fail:
+>   i3c_master_setdasa_locked()
+>   i3c_master_reattach_i3c_dev()
+>   i3c_master_retrieve_dev_info()
+> 
+> are kept in memory and master->bus.devs list. This makes the i3c devices
+> without a dynamic address are sent on DEFSLVS CCC command. Fix this by
+> detaching and freeing the devices that fail on pre_assign_dyn_addr().
+
+I don't think removing those entries is a good strategy, as one might
+want to try to use a different dynamic address if the requested one
+is not available. Why not simply skipping entries that have ->dyn_addr
+set to 0 when preparing a DEFSLVS frame
+
+> 
+> Signed-off-by: Vitor Soares <vitor.soares@synopsys.com>
+> ---
+>  drivers/i3c/master.c | 11 ++++++++---
+>  1 file changed, 8 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/i3c/master.c b/drivers/i3c/master.c
+> index 5f4bd52..4d29e1f 100644
+> --- a/drivers/i3c/master.c
+> +++ b/drivers/i3c/master.c
+> @@ -1438,7 +1438,7 @@ static void i3c_master_pre_assign_dyn_addr(struct i3c_dev_desc *dev)
+>  	ret = i3c_master_setdasa_locked(master, dev->info.static_addr,
+>  					dev->boardinfo->init_dyn_addr);
+>  	if (ret)
+> -		return;
+> +		goto err_detach_dev;
+>  
+>  	dev->info.dyn_addr = dev->boardinfo->init_dyn_addr;
+>  	ret = i3c_master_reattach_i3c_dev(dev, 0);
+> @@ -1453,6 +1453,10 @@ static void i3c_master_pre_assign_dyn_addr(struct i3c_dev_desc *dev)
+>  
+>  err_rstdaa:
+>  	i3c_master_rstdaa_locked(master, dev->boardinfo->init_dyn_addr);
+> +
+> +err_detach_dev:
+> +	i3c_master_detach_i3c_dev(dev);
+> +	i3c_master_free_i3c_dev(dev);
+
+We certainly shouldn't detach/free the i3c_dev_desc from here. If it
+has to be done somewhere (which I'd like to avoid), it should be done
+in i3c_master_bus_init() (i3c_master_pre_assign_dyn_addr() should be
+converted to return an int in that case).
+
+>  }
+>  
+>  static void
+> @@ -1647,7 +1651,7 @@ static int i3c_master_bus_init(struct i3c_master_controller *master)
+>  	enum i3c_addr_slot_status status;
+>  	struct i2c_dev_boardinfo *i2cboardinfo;
+>  	struct i3c_dev_boardinfo *i3cboardinfo;
+> -	struct i3c_dev_desc *i3cdev;
+> +	struct i3c_dev_desc *i3cdev, *i3ctmp;
+>  	struct i2c_dev_desc *i2cdev;
+>  	int ret;
+>  
+> @@ -1746,7 +1750,8 @@ static int i3c_master_bus_init(struct i3c_master_controller *master)
+>  	 * Pre-assign dynamic address and retrieve device information if
+>  	 * needed.
+>  	 */
+> -	i3c_bus_for_each_i3cdev(&master->bus, i3cdev)
+> +	list_for_each_entry_safe(i3cdev, i3ctmp, &master->bus.devs.i3c,
+> +				 common.node)
+>  		i3c_master_pre_assign_dyn_addr(i3cdev);
+>  
+>  	ret = i3c_master_do_daa(master);
 
 
 _______________________________________________
