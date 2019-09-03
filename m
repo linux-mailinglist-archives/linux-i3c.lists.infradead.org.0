@@ -2,7 +2,7 @@ Return-Path: <linux-i3c-bounces+lists+linux-i3c=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-i3c@lfdr.de
 Delivered-To: lists+linux-i3c@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 932E0AE3DD
+	by mail.lfdr.de (Postfix) with ESMTPS id ACACBAE3DE
 	for <lists+linux-i3c@lfdr.de>; Tue, 10 Sep 2019 08:39:54 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
@@ -10,64 +10,64 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hh4BgP2MwboeJA7UxJg/bg0RS195rx0ZycrTAkmwN3k=; b=sAQLHoRnPbUxd6
-	WZ4Fyyccga8Bye9phHggED3UOKmE44T+T/ngYzBOWH8W0+NjKxQz3ZWshjUb0enyztoUNK285NPCW
-	aMn8nrwvJM0O8jaWZ4O+NhnEmw+bH1JwQeC9hU9ZXKiEe9TBpfCTJ2XOCadnsW/7m0gSSP9QvJGip
-	wRGcRY3/SZlz9Pq9/pRkhsLQyOIUPgizQ+Wzws1NMODDDm1oxAGjUMYKZAcJSjKhRU2Z2+KvaBZMP
-	B3GIuBmUHn6KzkVbHDXdaEAukfZtM/CuY6WUYD3U1f0Uvox9WzN3tv9Hc8OpK3ckNjkWBeI875wS+
-	/wtr1XLVIn2P9TnZQahQ==;
+	List-Owner; bh=3oHM91nEas6KNnYU8mqPp9G3xKHL0Pjz8hUsOL2DC4c=; b=c5TyAaB2l97Npm
+	CyP93hMTi7bHH/FqoZOXtH4oSndhQYyYRG+bqJ6uZnGFxbOxEdnjaYm3gKaijU7UjKjozknR/YT7H
+	4nC1eJwWGhGZAwV1grNEsDU1gJ+IfeVKvrTI4w/c3LQk2CvisosZUPBUn2jWIqe27EteieyK+Y4YY
+	ZXSdWSi4XY+CrOz8MekndYX+4QEnoUeos8fgtAGesVkFyuABhUf+ZY9kWntDYhcmLcKlS1KNu8Pmx
+	sxEIH4f40VQFr7q9Tr80k6aBnr7wb4RfYvzFCpgqIS4DffEpgJDEDTHRaR/U7SLVe8rF7clOxhsUl
+	HrzyCkP9AngzHCQEB37A==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1i7Zof-0006tg-BO
+	id 1i7Zof-0006tq-EN
 	for lists+linux-i3c@lfdr.de; Tue, 10 Sep 2019 06:39:53 +0000
-Received: from mail-wr1-f66.google.com ([209.85.221.66])
+Received: from mail-wr1-f67.google.com ([209.85.221.67])
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1i5CnF-0005ek-5o
- for linux-i3c@lists.infradead.org; Tue, 03 Sep 2019 17:40:38 +0000
-Received: by mail-wr1-f66.google.com with SMTP id l16so88935wrv.12
- for <linux-i3c@lists.infradead.org>; Tue, 03 Sep 2019 10:40:36 -0700 (PDT)
+ id 1i5Cnu-0005hN-8p
+ for linux-i3c@lists.infradead.org; Tue, 03 Sep 2019 17:41:19 +0000
+Received: by mail-wr1-f67.google.com with SMTP id s18so18454840wrn.1
+ for <linux-i3c@lists.infradead.org>; Tue, 03 Sep 2019 10:41:17 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:date:from:to:cc:subject:message-id:references
  :mime-version:content-disposition:in-reply-to:user-agent;
- bh=ZIXNCxOIrCyXT5hESp+rCLjjuePFlAI37CT+jEDV5Q4=;
- b=Jm4qO1eogYeCgRdeSJd3bc7wHtRMin+OTf3aGizv5CpVTuGT9pyJqLTjr907ewqlWL
- WJVdTuTntY6gSXCaSwPs5wp0s9SaRyp0F+Yg2tnjf7Q+mNNoWR1GbD/Lqm+e8LScMDYV
- NjikvQaOC0K+TVCGMx7UBi2ZGYRv0HZ2QoOh56AO/z1cdI/VdRV1KjK5//S8btZGKeGf
- a5dC6QuUJdT4PUNYkqbu35uJyfj35F2A4n8T9E4+OSx476ZNMr7vqRV7JA2T7khYGnwS
- n4xno9GyKZOCIvb9rdgag85uhzAGVJeDHwonPfqMzl1+PcqW6gDjzfnCMMju7wv+YVg1
- xa/g==
-X-Gm-Message-State: APjAAAUZ91W47r3CH6mC4NGs5kPyRq38cQGLPpbD7CGkOEqC859PQ4eI
- /RhTWaiU0bvqd/xTj4giWQ==
-X-Google-Smtp-Source: APXvYqyO5yb0kzqqfbrHDmZsNBwidTPMmrsGe7bYyTxXuBCFzT6DUgmP1xCcjTCyTgekuMtpl8lSOw==
-X-Received: by 2002:adf:f507:: with SMTP id q7mr44817756wro.210.1567532435032; 
- Tue, 03 Sep 2019 10:40:35 -0700 (PDT)
+ bh=ieQ0SS1TbyTo2Ti96I4YLp+pK1fJ3Fs4s6IUdQyKN2Y=;
+ b=sUdvLr9vttvInO4lptl+SBLHmh/azr9r66dPPcsgqcKbjGqJ5qxbQzka/GjTwd2+Al
+ fimvbo46vx59T9GKZqz79sqcfeySS8go3B8vr6qXWo5aDC7ZUlVHc1TuZfEnEYwJcuFc
+ sM8HBKi2DTpQEg13FTxcSe+v1kgWYWjYhaLcchJp9Y65babKZG6z/n7/8QMwUNddMNdf
+ h/Ex6c/VREjqWnEP0st4FC0CO7ispQ0ktGCkS3Cs2nXN6KQQ5SDQFvpirIL1dFh7g/Zr
+ JZPKbC7F+NHIRWLzmcaJ71lA3yR8qOwEuYW0NjfxWPpKboOeqY3fRiaSXGFe7/p4nX8O
+ LR6w==
+X-Gm-Message-State: APjAAAUvMqKaVMfRsMCOCja1ALa3vZAD88N9JjpeEIEaeLWr4ZDX7NSC
+ XM9Ad8J4+oiV+X2fRIAUkA==
+X-Google-Smtp-Source: APXvYqxnUok+psv1QFkj8jaGGJBG3k+UUbHqh55UDvJs1Lvg9ReVnSTkNKcfQo3GWrM2PteMUQAa+Q==
+X-Received: by 2002:adf:ef49:: with SMTP id c9mr28322655wrp.122.1567532476537; 
+ Tue, 03 Sep 2019 10:41:16 -0700 (PDT)
 Received: from localhost ([176.12.107.132])
- by smtp.gmail.com with ESMTPSA id e15sm10079955wru.93.2019.09.03.10.40.33
+ by smtp.gmail.com with ESMTPSA id b184sm294493wmg.47.2019.09.03.10.41.15
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Tue, 03 Sep 2019 10:40:34 -0700 (PDT)
-Date: Tue, 3 Sep 2019 18:40:24 +0100
+ Tue, 03 Sep 2019 10:41:16 -0700 (PDT)
+Date: Tue, 3 Sep 2019 18:41:14 +0100
 From: Rob Herring <robh@kernel.org>
 To: Vitor Soares <Vitor.Soares@synopsys.com>
-Subject: Re: [PATCH v2 3/5] dt-bindings: i3c: Make 'assigned-address' valid
- if static address == 0
-Message-ID: <20190903174024.GA1480@bogus>
+Subject: Re: [PATCH v2 4/5] dt-bindings: i3c: add a note for no guarantee of
+ 'assigned-address' use
+Message-ID: <20190903174114.GA3710@bogus>
 References: <cover.1567437955.git.vitor.soares@synopsys.com>
- <c0505ef73add4512ce1ee2a71b1c8bc8f771151b.1567437955.git.vitor.soares@synopsys.com>
+ <159ae86a8f87b8d518bf63a8946b03b14e6b5500.1567437955.git.vitor.soares@synopsys.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <c0505ef73add4512ce1ee2a71b1c8bc8f771151b.1567437955.git.vitor.soares@synopsys.com>
+In-Reply-To: <159ae86a8f87b8d518bf63a8946b03b14e6b5500.1567437955.git.vitor.soares@synopsys.com>
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190903_104037_220397_8EF46DF7 
-X-CRM114-Status: GOOD (  10.34  )
+X-CRM114-CacheID: sfid-20190903_104118_315927_8CBE73B2 
+X-CRM114-Status: GOOD (  10.76  )
 X-Spam-Score: 0.5 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (0.5 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [209.85.221.66 listed in list.dnswl.org]
+ no trust [209.85.221.67 listed in list.dnswl.org]
  0.2 FREEMAIL_ENVFROM_END_DIGIT Envelope-from freemail username ends
  in digit (robherring2[at]gmail.com)
  0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
@@ -77,7 +77,7 @@ X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
  provider (robherring2[at]gmail.com)
  -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [209.85.221.66 listed in wl.mailspike.net]
+ [209.85.221.67 listed in wl.mailspike.net]
  0.0 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
  EnvelopeFrom freemail headers are different
 X-Mailman-Approved-At: Mon, 09 Sep 2019 23:39:51 -0700
@@ -101,17 +101,15 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-i3c" <linux-i3c-bounces@lists.infradead.org>
 Errors-To: linux-i3c-bounces+lists+linux-i3c=lfdr.de@lists.infradead.org
 
-On Tue,  3 Sep 2019 12:35:52 +0200, Vitor Soares wrote:
-> The I3C devices without a static address can require a specific dynamic
-> address for priority reasons.
-> 
-> Let's update the binding document to make the 'assigned-address' property
-> valid if static address == 0 and add an example with this use case.
+On Tue,  3 Sep 2019 12:35:53 +0200, Vitor Soares wrote:
+> By default, the framework will try to assign the 'assigned-address' to the
+> device but if the address is already in use the device dynamic address
+> will be different.
 > 
 > Signed-off-by: Vitor Soares <vitor.soares@synopsys.com>
 > ---
->  Documentation/devicetree/bindings/i3c/i3c.txt | 13 ++++++++++---
->  1 file changed, 10 insertions(+), 3 deletions(-)
+>  Documentation/devicetree/bindings/i3c/i3c.txt | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
 > 
 
 Reviewed-by: Rob Herring <robh@kernel.org>
