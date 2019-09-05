@@ -2,8 +2,8 @@ Return-Path: <linux-i3c-bounces+lists+linux-i3c=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-i3c@lfdr.de
 Delivered-To: lists+linux-i3c@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 47D8BA9F16
-	for <lists+linux-i3c@lfdr.de>; Thu,  5 Sep 2019 12:01:00 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id C8649A9F13
+	for <lists+linux-i3c@lfdr.de>; Thu,  5 Sep 2019 12:00:58 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
@@ -11,59 +11,59 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=jAUnN9kFh7D1uq8JOF/nd5RUL+ZWIauQKiSzbVc5r/s=; b=HBnHTO1D7Dez85iYV7LEjj1uhK
-	QdxeKBrOZB37evWcCsUFm33dY6K/JRwnZC1+5VRZmM4fYg14uAgwd383SIGapj1zbl/q4HP50SjJq
-	+EXKUfBil6T+BlXFmByrvcSc/FaYKCPp6E9QBxvYLBjY3sS7q2oIdgiFGGs0gUzOV4vT66AXzVG0U
-	fIMAGmo1DJOTlckWTYEgguvYTpLgDmzN/ki3T5eYNBiW5TmP0WC68vHZqX6Mhn+mDY41G2an9XgqV
-	kTKlxhahZvWVIrVDC03T4Z0nfVnJpv8ebALJR6Ns+ZC20+rzznwYa1Wud1fZ4iBCHMNY2wTfy07A9
-	SCagB6aw==;
+	bh=d2PQhzbvFjQVAVyVDADlhrPtnF0U7pXiwjZCadfcUEM=; b=l4n2lCvmnxQSRSipEJTxTVtZFp
+	e+sfSf00GN07rXU8QQLgHq9wJCptqihBsjOdS8HusNLYO9IrPIxqUOrEUNE2yzEbuZqKpKgcDCgqQ
+	X/UrVu9//ZtFLxwosqyVqWFyJeEiGMtt3zYGZiCZpkA+zEZ/Evsm0BHqWO7JAhySbMCvQ1CH1YnYE
+	tS2m+3yZJKcoJvffoLRpVGXpUvbiMvkIYr0KZ/tsfPkaUI5GKmjqa+dAMYY1YuAMo0OctpNxzBpa1
+	sHa5LIR+kweuLwN5QjN3l+0Y93oCGOpSaBckqTm2zW4SFeKtDl+0MKenmzi1B8wbDFcLyZlfAEMvi
+	Fdj1bUdQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92 #3 (Red Hat Linux))
-	id 1i5oZX-0007gO-1S
-	for lists+linux-i3c@lfdr.de; Thu, 05 Sep 2019 10:00:59 +0000
-Received: from dc2-smtprelay2.synopsys.com ([198.182.61.142]
+	id 1i5oZV-0007fo-IA
+	for lists+linux-i3c@lfdr.de; Thu, 05 Sep 2019 10:00:57 +0000
+Received: from dc8-smtprelay2.synopsys.com ([198.182.47.102]
  helo=smtprelay-out1.synopsys.com)
  by bombadil.infradead.org with esmtps (Exim 4.92 #3 (Red Hat Linux))
- id 1i5oZU-0007eT-1R
- for linux-i3c@lists.infradead.org; Thu, 05 Sep 2019 10:00:57 +0000
+ id 1i5oZR-0007cA-F1
+ for linux-i3c@lists.infradead.org; Thu, 05 Sep 2019 10:00:55 +0000
 Received: from mailhost.synopsys.com (mdc-mailhost1.synopsys.com
  [10.225.0.209])
  (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
  (No client certificate requested)
- by smtprelay-out1.synopsys.com (Postfix) with ESMTPS id BF8C2C29BA;
- Thu,  5 Sep 2019 10:00:55 +0000 (UTC)
+ by smtprelay-out1.synopsys.com (Postfix) with ESMTPS id 04CEFC0DD3;
+ Thu,  5 Sep 2019 10:00:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=synopsys.com; s=mail;
- t=1567677655; bh=Hd5e4FWS+UlKygYV+pJ0TjvOiFk6XNsxRtjAc94qTX0=;
+ t=1567677651; bh=GosWZM2QU8S12Kgv9mW7HdYKBOJWFoe+3pD+Un3G66o=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:In-Reply-To:
  References:From;
- b=MZ1vo3sW/wPI1OpakmeAaAyM1I+pluxXz3hhJQbYXfulxarKlaj22QhFcxdnjT4dx
- /gSE7pjEMvVYjS8tUNFYXo17mky0HGrUfJYDW56DOI6d73xKo0ysQncTiM956GM9HF
- 8UEjFWzj6oSeYMBfs/YsQ5PP28tTJgBRaHtlObIUoChH6AIbCT+zWwHZYLAiSI16AR
- mQ+5XhsLo3LBZWS/AoYpfojf07xrmPIt4WEVFL2uXdpIPlrU4w6mhuzMWWXGY2n9KT
- fTBsC3fyRHkOgkcSn2AsQE5SobNVDe0X/tgJ2zTC0vhb0Y6zqBI8rkhwITi5lmOSg7
- vOTJzA4djQVeQ==
-Received: from de02.synopsys.com (de02.internal.synopsys.com [10.225.17.21])
- by mailhost.synopsys.com (Postfix) with ESMTP id 8BF84A0064;
+ b=ExqotPmXtPyrttYl0egCKAjoHy9K3A8M6MiMfU7TFhvGai2DEmP5d1TOunCx7WhsA
+ bX/GnJnv1VfJMFtbFDRdN4gssi2BYXCTPQlYC70C2+asnrlOjoLQ1ZNgyRxIWobJDe
+ rVyL2GEi/k7VN0bRoa6+QT+6F2pPczzRRDSXH7RYBjAj1tl8SBeCIbHd3i+9ysOLZD
+ hE4U3OjOjWVs+wqf70sAlHGL4p5llwvdm1A5ZodZ2N5eHp1LTag1JfbKvxhkeTLgrk
+ 8R+WoNjcQTefQyM8qzXAVM+kK/a860lcqFq4C1w8ozE4F6B6DXLJ7FaTjyO+zeHW0Q
+ ab8UtiEl4ayVg==
+Received: from de02.synopsys.com (germany.internal.synopsys.com [10.225.17.21])
+ by mailhost.synopsys.com (Postfix) with ESMTP id 9989BA0061;
  Thu,  5 Sep 2019 10:00:49 +0000 (UTC)
 Received: from de02dwia024.internal.synopsys.com
  (de02dwia024.internal.synopsys.com [10.225.19.81])
- by de02.synopsys.com (Postfix) with ESMTP id 6EB513F3B9;
+ by de02.synopsys.com (Postfix) with ESMTP id 826F43F3BC;
  Thu,  5 Sep 2019 12:00:49 +0200 (CEST)
 From: Vitor Soares <Vitor.Soares@synopsys.com>
 To: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
  linux-i3c@lists.infradead.org
-Subject: [PATCH v3 3/5] dt-bindings: i3c: Make 'assigned-address' valid if
- static address == 0
-Date: Thu,  5 Sep 2019 12:00:36 +0200
-Message-Id: <35e317ef6c9c0c729f713e57a55a2cd8bd55899b.1567608245.git.vitor.soares@synopsys.com>
+Subject: [PATCH v3 4/5] dt-bindings: i3c: add a note for no guarantee of
+ 'assigned-address' use
+Date: Thu,  5 Sep 2019 12:00:37 +0200
+Message-Id: <f8a0cbc92605dbf5f41a28edd7691c3e90087554.1567608245.git.vitor.soares@synopsys.com>
 X-Mailer: git-send-email 2.7.4
 In-Reply-To: <cover.1567608245.git.vitor.soares@synopsys.com>
 References: <cover.1567608245.git.vitor.soares@synopsys.com>
 In-Reply-To: <cover.1567608245.git.vitor.soares@synopsys.com>
 References: <cover.1567608245.git.vitor.soares@synopsys.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20190905_030056_141140_2F93D9A3 
-X-CRM114-Status: GOOD (  12.17  )
+X-CRM114-CacheID: sfid-20190905_030053_502442_0F00BB38 
+X-CRM114-Status: GOOD (  10.81  )
 X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (-0.2 points)
@@ -97,11 +97,9 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-i3c" <linux-i3c-bounces@lists.infradead.org>
 Errors-To: linux-i3c-bounces+lists+linux-i3c=lfdr.de@lists.infradead.org
 
-The I3C devices without a static address can require a specific dynamic
-address for priority reasons.
-
-Let's update the binding document to make the 'assigned-address' property
-valid if static address == 0 and add an example with this use case.
+By default, the framework will try to assign the 'assigned-address' to the
+device but if the address is already in use the device dynamic address
+will be different.
 
 Signed-off-by: Vitor Soares <vitor.soares@synopsys.com>
 Reviewed-by: Rob Herring <robh@kernel.org>
@@ -109,43 +107,24 @@ Reviewed-by: Rob Herring <robh@kernel.org>
 Change in v3:
   - Add Rob rb-tag
 
-Change in v2:
-  - Fix typo in commit message
-
- Documentation/devicetree/bindings/i3c/i3c.txt | 13 ++++++++++---
- 1 file changed, 10 insertions(+), 3 deletions(-)
+ Documentation/devicetree/bindings/i3c/i3c.txt | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
 diff --git a/Documentation/devicetree/bindings/i3c/i3c.txt b/Documentation/devicetree/bindings/i3c/i3c.txt
-index ab729a0..c851e75 100644
+index c851e75..e777f09 100644
 --- a/Documentation/devicetree/bindings/i3c/i3c.txt
 +++ b/Documentation/devicetree/bindings/i3c/i3c.txt
-@@ -98,9 +98,7 @@ Required properties
+@@ -98,7 +98,9 @@ Required properties
  
  Optional properties
  -------------------
--- assigned-address: dynamic address to be assigned to this device. This
--		    property is only valid if the I3C device has a static
--		    address (first cell of the reg property != 0).
-+- assigned-address: dynamic address to be assigned to this device.
+-- assigned-address: dynamic address to be assigned to this device.
++- assigned-address: dynamic address to be assigned to this device. The framework
++		    will try to assign this dynamic address but if something
++		    fails the device dynamic address will be different.
  
  
  Example:
-@@ -129,6 +127,15 @@ Example:
- 
- 		/*
- 		 * I3C device without a static I2C address but requiring
-+		 * specific dynamic address.
-+		 */
-+		sensor@0,39200154004 {
-+			reg = <0x0 0x6072 0x303904d2>;
-+			assigned-address = <0xb>;
-+		};
-+
-+		/*
-+		 * I3C device without a static I2C address but requiring
- 		 * resources described in the DT.
- 		 */
- 		sensor@0,39200154004 {
 -- 
 2.7.4
 
