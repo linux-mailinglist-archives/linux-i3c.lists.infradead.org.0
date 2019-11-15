@@ -2,79 +2,54 @@ Return-Path: <linux-i3c-bounces+lists+linux-i3c=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-i3c@lfdr.de
 Delivered-To: lists+linux-i3c@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 80938FDBAE
-	for <lists+linux-i3c@lfdr.de>; Fri, 15 Nov 2019 11:48:48 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id D8539FDBF1
+	for <lists+linux-i3c@lfdr.de>; Fri, 15 Nov 2019 12:06:04 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YIMpcueRLQE8tOgwOL92ujVzP5uwveOwDPEbC9Q69aY=; b=LxFZguAHC7Ht+q
-	Uq2oFODQRrsD+QeW78TaIKMixY3NYD7eYG5nX8rnfRAQrNspWv+fiBFeHq57GbtzHegPEOPYd5C1b
-	Z4oAff6o9JVztz3EFBZVRm7zwlbyyLwyh3M+KAfuLIQhpF5//tr2cmknVIvYzAzbXsDws2QWxVSCN
-	fFhkqU8q0yfT57+MPf+YGKAG9UY6wxdrL0X5qTeVLl0iZSAHgnEgNxWmpcvo7wqp7t9/FwTdnRMTy
-	A7ym/dDuGFyIIilIgf52zj3Eiz3EojGyvUv9JoriS5VTFTBM46b6uPxt3rwdV7re9wM0YjFVu/gFr
-	zFQmnWg5ewKsc44OESDQ==;
+	List-Owner; bh=6FHVCVTT4ZTuPxgsug1G5UjgiaPV+kaj+Y6/uNjlx3k=; b=Q+G8KJbj29MGwy
+	MWotycjt3TXFXl1f4VYWIavHeu4tWkjPnsb0xUBLJQBh8wrPj3oHkEler7TtYQXN50X8o3pNAtCTz
+	GBGd71z8aduZJbgTrddpQjLw9NO6S9j9j4eymYjz4jkk8usPf7ScrPJDauaoxJWZj8AzB75dckAwV
+	QwMR1hZ52kDOiW0bI011m0uHp/90/wX05JIud0BJvLkGg2p4KwWg+NEaFBeyBSZKjc8IRPtKhqgi8
+	1YTrR1GT1DrHpI/FBhIu01OpqcJsxh0dm/vtKWD0eOf3RItra1rwYw9x4q10bpOMUV/U+CZnU539G
+	ml+vw+1Rxb2aLraczptw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iVZ9j-0004yO-9s
-	for lists+linux-i3c@lfdr.de; Fri, 15 Nov 2019 10:48:47 +0000
-Received: from mail-ot1-f67.google.com ([209.85.210.67])
+	id 1iVZQR-0004Os-LF
+	for lists+linux-i3c@lfdr.de; Fri, 15 Nov 2019 11:06:03 +0000
+Received: from bhuna.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e3e3])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iVXN6-0002xw-26
- for linux-i3c@lists.infradead.org; Fri, 15 Nov 2019 08:54:29 +0000
-Received: by mail-ot1-f67.google.com with SMTP id d5so7409948otp.4
- for <linux-i3c@lists.infradead.org>; Fri, 15 Nov 2019 00:54:27 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=xXAIHX2Tl2rPR9tSIWbBGJFZ8rTfCs0FskSAJ4Ev+rs=;
- b=g+doAohJvfXP6pcoGZEJvqbwZlnlVy/6mNzauwLi/70l3rildWsLGsrdumtIHLs0tC
- 8d4ZNcxPPhbf2w88syXXpEIpBMHb/fRb7kVfG+gvVl4WNuIz8Y4eoYQ9XrgYqKsrpDA0
- lW38zUkjEsrdnnf9p6Lq8zq6VAE/XmRoUEroxOqZmLVg7h9PUWH5AAdoEVGaYoXKGPgJ
- rdITXZuVp0YO2A3CD4zsKpMsmMpvXywYOp4T+fwZtaSCG5HZ0HMWDc6tCTaOGLccbNIG
- ThdeCL9SIzlZmhSnAhLdIYIQMrI3HIutYwZ5PCWFZaBIw2CY9skiu8AYdXc2f3nrcy9Q
- bCgg==
-X-Gm-Message-State: APjAAAXRSK8Fp9CtMt1ycoA+sA1gU9X/mch1B9CDMdZJ4t/RuoB9ODpy
- A22fjAQ3MLzjFcPLx2lV3CZHDObDGqQon/GLJLs=
-X-Google-Smtp-Source: APXvYqyrQa5IxPsi3G7rS21hAK95+jhiYLA+S1aXs4vPX3QHlvXrVWf1Du1CX8vCc3Xf7tA+IQXdPThfCc6L3uJSoDg=
-X-Received: by 2002:a9d:5511:: with SMTP id l17mr2306903oth.145.1573808066972; 
- Fri, 15 Nov 2019 00:54:26 -0800 (PST)
+ id 1iVZQN-0004OI-UF
+ for linux-i3c@lists.infradead.org; Fri, 15 Nov 2019 11:06:02 +0000
+Received: from localhost (unknown [IPv6:2a01:e0a:2c:6930:5cf4:84a1:2763:fe0d])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
+ bits)) (No client certificate requested)
+ (Authenticated sender: bbrezillon)
+ by bhuna.collabora.co.uk (Postfix) with ESMTPSA id ED4D129175A;
+ Fri, 15 Nov 2019 11:05:57 +0000 (GMT)
+Date: Fri, 15 Nov 2019 12:05:55 +0100
+From: Boris Brezillon <boris.brezillon@collabora.com>
+To: Przemyslaw Gaj <pgaj@cadence.com>
+Subject: Re: [PATCH v2] i3c: master: cdns: add data hold delay support
+Message-ID: <20191115120555.53c1b745@collabora.com>
+In-Reply-To: <20191115062326.16476-1-pgaj@cadence.com>
+References: <20191115062326.16476-1-pgaj@cadence.com>
+Organization: Collabora
+X-Mailer: Claws Mail 3.17.4 (GTK+ 2.24.32; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-References: <20191024153756.31861-1-geert+renesas@glider.be>
- <20191115061554.532d29e9@collabora.com>
- <CAMuHMdWO=8sHn9wrEiuBGes0x_L2=Qkou=aPcHM7Mr9oDS74Qw@mail.gmail.com>
- <20191115094010.31acadf6@collabora.com>
-In-Reply-To: <20191115094010.31acadf6@collabora.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Fri, 15 Nov 2019 09:54:15 +0100
-Message-ID: <CAMuHMdVvycHZv6g-vem7Mu4fqVc9FBx2xrdER85Sjb+vVW0=sA@mail.gmail.com>
-Subject: Re: [PATCH] MAINTAINERS: Mark linux-i3c mailing list moderated
-To: Boris Brezillon <boris.brezillon@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191115_005428_100394_A3E5D05A 
-X-CRM114-Status: GOOD (  13.00  )
-X-Spam-Score: 0.4 (/)
+X-CRM114-CacheID: sfid-20191115_030600_517275_832AE7F2 
+X-CRM114-Status: GOOD (  22.10  )
+X-Spam-Score: -0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (0.4 points)
+ Content analysis details:   (-0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [209.85.210.67 listed in list.dnswl.org]
- 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
- provider (geert.uytterhoeven[at]gmail.com)
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
- mail domains are different
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [209.85.210.67 listed in wl.mailspike.net]
- 0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
- 0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
- EnvelopeFrom freemail headers are different
-X-Mailman-Approved-At: Fri, 15 Nov 2019 02:48:45 -0800
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
 X-BeenThere: linux-i3c@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -86,58 +61,166 @@ List-Post: <mailto:linux-i3c@lists.infradead.org>
 List-Help: <mailto:linux-i3c-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-i3c>,
  <mailto:linux-i3c-request@lists.infradead.org?subject=subscribe>
-Cc: linux-i3c@lists.infradead.org,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Boris Brezillon <bbrezillon@kernel.org>
+Cc: linux-i3c@lists.infradead.org, agolec@cadence.com,
+ vitor.soares@synopsys.com, rafalc@cadence.com, bbrezillon@kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-i3c" <linux-i3c-bounces@lists.infradead.org>
 Errors-To: linux-i3c-bounces+lists+linux-i3c=lfdr.de@lists.infradead.org
 
-Hi Boris,
+On Fri, 15 Nov 2019 07:23:26 +0100
+Przemyslaw Gaj <pgaj@cadence.com> wrote:
 
-On Fri, Nov 15, 2019 at 9:40 AM Boris Brezillon
-<boris.brezillon@collabora.com> wrote:
-> On Fri, 15 Nov 2019 09:10:02 +0100
-> Geert Uytterhoeven <geert@linux-m68k.org> wrote:
->
-> > Hi Boris,
-> >
-> > On Fri, Nov 15, 2019 at 6:16 AM Boris Brezillon
-> > <boris.brezillon@collabora.com> wrote:
-> > > On Thu, 24 Oct 2019 17:37:56 +0200
-> > > Geert Uytterhoeven <geert+renesas@glider.be> wrote:
-> > > > The linux-i3c mailing list is moderated for non-subscribers.
-> > > >
-> > > > Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> > >
-> > > Queued to i3c/next. It was actually queued 2 weeks ago but the
-> > > patchwork bot didn't send a notification for that one (one was sent for
-> > > your other patch) and I don't know why.
-> >
-> > It did:
->
-> Ok, perfect then. Looks like sometimes it doesn't work, but for this
-> patch I did receive a notification too (it was one notification for both
-> of your patches and I thought I was receiving one per patch).
+> This patch adds support for THD_DEL (Data Hold Delay) to Cadence
+> I3C master constoller driver.
+> 
+> As per MIPI I3C Specification 1.0, Table 75 (page 142) defines
+> non-zero minimal tHD_PP timing on master output (Fig 65). This
+> setting allows to meet this timing on master's soc outputs,
+> regardless of PCB balancing.
+> 
+> Signed-off-by: Przemyslaw Gaj <pgaj@cadence.com>
+> 
+> ---
+> 
+> Main changes between v1 and v2:
+> - Add device-specific data which holds the thd_del value
+> - Remove device tree property
+> ---
+>  drivers/i3c/master/i3c-master-cdns.c | 37 +++++++++++++++++++++++++++++++-----
+>  1 file changed, 32 insertions(+), 5 deletions(-)
+> 
+> diff --git a/drivers/i3c/master/i3c-master-cdns.c b/drivers/i3c/master/i3c-master-cdns.c
+> index 10db0bf0655a..3531396f04fd 100644
+> --- a/drivers/i3c/master/i3c-master-cdns.c
+> +++ b/drivers/i3c/master/i3c-master-cdns.c
+> @@ -22,6 +22,7 @@
+>  #include <linux/slab.h>
+>  #include <linux/spinlock.h>
+>  #include <linux/workqueue.h>
+> +#include <linux/of_device.h>
+>  
+>  #define DEV_ID				0x0
+>  #define DEV_ID_I3C_MASTER		0x5034
+> @@ -60,6 +61,7 @@
+>  #define CTRL_HALT_EN			BIT(30)
+>  #define CTRL_MCS			BIT(29)
+>  #define CTRL_MCS_EN			BIT(28)
+> +#define CTRL_THD_DEL(x)			(((x) << 24) & GENMASK(25, 24))
 
-It is one per patch, I did receive the other one, too:
+DEL is a bit ambiguous, how about _DELAY().
 
-Subject: Re: [PATCH trivial] i3c: Spelling s/dicovered/discovered/
-From: patchwork-bot+linux-i3c@kernel.org
-Message-Id: <157251967168.27046.5733392327207757366.git-patchwork-notify@kernel.org>
+>  #define CTRL_HJ_DISEC			BIT(8)
+>  #define CTRL_MST_ACK			BIT(7)
+>  #define CTRL_HJ_ACK			BIT(6)
+> @@ -388,6 +390,10 @@ struct cdns_i3c_xfer {
+>  	struct cdns_i3c_cmd cmds[0];
+>  };
+>  
+> +struct cdns_i3c_data {
+> +	u8 thd_del;
 
-Gr{oetje,eeting}s,
+Same here, thd_delay. BTW, is the clk driving the I3C master clk
+expected to be fixed? If not, I'd suggest expressing this delay is
+seconds (nano or micro depending on the precision you need) so the
+driver can calculate the proper thd_delay value based on
+clk_get_rate(master->sysclk).
 
-                        Geert
+> +};
+> +
+>  struct cdns_i3c_master {
+>  	struct work_struct hj_work;
+>  	struct i3c_master_controller base;
+> @@ -408,6 +414,7 @@ struct cdns_i3c_master {
+>  	struct clk *pclk;
+>  	struct cdns_i3c_master_caps caps;
+>  	unsigned long i3c_scl_lim;
+> +	const struct cdns_i3c_data *devdata;
+>  };
+>  
+>  static inline struct cdns_i3c_master *
+> @@ -1264,6 +1271,15 @@ static int cdns_i3c_master_bus_init(struct i3c_master_controller *m)
+>  	 * We will issue ENTDAA afterwards from the threaded IRQ handler.
+>  	 */
+>  	ctrl |= CTRL_HJ_ACK | CTRL_HJ_DISEC | CTRL_HALT_EN | CTRL_MCS_EN;
+> +
+> +	/*
+> +	 * Configure data hold delay based on device-specific data.
+> +	 *
+> +	 * MIPI I3C Specification 1.0 defines non-zero minimal tHD_PP timing on
+> +	 * master output. This setting allows to meet this timing on master's
+> +	 * SoC outputs, regardless of PCB balancing.
+> +	 */
+> +	ctrl |= CTRL_THD_DEL(master->devdata->thd_del);
+>  	writel(ctrl, master->regs + CTRL);
+>  
+>  	cdns_i3c_master_enable(master);
+> @@ -1521,17 +1537,33 @@ static void cdns_i3c_master_hj(struct work_struct *work)
+>  	i3c_master_do_daa(&master->base);
+>  }
+>  
+> +static struct cdns_i3c_data cdns_i3c_devdata = {
+> +	.thd_del = 0x3,
+> +};
+> +
+> +static const struct of_device_id cdns_i3c_master_of_ids[] = {
+> +	{ .compatible = "cdns,i3c-master", .data = &cdns_i3c_devdata },
+> +	{ /* sentinel */ },
+> +};
+> +
+>  static int cdns_i3c_master_probe(struct platform_device *pdev)
+>  {
+>  	struct cdns_i3c_master *master;
+> +	const struct of_device_id *of_id = of_match_device(
+> +		of_match_ptr(cdns_i3c_master_of_ids), &pdev->dev);
 
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+The of_match_ptr() is not needed since cdns_i3c_master_of_ids is always
+defined.
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+
+>  	struct resource *res;
+>  	int ret, irq;
+>  	u32 val;
+>  
+> +	if (!of_id)
+> +		return -ENODEV;
+> +
+
+Not sure ENODEV is the right error code here. If of_id == NULL that
+means cdns_i3c_master_of_ids[] is not filled correctly, so I'd suggest
+returning EINVAL.
+
+>  	master = devm_kzalloc(&pdev->dev, sizeof(*master), GFP_KERNEL);
+>  	if (!master)
+>  		return -ENOMEM;
+>  
+> +	master->devdata = of_id->data;
+
+If you do:
+
+	master->devdata = of_device_get_match_data(&pdev->dev);
+	if (!master->devdata)
+		return -EINVAL;
+
+You can get rid of of_id (and the associate assignment/test).
+
+> +
+>  	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+>  	master->regs = devm_ioremap_resource(&pdev->dev, res);
+>  	if (IS_ERR(master->regs))
+> @@ -1631,11 +1663,6 @@ static int cdns_i3c_master_remove(struct platform_device *pdev)
+>  	return 0;
+>  }
+>  
+> -static const struct of_device_id cdns_i3c_master_of_ids[] = {
+> -	{ .compatible = "cdns,i3c-master" },
+> -	{ /* sentinel */ },
+> -};
+> -
+>  static struct platform_driver cdns_i3c_master = {
+>  	.probe = cdns_i3c_master_probe,
+>  	.remove = cdns_i3c_master_remove,
+
 
 _______________________________________________
 linux-i3c mailing list
