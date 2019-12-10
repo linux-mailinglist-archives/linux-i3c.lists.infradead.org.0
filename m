@@ -2,158 +2,58 @@ Return-Path: <linux-i3c-bounces+lists+linux-i3c=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-i3c@lfdr.de
 Delivered-To: lists+linux-i3c@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2BB001184A6
-	for <lists+linux-i3c@lfdr.de>; Tue, 10 Dec 2019 11:15:51 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 56A951189D5
+	for <lists+linux-i3c@lfdr.de>; Tue, 10 Dec 2019 14:30:18 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4f1V98xd8fGYJGL/NoxWLNQGg+2XgWc9OUQPviLpcz8=; b=MK7W3xJpFgIbfF
-	ZHgm5jLl/y1SBeROIwh/77WhxcalWytg/KiysTUx9X/VasaAJvrCIIZK/VFtof0Jo3A+MpsyjA8Hk
-	t2JIyDaLLB6xzbfaAojHQthJ9GFDl9qhBASDj4Pysy4bQRbhVeMhRrhn51UYYS5DDUvv0BkKBujNp
-	Bal5ATEBfdYmS0sC3ELyTcKDjuJZjczEvKcPHCu9UWMXITjpR8CzfpKqdAw3mvOKCgGEjJPYiZVat
-	7ZeftHCuKOUWUlcM8xYznUvfiJYKTBT96ikQtkPCmxJ0KskE9n9X78A58znBhbSKCeIkY6xeNn5Vm
-	Sb7hke37IRUQ7ySwPFBQ==;
+	List-Owner; bh=U8HDeEuTtt2//+mvbVCIMERQuFKcPV7XsCxZ41LhVFA=; b=YqiKWVPwxL1+1h
+	2QyciaXkIYhXZleawwHfsqCusJ9PMhxChm6WeQIkN5x4YPypML8r6E7UKUiWPwiBFRenVkLhBz4U3
+	lywjjCgb25GSBzU6gCSHulqSrqX6POkBxIRwGSzFbD6U1QC+fCvHLsEJYFk4Jl/GnaY6vrp4MUu1j
+	UWVKxosKxRaICSbOVLLWEM3xWRZKQ6GThotF6xmusx1HMbBC4tWiUqSZkhKFn/3OVMIKpeltNCqJ+
+	ofJ/J8oupl2TEgEaYNsf056X5ANLXXBEjuVsUucPxyGZyyXUBUaE8Xzas5Lvaddk4rt2QWqqHw16G
+	ta+sP8Ls1K5AW0FFkjRg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iecYX-000854-Uu
-	for lists+linux-i3c@lfdr.de; Tue, 10 Dec 2019 10:15:49 +0000
-Received: from mx0a-0014ca01.pphosted.com ([208.84.65.235])
+	id 1iefai-0001MQ-R6
+	for lists+linux-i3c@lfdr.de; Tue, 10 Dec 2019 13:30:16 +0000
+Received: from bhuna.collabora.co.uk ([46.235.227.227])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iecYV-00084C-VI
- for linux-i3c@lists.infradead.org; Tue, 10 Dec 2019 10:15:49 +0000
-Received: from pps.filterd (m0042385.ppops.net [127.0.0.1])
- by mx0a-0014ca01.pphosted.com (8.16.0.42/8.16.0.42) with SMTP id
- xBAADMkp025733; Tue, 10 Dec 2019 02:15:47 -0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cadence.com;
- h=from : to : cc :
- subject : date : message-id : in-reply-to : references : mime-version :
- content-type; s=proofpoint;
- bh=UqfWeSljS86z9I5VDgrWuvPBCrYpVRnLfr9Cx8xTR6E=;
- b=M0fqYjE5MUbarem7OF69tRtca5ckff5MLtDJB/TMoPqgRSmNFvzhbIm3uYGrMdwZ2FNr
- uKWAg+l/cb3FJ1mDnD8dQdTtBM5TtiF64ghUSMVCP6kGGcZtxs5dKP/4T9a5Upgvc4eG
- hd9uiSYBoccKey2pCGPNExdeJ22eFcwcFWQECeK1IFKddEc7wOmUwCoBRWUmWPXlZHWv
- sZU6/C5NgeQ40wRi8iKTVi1cOQe6WZRo66mMqHh227sJYKRhCnhYtHpDVlXnacZMEZdg
- gY2AFYEbTvv/vBRIAHbZDK4t44vgPndt0b1im+n9gQRngb1TJ3DEYYhQwzT8wqTXA/Pc VA== 
-Received: from nam12-bn8-obe.outbound.protection.outlook.com
- (mail-bn8nam12lp2177.outbound.protection.outlook.com [104.47.55.177])
- by mx0a-0014ca01.pphosted.com with ESMTP id 2wra709bnj-1
- (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Tue, 10 Dec 2019 02:15:47 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=WKHpVuSdVFV5Z1wLvF5tjm71F8VKfkTfMSZn+Ts81ahXZosaf/xTQyzcCK3KpU+sCP2HiD3uRVcyqWVVHnkym3mryc6s5BnbW2GvOUTHtdWKabOed2AQ1vwvuMf8QkAd+q0BcTxxuiPNIJsav1cG/FwYGN02InmTcdzzgmIh1SNf41D35GoNI4bNYN5ozdHaixkENzr0rQaA1HjlMG3PGJXwBoLnHBw3W7vncVDpP39wqRr/5iGmkF8wUyjkzxrs1Vs+H2f50lqw6UZiL06eGSMJFoGdYaeBYOItQ+KfJCpR5aeqItNtf4mYGphf9sbPE7PAEnXLKwyFE6nTzrSGVA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=UqfWeSljS86z9I5VDgrWuvPBCrYpVRnLfr9Cx8xTR6E=;
- b=oRiNU/AmDhJ20O/dPOApIzWzZuOTXUNujbWt1QNOiBfkczKJkBsgzsQM6k6BtRzr8awBtkbbCq88zj9XBvb6YqdwoextfVz87L33ZL5XCtjkBj6mlvRf+DtftHeGiZf3upnHIVDJeXFxbGs3or2BzH/JtLdLkme+2pms6S5yHKQ90TvT+KQWMYgsD+Tg6kJnP5EQNfG9AFJ0KiBcQ4ubt1fFpCatMmh7BvGycr7FCuZoO7M3pLB0c7j60/D2pj7TgbtCpO12JwuHwkNaJ4h79BQfGqHf2YstElZWFEdno4rfOk8vP/09YRTgc1xk50t3M6XbukJ7bUYWzVbNCvCVHg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 199.43.4.28) smtp.rcpttodomain=kernel.org smtp.mailfrom=cadence.com;
- dmarc=pass (p=none sp=none pct=100) action=none header.from=cadence.com;
- dkim=none (message not signed); arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cadence.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=UqfWeSljS86z9I5VDgrWuvPBCrYpVRnLfr9Cx8xTR6E=;
- b=mlKX+5FFt/qcLnC3+iqaQuc+56kuZm9dCVBPlmAr3/MYIuj/t0vfmsYD+tanBBZ7nTd4kf9qhQOtK9xCSht8gfmnqxeHh3vxmGH/wrRSLZXSFIefqqqLaia+l0rspTvgm6nA4W7OOHeYYrwvhTYvFv9IehHaVpunSceCoidK0KY=
-Received: from BN8PR07CA0009.namprd07.prod.outlook.com (2603:10b6:408:ac::22)
- by SN6PR07MB4992.namprd07.prod.outlook.com (2603:10b6:805:ac::30)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.2516.13; Tue, 10 Dec
- 2019 10:15:44 +0000
-Received: from DM6NAM12FT025.eop-nam12.prod.protection.outlook.com
- (2a01:111:f400:fe59::204) by BN8PR07CA0009.outlook.office365.com
- (2603:10b6:408:ac::22) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.2538.14 via Frontend
- Transport; Tue, 10 Dec 2019 10:15:44 +0000
-Received-SPF: Pass (protection.outlook.com: domain of cadence.com designates
- 199.43.4.28 as permitted sender) receiver=protection.outlook.com;
- client-ip=199.43.4.28; helo=rmmaillnx1.cadence.com;
-Received: from rmmaillnx1.cadence.com (199.43.4.28) by
- DM6NAM12FT025.mail.protection.outlook.com (10.13.179.217) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.2495.18 via Frontend Transport; Tue, 10 Dec 2019 10:15:43 +0000
-Received: from maileu3.global.cadence.com (maileu3.cadence.com [10.160.88.99])
- by rmmaillnx1.cadence.com (8.14.4/8.14.4) with ESMTP id
- xBAAFdQa031071
- (version=TLSv1/SSLv3 cipher=AES256-SHA bits=256 verify=OK);
- Tue, 10 Dec 2019 05:15:42 -0500
-X-CrossPremisesHeadersFilteredBySendConnector: maileu3.global.cadence.com
-Received: from maileu3.global.cadence.com (10.160.88.99) by
- maileu3.global.cadence.com (10.160.88.99) with Microsoft SMTP Server (TLS) id
- 15.0.1367.3; Tue, 10 Dec 2019 11:15:41 +0100
-Received: from vleu-orange.cadence.com (10.160.88.83) by
- maileu3.global.cadence.com (10.160.88.99) with Microsoft SMTP Server (TLS) id
- 15.0.1367.3 via Frontend Transport; Tue, 10 Dec 2019 11:15:41 +0100
-Received: from vleu-orange.cadence.com (localhost.localdomain [127.0.0.1])
- by vleu-orange.cadence.com (8.14.4/8.14.4) with ESMTP id xBAAFfOw009319;
- Tue, 10 Dec 2019 11:15:41 +0100
-Received: (from pgaj@localhost)
- by vleu-orange.cadence.com (8.14.4/8.14.4/Submit) id xBAAFfmu009318;
- Tue, 10 Dec 2019 11:15:41 +0100
-From: =?UTF-8?q?Przemys=C5=82aw=20Gaj?= <pgaj@cadence.com>
-To: <bbrezillon@kernel.org>
-Subject: [PATCH v4 6/6] i3c: master: dw: reattach device on first available
- location of address table
-Date: Tue, 10 Dec 2019 11:15:02 +0100
-Message-ID: <20191210101502.8401-7-pgaj@cadence.com>
-X-Mailer: git-send-email 2.14.0
-In-Reply-To: <20191210101502.8401-1-pgaj@cadence.com>
+ id 1iefaP-0008QW-U2
+ for linux-i3c@lists.infradead.org; Tue, 10 Dec 2019 13:29:59 +0000
+Received: from localhost (unknown [IPv6:2a01:e0a:2c:6930:5cf4:84a1:2763:fe0d])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
+ bits)) (No client certificate requested)
+ (Authenticated sender: bbrezillon)
+ by bhuna.collabora.co.uk (Postfix) with ESMTPSA id 5ABF7263954;
+ Tue, 10 Dec 2019 13:29:47 +0000 (GMT)
+Date: Tue, 10 Dec 2019 14:29:43 +0100
+From: Boris Brezillon <boris.brezillon@collabora.com>
+To: =?UTF-8?B?UHJ6ZW15c8WCYXc=?= Gaj <pgaj@cadence.com>
+Subject: Re: [PATCH v4 2/6] i3c: master: pre-reserve
+ boardinfo->init_dyn_addr when available
+Message-ID: <20191210142943.3804da04@collabora.com>
+In-Reply-To: <20191210101502.8401-3-pgaj@cadence.com>
 References: <20191210101502.8401-1-pgaj@cadence.com>
+ <20191210101502.8401-3-pgaj@cadence.com>
+Organization: Collabora
+X-Mailer: Claws Mail 3.17.4 (GTK+ 2.24.32; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-X-OrganizationHeadersPreserved: maileu3.global.cadence.com
-X-EOPAttributedMessage: 0
-X-Forefront-Antispam-Report: CIP:199.43.4.28; IPV:CAL; SCL:-1; CTRY:US; EFV:NLI;
- SFV:NSPM;
- SFS:(10009020)(4636009)(136003)(396003)(376002)(346002)(39860400002)(36092001)(199004)(189003)(336012)(6916009)(70586007)(81156014)(8676002)(26005)(1076003)(8936002)(426003)(81166006)(42186006)(5660300002)(316002)(76130400001)(54906003)(2616005)(36756003)(6666004)(356004)(186003)(70206006)(478600001)(86362001)(26826003)(2906002)(107886003)(4326008);
- DIR:OUT; SFP:1101; SCL:1; SRVR:SN6PR07MB4992; H:rmmaillnx1.cadence.com; FPR:;
- SPF:Pass; LANG:en; PTR:InfoDomainNonexistent; A:1; MX:1; 
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: 3089b5ce-2b66-47af-d130-08d77d59eac0
-X-MS-TrafficTypeDiagnostic: SN6PR07MB4992:
-X-Microsoft-Antispam-PRVS: <SN6PR07MB4992D2BBAB4039445337F2D3C25B0@SN6PR07MB4992.namprd07.prod.outlook.com>
-X-MS-Oob-TLC-OOBClassifiers: OLM:5797;
-X-Forefront-PRVS: 02475B2A01
-X-MS-Exchange-SenderADCheck: 1
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: jFvDKCKX9731j3d06E7j+P3fVEr1nLy3sjISIK8hJPa/KjIXdMTBg3IVldg5Ar5JmyQU/wjZDzqGxzjPUvy5nxrRffLglwSDT6NXUSC2S7gANYwB7/w9TaTX33aMnoV/ARhFRXf5i6kVXGORfLH1XlvXmVcuXzStLRTq4mmrMh1REK/FgPRZ/WgRcdJjUvU9+p+7pwY+pCGFA2pAEH5ROv4V48dWQXhwt53MwQbk6KPoSBXQjKIijYCFWhnmTzeUVVrLFmHCta73lFdtnXfKL99DGGaTZ6TRCR2V1GdcSKoiUCE5/zQ229Kw2kELW8wdkjH4fu08XgQ2ubmeBmn7d78ci4FeAL8cBJMWOcXm4ta+Se6eI5u2Q6uhQA7LC374WgyiS9ekT8HfAaPTGGbsKNmh3A1sOs+/pzJ8HoZQXTnO/eGJN8IvLndyxWWO2E9OILOpIiqdZp5mst+0FimaAzcCtesS4z05eYnWRg6tFRnKLewVdgPCiLuqx8Pl24J9
-X-OriginatorOrg: cadence.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Dec 2019 10:15:43.9650 (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3089b5ce-2b66-47af-d130-08d77d59eac0
-X-MS-Exchange-CrossTenant-Id: d36035c5-6ce6-4662-a3dc-e762e61ae4c9
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=d36035c5-6ce6-4662-a3dc-e762e61ae4c9; Ip=[199.43.4.28];
- Helo=[rmmaillnx1.cadence.com]
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN6PR07MB4992
-X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.95,18.0.572
- definitions=2019-12-10_01:2019-12-10,2019-12-10 signatures=0
-X-Proofpoint-Spam-Details: rule=outbound_check_notspam policy=outbound_check
- score=0 mlxlogscore=937
- suspectscore=3 malwarescore=0 phishscore=0 lowpriorityscore=0
- impostorscore=0 mlxscore=0 bulkscore=0 priorityscore=1501 adultscore=0
- clxscore=1015 spamscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-1910280000 definitions=main-1912100090
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191210_021548_008117_6F551612 
-X-CRM114-Status: GOOD (  12.32  )
-X-Spam-Score: -0.9 (/)
+X-CRM114-CacheID: sfid-20191210_052958_135425_C49F7C63 
+X-CRM114-Status: GOOD (  16.20  )
+X-Spam-Score: -0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
- Content analysis details:   (-0.9 points)
+ Content analysis details:   (-0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
- low trust [208.84.65.235 listed in list.dnswl.org]
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [46.235.227.227 listed in list.dnswl.org]
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
 X-BeenThere: linux-i3c@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -165,67 +65,46 @@ List-Post: <mailto:linux-i3c@lists.infradead.org>
 List-Help: <mailto:linux-i3c-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-i3c>,
  <mailto:linux-i3c-request@lists.infradead.org?subject=subscribe>
-Cc: linux-i3c@lists.infradead.org, Przemyslaw Gaj <pgaj@cadence.com>,
- rafalc@cadence.com, vitor.soares@synopsys.com
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: linux-i3c@lists.infradead.org, vitor.soares@synopsys.com,
+ rafalc@cadence.com, bbrezillon@kernel.org
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-i3c" <linux-i3c-bounces@lists.infradead.org>
 Errors-To: linux-i3c-bounces+lists+linux-i3c=lfdr.de@lists.infradead.org
 
-From: Vitor Soares <vitor.soares@synopsys.com>
-
-For today the reattach function only update the device address on the
-controller.
-
-Update the location to the first available too, will optimize the
-enumeration process avoiding additional checks to keep the available
-positions on address table consecutive.
-
-Signed-off-by: Vitor Soares <vitor.soares@synopsys.com>
-Reviewed-by: Boris Brezillon <boris.brezillon@collabora.com>
-Signed-off-by: Przemyslaw Gaj <pgaj@cadence.com>
----
-Change in v3:
-  - None
-
-Change in v2:
-  - Add Boris rb-tag
----
- drivers/i3c/master/dw-i3c-master.c | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
-
-diff --git a/drivers/i3c/master/dw-i3c-master.c b/drivers/i3c/master/dw-i3c-master.c
-index b0ff0e12d84c..c6caba39a34b 100644
---- a/drivers/i3c/master/dw-i3c-master.c
-+++ b/drivers/i3c/master/dw-i3c-master.c
-@@ -899,6 +899,22 @@ static int dw_i3c_master_reattach_i3c_dev(struct i3c_dev_desc *dev,
- 	struct dw_i3c_i2c_dev_data *data = i3c_dev_get_master_data(dev);
- 	struct i3c_master_controller *m = i3c_dev_get_master(dev);
- 	struct dw_i3c_master *master = to_dw_i3c_master(m);
-+	int pos;
-+
-+	pos = dw_i3c_master_get_free_pos(master);
-+
-+	if (data->index > pos && pos > 0) {
-+		writel(0,
-+		       master->regs +
-+		       DEV_ADDR_TABLE_LOC(master->datstartaddr, data->index));
-+
-+		master->addrs[data->index] = 0;
-+		master->free_pos |= BIT(data->index);
-+
-+		data->index = pos;
-+		master->addrs[pos] = dev->info.dyn_addr;
-+		master->free_pos &= ~BIT(pos);
-+	}
- 
- 	writel(DEV_ADDR_TABLE_DYNAMIC_ADDR(dev->info.dyn_addr),
- 	       master->regs +
--- 
-2.14.0
-
-
-_______________________________________________
-linux-i3c mailing list
-linux-i3c@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-i3c
+T24gVHVlLCAxMCBEZWMgMjAxOSAxMToxNDo1OCArMDEwMApQcnplbXlzxYJhdyBHYWogPHBnYWpA
+Y2FkZW5jZS5jb20+IHdyb3RlOgoKPiBJdCBtYXkgYmUgdGhlIGNhc2UgdGhhdCBTRVREQVNBIGZh
+aWxzIGZvciBzb21lIHJlYXNvbi4gUmVzZXJ2ZQo+IC0+aW5pdF9keW5fYWRkciB3aGVuIGl0J3Mg
+ZGVmaW5lZCB0byBwcmV2ZW50IGFzc2lnbmluZyB0aGlzIGFkZHJlc3MgIAo+IHRvIGFub3RoZXIg
+c2xhdmUgZGV2aWNlLiBUaGlzIHdheSB3aGVuIGRldmljZSBzaG93cyB1cCB3ZSBkb24ndAo+IGhh
+dmUgdG8gcmUtYXNzaWduIGFkZHJlc3Nlcy4KPiAKPiBTaWduZWQtb2ZmLWJ5OiBQcnplbXlzxYJh
+dyBHYWogPHBnYWpAY2FkZW5jZS5jb20+Cj4gLS0tCj4gIGRyaXZlcnMvaTNjL21hc3Rlci5jIHwg
+OCArKysrKysrLQo+ICAxIGZpbGUgY2hhbmdlZCwgNyBpbnNlcnRpb25zKCspLCAxIGRlbGV0aW9u
+KC0pCj4gCj4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvaTNjL21hc3Rlci5jIGIvZHJpdmVycy9pM2Mv
+bWFzdGVyLmMKPiBpbmRleCA1YzA2YzQxZTY2NjAuLmZhYjZlMDYwOWZjYSAxMDA3NTUKPiAtLS0g
+YS9kcml2ZXJzL2kzYy9tYXN0ZXIuYwo+ICsrKyBiL2RyaXZlcnMvaTNjL21hc3Rlci5jCj4gQEAg
+LTEyNjMsNyArMTI2Myw4IEBAIHN0YXRpYyB2b2lkIGkzY19tYXN0ZXJfcHV0X2kzY19hZGRycyhz
+dHJ1Y3QgaTNjX2Rldl9kZXNjICpkZXYpCj4gIAkJCQkJICAgICBJM0NfQUREUl9TTE9UX0ZSRUUp
+Owo+ICAKPiAgCWlmIChkZXYtPmJvYXJkaW5mbyAmJiBkZXYtPmJvYXJkaW5mby0+aW5pdF9keW5f
+YWRkcikKPiAtCQlpM2NfYnVzX3NldF9hZGRyX3Nsb3Rfc3RhdHVzKCZtYXN0ZXItPmJ1cywgZGV2
+LT5pbmZvLmR5bl9hZGRyLAo+ICsJCWkzY19idXNfc2V0X2FkZHJfc2xvdF9zdGF0dXMoJm1hc3Rl
+ci0+YnVzLAo+ICsJCQkJCSAgICAgZGV2LT5ib2FyZGluZm8tPmluaXRfZHluX2FkZHIsCj4gIAkJ
+CQkJICAgICBJM0NfQUREUl9TTE9UX0ZSRUUpOwoKU2hvdWxkIGJlIGZpeGVkIGluIGEgc2VwYXJh
+dGUgcGF0Y2gsIG9yIGF0IGxlYXN0IG1lbnRpb25lZCBpbiB0aGUKY29tbWl0IG1lc3NhZ2UuCgo+
+ICB9Cj4gIAo+IEBAIC0xNjc1LDYgKzE2NzYsMTEgQEAgc3RhdGljIGludCBpM2NfbWFzdGVyX2J1
+c19pbml0KHN0cnVjdCBpM2NfbWFzdGVyX2NvbnRyb2xsZXIgKm1hc3RlcikKPiAgCQkJCXJldCA9
+IC1FQlVTWTsKPiAgCQkJCWdvdG8gZXJyX2RldGFjaF9kZXZzOwo+ICAJCQl9Cj4gKwo+ICsJCQkv
+KiBSZXNlcnZlIHRoZSBzbG90LiAqLwo+ICsJCQlpM2NfYnVzX3NldF9hZGRyX3Nsb3Rfc3RhdHVz
+KCZtYXN0ZXItPmJ1cywKPiArCQkJCQkJICAgICBpM2Nib2FyZGluZm8tPmluaXRfZHluX2FkZHIs
+Cj4gKwkJCQkJCSAgICAgSTNDX0FERFJfU0xPVF9JM0NfREVWKTsKCkxvb2tzIGxpa2UgdGhlICJy
+ZXNlcnZlL3JlbGVhc2UgaW5pdF9keW5fYWRkciBzbG90IiBsb2dpYyBpcwphc3ltbWV0cmljLiBJ
+IHdvbmRlciBpZiB0aGF0J3Mgbm90IGEgcHJvYmxlbS4gQ2FuJ3Qgd2UgZW5kIHVwIGluIGEKc2l0
+dWF0aW9uIHdoZXJlIHRoZSAtPmluaXRfZHluX2FkZHIgaXMgcmVsZWFzZWQgKHdoZW4gU0VUREFT
+QSgpIGZhaWxzKQphbmQgdGhlbiByZS11c2VkIHdpdGhvdXQgYmVpbmcgcmVzZXJ2ZWQgKHdoZW4g
+dGhlIGRldmljZSBpcyBsYXRlcgpkaXNjb3ZlcmVkIHRocm91Z2ggYSByZWd1bGFyIERBQSk/CgpT
+byBtYXliZSBJIHdhcyB3cm9uZyBhbmQgd2Ugc2hvdWxkIGluZGVlZCByZXNlcnZlIHRoZSBhZGRy
+ZXNzIGluIHRoZQppM2NfbWFzdGVyX2dldF9pM2NfYWRkcnMoKSBwYXRoLgoKPiAgCQl9Cj4gIAo+
+ICAJCWkzY2RldiA9IGkzY19tYXN0ZXJfYWxsb2NfaTNjX2RldihtYXN0ZXIsICZpbmZvKTsKCgpf
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1pM2Mg
+bWFpbGluZyBsaXN0CmxpbnV4LWkzY0BsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5p
+bmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtaTNjCg==
