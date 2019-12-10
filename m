@@ -2,53 +2,53 @@ Return-Path: <linux-i3c-bounces+lists+linux-i3c=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-i3c@lfdr.de
 Delivered-To: lists+linux-i3c@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 122781184A5
-	for <lists+linux-i3c@lfdr.de>; Tue, 10 Dec 2019 11:15:51 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 68BAC1184A8
+	for <lists+linux-i3c@lfdr.de>; Tue, 10 Dec 2019 11:15:57 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6S2dMaU4+8YKbG6vRL/MU50LftMqHc7QOb7rMriL4Ug=; b=MYH2p8lXrkjk9b
-	+slwTdGoii0hFpnle/be1Gm6DKVs8q5hn/TWk7uv26uXNDqXXdk47eLpwHuQHG3hKhEwHtc3xD8to
-	DM9IdX9n9lQ8WhmTAmdvosYovmX6KTX8Y66sFoSQbrMVFzD19MNkGFbQIry9f1FxCwcFcJXRvZHzn
-	6cX2sB1+PAPm0AUtOxTg9ZomgvIsl9rIvKv+2KVd9DwHdqoBncwzaxSAaNH+R810LaUgV/jWe6vLE
-	isE+r8TYgbsjiZFGjEd8O8BgM2tlsreQXli+xcqzwsXrhBIpwhLCtjI7jQ5du+N+RcwBNxPLe0WTX
-	ePClB5c9jmLFlTTuhhvQ==;
+	List-Owner; bh=DX7fHh+zaUvRBxjjIgynXC3tC/v5ICuFGpNEDRq4OzU=; b=Oqn+3DHCAy2l+o
+	k52/zCnwK/fATAQGpSLdWM6v64OmUSJcd3twSoKGMEB6ldUIzljWaZWMD+X40Cb5C3oxWW+PFtM1o
+	XaYFPjk6lfXu/IYu1lsk/A6EE6sno9xH/cw1JvpkL3aw5BAtMPR6OWRCPE3+DBLU4oACjuTOOvCQx
+	O3uPQSMjgndNjNnl6uVlnHtwOuAANnHfNSuLT+5Szt1b/gh+O5Frw2kgSj1SlgS31SCKNk7ITy5GR
+	pFgXHUheGQ3MYepSfFbJJBmXOf8kNXnQhC+3W8qpmHk9RvJAz+6OCU0Xq5CrNPZD5JAolGeBNG7xF
+	jxOsbJpRlIkBcRmJzhnw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iecYX-00084w-Rp
-	for lists+linux-i3c@lfdr.de; Tue, 10 Dec 2019 10:15:49 +0000
+	id 1iecYe-00086q-73
+	for lists+linux-i3c@lfdr.de; Tue, 10 Dec 2019 10:15:56 +0000
 Received: from mx0a-0014ca01.pphosted.com ([208.84.65.235])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iecYV-00083x-Ea
- for linux-i3c@lists.infradead.org; Tue, 10 Dec 2019 10:15:48 +0000
+ id 1iecYa-000866-KY
+ for linux-i3c@lists.infradead.org; Tue, 10 Dec 2019 10:15:54 +0000
 Received: from pps.filterd (m0042385.ppops.net [127.0.0.1])
  by mx0a-0014ca01.pphosted.com (8.16.0.42/8.16.0.42) with SMTP id
- xBAADLgJ025727; Tue, 10 Dec 2019 02:15:46 -0800
+ xBAADMkr025733; Tue, 10 Dec 2019 02:15:52 -0800
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cadence.com;
  h=from : to : cc :
  subject : date : message-id : in-reply-to : references : mime-version :
- content-type : content-transfer-encoding; s=proofpoint;
- bh=cq2c7r/7isRzyQQWckpwBeP7eb7dRAANXAltrpO4BAI=;
- b=fwnGCMYqCgzg+GZ1GDN5EyHVOXp1xsFYTJhWfQbRgOhekpTkO2oEIZEis+n2kMCjAjp9
- rWpsU8YR5kqydBH6IwY3R6pZUmzDqKzZxiqREpKhozNAbB8eEjIVYSb0lm7iSoY2mWkh
- DwSKYAk2+q/XKSA3AnfGNQn1OyQpB24G/idBvLVQD5yIbpc7mE5KvSkyRUXCVVyk0Kov
- rWATLgWPxk2REq2SCV8F473nggkGiYZfyDj81ZLKnvPAgI3PKlxupFpgJxSDGMBQcAC9
- 3W0eErluZaGc7SC0BgU5rpObaNnamauWUBQn+DbiTiaqFD2rU3N5MEqeqx7cbCIXtkKd JA== 
+ content-type; s=proofpoint;
+ bh=jaZGmfWsFPbrET/I1a85oqYsC7ry6HboZ0lDypFg0kQ=;
+ b=i7i4uVu+h7ZeCmoY6m2AJyB7epn+R2+jH8zmnqTIR09bjvdGXjhiJgrRi73BYX5vtdyS
+ xYdSAy+s0OvQ/AV1WBfwU4V0iiDCTxfUPG9EkzJvLItkNs9kldRNcplaiscVC5BeaiCw
+ Rb35Ar2TLOGWzgrsEYHz27NoOHSKX1pNYQUqlOR/gPXtCV2kRNeAhTyvSJNzhUma6JJG
+ ymT9ythV7Sf/awBwyKJCILhnqEu3VWFk88LnYNxV8G2bVq15cUM0VLnR21/kJ7Yvb/mL
+ /ykchL1ISk8VPOWx+PABnOv/dSHX/pUtoB+Ic7bpqSkt9n+3erhntQLYKYKXXDxlIXGm Zw== 
 Received: from nam02-bl2-obe.outbound.protection.outlook.com
- (mail-bl2nam02lp2053.outbound.protection.outlook.com [104.47.38.53])
- by mx0a-0014ca01.pphosted.com with ESMTP id 2wra709bnh-1
+ (mail-bl2nam02lp2052.outbound.protection.outlook.com [104.47.38.52])
+ by mx0a-0014ca01.pphosted.com with ESMTP id 2wra709bnu-1
  (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
- Tue, 10 Dec 2019 02:15:46 -0800
+ Tue, 10 Dec 2019 02:15:51 -0800
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=GhO1W2dUD0dMgYoQPZxJkvNCtprw4OcBI5vTU5XJIApVhgyb42KnoqXKTajEtuj9Egwn6RVBV/Hu5TM7BwIeWB6jYP+ZN2Ho+cEh9Lwd2FKtq+Xi8cx08MDzqlfFvmk0XDGOwI6HavipKDC9Np6RuFYh/Xer9tHKJ+9hRS6kdu5CLulR72Ppz89nMEqu3qeEG+VJRk/tHGIYf8d2QfpLU2ry9wJj9dctlnHNWv6ZS5/0F5txzixEkWLyxXy75c565uHxs1LDUJMEyn0UoA3E83aEVl0CFZ+kLeKBSGhCBo0/KnSSP3TPmuCqVLH22EcVZBu6EIWGhli85PvMjQuZCA==
+ b=mg2b49Cb90ttH+a6L51uwmARhYL7yEEpMv/KKmwQY3ruLb+4fWCyqAc5BHdfkmW42RHrHI9d7CvNj5LQfctnawOgtnKsSGlTn0uR+xJdPBfySiPj0GXTtHenmmiVMt6LR7ru2N/2is+3ur5kS6lRMaGcU6L6Emf72jeknW0uWa/LUErwfylzDUUPUIyi6RyCqTdr3Ls9qH5PwLvPlhCaOpq84Hc3SYRunuDXvRd8cpzTyQk2K91NhtnkCGqESqupqFo+A6gohjSgHpIuLOffPXfZu1C8IwoRn0eSj4lbnHau+OOP4nr4XYSFY1PDsCilTvQ8rEnIxcIuRLXhNmUqvw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=cq2c7r/7isRzyQQWckpwBeP7eb7dRAANXAltrpO4BAI=;
- b=LIlf1ioXBs6snznayAz3h6rruMuI1YhmFWKlXv8zzTjYfMw54l+JwRCtawoPB0Ken5hanpmWd2L/kzbUN90QfwCvh7cZ3ckE8dfhANqN2MtNeUcJjmrDp67PdgJbQrKzRKc8uW9VcuStl41gutyCBzYxoARDaOiZuPEVe0sjKU1W3aIt3zTvEUIRdbrEVF1OWH0bKBCsND9tsbRm4qOuopTwe9rb7VSZXAZN+ydcBoOZMSIxXvq2/PQlU0fSamsgXa2tvwZHMAtBjOZkifxtu/7KHrswgDkdKy6BSYCjY0UJRSoP3cbxXDFlCn4+Zc4bcKy0NIdhJHctG3VMA0lujQ==
+ bh=jaZGmfWsFPbrET/I1a85oqYsC7ry6HboZ0lDypFg0kQ=;
+ b=Y3+rx4/UMC5Rcxbp5b0Uh4aZccvbgWGr+unnblvpdeTRIhDzlToBWEsoCfnTDMelGF7MRFVUd22Jex9yq003nFthTHhBgLoIhAuGoSMo5aWA0i5XpltAsX8dja8ycSjUbkTgKJYxIY+szjYXPjIoWkNWgd2BJk4pLFMtm4XZuv6GkM9blh6EOMZC6W2P4n566MqYzqVrZG93xRH2vJAk9gaDSN4erNw77pENVOBeCZOcfaS1sUsyNLxQKnDRAicSu1eStjA0zp4Er7cqhcaKOIdMGxTXL95i4s4jR4fnamC8NDLnWBAOv2+jX3gbJcIiPNfARFtAextW3k0W4TuVeg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  64.207.220.243) smtp.rcpttodomain=kernel.org smtp.mailfrom=cadence.com;
  dmarc=pass (p=none sp=none pct=100) action=none header.from=cadence.com;
@@ -56,49 +56,49 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cadence.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=cq2c7r/7isRzyQQWckpwBeP7eb7dRAANXAltrpO4BAI=;
- b=4iA3svFTqlp8wFZmzJBRQ3Ay4C26g4W5moEqiLF6PfIgy2u//dWlKUG7it6Wm4ni+EgjwUn0dRaE7OB4KjU5qobdfcOrJxXrHUswgvAbod75e6/ZHViaNfATHsi/DMTZmB3yCj1uG1fPdwfYYom9YGzGiR8C6s2x6B6c2buWWas=
-Received: from BYAPR07CA0042.namprd07.prod.outlook.com (2603:10b6:a03:60::19)
- by BY5PR07MB6627.namprd07.prod.outlook.com (2603:10b6:a03:1af::26)
+ bh=jaZGmfWsFPbrET/I1a85oqYsC7ry6HboZ0lDypFg0kQ=;
+ b=pDDAB95zJJSe79ZJzG637GKAj2Gqqf1CeCNw9zlhfkOCgohhf5R0E7qgGYRkstJMCeHs4FsmOk58tpj/19C2wyTKrjA7ct33yy4A0gMfx8EnSzIBL1t/bQnxiNTCvcEd/CO70FNC1ViEaVUo46GRH1ic00lruxnJsETsAgkIWTE=
+Received: from CH2PR07CA0016.namprd07.prod.outlook.com (2603:10b6:610:20::29)
+ by SN6PR07MB4463.namprd07.prod.outlook.com (2603:10b6:805:5a::25)
  with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.2516.14; Tue, 10 Dec
- 2019 10:15:44 +0000
-Received: from DM6NAM12FT027.eop-nam12.prod.protection.outlook.com
- (2a01:111:f400:fe59::209) by BYAPR07CA0042.outlook.office365.com
- (2603:10b6:a03:60::19) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.2516.17; Tue, 10 Dec
+ 2019 10:15:42 +0000
+Received: from BN8NAM12FT051.eop-nam12.prod.protection.outlook.com
+ (2a01:111:f400:fe5b::203) by CH2PR07CA0016.outlook.office365.com
+ (2603:10b6:610:20::29) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.2516.12 via Frontend
- Transport; Tue, 10 Dec 2019 10:15:44 +0000
+ Transport; Tue, 10 Dec 2019 10:15:42 +0000
 Received-SPF: Pass (protection.outlook.com: domain of cadence.com designates
  64.207.220.243 as permitted sender) receiver=protection.outlook.com;
  client-ip=64.207.220.243; helo=wcmailrelayl01.cadence.com;
 Received: from wcmailrelayl01.cadence.com (64.207.220.243) by
- DM6NAM12FT027.mail.protection.outlook.com (10.13.178.149) with Microsoft SMTP
+ BN8NAM12FT051.mail.protection.outlook.com (10.13.182.230) with Microsoft SMTP
  Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
  15.20.2495.18 via Frontend Transport; Tue, 10 Dec 2019 10:15:41 +0000
 Received: from maileu3.global.cadence.com (maileu3.cadence.com [10.160.88.99])
  by wcmailrelayl01.cadence.com (8.14.7/8.14.4) with ESMTP id
- xBAAFZPL102957
+ xBAAFZPM102957
  (version=TLSv1/SSLv3 cipher=ECDHE-RSA-AES256-SHA384 bits=256 verify=OK);
- Tue, 10 Dec 2019 02:15:37 -0800
+ Tue, 10 Dec 2019 02:15:38 -0800
 X-CrossPremisesHeadersFilteredBySendConnector: maileu3.global.cadence.com
 Received: from maileu3.global.cadence.com (10.160.88.99) by
  maileu3.global.cadence.com (10.160.88.99) with Microsoft SMTP Server (TLS) id
- 15.0.1367.3; Tue, 10 Dec 2019 11:15:35 +0100
+ 15.0.1367.3; Tue, 10 Dec 2019 11:15:37 +0100
 Received: from vleu-orange.cadence.com (10.160.88.83) by
  maileu3.global.cadence.com (10.160.88.99) with Microsoft SMTP Server (TLS) id
- 15.0.1367.3 via Frontend Transport; Tue, 10 Dec 2019 11:15:35 +0100
+ 15.0.1367.3 via Frontend Transport; Tue, 10 Dec 2019 11:15:37 +0100
 Received: from vleu-orange.cadence.com (localhost.localdomain [127.0.0.1])
- by vleu-orange.cadence.com (8.14.4/8.14.4) with ESMTP id xBAAFZhH009301;
- Tue, 10 Dec 2019 11:15:35 +0100
+ by vleu-orange.cadence.com (8.14.4/8.14.4) with ESMTP id xBAAFbDk009306;
+ Tue, 10 Dec 2019 11:15:37 +0100
 Received: (from pgaj@localhost)
- by vleu-orange.cadence.com (8.14.4/8.14.4/Submit) id xBAAFZIF009300;
- Tue, 10 Dec 2019 11:15:35 +0100
+ by vleu-orange.cadence.com (8.14.4/8.14.4/Submit) id xBAAFbCX009305;
+ Tue, 10 Dec 2019 11:15:37 +0100
 From: =?UTF-8?q?Przemys=C5=82aw=20Gaj?= <pgaj@cadence.com>
 To: <bbrezillon@kernel.org>
-Subject: [PATCH v4 3/6] i3c: master: make sure the PID is set before
- registering the device
-Date: Tue, 10 Dec 2019 11:14:59 +0100
-Message-ID: <20191210101502.8401-4-pgaj@cadence.com>
+Subject: [PATCH v4 4/6] dt-bindings: i3c: Make 'assigned-address' valid if
+ static address == 0
+Date: Tue, 10 Dec 2019 11:15:00 +0100
+Message-ID: <20191210101502.8401-5-pgaj@cadence.com>
 X-Mailer: git-send-email 2.14.0
 In-Reply-To: <20191210101502.8401-1-pgaj@cadence.com>
 References: <20191210101502.8401-1-pgaj@cadence.com>
@@ -107,26 +107,26 @@ X-OrganizationHeadersPreserved: maileu3.global.cadence.com
 X-EOPAttributedMessage: 0
 X-Forefront-Antispam-Report: CIP:64.207.220.243; IPV:NLI; CTRY:US; EFV:NLI;
  SFV:NSPM;
- SFS:(10009020)(4636009)(376002)(136003)(346002)(39860400002)(396003)(36092001)(199004)(189003)(426003)(336012)(6916009)(86362001)(356004)(6666004)(478600001)(2616005)(36756003)(5820100001)(107886003)(1076003)(4326008)(8676002)(4744005)(316002)(26005)(186003)(54906003)(81156014)(81166006)(8936002)(5660300002)(36906005)(70586007)(70206006)(66574012)(2870700001)(2906002)(42186006);
- DIR:OUT; SFP:1101; SCL:1; SRVR:BY5PR07MB6627; H:wcmailrelayl01.cadence.com;
- FPR:; SPF:Pass; LANG:en; PTR:ErrorRetry; A:1; MX:1; 
+ SFS:(10009020)(4636009)(39860400002)(346002)(136003)(376002)(396003)(36092001)(189003)(199004)(1076003)(86362001)(107886003)(42186006)(316002)(36906005)(5660300002)(2616005)(70206006)(8676002)(186003)(356004)(6916009)(70586007)(6666004)(81166006)(426003)(2906002)(8936002)(36756003)(4326008)(81156014)(336012)(478600001)(26005)(54906003);
+ DIR:OUT; SFP:1101; SCL:1; SRVR:SN6PR07MB4463; H:wcmailrelayl01.cadence.com;
+ FPR:; SPF:Pass; LANG:en; PTR:unused.mynethost.com; MX:1; A:1; 
 X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: fc27ec37-8af6-40db-4bbc-08d77d59e955
-X-MS-TrafficTypeDiagnostic: BY5PR07MB6627:
-X-Microsoft-Antispam-PRVS: <BY5PR07MB6627CAF760D90A04FCABF246C25B0@BY5PR07MB6627.namprd07.prod.outlook.com>
-X-MS-Oob-TLC-OOBClassifiers: OLM:4714;
+X-MS-Office365-Filtering-Correlation-Id: 71ed7941-c919-420a-7e40-08d77d59e960
+X-MS-TrafficTypeDiagnostic: SN6PR07MB4463:
+X-Microsoft-Antispam-PRVS: <SN6PR07MB44631C3FE3225FED9F672350C25B0@SN6PR07MB4463.namprd07.prod.outlook.com>
+X-MS-Oob-TLC-OOBClassifiers: OLM:2399;
 X-Forefront-PRVS: 02475B2A01
 X-MS-Exchange-SenderADCheck: 1
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: R0Yd4Ln1oxdlb61KnQ4UVU8/3r4EfWZAVpE8l76KBc3BkvquiVvWBgvkkgjdAwQZ1SdqJyBn6knQUJdJhgQYuJU2JAZU58OCCTi61ho90clDarNB7PkBRo6qn5H8Dj0gFEHB1zGT1xE8Qmp+CUqoOGVohmqnnlxcJw3aH3214BocBBRxmGiM90Cnp0jDoPIrhhYPNJZQxwfF3CxL+jqKTVUSmvlms8R4GY3MmSnqSiYvY65RVnmiMd/G3VXGRSkDMILxm6F/wtWtdx9irYYTDoCZ8XxJtLa1K3rEpWQ3aHCR8xWxYagZxfy2tXLEtqm5sEKjioX5U4CM56yp/M1qq24ly1Pp4r1IRqGehoqdko9/LoDt5ws5M+qsP5yZVQcTWNZQGu0C2iR+knxEDGVtTOztt2SRblbgR+jKeQn7Xp+LEynr2wVl86VpaLRzfpI3iJYvVrzg8id1LOHD8IE+94PY823VvaxQC23Ikr46wi8abkdioQGvD5aI3Ger0dkq
+X-Microsoft-Antispam-Message-Info: kyzRjKAqAyL5gk77HehV+gUVCZpe+5JDP0+y20f+HQie2j31roQ1p2+pqqGu1qY3dUuxaarKET6GcC5ipmGcjO2/7jq9okKDwRSlQH4nmIpE7/aZNWummYnH6XUIe2l3sfchyQPxGMRys1rfGJXGZZ+2nr4TLKPLh9Ippld3wznBmGStDGZHZi4g5yI8KqT2j1Jjan/jsnzsE+sdJA3LP2CssjD5SeN//oQBbFosuE0HjaEqQaNBeLFzUqMhLczYh06zIxa4/pvkvlzrXr10UgFHBbl5vTHK+tY7+CLeLdzY1kieuofQf8I78urNY5r8HdLjquTcJ56CWab/oRoc4dMvmMlsgd9L09NVi/LrXeoX+pKCWWuIhcbDFGB/gp4Wb9NxqI+2UOpj3Ty3cyekxVBB2JbvX3e518Chjv4fboshAmALFC7xIjTXi/QzT9If7IYbBPpjeQs2qblEVcf792FI+cVF8kuEeWt3++GxHTXJ5aIAxEf/l7odD9wI2GLS
 X-OriginatorOrg: cadence.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Dec 2019 10:15:41.3324 (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: fc27ec37-8af6-40db-4bbc-08d77d59e955
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Dec 2019 10:15:41.3815 (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 71ed7941-c919-420a-7e40-08d77d59e960
 X-MS-Exchange-CrossTenant-Id: d36035c5-6ce6-4662-a3dc-e762e61ae4c9
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=d36035c5-6ce6-4662-a3dc-e762e61ae4c9; Ip=[64.207.220.243];
  Helo=[wcmailrelayl01.cadence.com]
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR07MB6627
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN6PR07MB4463
 X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.95,18.0.572
  definitions=2019-12-10_01:2019-12-10,2019-12-10 signatures=0
 X-Proofpoint-Spam-Details: rule=outbound_check_notspam policy=outbound_check
@@ -136,8 +136,8 @@ X-Proofpoint-Spam-Details: rule=outbound_check_notspam policy=outbound_check
  clxscore=1015 spamscore=0 classifier=spam adjust=0 reason=mlx scancount=1
  engine=8.12.0-1910280000 definitions=main-1912100090
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191210_021547_490477_D4DEEFB6 
-X-CRM114-Status: GOOD (  11.47  )
+X-CRM114-CacheID: sfid-20191210_021553_182886_68CFBB65 
+X-CRM114-Status: GOOD (  13.36  )
 X-Spam-Score: -0.9 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (-0.9 points)
@@ -165,29 +165,70 @@ List-Post: <mailto:linux-i3c@lists.infradead.org>
 List-Help: <mailto:linux-i3c-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-i3c>,
  <mailto:linux-i3c-request@lists.infradead.org?subject=subscribe>
-Cc: linux-i3c@lists.infradead.org,
- =?UTF-8?q?Przemys=C5=82aw=20Gaj?= <pgaj@cadence.com>, rafalc@cadence.com,
- vitor.soares@synopsys.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: linux-i3c@lists.infradead.org, Przemyslaw Gaj <pgaj@cadence.com>,
+ rafalc@cadence.com, vitor.soares@synopsys.com
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-i3c" <linux-i3c-bounces@lists.infradead.org>
 Errors-To: linux-i3c-bounces+lists+linux-i3c=lfdr.de@lists.infradead.org
 
-SWYgU0VUREFTQSBmYWlsZWQgZm9yIHNvbWUgcmVhc29uIG9yIFByb3Zpc2lvbmVkIElEIChQSUQp
-IHJldHJpZXZhbApmYWlsZWQgUElEIG1heSBub3QgYmUgc2V0LiBDaGVjayB0aGF0IGNvbmRpdGlv
-biBiZWZvcmUgcmVnaXN0ZXJpbmcKdGhlIGRldmljZS4KClNpZ25lZC1vZmYtYnk6IFByemVteXPF
-gmF3IEdhaiA8cGdhakBjYWRlbmNlLmNvbT4KLS0tCiBkcml2ZXJzL2kzYy9tYXN0ZXIuYyB8IDMg
-KystCiAxIGZpbGUgY2hhbmdlZCwgMiBpbnNlcnRpb25zKCspLCAxIGRlbGV0aW9uKC0pCgpkaWZm
-IC0tZ2l0IGEvZHJpdmVycy9pM2MvbWFzdGVyLmMgYi9kcml2ZXJzL2kzYy9tYXN0ZXIuYwppbmRl
-eCBmYWI2ZTA2MDlmY2EuLjRiM2QxYzBmNzc4ZCAxMDA3NTUKLS0tIGEvZHJpdmVycy9pM2MvbWFz
-dGVyLmMKKysrIGIvZHJpdmVycy9pM2MvbWFzdGVyLmMKQEAgLTE0NTAsNyArMTQ1MCw4IEBAIGkz
-Y19tYXN0ZXJfcmVnaXN0ZXJfbmV3X2kzY19kZXZzKHN0cnVjdCBpM2NfbWFzdGVyX2NvbnRyb2xs
-ZXIgKm1hc3RlcikKIAkJcmV0dXJuOwogCiAJaTNjX2J1c19mb3JfZWFjaF9pM2NkZXYoJm1hc3Rl
-ci0+YnVzLCBkZXNjKSB7Ci0JCWlmIChkZXNjLT5kZXYgfHwgIWRlc2MtPmluZm8uZHluX2FkZHIg
-fHwgZGVzYyA9PSBtYXN0ZXItPnRoaXMpCisJCWlmIChkZXNjLT5kZXYgfHwgIWRlc2MtPmluZm8u
-ZHluX2FkZHIgfHwKKwkJICAgIGRlc2MgPT0gbWFzdGVyLT50aGlzIHx8ICFkZXNjLT5pbmZvLnBp
-ZCkKIAkJCWNvbnRpbnVlOwogCiAJCWRlc2MtPmRldiA9IGt6YWxsb2Moc2l6ZW9mKCpkZXNjLT5k
-ZXYpLCBHRlBfS0VSTkVMKTsKLS0gCjIuMTQuMAoKCl9fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fCmxpbnV4LWkzYyBtYWlsaW5nIGxpc3QKbGludXgtaTNjQGxp
-c3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0
-aW5mby9saW51eC1pM2MK
+From: Vitor Soares <vitor.soares@synopsys.com>
+
+The I3C devices without a static address can require a specific dynamic
+address for priority reasons.
+
+Let's update the binding document to make the 'assigned-address' property
+valid if static address == 0 and add an example with this use case.
+
+Signed-off-by: Vitor Soares <vitor.soares@synopsys.com>
+Reviewed-by: Rob Herring <robh@kernel.org>
+Signed-off-by: Przemyslaw Gaj <pgaj@cadence.com>
+---
+Change in v3:
+  - Add Rob rb-tag
+
+Change in v2:
+  - Fix typo in commit message
+---
+ Documentation/devicetree/bindings/i3c/i3c.txt | 13 ++++++++++---
+ 1 file changed, 10 insertions(+), 3 deletions(-)
+
+diff --git a/Documentation/devicetree/bindings/i3c/i3c.txt b/Documentation/devicetree/bindings/i3c/i3c.txt
+index 4ffe059f0fec..7fee9b4dfba0 100644
+--- a/Documentation/devicetree/bindings/i3c/i3c.txt
++++ b/Documentation/devicetree/bindings/i3c/i3c.txt
+@@ -100,9 +100,7 @@ Required properties
+ 
+ Optional properties
+ -------------------
+-- assigned-address: dynamic address to be assigned to this device. This
+-		    property is only valid if the I3C device has a static
+-		    address (first cell of the reg property != 0).
++- assigned-address: dynamic address to be assigned to this device.
+ 
+ 
+ Example:
+@@ -129,6 +127,15 @@ Example:
+ 			assigned-address = <0xa>;
+ 		};
+ 
++		/*
++		 * I3C device without a static I2C address but requiring
++		 * specific dynamic address.
++		 */
++		sensor@0,39200154004 {
++			reg = <0x0 0x6072 0x303904d2>;
++			assigned-address = <0xb>;
++		};
++
+ 		/*
+ 		 * I3C device without a static I2C address but requiring
+ 		 * resources described in the DT.
+-- 
+2.14.0
+
+
+_______________________________________________
+linux-i3c mailing list
+linux-i3c@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-i3c
