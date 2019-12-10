@@ -2,7 +2,7 @@ Return-Path: <linux-i3c-bounces+lists+linux-i3c=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-i3c@lfdr.de
 Delivered-To: lists+linux-i3c@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2765212172F
+	by mail.lfdr.de (Postfix) with ESMTPS id 4EA21121730
 	for <lists+linux-i3c@lfdr.de>; Mon, 16 Dec 2019 19:36:10 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
@@ -10,75 +10,75 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oFepdsAyugvwBOFq44LljjD4HEvYzg+1efz0VZMNEls=; b=ifttC3dt2HIt8f
-	u7c/VC9cQYPbelrP3Upc807rmx+REpZYCPZOborqreL2e2E+KB+KraNo5YtdmZBRWjvx0kWUyy1IJ
-	34kMn+a5ZBAVqlRAiImdC0GF4P2HLxhX3QAsRKDGBcgEECs/ZEqMOiEdh6/szb1kZEh/NG4cIhrZV
-	2e3Am+Y+UvpeykBEJOyjUtzMk5qU1os+k1wmJrybfZZa+XtjT33GlLIKGm4ItGMzEc2f0slqci/hr
-	1ItnkAlxT9qYgviucQH4e+W1rc81TYFBYtffO80N475lHbj3rYU4kgJgc1S0I3FEq1tr+7XXdGjCM
-	p3U3qCfmcjzA3JkUQlMA==;
+	List-Owner; bh=mS7sZmkmqrPZ2XHPH4iZLVJavRBrh9xOYJZ464/z5Ss=; b=Uo4m9jRVAX9At5
+	5YsYf1E2+q1z7lq0cQhsd0UffBwBk502fpAtNSBnOLCxTPLBQhseAf0DQ63rEjR9SjC7Lf/s1aTct
+	Ge3SHX8jAkupPvdjnCxA0gm50tJYwl0NyAQ7frz9sO9rL8oIb8W51P4oWtCdSWb7hydwUMN3C/KVZ
+	fRnWQJtNaiyyO+pWY7sBOGGQPMGY1hG6qkuAWmewYQqWpI3mU91hIVhKVEaeJa1Z+uLue2Xkh98xx
+	wiVAAh85BGle4aQUf/Da+LeJnphc6gaROHRuo0UAakN/dg34KF2L6oR7dtW13HbYhzzdrvUcDA/3i
+	Dh+m6vmBnmNHJvfuok6Q==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1igvE0-0004gm-SH
+	id 1igvE0-0004gs-Vi
 	for lists+linux-i3c@lfdr.de; Mon, 16 Dec 2019 18:36:08 +0000
-Received: from mout.kundenserver.de ([217.72.192.75])
+Received: from mout.kundenserver.de ([212.227.126.131])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iejfd-0008Vn-OF
- for linux-i3c@lists.infradead.org; Tue, 10 Dec 2019 17:51:39 +0000
-Received: from mail-qk1-f169.google.com ([209.85.222.169]) by
- mrelayeu.kundenserver.de (mreue108 [212.227.15.145]) with ESMTPSA (Nemesis)
- id 1M8yoa-1ihTEL37TC-0067cp for <linux-i3c@lists.infradead.org>; Tue, 10 Dec
- 2019 18:51:31 +0100
-Received: by mail-qk1-f169.google.com with SMTP id d71so9201360qkc.0
- for <linux-i3c@lists.infradead.org>; Tue, 10 Dec 2019 09:51:31 -0800 (PST)
-X-Gm-Message-State: APjAAAXtQ5hxKg5Eyl9r1FadKsTqQV7RrmOPRpT06tWrCZ660GzO4B6P
- RvyBxh1bl12J318gQG2juWz8dFVUuP+11oILXgA=
-X-Google-Smtp-Source: APXvYqwLAiu3+p6iaDMl8EgpIoU3Zkljq9QMkI/BV/wvJWrCucp15nuCsyQOzr2eqfgSN1ubzhiRY5fsSG/rTWJnItM=
-X-Received: by 2002:a37:b283:: with SMTP id
- b125mr27668682qkf.352.1576000290527; 
- Tue, 10 Dec 2019 09:51:30 -0800 (PST)
+ id 1ielKC-0000Fo-3c
+ for linux-i3c@lists.infradead.org; Tue, 10 Dec 2019 19:37:37 +0000
+Received: from mail-qt1-f179.google.com ([209.85.160.179]) by
+ mrelayeu.kundenserver.de (mreue010 [212.227.15.129]) with ESMTPSA (Nemesis)
+ id 1MxV8b-1hpfpl3jkP-00xw5x for <linux-i3c@lists.infradead.org>; Tue, 10 Dec
+ 2019 20:37:33 +0100
+Received: by mail-qt1-f179.google.com with SMTP id w47so3905270qtk.4
+ for <linux-i3c@lists.infradead.org>; Tue, 10 Dec 2019 11:37:32 -0800 (PST)
+X-Gm-Message-State: APjAAAWBenenhqPrKDcZa6RvEzdrdcdZZmae4LHCjNRVQKCwMXVf8UY7
+ +SU80ZXq6sNRfAS+CApWK4bA8DTcEV0AmcneFhY=
+X-Google-Smtp-Source: APXvYqxu2OeX9OeaN2eHORjywFxaUKQM7SOvVqypu3yeViJF7xtud3Js32i7/ANuafpu2FsYOmXwowjE9fDD6LyQpj0=
+X-Received: by 2002:ac8:3a27:: with SMTP id w36mr31050677qte.204.1576006651717; 
+ Tue, 10 Dec 2019 11:37:31 -0800 (PST)
 MIME-Version: 1.0
 References: <cover.1575977795.git.vitor.soares@synopsys.com>
  <f9f20eaf900ed5629dd3d824bc1e90c7e6b4a371.1575977795.git.vitor.soares@synopsys.com>
-In-Reply-To: <f9f20eaf900ed5629dd3d824bc1e90c7e6b4a371.1575977795.git.vitor.soares@synopsys.com>
+ <CAK8P3a1cwoTbT3zsa-tfApwewDT1-ksHZs6_vkBYpKbgptsfjw@mail.gmail.com>
+ <CH2PR12MB4216E04995E421F04B7662DEAE5B0@CH2PR12MB4216.namprd12.prod.outlook.com>
+In-Reply-To: <CH2PR12MB4216E04995E421F04B7662DEAE5B0@CH2PR12MB4216.namprd12.prod.outlook.com>
 From: Arnd Bergmann <arnd@arndb.de>
-Date: Tue, 10 Dec 2019 18:51:14 +0100
-X-Gmail-Original-Message-ID: <CAK8P3a1cwoTbT3zsa-tfApwewDT1-ksHZs6_vkBYpKbgptsfjw@mail.gmail.com>
-Message-ID: <CAK8P3a1cwoTbT3zsa-tfApwewDT1-ksHZs6_vkBYpKbgptsfjw@mail.gmail.com>
+Date: Tue, 10 Dec 2019 20:37:14 +0100
+X-Gmail-Original-Message-ID: <CAK8P3a00wfUbGU1a9nS1dtDsUo1GR1V1WqRwa+DmUKVStvicTw@mail.gmail.com>
+Message-ID: <CAK8P3a00wfUbGU1a9nS1dtDsUo1GR1V1WqRwa+DmUKVStvicTw@mail.gmail.com>
 Subject: Re: [RFC 5/5] i3c: add i3cdev module to expose i3c dev in /dev
 To: Vitor Soares <Vitor.Soares@synopsys.com>
-X-Provags-ID: V03:K1:CTABn9enGe/pWh+5Gs0ObtaP+Fxge+cueJ/NMDcZxVjOEkzSV85
- m3vIh4YH/zDRwzp6kXXl4QsBSGgOxGer+SzL9wGq2OTl4oonYoxGEokisaX0Wkr71OV6+Hh
- RxxUl66tNT/KN5tvr/ALcjC4gBvBnIcklPsi0/f/DJh3J9CRjOJ1dRXUiDu4oUDJLfQq7Bj
- 6V/mEY6929zcj8zljqZRA==
+X-Provags-ID: V03:K1:AKQMXIxQn0inUAkpYpkt936Co2gYdz0SWiXtneAOludL9DCQEBz
+ km9d/5h2OVplRsDUySXG4XhKZNUlbGmoa9WQ0NIyNLKNVrEqUd491GTcfHCsW69Th51tXyu
+ peWYGDuQBEmmJFHLnYjKf98xW8Y5BH1p8fUPsLc2eu0qnot5xd/94XZcEzpGrfCA/uxENPI
+ sYkNlAqwX+3gCs2Ta76yQ==
 X-Spam-Flag: NO
-X-UI-Out-Filterresults: notjunk:1;V03:K0:chvDhZjLoUo=:jWQocv5xW8LZYfewvGXsrR
- zeqHBtKw4D2JyiMeiFeeyb9RauawY5X6IScZg3hO8PjiQX4GN9mEJvuuJJ0h4dWbfJg24UaQ5
- MxbwORiFX9PhoZczVoH8QMujwuZt1A1v7U71MItgPGP93uoARK2FnBLS2q4cGg0CO7I+ji6XF
- k3Ji3bO5cuoqpaVrRzcOVprbNpvOMy+WdBpBBqaYcTkUPqG9eixsFUPmYuz1vlR6P8H0F+aAg
- /opACO6tipB+arO8rL9gF033FQemY+2Vq244IA4rBaU7jU8yzcWLE5Vbl7uUAgcT8gdE2r/zB
- XZh1Mg1GjK4glsmIg738Np2UwLa0bQSLXuZL0u/ZgQa+fHK4GWCuB+8BSUBL2nqcgF2fx4T1D
- NfLRbt+ZvKLJL5lfm3o5GQPqqzFwWO0YoKMy9s1BZZjrp8EIonODip1PMINtuMzJzKmeR51QB
- bJrkDWx2HKuHjKlmDCNOo+ECv7Tys+yc7hcBUHRC5GcCr/0ZReHboZstsPgH9N8oUIFyuJa84
- mGNa3A9xRi4CN4gnGKsjGuiBfJ7PNGuvu0Tm2ScqUsniwVKJb9cxPyQaT6ig/lqwK1Cpn8G+s
- Qm7tocmSHJE2QipI1iki49TKuwhCNBYvcu21zof0UiwNp3qTbAdbfRvFlAF+GnpDfGmaAZUCW
- /srnMUye9MjRZsHxCUiQ2XQj1k7w2sBSuiUv+Hpmh4QdeFCm7JCGt6NJV+B8A2IGnTwoALnj5
- nSAF8raPlPbXmGvXJS9DSsxOdzeswvqwk3hr7FAJXrNwXiTun0CZ4N8FmS2zg2DrrtFesJCyj
- tuRIjn0h99Iph53V2MEGIQsOahts7uWDzcmB7gDpPwaLfuqQuqeM/xQCVY6/jH56JENFb4jn4
- Aka5LDvv8Ik4vd0Jn/Kw==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:hs01Cvf1GpQ=:2kLIxF0tpwKt7kD7lH+/RP
+ eNsOEfLsIdxxMOaJ9MFZJaCjy5ltgOAV3fw+JI8PZHPUNeGJvDPmYwAH4MFX+sk8GXvO2rBI5
+ 5zXpDyWmWX0zpLhZ2fqx+bBszmu+NYb0RBtU54dAyLXh/c43rQbEGtNkCJTw4TGMdmbUpw34t
+ skrxh5nqsewyLBu8XMtqJZcjx22m6mk7opTBjDveqv6hoTPW02CTfv9MGq9YxVlVlDtKqKazD
+ md1KlTMhK64WwDD8J2MlVv1MEY2mfSHlKBePyo1596hWPJ04bNnBOqf4WJeTMj5nsPyUairiS
+ y8+Ta7bK+q6aLaKyWlE721ckLB5hawfh2VAP9tFVYVJJl/SxNtngkZLxN/lBMpHSiQoaNPAto
+ 2+aaUOf21UNyJ2/foqfyQ4skeExHYLAvgc1qaHLzxx4VkxizDiW290si5nYFaiAHg1lEL3SAC
+ s85ZwSmxs7zBk/RYhU0kj5obEmLcSfWdQ6Mfb5YFwMT4e1GVoOZQmlJOnQELozAACbFyvXAZG
+ TGyM1Ja2yi4+Sf/4Vb68RIdSn/Ja5W7zWQAaLxPhrY3uQEjuii7xhtxv0Cbi/ouPg141j1BiA
+ cuXZztuE9QyPtqf94iIDWu33rV1tg6z1hYXqD6am61j2UkevhdYjlFCCZdA5+2DpdVp2Vb0ZS
+ wweT0pLcKrYOH/yjbbx8RWIkxmp6gogPR/DR0e+XtCigZiD3NZI5/gdto17gS6ro6NesskU5B
+ q4IhcZo4pCW0tqbtN7IvM8ijMKcE5NNPVNTPN7gJ92JVl1abDWKwUwdtdNmicrzWSaUUTSKLy
+ JGgxJMlPboNB6ZXyF37xbG8xRHiryvdjtLRLngsMUiJRxL/pxRNo3vQVp2m9PkZvKHy8AwRzH
+ blFmF7xEv27OnqDNBsRQ==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191210_095138_088253_BED6F279 
-X-CRM114-Status: UNSURE (   8.54  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20191210_113736_437692_F1DD3C8C 
+X-CRM114-Status: GOOD (  18.36  )
 X-Spam-Score: 0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  Content analysis details:   (0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [217.72.192.75 listed in list.dnswl.org]
+ no trust [212.227.126.131 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  0.0 SPF_NONE               SPF: sender does not publish an SPF Record
-X-Mailman-Approved-At: Mon, 16 Dec 2019 10:36:06 -0800
+X-Mailman-Approved-At: Mon, 16 Dec 2019 10:36:07 -0800
 X-BeenThere: linux-i3c@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -93,34 +93,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-i3c>,
 Cc: Joao Pinto <Joao.Pinto@synopsys.com>, Wolfram Sang <wsa@the-dreams.de>,
  gregkh <gregkh@linuxfoundation.org>, Boris Brezillon <bbrezillon@kernel.org>,
  "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Mark Brown <broonie@kernel.org>, linux-i3c@lists.infradead.org
+ Mark Brown <broonie@kernel.org>,
+ "linux-i3c@lists.infradead.org" <linux-i3c@lists.infradead.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-i3c" <linux-i3c-bounces@lists.infradead.org>
 Errors-To: linux-i3c-bounces+lists+linux-i3c=lfdr.de@lists.infradead.org
 
-On Tue, Dec 10, 2019 at 4:37 PM Vitor Soares <Vitor.Soares@synopsys.com> wrote:
+On Tue, Dec 10, 2019 at 8:15 PM Vitor Soares <Vitor.Soares@synopsys.com> wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
+> Date: Tue, Dec 10, 2019 at 17:51:14
 >
-> +/* IOCTL commands */
-> +#define I3C_DEV_IOC_MAGIC      0x07
-> +
-> +struct i3c_ioc_priv_xfer {
-> +       struct i3c_priv_xfer __user *xfers;     /* pointers to i3c_priv_xfer */
-> +       __u32 nxfers;                           /* number of i3c_priv_xfer */
-> +};
-> +
-> +#define I3C_IOC_PRIV_XFER      \
-> +       _IOW(I3C_DEV_IOC_MAGIC, 30, struct i3c_ioc_priv_xfer)
-> +
-> +#define  I3C_IOC_PRIV_XFER_MAX_MSGS    42
+> > On Tue, Dec 10, 2019 at 4:37 PM Vitor Soares <Vitor.Soares@synopsys.com> wrote:
+> > >
+> > > +/* IOCTL commands */
+> > > +#define I3C_DEV_IOC_MAGIC      0x07
+> > > +
+> > > +struct i3c_ioc_priv_xfer {
+> > > +       struct i3c_priv_xfer __user *xfers;     /* pointers to i3c_priv_xfer */
+> > > +       __u32 nxfers;                           /* number of i3c_priv_xfer */
+> > > +};
+> > > +
+> > > +#define I3C_IOC_PRIV_XFER      \
+> > > +       _IOW(I3C_DEV_IOC_MAGIC, 30, struct i3c_ioc_priv_xfer)
+> > > +
+> > > +#define  I3C_IOC_PRIV_XFER_MAX_MSGS    42
+> >
+> > This is not a great data structure for UAPI, please see
+> > https://urldefense.proofpoint.com/v2/url?u=https-3A__git.kernel.org_pub_scm_linux_kernel_git_arnd_playground.git_tree_Documentation_core-2Dapi_ioctl.rst-3Fh-3Dcompat-2Dioctl-2Dendgame-26id-3D927324b7900ee9b877691a8b237e272fabb21bf5&d=DwIBaQ&c=DPL6_X_6JkXFx7AXWqB0tg&r=qVuU64u9x77Y0Kd0PhDK_lpxFgg6PK9PateHwjb_DY0&m=5Q9WjK0o93NR7DQ9NM6So6mfdgpNnZnSaP8qMpgaC7E&s=LzzjrUQAG8fx5jkVyK73dBDrahNAvk09Cxxlx3KOiXI&e=
+> >
+> > for some background. I'm planning to submit that documentation for
+> > mainline integration soon.
+> >
+> >      Arnd
+>
+> Thanks for sharing the document.
+>
+> My understanding is that I should use a data structure like the struct
+> spi_ioc_transfer, with this I may also use the same ioctl command
+> definition. Am I right?
 
-This is not a great data structure for UAPI, please see
-https://git.kernel.org/pub/scm/linux/kernel/git/arnd/playground.git/tree/Documentation/core-api/ioctl.rst?h=compat-ioctl-endgame&id=927324b7900ee9b877691a8b237e272fabb21bf5
+Yes, that would be an example of a structure that follows the best
+practices from my document. It is still rather complex, so if you
+can make it any simpler, that would be ideal.
 
-for some background. I'm planning to submit that documentation for
-mainline integration soon.
+> In the documentation you also refer the compact_ioctl() and It is not
+> clear to me if the compact_ioctl() is mandatory in this case. Should I
+> implement it as well?
 
-     Arnd
+If the structure is defined like that, you just need to set
+".compat_ioctl=compat_ptr_ioctl," in the file_operations structure
+and it will work, but you cannot skip that step.
+
+As your interface is basically just read/write based, I wonder
+if there is a way to completely avoid the ioctl and instead
+use io_submit() as the primary interface.
+
+      Arnd
 
 _______________________________________________
 linux-i3c mailing list
