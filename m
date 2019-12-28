@@ -2,70 +2,74 @@ Return-Path: <linux-i3c-bounces+lists+linux-i3c=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-i3c@lfdr.de
 Delivered-To: lists+linux-i3c@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id DB35412E60C
+	by mail.lfdr.de (Postfix) with ESMTPS id E987412E60D
 	for <lists+linux-i3c@lfdr.de>; Thu,  2 Jan 2020 13:26:16 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=ANpZ2N/Zzv8SD/E3Cee+xCYvWfXQwMaUyqGY6NdZQtY=; b=hb1
-	Z2CywAV9eR/ZqTn0a8b3uFBo/KNrV26IiNQA9SDDjXkc/J6LFd48EUWfFdyxT69ycpSpOFkJKp7pE
-	ZK09CDO1tPMXW2l280zR9DykOGxlhQPBHENIF/tnyFrfJWznNfD2H3Us2f/0AmyKGtvk7WahOgkQB
-	uSu8DveyA4qx2SpzzWh5zR6INeyrnOFUQgB8dkkTJuHi5PX2WGQhalblunxgeg4V+08oAOu+wci/d
-	K6ldn3UqQM5WWszuhOksnrsJamYNHOYKQ2MurCJtd4E431MxEW5M1KwMz+813XGRHQVX2mzbBLyeE
-	jZ7Tg+hsl1rmcXfGbdITz4/DOMAHTVw==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
+	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=9j0grB/oIMrMAjoV/tQwM/QNeqH52T1Y9gz3D11WwdM=; b=E5u1Jr1xskt/sw2BtqGZeOVUsU
+	VsuKsDmBS+xi58V7cXCt5mJxC84V0vXBzPeib4h28nUqYcQYJn1CGaRjDW6rE2T24Bug+3wVdtPln
+	YT52+Wc3x0g1IDmfWKcWqwDc22ho446dCeGuxKQqfkYKCszffn4VJnoAv27CIzhiq/quPLGU3r52/
+	96Au0geDpH1+2KAbYuU+uvm6lxeGeSt1FI5PNYnQmKDkXMCk3SSpeyhockhHVtjpo9PWgfzzNUMv5
+	VE2pYikemK8esGsuEg9sYB04TsXAFb2Y6eQUuzGqxQ8690uVo0qB12qZx8PaXyEpM6TQNgKqA+1UT
+	TvdW4vcQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1imzYN-0001LP-L4
+	id 1imzYN-0001LV-Nv
 	for lists+linux-i3c@lfdr.de; Thu, 02 Jan 2020 12:26:15 +0000
-Received: from mail-pg1-x542.google.com ([2607:f8b0:4864:20::542])
+Received: from mail-pf1-x444.google.com ([2607:f8b0:4864:20::444])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1ilHE5-00054r-44
- for linux-i3c@lists.infradead.org; Sat, 28 Dec 2019 18:54:14 +0000
-Received: by mail-pg1-x542.google.com with SMTP id 6so16076299pgk.0
- for <linux-i3c@lists.infradead.org>; Sat, 28 Dec 2019 10:54:11 -0800 (PST)
+ id 1ilHE5-000557-T1
+ for linux-i3c@lists.infradead.org; Sat, 28 Dec 2019 18:54:15 +0000
+Received: by mail-pf1-x444.google.com with SMTP id i23so10923161pfo.2
+ for <linux-i3c@lists.infradead.org>; Sat, 28 Dec 2019 10:54:13 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=from:to:cc:subject:date:message-id;
- bh=588nZdPWSQouHjrbTQFmmqqGhpH/jdEr/402TOJdIJc=;
- b=KzU+fMIscpUWow82dmtcE1NqW4BtUv9qlJ/V66IIlkZOW1slFsk8PIok3Yt6Y1Xohd
- O7rBugj37TUVCItVg94RKD7rHZNospOTzMhKAcuEKkwZetrwVTxS1TAf4zTj9ec0wxZ4
- hn2kYpoHyoLA3YvCETC8a3ghKsA4SWv5bCq3lU1ZggIf1PKZVO9iMqZP2XXMa6rxemHB
- lRUsNUPtrn4bWrL3RwTAev+KCtNaKRPR7RriLMkRIJqs1AGBj5ZWhveSLBPCT2k28NKF
- 60vsaswEps2QEApSLKcau8AyvC6kp4uWs1QxSu8j370Fz0BlLRes/qnOZC4QIxN6k1r0
- 05Rg==
+ h=from:to:cc:subject:date:message-id:in-reply-to:references;
+ bh=UMpegDdh42rzwNWi4a8X/3LZzmdLDgDCJkziq2QANl8=;
+ b=e9q6UgpsjC8HSol+91vUSHFa8daBZdwfDH9ZaAV2Jp6qXzLG2sx+VRx0s6GWj8/ADO
+ HYGMGVEEMgKjXVJ0AdrCNTV7kiDHSMV8/qNfTrMf+f1GmzI/bebbACkVVz14k/dS82Tj
+ IhYUG14vGzbmhUd73o0R7t2I3cX7SSb6YUHbqZWXHxOq+czkfmzq1I5oyVDPuOMeZAGH
+ BNf12FdFdPkDC9ndIR7pTNCQhi/8qLU3QlbOmDWLsSv8SgtoSdjB1PW1QYu1oheOMUW4
+ Uvi7Rf8iwO7R6LazQsZ6crHj2+WJF4Yxvx/3/uO8zfCmTXvCuMYb4YKWtZlRSvv/i1vm
+ coTg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:cc:subject:date:message-id;
- bh=588nZdPWSQouHjrbTQFmmqqGhpH/jdEr/402TOJdIJc=;
- b=JdkkGknob8pYjB9p25Uihvk14gY7g9kTC6pXHp0bXDOT41e2JKO1iIzNZ2Dm2TMk5L
- /I4TWj/nmNcL1Dye2/s7JN6EtzZIQf/kkUf5OsMSwSwJ1GJ+eBNEaFeHHyO2EI0LfhAv
- ZBKWH7yyHTZxpWz5Ts5XBBO7A1plbELVSITUMu3dxQSRkCwIWJtYap7KkxRcU6Ak2zFt
- FYXGt0DCIAoFpy3/sUP1HR7ZjpuJK+IWYShJy1fe1imT/EBj28tn3YJnG4yVCO1560KR
- 5v/p3mtraZN/PbB4vjjOR5gJOMpByixyTFVJyX8dscwIg3wyYS26Oud0dmhrqjp4LY2b
- a46Q==
-X-Gm-Message-State: APjAAAXH3zgpQCLaG3wc0NuxQ93dTHdMXZ/9dK6A5DXTm5u5oOLkAElj
- VuNySibRZkopMLtwEIb5wyk=
-X-Google-Smtp-Source: APXvYqyMHrB05SJ3/Gp0VgA5qfEvy9nXYHMD8qUa30Vtq3e4UjI6m5ninFt+t5uVVWIN4TnGLFJqyQ==
-X-Received: by 2002:a62:4d87:: with SMTP id
- a129mr61018157pfb.116.1577559251648; 
- Sat, 28 Dec 2019 10:54:11 -0800 (PST)
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
+ :references;
+ bh=UMpegDdh42rzwNWi4a8X/3LZzmdLDgDCJkziq2QANl8=;
+ b=iMz66jT0V7r/cqbWELFlzjDQhIoisZDAWJj/DdZfy21DpKVDhLOspS7otvrcd2wAKI
+ v7El1gnsocfykCZ536cnsvXI9NWpu6U2VnKI65ADp09iel/kNBrKnygdxanx5LZ7PF/x
+ 1aqImnLB2dNLdtasCShczYQiUy1F/5YI/pZK57gPitVgJ0CcwXlGVIbzF7HE+YIKqTi1
+ 3nYv/2XUItLZuQkCJi2Ts3VyzJpwspNT/oSGJ3L+2FbE6qKefzrcSzX8dkK5FG4ySpFf
+ UNLI5FILaz4vKQv6dTtqQqWzRWxTZgLR6ZKljP5xwYoloQgA3ZBeyEwbSp2JppJ0T0Ol
+ 72NQ==
+X-Gm-Message-State: APjAAAU26R1SJ73XnRIqLDI3QVM+o24mFyYaiCqr+x8hROnW8yFYtiwI
+ P9d/r2+G68oDgmJKk/YcHf4=
+X-Google-Smtp-Source: APXvYqxZdd7bCMqliucX1yrrszuwOT+M4ZDG7SqTzywn9D7Id0OiQSUtwWIlN0/jvmlNbs4Auz2/aQ==
+X-Received: by 2002:a63:fe0a:: with SMTP id p10mr59963512pgh.96.1577559253330; 
+ Sat, 28 Dec 2019 10:54:13 -0800 (PST)
 Received: from localhost ([2001:19f0:6001:12c8:5400:2ff:fe72:6403])
- by smtp.gmail.com with ESMTPSA id j125sm44497385pfg.160.2019.12.28.10.54.11
+ by smtp.gmail.com with ESMTPSA id 80sm37407784pfw.123.2019.12.28.10.54.12
  (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
- Sat, 28 Dec 2019 10:54:11 -0800 (PST)
+ Sat, 28 Dec 2019 10:54:12 -0800 (PST)
 From: Yangtao Li <tiny.windzz@gmail.com>
 To: vitor.soares@synopsys.com,
 	bbrezillon@kernel.org,
 	pgaj@cadence.com
-Subject: [PATCH 1/2] i3c: dw: convert to devm_platform_ioremap_resource
-Date: Sat, 28 Dec 2019 18:54:05 +0000
-Message-Id: <20191228185406.26551-1-tiny.windzz@gmail.com>
+Subject: [PATCH 2/2] i3c: master: cdns: convert to
+ devm_platform_ioremap_resource
+Date: Sat, 28 Dec 2019 18:54:06 +0000
+Message-Id: <20191228185406.26551-2-tiny.windzz@gmail.com>
 X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20191228185406.26551-1-tiny.windzz@gmail.com>
+References: <20191228185406.26551-1-tiny.windzz@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20191228_105413_157252_9180FB13 
-X-CRM114-Status: UNSURE (   8.60  )
+X-CRM114-CacheID: sfid-20191228_105413_930809_589062B7 
+X-CRM114-Status: UNSURE (   9.34  )
 X-CRM114-Notice: Please train this message.
 X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
@@ -73,7 +77,7 @@ X-Spam-Report: SpamAssassin version 3.4.2 on bombadil.infradead.org summary:
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [2607:f8b0:4864:20:0:0:0:542 listed in]
+ no trust [2607:f8b0:4864:20:0:0:0:444 listed in]
  [list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
@@ -110,21 +114,22 @@ Use devm_platform_ioremap_resource() to simplify code.
 
 Signed-off-by: Yangtao Li <tiny.windzz@gmail.com>
 ---
- drivers/i3c/master/dw-i3c-master.c | 4 +---
+ drivers/i3c/master/i3c-master-cdns.c | 4 +---
  1 file changed, 1 insertion(+), 3 deletions(-)
 
-diff --git a/drivers/i3c/master/dw-i3c-master.c b/drivers/i3c/master/dw-i3c-master.c
-index b0ff0e12d84c..7b941e93337f 100644
---- a/drivers/i3c/master/dw-i3c-master.c
-+++ b/drivers/i3c/master/dw-i3c-master.c
-@@ -1100,15 +1100,13 @@ static const struct i3c_master_controller_ops dw_mipi_i3c_ops = {
- static int dw_i3c_probe(struct platform_device *pdev)
+diff --git a/drivers/i3c/master/i3c-master-cdns.c b/drivers/i3c/master/i3c-master-cdns.c
+index 10db0bf0655a..2fb7ed34f995 100644
+--- a/drivers/i3c/master/i3c-master-cdns.c
++++ b/drivers/i3c/master/i3c-master-cdns.c
+@@ -1524,7 +1524,6 @@ static void cdns_i3c_master_hj(struct work_struct *work)
+ static int cdns_i3c_master_probe(struct platform_device *pdev)
  {
- 	struct dw_i3c_master *master;
+ 	struct cdns_i3c_master *master;
 -	struct resource *res;
  	int ret, irq;
+ 	u32 val;
  
- 	master = devm_kzalloc(&pdev->dev, sizeof(*master), GFP_KERNEL);
+@@ -1532,8 +1531,7 @@ static int cdns_i3c_master_probe(struct platform_device *pdev)
  	if (!master)
  		return -ENOMEM;
  
