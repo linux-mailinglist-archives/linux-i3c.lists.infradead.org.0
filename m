@@ -2,60 +2,66 @@ Return-Path: <linux-i3c-bounces+lists+linux-i3c=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-i3c@lfdr.de
 Delivered-To: lists+linux-i3c@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id F2B3414EC69
+	by mail.lfdr.de (Postfix) with ESMTPS id BF96C14EC67
 	for <lists+linux-i3c@lfdr.de>; Fri, 31 Jan 2020 13:24:40 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
-	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=SwDDEWqBWD8vrLCyzNdaBVswp4zAgrGS3HV66LLgVJo=; b=I3S
-	gS4QCUk/yxsBu/RCPAx2vrujdUo+dsazXvtgl9T5heDB3+wx8XkYoXlfASGrqgW11eUpqL0bunFHr
-	R7eMwj2LGG9BlS3jXQ4bAxlvFvmw2IoNImGSVgjWiFEHUtxpa3hff1gOY5L3K5h5LhX3MES8DlB8H
-	Skx3uriVc/n8WhMaLaww8HJRcPD1qy3lPuZXq5lHMWrC7pQK6jJIzGnxK9qhhJz879QZsUHdAcwIq
-	msOtgEghqpbzNvMwJlgHcpYk8uIVyOiKgiWfX1sV7Ed1rja5KIykZh1hH5a2/nrZB9UriJIejbPhU
-	kx6ufWrG/QzUmSuXXhMNrOuukj2jYDQ==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
+	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=UqkPPwTAc4jrQDM0KJhyNTsH4SkvmWUG/XR/N/WE2Ig=; b=HQ61ihw24D3Gs4ZG5e1IjXA0Su
+	J36O1EF3I5ELe0knYGo6dQ6KHzAZ0ZdKyFZ24aG3Ws9ZR6qNwtyYmztMcSBcyHJnL8wHmoLUHLdYa
+	wy56xCfsHf+tMzJG7V6u4eoVHm+pO+WOgXabaf2oxDckUOC/Dv3Gi5eCns7iJ7tJVSgFY1ejYWcFY
+	16f4rCBC2/JQaCPZxCO0vlyi8Gd9J1M6fW2pgOR2SSd/52Qu1T12o9Kxy/lUCJn//anf1UbefZMtJ
+	aQEvPess+r2wXuIho10jCaVOeQNEpZPGdAo7pRdzgNf4aCrw+pZEgIwJwU0WWNYBUAEI5aQCAYK1S
+	NeLaJosg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1ixVLj-0006CC-Mf
+	id 1ixVLj-0006Bx-GC
 	for lists+linux-i3c@lfdr.de; Fri, 31 Jan 2020 12:24:39 +0000
 Received: from smtprelay-out1.synopsys.com ([149.117.73.133])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iwmHw-0001DX-Qp
+ id 1iwmHw-0001Ct-K1
  for linux-i3c@lists.infradead.org; Wed, 29 Jan 2020 12:17:46 +0000
-Received: from mailhost.synopsys.com (mdc-mailhost1.synopsys.com
- [10.225.0.209])
+Received: from mailhost.synopsys.com (mdc-mailhost2.synopsys.com
+ [10.225.0.210])
  (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
  (No client certificate requested)
- by smtprelay-out1.synopsys.com (Postfix) with ESMTPS id 8D3E54082B;
- Wed, 29 Jan 2020 12:17:44 +0000 (UTC)
+ by smtprelay-out1.synopsys.com (Postfix) with ESMTPS id 6230A40829;
+ Wed, 29 Jan 2020 12:17:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=synopsys.com; s=mail;
- t=1580300264; bh=THplBxZ0iV9F6K6doQzhuA0Zoa7QrZvTKvia+grxBPY=;
- h=From:To:Cc:Subject:Date:From;
- b=fH0Ti3orXuqtTvNNatvWyna/wAvShh0qvfkPulaqXGhwS+ToO7KzQxU18vwbBhowI
- yhpdd+5Rnp7k/Zs2jM5liMQV/tKK8v2fBfValrewrE8X1+i690PszpxrvPEfhgB99z
- 9MAluDbT8PXmR2PgCtyZfxmiJ8yV0v4BlbVGhq0huKpDvOsSdrzAi4wkZt5e3+/qPP
- XAjqUweizL6xxSPFXfeAwgaCeCnJNvyDciE0Rf92t5ZIDWowKPoqVLJY07BTo9Ysmh
- mp6uQUMPRxckxHgjYh599yewIR53JaAp5zoqE3EB8GIe9l+VNNF+j6+7m9Iz/XbGJ2
- L+hrda14VbteA==
-Received: from de02.synopsys.com (germany.internal.synopsys.com [10.225.17.21])
- by mailhost.synopsys.com (Postfix) with ESMTP id 3CDDBA006E;
+ t=1580300261; bh=EWznO/7FCN3HQvpSq9KAAmnQZlA5wLD6bU4uUlvRy1Y=;
+ h=From:To:Cc:Subject:Date:In-Reply-To:References:In-Reply-To:
+ References:From;
+ b=HeGuhWKA79xkjv8P+Gup8W5OG9GV4gOdWlHYCFsUYIhx0FsBO+jeqN+oIO4Y3vjhN
+ hVULQnS2Cj/HQPSKbAcBQxnt74tHZX0/uVLwqz7DbJwwL9Ha8wFSM4tqqAfLzGsB+k
+ qcgFrkkiaHWlvY8X7Hcuf4FTYLQGH0QRU3DizlEi+Tt4kDiqCWM7XfPqNC2nZqmKxD
+ owpywKt4gmhVfCb7o9wNJYGel7/Uj3ZH5kfBrnnXEtQ5JMZ5hOOaLWnAUsgykyLXex
+ W43U6rX4FRL0fjf5V80R4zy8Cp6Zua6RYumW29jmIu522nRUq6+zLxpJb9C3q+BDJc
+ M+ZmB7A809n1g==
+Received: from de02.synopsys.com (de02.internal.synopsys.com [10.225.17.21])
+ by mailhost.synopsys.com (Postfix) with ESMTP id 5C76FA0072;
  Wed, 29 Jan 2020 12:17:38 +0000 (UTC)
 Received: from de02dwia024.internal.synopsys.com
  (de02dwia024.internal.synopsys.com [10.225.19.81])
- by de02.synopsys.com (Postfix) with ESMTP id 2731E3F031;
+ by de02.synopsys.com (Postfix) with ESMTP id 2BE1F3F035;
  Wed, 29 Jan 2020 13:17:38 +0100 (CET)
 From: Vitor Soares <Vitor.Soares@synopsys.com>
 To: linux-kernel@vger.kernel.org,
 	linux-i3c@lists.infradead.org
-Subject: [RFC v2 0/4] Introduce i3c device userspace interface
-Date: Wed, 29 Jan 2020 13:17:31 +0100
-Message-Id: <cover.1580299067.git.vitor.soares@synopsys.com>
+Subject: [RFC v2 1/4] i3c: master: export i3c_masterdev_type
+Date: Wed, 29 Jan 2020 13:17:32 +0100
+Message-Id: <7c742fba6c488b29f6fb15a5b910e799d50c5051.1580299067.git.vitor.soares@synopsys.com>
 X-Mailer: git-send-email 2.7.4
+In-Reply-To: <cover.1580299067.git.vitor.soares@synopsys.com>
+References: <cover.1580299067.git.vitor.soares@synopsys.com>
+In-Reply-To: <cover.1580299067.git.vitor.soares@synopsys.com>
+References: <cover.1580299067.git.vitor.soares@synopsys.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200129_041744_869277_A62F31A3 
-X-CRM114-Status: GOOD (  14.93  )
+X-CRM114-CacheID: sfid-20200129_041744_656995_91405A0C 
+X-CRM114-Status: GOOD (  11.33  )
 X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
  Content analysis details:   (-0.2 points)
@@ -91,63 +97,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-i3c" <linux-i3c-bounces@lists.infradead.org>
 Errors-To: linux-i3c-bounces+lists+linux-i3c=lfdr.de@lists.infradead.org
 
-For today there is no way to use i3c devices from user space and
-the introduction of such API will help developers during the i3c device
-or i3c host controllers development.
+Exporte i3c_masterdev_type so i3cdev module can verify if an i3c device
+is a master.
 
-The i3cdev module is highly based on i2c-dev and yet I tried to address
-the concerns raised in [1].
+Signed-off-by: Vitor Soares <vitor.soares@synopsys.com>
+---
+ drivers/i3c/internals.h | 1 +
+ drivers/i3c/master.c    | 3 ++-
+ 2 files changed, 3 insertions(+), 1 deletion(-)
 
-NOTES:
-- The i3cdev dynamically request an unused major number.
-
-- The i3c devices are dynamically exposed/removed from dev/ folder based
-  on if they have a device driver bound to it.
-
-- For now, the module exposes i3c devices without device driver on
-  dev/i3c-<bus>-<pid>, but we can change the path to
-  dev/bus/i3c/<bus>-<pid> or dev/i3c/<bus>-<pid>.
-
-- As in the i2c subsystem, here it is exposed the i3c_priv_xfer to
-  userspace. I tried to use a dedicated structure as in spidev but I don't
-  see any obvious advantage.
-
-- Since the i3c API only exposes i3c_priv_xfer to devices, for now, the
-  module just makes use of one ioctl(). This can change in the future with
-  the introduction hdr commands or by the need of exposing some CCC
-  commands to the device API (private contract between master-slave).
-  Regarding the i3c device info, some information is already available
-  through sysfs. We can add more device attributes to expose more
-  information or add a dedicated ioctl() request for that purpose or both.
-
-- Similar to i2c, I have also created a tool that you can find in [2]
-  for testing purposes. If you have some time available I would appreciate
-  your feedback about it as well.
-
-[1] https://lkml.org/lkml/2018/11/15/853
-[2] https://github.com/vitor-soares-snps/i3c-tools.git
-
-Changes in v2:
-  Use IDR api for minor numbering
-  Modify ioctl struct
-  Fix SPDX license
-
-Vitor Soares (4):
-  i3c: master: export i3c_masterdev_type
-  i3c: master: export i3c_bus_type symbol
-  i3c: master: add i3c_for_each_dev helper
-  i3c: add i3cdev module to expose i3c dev in /dev
-
- drivers/i3c/Kconfig             |  15 ++
- drivers/i3c/Makefile            |   1 +
- drivers/i3c/i3cdev.c            | 429 ++++++++++++++++++++++++++++++++++++++++
- drivers/i3c/internals.h         |   2 +
- drivers/i3c/master.c            |  16 +-
- include/uapi/linux/i3c/i3cdev.h |  38 ++++
- 6 files changed, 500 insertions(+), 1 deletion(-)
- create mode 100644 drivers/i3c/i3cdev.c
- create mode 100644 include/uapi/linux/i3c/i3cdev.h
-
+diff --git a/drivers/i3c/internals.h b/drivers/i3c/internals.h
+index 86b7b44..bc062e8 100644
+--- a/drivers/i3c/internals.h
++++ b/drivers/i3c/internals.h
+@@ -11,6 +11,7 @@
+ #include <linux/i3c/master.h>
+ 
+ extern struct bus_type i3c_bus_type;
++extern const struct device_type i3c_masterdev_type;
+ 
+ void i3c_bus_normaluse_lock(struct i3c_bus *bus);
+ void i3c_bus_normaluse_unlock(struct i3c_bus *bus);
+diff --git a/drivers/i3c/master.c b/drivers/i3c/master.c
+index 7f8f896..8a0ba34 100644
+--- a/drivers/i3c/master.c
++++ b/drivers/i3c/master.c
+@@ -523,9 +523,10 @@ static void i3c_masterdev_release(struct device *dev)
+ 	of_node_put(dev->of_node);
+ }
+ 
+-static const struct device_type i3c_masterdev_type = {
++const struct device_type i3c_masterdev_type = {
+ 	.groups	= i3c_masterdev_groups,
+ };
++EXPORT_SYMBOL_GPL(i3c_masterdev_type);
+ 
+ static int i3c_bus_set_mode(struct i3c_bus *i3cbus, enum i3c_bus_mode mode,
+ 			    unsigned long max_i2c_scl_rate)
 -- 
 2.7.4
 
