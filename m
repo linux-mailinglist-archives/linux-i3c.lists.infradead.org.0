@@ -2,83 +2,75 @@ Return-Path: <linux-i3c-bounces+lists+linux-i3c=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-i3c@lfdr.de
 Delivered-To: lists+linux-i3c@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id CF3F514D142
-	for <lists+linux-i3c@lfdr.de>; Wed, 29 Jan 2020 20:40:05 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id F2B3414EC69
+	for <lists+linux-i3c@lfdr.de>; Fri, 31 Jan 2020 13:24:40 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LZaimQCuJh3/Y/S5lk5ipUz+RfH3RWjFhL4nZBcW8MI=; b=hJOi83dEVkgWTK
-	Iy2wVC7iQDwdZN5IE3BAJY+RkR45q9sBMDXD3xYTCAGoh8Ak8Tw0WL2S/IxSt/SC6v4nDl9dyUHJJ
-	wOcZv4iXIxqtZmkpw//zHhfyB437AMuER28UYW2sKrSEIBiQDjosnNNA5ciRfGsn3X1YbW4FlFQVG
-	5y92zkANqBSNu/qar+zNKTscaAMw2OY6j8w4k7FKW9dn50Ihs6BaLHU80kvVh5MaWlsyg9JCqIp7n
-	uWyV4F+t1ZDeEYq5W2woGvomDsYHFZB/34G8nhrmm3BqI84FNG1ZOYHztnChmuqYL19kayMUhSKbu
-	OqZ/d852b0RPnPunSU0g==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=SwDDEWqBWD8vrLCyzNdaBVswp4zAgrGS3HV66LLgVJo=; b=I3S
+	gS4QCUk/yxsBu/RCPAx2vrujdUo+dsazXvtgl9T5heDB3+wx8XkYoXlfASGrqgW11eUpqL0bunFHr
+	R7eMwj2LGG9BlS3jXQ4bAxlvFvmw2IoNImGSVgjWiFEHUtxpa3hff1gOY5L3K5h5LhX3MES8DlB8H
+	Skx3uriVc/n8WhMaLaww8HJRcPD1qy3lPuZXq5lHMWrC7pQK6jJIzGnxK9qhhJz879QZsUHdAcwIq
+	msOtgEghqpbzNvMwJlgHcpYk8uIVyOiKgiWfX1sV7Ed1rja5KIykZh1hH5a2/nrZB9UriJIejbPhU
+	kx6ufWrG/QzUmSuXXhMNrOuukj2jYDQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1iwtC0-0006nI-GX
-	for lists+linux-i3c@lfdr.de; Wed, 29 Jan 2020 19:40:04 +0000
-Received: from mout.kundenserver.de ([217.72.192.75])
+	id 1ixVLj-0006CC-Mf
+	for lists+linux-i3c@lfdr.de; Fri, 31 Jan 2020 12:24:39 +0000
+Received: from smtprelay-out1.synopsys.com ([149.117.73.133])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1iwtBx-0006HP-DI
- for linux-i3c@lists.infradead.org; Wed, 29 Jan 2020 19:40:03 +0000
-Received: from mail-qt1-f180.google.com ([209.85.160.180]) by
- mrelayeu.kundenserver.de (mreue106 [212.227.15.145]) with ESMTPSA (Nemesis)
- id 1MmkfQ-1jOpMO442w-00jqWc for <linux-i3c@lists.infradead.org>; Wed, 29 Jan
- 2020 20:39:59 +0100
-Received: by mail-qt1-f180.google.com with SMTP id d5so478090qto.0
- for <linux-i3c@lists.infradead.org>; Wed, 29 Jan 2020 11:39:58 -0800 (PST)
-X-Gm-Message-State: APjAAAXiwPKVdWjaEEmYh7QCt2X1yU3Xk3OJlGEcfUMWywXsxPGUsShY
- Fb/IhWYLLh/DUxQJscybRon5Y7GemD+zl+0asxw=
-X-Google-Smtp-Source: APXvYqzACP3TO+P6FLWJ5jTCyPG3LZ4i+VNkUByFIqUFh0dA9JI+62Ze5H6Yh9WsU2nlxUJY9emmgZMupGdGnoSZrHg=
-X-Received: by 2002:ac8:34b2:: with SMTP id w47mr881540qtb.142.1580326797791; 
- Wed, 29 Jan 2020 11:39:57 -0800 (PST)
-MIME-Version: 1.0
-References: <cover.1580299067.git.vitor.soares@synopsys.com>
- <442a0c2c52223f9ff1a1d1018ff863fb23105389.1580299067.git.vitor.soares@synopsys.com>
- <CAK8P3a0uFjhuO7e-i3r_RiA_ni=S8MfYoZUwZzmbXRcd=+kMKw@mail.gmail.com>
- <CH2PR12MB4216ED068AD93C43B2C421A8AE050@CH2PR12MB4216.namprd12.prod.outlook.com>
-In-Reply-To: <CH2PR12MB4216ED068AD93C43B2C421A8AE050@CH2PR12MB4216.namprd12.prod.outlook.com>
-From: Arnd Bergmann <arnd@arndb.de>
-Date: Wed, 29 Jan 2020 20:39:41 +0100
-X-Gmail-Original-Message-ID: <CAK8P3a384ksr95FTxcxr=48G-ytUqmAru7g1JT-Pdfpt1DcLMg@mail.gmail.com>
-Message-ID: <CAK8P3a384ksr95FTxcxr=48G-ytUqmAru7g1JT-Pdfpt1DcLMg@mail.gmail.com>
-Subject: Re: [RFC v2 4/4] i3c: add i3cdev module to expose i3c dev in /dev
-To: Vitor Soares <Vitor.Soares@synopsys.com>
-X-Provags-ID: V03:K1:iKWkgLHbLoAn4fjlZNvz/4xgSowNLfuSb4MEYm0aIbg5fIDKHiO
- WwnXvJsY7gm8qnRRaRk2NSlEC6uhN+S/J+Gzu1yPmM2Wzik+nO0Kqn/2/tYt5hM9TQGhHTa
- ugQsvDmKaKNCM+SeAGvB9F+tUa8sGTcnCto1uAbqQUvadWcRjGPbNdizcVK+eDLVSR8PpFN
- /k15XTO6tkz8WFzOXHVBQ==
-X-Spam-Flag: NO
-X-UI-Out-Filterresults: notjunk:1;V03:K0:pOEZ6wLKPVg=:FEmyAwy7uylWo/axgMhuhf
- EVx2YDDGXpilO6HlNc5Gd4msb6lN1o6ba/VPcqiXeRUyavO122mvlU22ewo7Vj59J4PtmbgQv
- mCDiBXc7JGHeb3NlaxKzvc+P2CKLdZr119TWq6xCYYe43VY8w8ylgqBNUev026mKd5CQgcNP4
- Rrv+zYTEU0vejyRhcULWikQqlvIyHZtEzt40JNRtwoaXmPGNEBHx4tebNL26j2Wvg3sXRaQun
- N3pdKdL0KLAjX1ZXNWKt/i3N3Tz9DqjblsOBcutWZ7OD1yHzdXhcXrYAx5O+KP3HALCi1O8Ee
- t1s/OSXLQKSnI0FaTyudSjJXvM8Bcz0PL1K/Lvi8HXt/Ot7KqcsAnbFReogWp1r/dNm9IrgLW
- pukrsQTc2ntaGR2twO3pA18I0fO7iQZDRYTvSZvHFKZSRwNLpchRyKoRuRFq+wEtbuIULnbPS
- aZOGRIUwexf7eXSkGYQI7PXKeXukTKp8UJCE4TGMz31fboku7LjHD5ui6v0/VjdA0mj6bh4K+
- haYglBx3KWerFzv2VUYdqt2KsBJX3LQxhaQR9bFn+jA9Ukf8VtjaXVeqzn2SACpWSqe/gxLdB
- s14dMZiCcvbqRGCEz+SAigUqXv20YziNNxvYuosPqLYXbEMg/XNrqvQ6BVGjv2ioVcVVso/ed
- FuG2dHFRstLCEdprR50mK/Z8DP0tbmBPZZdkUjONnbNP110M0l2iYFP8L3ns0QtiCLtMPZ+D5
- 0aAIiiNjKpsrh/zil0HCMQZ+54LQjP2+06/EsDjpOrWB/ghCUK8fzpM764EmQqXddvh6sEq1A
- BD9nPo5rHO2H3QNSxhVSmEGgAZLVR2Qb4ugSr6i0fnet0wVASo=
+ id 1iwmHw-0001DX-Qp
+ for linux-i3c@lists.infradead.org; Wed, 29 Jan 2020 12:17:46 +0000
+Received: from mailhost.synopsys.com (mdc-mailhost1.synopsys.com
+ [10.225.0.209])
+ (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
+ (No client certificate requested)
+ by smtprelay-out1.synopsys.com (Postfix) with ESMTPS id 8D3E54082B;
+ Wed, 29 Jan 2020 12:17:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=synopsys.com; s=mail;
+ t=1580300264; bh=THplBxZ0iV9F6K6doQzhuA0Zoa7QrZvTKvia+grxBPY=;
+ h=From:To:Cc:Subject:Date:From;
+ b=fH0Ti3orXuqtTvNNatvWyna/wAvShh0qvfkPulaqXGhwS+ToO7KzQxU18vwbBhowI
+ yhpdd+5Rnp7k/Zs2jM5liMQV/tKK8v2fBfValrewrE8X1+i690PszpxrvPEfhgB99z
+ 9MAluDbT8PXmR2PgCtyZfxmiJ8yV0v4BlbVGhq0huKpDvOsSdrzAi4wkZt5e3+/qPP
+ XAjqUweizL6xxSPFXfeAwgaCeCnJNvyDciE0Rf92t5ZIDWowKPoqVLJY07BTo9Ysmh
+ mp6uQUMPRxckxHgjYh599yewIR53JaAp5zoqE3EB8GIe9l+VNNF+j6+7m9Iz/XbGJ2
+ L+hrda14VbteA==
+Received: from de02.synopsys.com (germany.internal.synopsys.com [10.225.17.21])
+ by mailhost.synopsys.com (Postfix) with ESMTP id 3CDDBA006E;
+ Wed, 29 Jan 2020 12:17:38 +0000 (UTC)
+Received: from de02dwia024.internal.synopsys.com
+ (de02dwia024.internal.synopsys.com [10.225.19.81])
+ by de02.synopsys.com (Postfix) with ESMTP id 2731E3F031;
+ Wed, 29 Jan 2020 13:17:38 +0100 (CET)
+From: Vitor Soares <Vitor.Soares@synopsys.com>
+To: linux-kernel@vger.kernel.org,
+	linux-i3c@lists.infradead.org
+Subject: [RFC v2 0/4] Introduce i3c device userspace interface
+Date: Wed, 29 Jan 2020 13:17:31 +0100
+Message-Id: <cover.1580299067.git.vitor.soares@synopsys.com>
+X-Mailer: git-send-email 2.7.4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200129_114001_759340_131B5333 
-X-CRM114-Status: GOOD (  31.40  )
-X-Spam-Score: 0.0 (/)
+X-CRM114-CacheID: sfid-20200129_041744_869277_A62F31A3 
+X-CRM114-Status: GOOD (  14.93  )
+X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
- Content analysis details:   (0.0 points)
+ Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [217.72.192.75 listed in list.dnswl.org]
- 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
+ -0.0 SPF_PASS               SPF: sender matches SPF record
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
- [217.72.192.75 listed in wl.mailspike.net]
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+ envelope-from domain
+X-Mailman-Approved-At: Fri, 31 Jan 2020 04:24:38 -0800
 X-BeenThere: linux-i3c@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -90,164 +82,75 @@ List-Post: <mailto:linux-i3c@lists.infradead.org>
 List-Help: <mailto:linux-i3c-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-i3c>,
  <mailto:linux-i3c-request@lists.infradead.org?subject=subscribe>
-Cc: Jose Abreu <Jose.Abreu@synopsys.com>, Joao Pinto <Joao.Pinto@synopsys.com>,
- Wolfram Sang <wsa@the-dreams.de>, gregkh <gregkh@linuxfoundation.org>,
- Boris Brezillon <bbrezillon@kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Mark Brown <broonie@kernel.org>,
- "linux-i3c@lists.infradead.org" <linux-i3c@lists.infradead.org>
+Cc: Jose.Abreu@synopsys.com, Joao.Pinto@synopsys.com, arnd@arndb.de,
+ wsa@the-dreams.de, gregkh@linuxfoundation.org, bbrezillon@kernel.org,
+ Vitor Soares <Vitor.Soares@synopsys.com>, broonie@kernel.org
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-i3c" <linux-i3c-bounces@lists.infradead.org>
 Errors-To: linux-i3c-bounces+lists+linux-i3c=lfdr.de@lists.infradead.org
 
-On Wed, Jan 29, 2020 at 6:00 PM Vitor Soares <Vitor.Soares@synopsys.com> wrote:
->
-> Hi Arnd,
->
-> From: Arnd Bergmann <arnd@arndb.de>
-> Date: Wed, Jan 29, 2020 at 14:30:56
->
-> > On Wed, Jan 29, 2020 at 1:17 PM Vitor Soares <Vitor.Soares@synopsys.com> wrote:
-> > >
-> > > +
-> > > +struct i3cdev_data {
-> > > +       struct list_head list;
-> > > +       struct i3c_device *i3c;
-> > > +       struct cdev cdev;
-> > > +       struct device *dev;
-> > > +       int id;
-> > > +};
-> > > +
-> > > +static DEFINE_IDA(i3cdev_ida);
-> > > +static dev_t i3cdev_number;
-> > > +#define I3C_MINORS 16 /* 16 I3C devices supported for now */
-> > > +
-> > > +static LIST_HEAD(i3cdev_list);
-> > > +static DEFINE_SPINLOCK(i3cdev_list_lock);
-> >
-> > Please try to avoid arbitrarily limiting the number of devices you support.
->
-> Should I use all minors range instead?
+For today there is no way to use i3c devices from user space and
+the introduction of such API will help developers during the i3c device
+or i3c host controllers development.
 
-Yes, I'm fairly sure that if you use a dynamic major number, there
-is no downside in using all of them.
+The i3cdev module is highly based on i2c-dev and yet I tried to address
+the concerns raised in [1].
 
-> > Searching through the list feels a little clumsy. If the i3c user interface is
-> > supposed to become a standard feature of the subsystem, it would seem
-> > appropriate to put a pointer into the device to simplify the lookup,
->
-> Do you mean i3c->dev ?
+NOTES:
+- The i3cdev dynamically request an unused major number.
 
-I was thinking you could add another member in i3c_device, next to ->dev.
+- The i3c devices are dynamically exposed/removed from dev/ folder based
+  on if they have a device driver bound to it.
 
-> > or
-> > just embed the cdev inside of i3c_device.
->
-> I would prefer to have a pointer in i3c_device for i3cdev_data, but I see
-> others using it in drvdata.
+- For now, the module exposes i3c devices without device driver on
+  dev/i3c-<bus>-<pid>, but we can change the path to
+  dev/bus/i3c/<bus>-<pid> or dev/i3c/<bus>-<pid>.
 
-Ok, I think drvdata should work, but you should check that this is
-correct when the device goes back between being bound to a device
-driver and used through the chardev.
+- As in the i2c subsystem, here it is exposed the i3c_priv_xfer to
+  userspace. I tried to use a dedicated structure as in spidev but I don't
+  see any obvious advantage.
 
-> >
-> > > +static int
-> > > +i3cdev_do_priv_xfer(struct i3c_device *dev, struct i3c_ioc_priv_xfer *xfers,
-> > > +                   unsigned int nxfers)
-> > > +{
-> > > +       struct i3c_priv_xfer *k_xfers;
-> > > +       u8 **data_ptrs;
-> > > +       int i, ret = 0;
-> > > +
-> > > +       k_xfers = kcalloc(nxfers, sizeof(*k_xfers), GFP_KERNEL);
-> > > +       if (!k_xfers)
-> > > +               return -ENOMEM;
-> > > +
-> > > +       data_ptrs = kcalloc(nxfers, sizeof(*data_ptrs), GFP_KERNEL);
-> > > +       if (!data_ptrs) {
-> > > +               ret = -ENOMEM;
-> > > +               goto err_free_k_xfer;
-> > > +       }
-> >
-> > Maybe use a  combined allocation to simplify the error handling?
->
-> Could you please provide an example?
+- Since the i3c API only exposes i3c_priv_xfer to devices, for now, the
+  module just makes use of one ioctl(). This can change in the future with
+  the introduction hdr commands or by the need of exposing some CCC
+  commands to the device API (private contract between master-slave).
+  Regarding the i3c device info, some information is already available
+  through sysfs. We can add more device attributes to expose more
+  information or add a dedicated ioctl() request for that purpose or both.
 
-Something like
+- Similar to i2c, I have also created a tool that you can find in [2]
+  for testing purposes. If you have some time available I would appreciate
+  your feedback about it as well.
 
-       k_xfers = kcalloc(nxfers, sizeof(*k_xfers) +
-sizeof(*data_ptrs), GFP_KERNEL);
-       data_ptrs = (void *)k_xfers + (nxfers, sizeof(*k_xfers));
+[1] https://lkml.org/lkml/2018/11/15/853
+[2] https://github.com/vitor-soares-snps/i3c-tools.git
 
-This would need a comment to explain the pointer math, but the resulting
-object code is slightly simpler.
+Changes in v2:
+  Use IDR api for minor numbering
+  Modify ioctl struct
+  Fix SPDX license
 
-> > > +       /* Keep track of busses which have devices to add or remove later */
-> > > +       res = bus_register_notifier(&i3c_bus_type, &i3c_notifier);
-> > > +       if (res)
-> > > +               goto out_unreg_class;
-> > > +
-> > > +       /* Bind to already existing device without driver right away */
-> > > +       i3c_for_each_dev(NULL, i3cdev_attach);
-> >
-> > The combination of the notifier and searching through the devices
-> > seems to be racy. What happens when a device appears just before
-> > or during the i3c_for_each_dev() traversal?
->
-> The i3c core is locked during this phase.
+Vitor Soares (4):
+  i3c: master: export i3c_masterdev_type
+  i3c: master: export i3c_bus_type symbol
+  i3c: master: add i3c_for_each_dev helper
+  i3c: add i3cdev module to expose i3c dev in /dev
 
-Ok.
+ drivers/i3c/Kconfig             |  15 ++
+ drivers/i3c/Makefile            |   1 +
+ drivers/i3c/i3cdev.c            | 429 ++++++++++++++++++++++++++++++++++++++++
+ drivers/i3c/internals.h         |   2 +
+ drivers/i3c/master.c            |  16 +-
+ include/uapi/linux/i3c/i3cdev.h |  38 ++++
+ 6 files changed, 500 insertions(+), 1 deletion(-)
+ create mode 100644 drivers/i3c/i3cdev.c
+ create mode 100644 include/uapi/linux/i3c/i3cdev.h
 
-> > What happens when a driver attaches to a device that is currently
-> > transferring data on the user interface?
-> >
->
-> It may lost references for inode and file. I need to guarantee there no
-> tranfer going on during the detach.
-> Do you have any suggestion?
+-- 
+2.7.4
 
-If the notifier is blocking, you could hold another mutex during the transfer
-I think.
-
-> > Is there any guarantee that the notifiers for attach and detach
-> > are serialized?
-> >
->
-> Sorry I didn't get this part.
-
-I think you answered this above: if the i3c code is locked while calling
-the notifier, this cannot happen.
-
-> > > +/**
-> > > + * struct i3c_ioc_priv_xfer - I3C SDR ioctl private transfer
-> > > + * @data: Holds pointer to userspace buffer with transmit data.
-> > > + * @len: Length of data buffer buffers, in bytes.
-> > > + * @rnw: encodes the transfer direction. true for a read, false for a write
-> > > + */
-> > > +struct i3c_ioc_priv_xfer {
-> > > +       __u64 data;
-> > > +       __u16 len;
-> > > +       __u8 rnw;
-> > > +       __u8 pad[5];
-> > > +};
-> > > +
-> > > +
-> > > +#define I3C_PRIV_XFER_SIZE(N)  \
-> > > +       ((((sizeof(struct i3c_ioc_priv_xfer)) * (N)) < (1 << _IOC_SIZEBITS)) \
-> > > +       ? ((sizeof(struct i3c_ioc_priv_xfer)) * (N)) : 0)
-> > > +
-> > > +#define I3C_IOC_PRIV_XFER(N)   \
-> > > +       _IOC(_IOC_READ|_IOC_WRITE, I3C_DEV_IOC_MAGIC, 30, I3C_PRIV_XFER_SIZE(N))
-> >
-> > This looks like a reasonable ioctl definition, avoiding the usual problems
-> > with compat mode etc.
->
-> Do you think I should add more reserved fields for future?
-
-No, what I meant is that I like it the way it is.
-
-     Arnd
 
 _______________________________________________
 linux-i3c mailing list
