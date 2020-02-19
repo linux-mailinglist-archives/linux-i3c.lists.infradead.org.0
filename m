@@ -2,71 +2,74 @@ Return-Path: <linux-i3c-bounces+lists+linux-i3c=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-i3c@lfdr.de
 Delivered-To: lists+linux-i3c@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1D0E6162239
-	for <lists+linux-i3c@lfdr.de>; Tue, 18 Feb 2020 09:26:52 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 9C981163870
+	for <lists+linux-i3c@lfdr.de>; Wed, 19 Feb 2020 01:21:00 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date
-	:Message-ID:From:References:To:Subject:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6UHTCwHLBENG2dnCK5QlBA3JiigqooCLA5M55+LHqNo=; b=ZWuvz/6dzHpPlz
-	YW9PNv47HZ1kVCns7qRyQVMQbYaWZ6nDSyI/OJnwEvy/IgXCN1+pqIYup7gyGTsjIbinM/ynXHEEl
-	icq1M+CinbXLxog3LwQxH/++qS90alo3YSfvjbbLD8awqMxhjYH5PtZEHUTkWACGI9jOA6BFLbBHo
-	2l5I3rv3o/54fm6Q69xuahr+aPr2yGNdkWD7hUHKB3myeA2blRWPcfRbSV/WeJRqFi+ZOizQchHhC
-	jQMMC82IWcEfrREFsa9HabtfJpTKsIbhCnEQTBmJ9LWcphCcf3/1gKoaPDinJLH0hGindhqoKZECJ
-	e9To4vNbAEuRdY1pEU4w==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:
+	Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=MGQIfQxOH2kPHfv9D2X3y241WBHbTPpY9JXe9GcElRg=; b=Vq8
+	HoweKdWquCBkPdm2QGyNaRTAlCd5tgBrBKppMs2O3mSVWsbfninf1Noe7EVvx3jh+8liAMNOaNXjh
+	W2u89RH5wOBCtphDMfYgP/rgssmvDEBCL/Z6uxuLpxlWsnKL8op/ybnDSvZFcZgZbXuAS0QMYAZSc
+	TbiS+Ung7BNGYXlfSMI121fzjTfH/6MF1x0MTnFp6s99TtQZ1rPtZRH0Rp9FV1C73u853H9CXI/M5
+	A7xWQCEUj4zjoHz5KO6zFw+qIXn2T8QrFar/EXFL0mKZ6F9PJZeeXDocYiA1PX52y3zpxiND+xnO5
+	jhqHVAMU1EYHkapy5OciVP0ZaYyPwfg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j3yDS-0000DL-42
-	for lists+linux-i3c@lfdr.de; Tue, 18 Feb 2020 08:26:50 +0000
-Received: from perceval.ideasonboard.com
- ([2001:4b98:dc2:55:216:3eff:fef7:d647])
+	id 1j4D6p-0007be-Ag
+	for lists+linux-i3c@lfdr.de; Wed, 19 Feb 2020 00:20:59 +0000
+Received: from smtprelay-out1.synopsys.com ([149.117.87.133])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j3quH-0008Bo-J6
- for linux-i3c@lists.infradead.org; Tue, 18 Feb 2020 00:38:35 +0000
-Received: from [192.168.0.20]
- (cpc89242-aztw30-2-0-cust488.18-1.cable.virginm.net [86.31.129.233])
- by perceval.ideasonboard.com (Postfix) with ESMTPSA id 19F741220;
- Tue, 18 Feb 2020 01:38:23 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
- s=mail; t=1581986303;
- bh=t96zGplTNE1Od5PyAQYJfaxLCz9A1duSgDyDNJWWebc=;
- h=Subject:To:Cc:References:Reply-To:From:Date:In-Reply-To:From;
- b=lgUrIlK7CXLBIDD8jeHqVqMLVVhpPFWPVPN5lC+oF5xXEbcuMFly3HiCvV1WuJSA9
- +Z7lf00+1+SmCjvcvpIrL57P3fGB47CdaeHOcP754+1XcArU+2zNf1tidLzlEFcM/C
- aspwgjhkcsw0rtRaLqBfXN/YOI0WF4ehMRkwJFfo=
-Subject: Re: [PATCH] i3c: master: no need to iterate master device twice
-To: Wolfram Sang <wsa+renesas@sang-engineering.com>,
- linux-i3c@lists.infradead.org
-References: <20200214145853.24762-1-wsa+renesas@sang-engineering.com>
-From: Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>
-Organization: Ideas on Board
-Message-ID: <1258dbb3-f9f3-0d3e-77e0-094e6f1bc633@ideasonboard.com>
-Date: Tue, 18 Feb 2020 00:38:20 +0000
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
- Thunderbird/60.9.1
-MIME-Version: 1.0
-In-Reply-To: <20200214145853.24762-1-wsa+renesas@sang-engineering.com>
-Content-Language: en-GB
+ id 1j4D6l-0007Xe-4e
+ for linux-i3c@lists.infradead.org; Wed, 19 Feb 2020 00:20:57 +0000
+Received: from mailhost.synopsys.com (mdc-mailhost1.synopsys.com
+ [10.225.0.209])
+ (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
+ (No client certificate requested)
+ by smtprelay-out1.synopsys.com (Postfix) with ESMTPS id 11BA0C0098;
+ Wed, 19 Feb 2020 00:20:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=synopsys.com; s=mail;
+ t=1582071650; bh=ddKM9xkbcpuB2cBOgjOc0jvYyLJYZ6mC3oVxtJxau2Q=;
+ h=From:To:Cc:Subject:Date:From;
+ b=dICGGJNh6vH/STWxR/oej8fNp8Uuz1I5m9moEHsNCMPpZzmSOiUYAzPKGJALDy5lc
+ E/+2+5+el+eeqNre6i3Cil92pMdXZzU2+gbsclmQjztrsbRIAyeBH6YAMvI1PWuAU5
+ RoTmjkTcLdyP1YmL4yzGPupCDMo17kugkYDgUPWgqXOdhea0m1eT+0oPU9Me56hKJg
+ gMMeNCbqOXf8h9EOYm21f97u9mqka3tBAddnqU3TLKXO4X0RAHKrIEAOmtxgurl5Rj
+ S3jRzA4krL0PaJYmwiQz6EmTbDLGc+b11s1HXgwQ0xF1dpcfLXh1UYEsx/4KzHVgWk
+ oEKyAyBDgnbOQ==
+Received: from de02.synopsys.com (de02.internal.synopsys.com [10.225.17.21])
+ by mailhost.synopsys.com (Postfix) with ESMTP id 34E31A007B;
+ Wed, 19 Feb 2020 00:20:47 +0000 (UTC)
+Received: from de02dwia024.internal.synopsys.com
+ (de02dwia024.internal.synopsys.com [10.225.19.81])
+ by de02.synopsys.com (Postfix) with ESMTP id E39B73D240;
+ Wed, 19 Feb 2020 01:20:46 +0100 (CET)
+From: Vitor Soares <Vitor.Soares@synopsys.com>
+To: linux-kernel@vger.kernel.org,
+	linux-i3c@lists.infradead.org
+Subject: [PATCH v3 0/5] Introduce i3c device userspace interface
+Date: Wed, 19 Feb 2020 01:20:38 +0100
+Message-Id: <cover.1582069402.git.vitor.soares@synopsys.com>
+X-Mailer: git-send-email 2.7.4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200217_163833_835519_2D702A24 
-X-CRM114-Status: GOOD (  12.67  )
+X-CRM114-CacheID: sfid-20200218_162055_260269_FF18356D 
+X-CRM114-Status: GOOD (  16.23  )
 X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
  Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  -0.0 SPF_PASS               SPF: sender matches SPF record
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+ valid
  -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
  author's domain
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
-X-Mailman-Approved-At: Tue, 18 Feb 2020 00:26:41 -0800
 X-BeenThere: linux-i3c@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -78,43 +81,90 @@ List-Post: <mailto:linux-i3c@lists.infradead.org>
 List-Help: <mailto:linux-i3c-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-i3c>,
  <mailto:linux-i3c-request@lists.infradead.org?subject=subscribe>
-Reply-To: kieran.bingham+renesas@ideasonboard.com
-Cc: linux-renesas-soc@vger.kernel.org
+Cc: Jose.Abreu@synopsys.com, corbet@lwn.net, Joao.Pinto@synopsys.com,
+ arnd@arndb.de, wsa@the-dreams.de, gregkh@linuxfoundation.org,
+ bbrezillon@kernel.org, Vitor Soares <Vitor.Soares@synopsys.com>,
+ broonie@kernel.org
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-i3c" <linux-i3c-bounces@lists.infradead.org>
 Errors-To: linux-i3c-bounces+lists+linux-i3c=lfdr.de@lists.infradead.org
 
-Hi Wolfram,
+For today there is no way to use i3c devices from user space and
+the introduction of such API will help developers during the i3c device
+or i3c host controllers development.
 
-On 14/02/2020 14:58, Wolfram Sang wrote:
-> We already have the master device in a variable, reuse it.
-> 
-> Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
+The i3cdev module is highly based on i2c-dev and yet I tried to address
+the concerns raised in [1].
 
-Reviewed-by: Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>
+NOTES:
+- The i3cdev dynamically request an unused major number.
 
-> ---
-> 
-> Found while refactoring of_i2c_get_board_info() and checking its users.
-> 
->  drivers/i3c/master.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/i3c/master.c b/drivers/i3c/master.c
-> index 7f8f896fa0c3..b56207bbed2b 100644
-> --- a/drivers/i3c/master.c
-> +++ b/drivers/i3c/master.c
-> @@ -1953,7 +1953,7 @@ of_i3c_master_add_i2c_boardinfo(struct i3c_master_controller *master,
->  	 * DEFSLVS command.
->  	 */
->  	if (boardinfo->base.flags & I2C_CLIENT_TEN) {
-> -		dev_err(&master->dev, "I2C device with 10 bit address not supported.");
-> +		dev_err(dev, "I2C device with 10 bit address not supported.");
->  		return -ENOTSUPP;
->  	}
->  
-> 
+- The i3c devices are dynamically exposed/removed from dev/ folder based
+  on if they have a device driver bound to it.
+
+- For now, the module exposes i3c devices without device driver on
+  dev/bus/i3c/<bus>-<pid>
+
+- As in the i2c subsystem, here it is exposed the i3c_priv_xfer to
+  userspace. I tried to use a dedicated structure as in spidev but I don't
+  see any obvious advantage.
+
+- Since the i3c API only exposes i3c_priv_xfer to devices, for now, the
+  module just makes use of one ioctl(). This can change in the future with
+  the introduction hdr commands or by the need of exposing some CCC
+  commands to the device API (private contract between master-slave).
+  Regarding the i3c device info, some information is already available
+  through sysfs. We can add more device attributes to expose more
+  information or add a dedicated ioctl() request for that purpose or both.
+
+- Similar to i2c, I have also created a tool that you can find in [2]
+  for testing purposes. If you have some time available I would appreciate
+  your feedback about it as well.
+
+[1] https://lkml.org/lkml/2018/11/15/853
+[2] https://github.com/vitor-soares-snps/i3c-tools.git
+
+Changes in v3:
+  Use the xfer_lock to prevent device detach during ioctl call
+  Expose i3cdev under /dev/bus/i3c/ folder like usb does
+  Change NOTIFY_BOUND to NOTIFY_BIND, this allows the device detach occur
+  before driver->probe call
+  Avoid use of IS_ERR_OR_NULL
+  Use u64_to_user_ptr instead of (void __user *)(uintptr_t) cast
+  Allocate k_xfer and data_ptrs at once and eliminate double allocation
+  check
+  Pass i3cdev to dev->driver_data
+  Make all minors available
+  Add API documentation
+
+Changes in v2:
+  Use IDR api for minor numbering
+  Modify ioctl struct
+  Fix SPDX license
+
+Vitor Soares (5):
+  i3c: master: export i3c_masterdev_type
+  i3c: master: export i3c_bus_type symbol
+  i3c: master: add i3c_for_each_dev helper
+  i3c: add i3cdev module to expose i3c dev in /dev
+  Documentation: userspac-api: add i3cdev documentation
+
+ Documentation/userspace-api/i3c/i3cdev.rst | 116 ++++++++
+ drivers/i3c/Kconfig                        |  15 +
+ drivers/i3c/Makefile                       |   1 +
+ drivers/i3c/i3cdev.c                       | 429 +++++++++++++++++++++++++++++
+ drivers/i3c/internals.h                    |   2 +
+ drivers/i3c/master.c                       |  16 +-
+ include/uapi/linux/i3c/i3cdev.h            |  38 +++
+ 7 files changed, 616 insertions(+), 1 deletion(-)
+ create mode 100644 Documentation/userspace-api/i3c/i3cdev.rst
+ create mode 100644 drivers/i3c/i3cdev.c
+ create mode 100644 include/uapi/linux/i3c/i3cdev.h
+
+-- 
+2.7.4
 
 
 _______________________________________________
