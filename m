@@ -2,7 +2,7 @@ Return-Path: <linux-i3c-bounces+lists+linux-i3c=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-i3c@lfdr.de
 Delivered-To: lists+linux-i3c@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4882516649F
+	by mail.lfdr.de (Postfix) with ESMTPS id 73D661664A0
 	for <lists+linux-i3c@lfdr.de>; Thu, 20 Feb 2020 18:26:32 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
@@ -10,35 +10,37 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HGf9nSVS/wyaUcXTfdvRdMfOPdzez0mB9W+avFeXrCg=; b=BNnMTUmHSemrgN
-	HlCMVVMKhLxRWOBp5uvGWOqpRz+qu6Pd16tqltQ0Hv7qzZH2mVYIrDGmXC50n2Tx4d20gJo8Q6Bki
-	K2URljjv5OXFy6mleUxx7zMKuQFzG0ZjSMKD5g61UwMfg8oKoO3Po6lLCtHHeJA9geuAIrYbH+A8C
-	DtoadIyFKQ6Kaf7sDrybspqTToQaopumQDvGB3lOun884773FQQonzir5YrXcwSXRV9jDOdmRlmLW
-	lpSbdlarFX9nJkqSZto0ReTx7Ajbf4EHzdObt1P8C35nDyFLINilDQ72rD5qHA9R699R9V7zJr3Ph
-	wwPTLIsIulfgA7JRu12A==;
+	List-Owner; bh=CIXPSQ8q+MArir0P68Q7OY78POStPgeekt3BL22oqTw=; b=tlT88Hcsr07YQ8
+	jtlfhGAKDDMBxR/DJ83KCpidwCtmVePGNWkRRx+7eC/v6E8kOiSSU88/Ax+4HdKa07ROBw69YgaLU
+	/531sPiicAr0N1hd7ILq0J57UACzUyFp63eKy1nE0A1bszplDfJvhZ0itBf+VHHVaZExuQrCmS0nf
+	ObNVu4lvGwhly/7IB7MIX2db+y0u0hk+k+4CfvvAQqUqaIodUnCfMr4g2xS9BukVMFDWx+psKJD34
+	VbbODgWnMkB1IbA4hHmsVrNxtVjDkx1H/1rU4OdrJbY6VgYxdK712AivtD8KDSdYYQjtU23GJBclA
+	hmsnTTokPAPJUmxpm7ZA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j4pao-0007sA-Uk
-	for lists+linux-i3c@lfdr.de; Thu, 20 Feb 2020 17:26:30 +0000
+	id 1j4pap-0007sq-4z
+	for lists+linux-i3c@lfdr.de; Thu, 20 Feb 2020 17:26:31 +0000
 Received: from sauhun.de ([88.99.104.3] helo=pokefinder.org)
  by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j4paK-0007NR-36
- for linux-i3c@lists.infradead.org; Thu, 20 Feb 2020 17:26:02 +0000
+ id 1j4paL-0007PJ-R6
+ for linux-i3c@lists.infradead.org; Thu, 20 Feb 2020 17:26:03 +0000
 Received: from localhost (p5486CC48.dip0.t-ipconnect.de [84.134.204.72])
- by pokefinder.org (Postfix) with ESMTPSA id E09212C1EC3;
- Thu, 20 Feb 2020 18:25:53 +0100 (CET)
+ by pokefinder.org (Postfix) with ESMTPSA id 721632C1EC5;
+ Thu, 20 Feb 2020 18:25:54 +0100 (CET)
 From: Wolfram Sang <wsa+renesas@sang-engineering.com>
 To: linux-i2c@vger.kernel.org
-Subject: [RFC PATCH 6/7] i2c: of: mark a whole array of regs as reserved
-Date: Thu, 20 Feb 2020 18:24:02 +0100
-Message-Id: <20200220172403.26062-7-wsa+renesas@sang-engineering.com>
+Subject: [RFC PATCH 7/7] i2c: core: hand over reserved devices when requesting
+ ancillary addresses
+Date: Thu, 20 Feb 2020 18:24:03 +0100
+Message-Id: <20200220172403.26062-8-wsa+renesas@sang-engineering.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20200220172403.26062-1-wsa+renesas@sang-engineering.com>
 References: <20200220172403.26062-1-wsa+renesas@sang-engineering.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200220_092600_443327_8B2D8F80 
-X-CRM114-Status: GOOD (  12.05  )
+X-CRM114-CacheID: sfid-20200220_092602_077758_A9B8DD68 
+X-CRM114-Status: UNSURE (   9.43  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: 1.0 (+)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
  Content analysis details:   (1.0 points)
@@ -72,125 +74,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-i3c" <linux-i3c-bounces@lists.infradead.org>
 Errors-To: linux-i3c-bounces+lists+linux-i3c=lfdr.de@lists.infradead.org
 
-Back then, 'reg' properties in I2C DT bindings only contained one
-address and this address was assigned a device and, thus, blocked.
-Meanwhile, chips using multiple addresses are common and the 'reg'
-property can be an array described by 'reg-names'. This code enhances
-I2C DT parsing, so it will reserve all addresses described in an array.
-They will be bound to the 'dummy' driver as 'reserved' iff the first
-address can be assigned successfully. If that is not the case, the array
-is not further considered. If one later address of the array can not be
-assigned, it will be reported but we don't bail out. The driver has to
-decide if that address is critical or not.
+With i2c_new_ancillary_address, we can check if the intended driver is
+requesting a reserved address. Update the function to do these checks.
+If the check passes, the "reserved" device will become a regular "dummy"
+device.
 
 Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
 ---
- drivers/i2c/i2c-core-of.c | 68 +++++++++++++++++++++++++--------------
- 1 file changed, 44 insertions(+), 24 deletions(-)
+ drivers/i2c/i2c-core-base.c | 18 +++++++++++++++++-
+ 1 file changed, 17 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/i2c/i2c-core-of.c b/drivers/i2c/i2c-core-of.c
-index 74b9f3fbb5ef..316db0c3b3c8 100644
---- a/drivers/i2c/i2c-core-of.c
-+++ b/drivers/i2c/i2c-core-of.c
-@@ -21,20 +21,12 @@
- 
- #include "i2c-core.h"
- 
--int of_i2c_get_board_info(struct device_node *node, struct i2c_board_info *info)
-+static void of_i2c_decode_board_info(struct device_node *node, u32 addr,
-+				     bool first_addr, struct i2c_board_info *info)
+diff --git a/drivers/i2c/i2c-core-base.c b/drivers/i2c/i2c-core-base.c
+index 4000a4384306..ba325f8107a3 100644
+--- a/drivers/i2c/i2c-core-base.c
++++ b/drivers/i2c/i2c-core-base.c
+@@ -975,6 +975,8 @@ struct i2c_client *i2c_new_ancillary_device(struct i2c_client *client,
+ 						u16 default_addr)
  {
--	u32 addr;
--	int ret;
--
- 	memset(info, 0, sizeof(*info));
+ 	struct device_node *np = client->dev.of_node;
++	struct device *reserved_dev, *adapter_dev = &client->adapter->dev;
++	struct i2c_client *reserved_client;
+ 	u32 addr = default_addr;
+ 	int i;
  
--	ret = of_property_read_u32(node, "reg", &addr);
--	if (ret) {
--		pr_err("invalid reg on %pOF\n", node);
--		return ret;
--	}
--
--	if (of_modalias_node(node, info->type, sizeof(info->type)) < 0)
-+	if (!first_addr || of_modalias_node(node, info->type, sizeof(info->type)) < 0)
- 		strlcpy(info->type, I2C_RESERVED_DRV_NAME, sizeof(I2C_RESERVED_DRV_NAME));
+@@ -984,7 +986,21 @@ struct i2c_client *i2c_new_ancillary_device(struct i2c_client *client,
+ 			of_property_read_u32_index(np, "reg", i, &addr);
+ 	}
  
- 	if (addr & I2C_TEN_BIT_ADDRESS) {
-@@ -51,11 +43,27 @@ int of_i2c_get_board_info(struct device_node *node, struct i2c_board_info *info)
- 	info->of_node = node;
- 	info->fwnode = of_fwnode_handle(node);
- 
--	if (of_property_read_bool(node, "host-notify"))
--		info->flags |= I2C_CLIENT_HOST_NOTIFY;
-+	if (first_addr) {
-+		if (of_property_read_bool(node, "host-notify"))
-+			info->flags |= I2C_CLIENT_HOST_NOTIFY;
+-	dev_dbg(&client->adapter->dev, "Address for %s : 0x%x\n", name, addr);
++	dev_info(adapter_dev, "Address for %s : 0x%x\n", name, addr);
 +
-+		if (of_get_property(node, "wakeup-source", NULL))
-+			info->flags |= I2C_CLIENT_WAKE;
++	/* No need to scan muxes, siblings must sit on the same adapter */
++	reserved_dev = device_find_child(adapter_dev, &addr, __i2c_check_addr_busy);
++	reserved_client = i2c_verify_client(reserved_dev);
++
++	if (reserved_client) {
++		if (reserved_client->dev.of_node != np ||
++		    strcmp(reserved_client->name, I2C_RESERVED_DRV_NAME) != 0)
++			return ERR_PTR(-EBUSY);
++
++		strlcpy(reserved_client->name, I2C_DUMMY_DRV_NAME, sizeof(client->name));
++		return reserved_client;
 +	}
-+}
 +
-+int of_i2c_get_board_info(struct device_node *node, struct i2c_board_info *info)
-+{
-+	u32 addr;
-+	int ret;
-+
-+	ret = of_property_read_u32(node, "reg", &addr);
-+	if (ret) {
-+		pr_err("invalid reg on %pOF\n", node);
-+		return ret;
-+	}
- 
--	if (of_get_property(node, "wakeup-source", NULL))
--		info->flags |= I2C_CLIENT_WAKE;
-+	of_i2c_decode_board_info(node, addr, true, info);
- 
- 	return 0;
+ 	return i2c_new_dummy_device(client->adapter, addr);
  }
-@@ -64,21 +72,33 @@ EXPORT_SYMBOL_GPL(of_i2c_get_board_info);
- static struct i2c_client *of_i2c_register_device(struct i2c_adapter *adap,
- 						 struct device_node *node)
- {
--	struct i2c_client *client;
-+	struct i2c_client *client, *first_client = ERR_PTR(-ENOENT);
- 	struct i2c_board_info info;
--	int ret;
-+	bool first_reg = true;
-+	struct property *prop;
-+	const __be32 *cur;
-+	u32 reg;
- 
- 	pr_debug("register %pOF\n", node);
- 
--	ret = of_i2c_get_board_info(node, &info);
--	if (ret)
--		return ERR_PTR(ret);
-+	of_property_for_each_u32(node, "reg", prop, cur, reg) {
-+		of_i2c_decode_board_info(node, reg, first_reg, &info);
-+
-+		client = i2c_new_client_device(adap, &info);
-+		if (IS_ERR(client)) {
-+			pr_err("failure registering addr 0x%02x for %pOF\n",
-+				reg, node);
-+			if (first_reg)
-+				return client;
-+		}
- 
--	client = i2c_new_client_device(adap, &info);
--	if (IS_ERR(client))
--		pr_err("failure registering %pOF\n", node);
-+		if (first_reg) {
-+			first_client = client;
-+			first_reg = false;
-+		}
-+	}
- 
--	return client;
-+	return first_client;
- }
- 
- void of_i2c_register_devices(struct i2c_adapter *adap)
+ EXPORT_SYMBOL_GPL(i2c_new_ancillary_device);
 -- 
 2.20.1
 
