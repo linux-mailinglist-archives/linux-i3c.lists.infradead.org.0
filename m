@@ -2,45 +2,43 @@ Return-Path: <linux-i3c-bounces+lists+linux-i3c=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-i3c@lfdr.de
 Delivered-To: lists+linux-i3c@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8EE8A16649A
-	for <lists+linux-i3c@lfdr.de>; Thu, 20 Feb 2020 18:26:29 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 3B8D216649D
+	for <lists+linux-i3c@lfdr.de>; Thu, 20 Feb 2020 18:26:31 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cHjYItFpEgSwPqtR+8iZBXSo8s7XsyeZkkXp0cPxUdw=; b=F3e71lJbR5viQG
-	7C81cYXkzXJPyv4/7mZovX1r4Xw5fWRNxJqGvyH2wDiEsMnLNuABvrMEAfyCpZxsSTFtLbPlO1nSn
-	5G7nrjAjVKA+n+UFUdBHqlbCvkMz02KwdiZckOqwJPdhUH2xkNANHXbrUi2GYTdfYzI98zxZasVJa
-	7JbOkIm4g10q91DGrIkVEMdYBF+ZuenE3Je5ObaXqnw3AbOUzf9ZrQTzr7hpktHh68foB+ct7dm2G
-	9p2kYH9tJ3VcUZN2zK7vrK8XYIsvfVAxB9WfjYTn9IRJps0L/Q/kksV0DFcIpeXzupxxInoSkcchQ
-	7cnlVKpdOuTVySBbXS8Q==;
+	List-Owner; bh=CNODXUQNxhVMyNHyHzIkazTPvKuMu3+uUO1vp/+rLkg=; b=itWkpneKYGmk8T
+	o1jMo2qeL+4P98cHa0zjNLumRqtx3QneCXUOK43CDRZkXtk1zfn6EWKlF6KUgA3HQaO3XXeqbcTcZ
+	pbHbAWVIO5HnlrCNZ5kEOpE8qAk0f53lGbM31PzsA5S9i6Hol+FSXHp7WrJB6L4/5CVx5wwNG0bVk
+	PAk4CpguhjOgucGwswX3hyWBq9GaYeP/QGf2LuaPqCx8Zj3/Oe9ty1GassWSgAzEdKI3hYVeyuFlp
+	wVhfdWLCnpdLiN5z+i3P9RrY/wkiHlvOr/tz8u8szze5iRzhjgYc8bjTaMRU+AY/+V8Sc7piK1LOt
+	UxJpBUcyuIDVqvI3nxGg==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j4pal-0007pW-J8
-	for lists+linux-i3c@lfdr.de; Thu, 20 Feb 2020 17:26:27 +0000
+	id 1j4pan-0007qx-EB
+	for lists+linux-i3c@lfdr.de; Thu, 20 Feb 2020 17:26:29 +0000
 Received: from sauhun.de ([88.99.104.3] helo=pokefinder.org)
  by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j4paH-0007Fi-JC
- for linux-i3c@lists.infradead.org; Thu, 20 Feb 2020 17:26:01 +0000
+ id 1j4paK-0007NX-4x
+ for linux-i3c@lists.infradead.org; Thu, 20 Feb 2020 17:26:02 +0000
 Received: from localhost (p5486CC48.dip0.t-ipconnect.de [84.134.204.72])
- by pokefinder.org (Postfix) with ESMTPSA id A6F8A2C1EBF;
- Thu, 20 Feb 2020 18:25:52 +0100 (CET)
+ by pokefinder.org (Postfix) with ESMTPSA id 4E2892C1EC1;
+ Thu, 20 Feb 2020 18:25:53 +0100 (CET)
 From: Wolfram Sang <wsa+renesas@sang-engineering.com>
 To: linux-i2c@vger.kernel.org
-Subject: [RFC PATCH 4/7] i2c: of: remove superfluous parameter from exported
- function
-Date: Thu, 20 Feb 2020 18:24:00 +0100
-Message-Id: <20200220172403.26062-5-wsa+renesas@sang-engineering.com>
+Subject: [RFC PATCH 5/7] i2c: of: error message unification
+Date: Thu, 20 Feb 2020 18:24:01 +0100
+Message-Id: <20200220172403.26062-6-wsa+renesas@sang-engineering.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20200220172403.26062-1-wsa+renesas@sang-engineering.com>
 References: <20200220172403.26062-1-wsa+renesas@sang-engineering.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200220_092557_798938_7B437BC9 
-X-CRM114-Status: UNSURE (   9.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20200220_092600_372549_1E18866D 
+X-CRM114-Status: GOOD (  10.13  )
 X-Spam-Score: 1.0 (+)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
  Content analysis details:   (1.0 points)
@@ -74,86 +72,87 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-i3c" <linux-i3c-bounces@lists.infradead.org>
 Errors-To: linux-i3c-bounces+lists+linux-i3c=lfdr.de@lists.infradead.org
 
-'dev' is only used for printing an error message. However, that
-information is not needed because '%pOF' fully describes the location of
-the error. Drop the 'dev' and remove the superfluous parameter.
+- don't prefix the device if %pOF is provided. That information is
+  enough.
+- move the prefix to pr_fmt
+- change prefix from "of_i2c" to "i2c_of" because the code was moved
+  out of the of-domain long ago
 
 Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
 ---
- drivers/i2c/i2c-core-of.c | 7 +++----
- drivers/i3c/master.c      | 2 +-
- include/linux/i2c.h       | 6 ++----
- 3 files changed, 6 insertions(+), 9 deletions(-)
+ drivers/i2c/i2c-core-of.c | 17 ++++++++---------
+ 1 file changed, 8 insertions(+), 9 deletions(-)
 
 diff --git a/drivers/i2c/i2c-core-of.c b/drivers/i2c/i2c-core-of.c
-index d8d111ad6c85..710704cd583e 100644
+index 710704cd583e..74b9f3fbb5ef 100644
 --- a/drivers/i2c/i2c-core-of.c
 +++ b/drivers/i2c/i2c-core-of.c
-@@ -19,8 +19,7 @@
+@@ -8,6 +8,8 @@
+  * Copyright (C) 2013, 2018 Wolfram Sang <wsa@the-dreams.de>
+  */
  
- #include "i2c-core.h"
- 
--int of_i2c_get_board_info(struct device *dev, struct device_node *node,
--			  struct i2c_board_info *info)
-+int of_i2c_get_board_info(struct device_node *node, struct i2c_board_info *info)
- {
- 	u32 addr;
- 	int ret;
-@@ -29,7 +28,7 @@ int of_i2c_get_board_info(struct device *dev, struct device_node *node,
++#define pr_fmt(fmt) "i2c_of: " fmt
++
+ #include <dt-bindings/i2c/i2c.h>
+ #include <linux/device.h>
+ #include <linux/err.h>
+@@ -28,7 +30,7 @@ int of_i2c_get_board_info(struct device_node *node, struct i2c_board_info *info)
  
  	ret = of_property_read_u32(node, "reg", &addr);
  	if (ret) {
--		dev_err(dev, "of_i2c: invalid reg on %pOF\n", node);
-+		pr_err("of_i2c: invalid reg on %pOF\n", node);
+-		pr_err("of_i2c: invalid reg on %pOF\n", node);
++		pr_err("invalid reg on %pOF\n", node);
  		return ret;
  	}
  
-@@ -69,7 +68,7 @@ static struct i2c_client *of_i2c_register_device(struct i2c_adapter *adap,
+@@ -66,7 +68,7 @@ static struct i2c_client *of_i2c_register_device(struct i2c_adapter *adap,
+ 	struct i2c_board_info info;
+ 	int ret;
  
- 	dev_dbg(&adap->dev, "of_i2c: register %pOF\n", node);
+-	dev_dbg(&adap->dev, "of_i2c: register %pOF\n", node);
++	pr_debug("register %pOF\n", node);
  
--	ret = of_i2c_get_board_info(&adap->dev, node, &info);
-+	ret = of_i2c_get_board_info(node, &info);
+ 	ret = of_i2c_get_board_info(node, &info);
  	if (ret)
- 		return ERR_PTR(ret);
+@@ -74,7 +76,7 @@ static struct i2c_client *of_i2c_register_device(struct i2c_adapter *adap,
  
-diff --git a/drivers/i3c/master.c b/drivers/i3c/master.c
-index 7f8f896fa0c3..cc0549a9fc64 100644
---- a/drivers/i3c/master.c
-+++ b/drivers/i3c/master.c
-@@ -1943,7 +1943,7 @@ of_i3c_master_add_i2c_boardinfo(struct i3c_master_controller *master,
- 	if (!boardinfo)
- 		return -ENOMEM;
+ 	client = i2c_new_client_device(adap, &info);
+ 	if (IS_ERR(client))
+-		dev_err(&adap->dev, "of_i2c: Failure registering %pOF\n", node);
++		pr_err("failure registering %pOF\n", node);
  
--	ret = of_i2c_get_board_info(dev, node, &boardinfo->base);
-+	ret = of_i2c_get_board_info(node, &boardinfo->base);
- 	if (ret)
- 		return ret;
- 
-diff --git a/include/linux/i2c.h b/include/linux/i2c.h
-index f834687989f7..d84aaf0d83d5 100644
---- a/include/linux/i2c.h
-+++ b/include/linux/i2c.h
-@@ -942,8 +942,7 @@ const struct of_device_id
- *i2c_of_match_device(const struct of_device_id *matches,
- 		     struct i2c_client *client);
- 
--int of_i2c_get_board_info(struct device *dev, struct device_node *node,
--			  struct i2c_board_info *info);
-+int of_i2c_get_board_info(struct device_node *node, struct i2c_board_info *info);
- 
- #else
- 
-@@ -969,8 +968,7 @@ static inline const struct of_device_id
- 	return NULL;
+ 	return client;
  }
+@@ -88,7 +90,7 @@ void of_i2c_register_devices(struct i2c_adapter *adap)
+ 	if (!adap->dev.of_node)
+ 		return;
  
--static inline int of_i2c_get_board_info(struct device *dev,
--					struct device_node *node,
-+static inline int of_i2c_get_board_info(struct device_node *node,
- 					struct i2c_board_info *info)
- {
- 	return -ENOTSUPP;
+-	dev_dbg(&adap->dev, "of_i2c: walking child nodes\n");
++	dev_dbg(&adap->dev, "walking child nodes\n");
+ 
+ 	bus = of_get_child_by_name(adap->dev.of_node, "i2c-bus");
+ 	if (!bus)
+@@ -100,9 +102,7 @@ void of_i2c_register_devices(struct i2c_adapter *adap)
+ 
+ 		client = of_i2c_register_device(adap, node);
+ 		if (IS_ERR(client)) {
+-			dev_err(&adap->dev,
+-				 "Failed to create I2C device for %pOF\n",
+-				 node);
++			pr_err("failed to create I2C device for %pOF\n", node);
+ 			of_node_clear_flag(node, OF_POPULATED);
+ 		}
+ 	}
+@@ -243,8 +243,7 @@ static int of_i2c_notify(struct notifier_block *nb, unsigned long action,
+ 
+ 		client = of_i2c_register_device(adap, rd->dn);
+ 		if (IS_ERR(client)) {
+-			dev_err(&adap->dev, "failed to create client for '%pOF'\n",
+-				 rd->dn);
++			pr_err("failed to create client for '%pOF'\n", rd->dn);
+ 			put_device(&adap->dev);
+ 			of_node_clear_flag(rd->dn, OF_POPULATED);
+ 			return notifier_from_errno(PTR_ERR(client));
 -- 
 2.20.1
 
