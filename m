@@ -2,55 +2,77 @@ Return-Path: <linux-i3c-bounces+lists+linux-i3c=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-i3c@lfdr.de
 Delivered-To: lists+linux-i3c@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 73D661664A0
-	for <lists+linux-i3c@lfdr.de>; Thu, 20 Feb 2020 18:26:32 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 4838E16798E
+	for <lists+linux-i3c@lfdr.de>; Fri, 21 Feb 2020 10:36:47 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CIXPSQ8q+MArir0P68Q7OY78POStPgeekt3BL22oqTw=; b=tlT88Hcsr07YQ8
-	jtlfhGAKDDMBxR/DJ83KCpidwCtmVePGNWkRRx+7eC/v6E8kOiSSU88/Ax+4HdKa07ROBw69YgaLU
-	/531sPiicAr0N1hd7ILq0J57UACzUyFp63eKy1nE0A1bszplDfJvhZ0itBf+VHHVaZExuQrCmS0nf
-	ObNVu4lvGwhly/7IB7MIX2db+y0u0hk+k+4CfvvAQqUqaIodUnCfMr4g2xS9BukVMFDWx+psKJD34
-	VbbODgWnMkB1IbA4hHmsVrNxtVjDkx1H/1rU4OdrJbY6VgYxdK712AivtD8KDSdYYQjtU23GJBclA
-	hmsnTTokPAPJUmxpm7ZA==;
+	List-Owner; bh=NOCYeLP8D/W8ynmM2VfygesmOzDe7ZamkcIOYKv8EIE=; b=N5CECUVSti8Ve6
+	BEC/kPU8tJ4FTADKFBAQxFeqPMnF4GnoXn3zApJ+sNvWygfuaN5sZ7su3AxhcthcNe+/8dmoHoG+i
+	ZT7WLX0T5zrZBZecT0K1pE96hII/tRRVjO360Sd85NJBsFTkVkj6WJu+ffDS8NPK83PuRAHQbyrkm
+	ifOJbpZvFwM3yneZDd2FqP8rxq7iG9XQkHD79HGk6UT5rqYxBQx9l0YHTskXsvvZ75BOtSjrmQin/
+	nZ1q5CdnglrWDyucd5XWYCPTAg2qCYeL030GREC8/3nYvGdYBFd7Umb+qZFlzg4yLABhGr+FbeqoX
+	RSYQqq4fHLQkDLztcjrQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j4pap-0007sq-4z
-	for lists+linux-i3c@lfdr.de; Thu, 20 Feb 2020 17:26:31 +0000
-Received: from sauhun.de ([88.99.104.3] helo=pokefinder.org)
- by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j4paL-0007PJ-R6
- for linux-i3c@lists.infradead.org; Thu, 20 Feb 2020 17:26:03 +0000
-Received: from localhost (p5486CC48.dip0.t-ipconnect.de [84.134.204.72])
- by pokefinder.org (Postfix) with ESMTPSA id 721632C1EC5;
- Thu, 20 Feb 2020 18:25:54 +0100 (CET)
-From: Wolfram Sang <wsa+renesas@sang-engineering.com>
-To: linux-i2c@vger.kernel.org
-Subject: [RFC PATCH 7/7] i2c: core: hand over reserved devices when requesting
- ancillary addresses
-Date: Thu, 20 Feb 2020 18:24:03 +0100
-Message-Id: <20200220172403.26062-8-wsa+renesas@sang-engineering.com>
-X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20200220172403.26062-1-wsa+renesas@sang-engineering.com>
-References: <20200220172403.26062-1-wsa+renesas@sang-engineering.com>
+	id 1j54jm-0005De-0m
+	for lists+linux-i3c@lfdr.de; Fri, 21 Feb 2020 09:36:46 +0000
+Received: from mail-oi1-f194.google.com ([209.85.167.194])
+ by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
+ id 1j54jj-0005Ch-3t
+ for linux-i3c@lists.infradead.org; Fri, 21 Feb 2020 09:36:44 +0000
+Received: by mail-oi1-f194.google.com with SMTP id b18so995268oie.2
+ for <linux-i3c@lists.infradead.org>; Fri, 21 Feb 2020 01:36:42 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=l+VSzBk136F0WnmD8vd1UXyUqbIVYbRCZbVzHfV0nCo=;
+ b=uePI708YC3UmUdipaTD5NTRrOsqPwKGLi4xbkbHsn/ahy5IS/C4klEJpZZzDCXlQKG
+ eGjLh3pfUzGJ+tTUuzRYQv+TsmrM0cfTh2bGRcugplPjU5xMB+f42gB4lLoNuNEwOKrP
+ tgTopvhdkQLmmxh4qv3H1m08Wi3EdB54OVfg5wM3K2IoqrMi2PQg9Dr2Rf6os7qOv8I9
+ /Kx3ZcSsQMsvKpH6OfXcRKv6UN/jCd/7WoknWmqTSHyDaJtWrqSHQ9TgTFVxiAgbGp2G
+ L03F8Di7mTRhzAlUK1HLoQ7Z/YUrfOlUPN7JZTJPCZoAZ7xdkLARjCbGK54f1qLcOG7Z
+ 8AqQ==
+X-Gm-Message-State: APjAAAW/BsBzWzX/ejKJmLbZnbYBWvOgIv1cEEh93IQe/qocg6Koq598
+ 45Z1GDNpO0ojOYwIrCGfVSsqtC7eicBbP+3Vt2E=
+X-Google-Smtp-Source: APXvYqwTLkzdJ7Ea1pHuDDK58bfsunGZ+J2COTT5It/qUAHl0F0jdTOlEjeYhsTaMKlgabM9EKUDnBJ18UmF8kn5mDw=
+X-Received: by 2002:aca:48cd:: with SMTP id v196mr1273580oia.102.1582277801696; 
+ Fri, 21 Feb 2020 01:36:41 -0800 (PST)
 MIME-Version: 1.0
+References: <20200220172403.26062-1-wsa+renesas@sang-engineering.com>
+ <20200220172403.26062-2-wsa+renesas@sang-engineering.com>
+In-Reply-To: <20200220172403.26062-2-wsa+renesas@sang-engineering.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Fri, 21 Feb 2020 10:36:30 +0100
+Message-ID: <CAMuHMdU3WgdV0cqf0Gu=szyNch=QOEK8UbiQyxLjsf+WnS=-ZA@mail.gmail.com>
+Subject: Re: [RFC PATCH 1/7] i2c: add sanity check for parameter of
+ i2c_verify_client()
+To: Wolfram Sang <wsa+renesas@sang-engineering.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200220_092602_077758_A9B8DD68 
-X-CRM114-Status: UNSURE (   9.43  )
+X-CRM114-CacheID: sfid-20200221_013643_160806_D2D2191F 
+X-CRM114-Status: UNSURE (   8.41  )
 X-CRM114-Notice: Please train this message.
-X-Spam-Score: 1.0 (+)
+X-Spam-Score: 0.5 (/)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
- Content analysis details:   (1.0 points)
+ Content analysis details:   (0.5 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [88.99.104.3 listed in list.dnswl.org]
- 0.0 SPF_NONE               SPF: sender does not publish an SPF Record
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
- 1.0 FORGED_SPF_HELO        No description available.
+ no trust [209.85.167.194 listed in list.dnswl.org]
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+ 0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
+ mail domains are different
+ -0.0 RCVD_IN_MSPIKE_H2      RBL: Average reputation (+2)
+ [209.85.167.194 listed in wl.mailspike.net]
+ 0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+ provider [geert.uytterhoeven[at]gmail.com]
+ 0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
+ EnvelopeFrom freemail headers are different
 X-BeenThere: linux-i3c@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -62,67 +84,49 @@ List-Post: <mailto:linux-i3c@lists.infradead.org>
 List-Help: <mailto:linux-i3c-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-i3c>,
  <mailto:linux-i3c-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Jacopo Mondi <jacopo@jmondi.org>,
- =?UTF-8?q?Niklas=20S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>,
- Wolfram Sang <wsa+renesas@sang-engineering.com>, linux-kernel@vger.kernel.org,
- Vladimir Zapolskiy <vz@mleia.com>, linux-renesas-soc@vger.kernel.org,
- Kieran Bingham <kieran@bingham.xyz>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Luca Ceresoli <luca@lucaceresoli.net>, linux-i3c@lists.infradead.org
+Cc: "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>, Kieran Bingham <kieran@ksquared.org.uk>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Jacopo Mondi <jacopo@jmondi.org>, Vladimir Zapolskiy <vz@mleia.com>,
+ Linux-Renesas <linux-renesas-soc@vger.kernel.org>,
+ Luca Ceresoli <luca@lucaceresoli.net>, Linux I2C <linux-i2c@vger.kernel.org>,
+ =?UTF-8?Q?Niklas_S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>,
+ linux-i3c@lists.infradead.org,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-i3c" <linux-i3c-bounces@lists.infradead.org>
 Errors-To: linux-i3c-bounces+lists+linux-i3c=lfdr.de@lists.infradead.org
 
-With i2c_new_ancillary_address, we can check if the intended driver is
-requesting a reserved address. Update the function to do these checks.
-If the check passes, the "reserved" device will become a regular "dummy"
-device.
+Hi Wolfram,
 
-Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
----
- drivers/i2c/i2c-core-base.c | 18 +++++++++++++++++-
- 1 file changed, 17 insertions(+), 1 deletion(-)
+On Thu, Feb 20, 2020 at 6:26 PM Wolfram Sang
+<wsa+renesas@sang-engineering.com> wrote:
+> We export this function, so we should check the paramter to make it
 
-diff --git a/drivers/i2c/i2c-core-base.c b/drivers/i2c/i2c-core-base.c
-index 4000a4384306..ba325f8107a3 100644
---- a/drivers/i2c/i2c-core-base.c
-+++ b/drivers/i2c/i2c-core-base.c
-@@ -975,6 +975,8 @@ struct i2c_client *i2c_new_ancillary_device(struct i2c_client *client,
- 						u16 default_addr)
- {
- 	struct device_node *np = client->dev.of_node;
-+	struct device *reserved_dev, *adapter_dev = &client->adapter->dev;
-+	struct i2c_client *reserved_client;
- 	u32 addr = default_addr;
- 	int i;
- 
-@@ -984,7 +986,21 @@ struct i2c_client *i2c_new_ancillary_device(struct i2c_client *client,
- 			of_property_read_u32_index(np, "reg", i, &addr);
- 	}
- 
--	dev_dbg(&client->adapter->dev, "Address for %s : 0x%x\n", name, addr);
-+	dev_info(adapter_dev, "Address for %s : 0x%x\n", name, addr);
-+
-+	/* No need to scan muxes, siblings must sit on the same adapter */
-+	reserved_dev = device_find_child(adapter_dev, &addr, __i2c_check_addr_busy);
-+	reserved_client = i2c_verify_client(reserved_dev);
-+
-+	if (reserved_client) {
-+		if (reserved_client->dev.of_node != np ||
-+		    strcmp(reserved_client->name, I2C_RESERVED_DRV_NAME) != 0)
-+			return ERR_PTR(-EBUSY);
-+
-+		strlcpy(reserved_client->name, I2C_DUMMY_DRV_NAME, sizeof(client->name));
-+		return reserved_client;
-+	}
-+
- 	return i2c_new_dummy_device(client->adapter, addr);
- }
- EXPORT_SYMBOL_GPL(i2c_new_ancillary_device);
+parameter
+
+> NULL-compatible.
+>
+> Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
+
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+
+And then the check in i2c_acpi_find_client_by_adev() can be removed.
+BTW, can the i2c_verify_client() check in that function actually fail?
+If yes, it should call put_device(dev) on failure, like
+of_find_i2c_device_by_node() does.
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
 -- 
-2.20.1
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 _______________________________________________
 linux-i3c mailing list
