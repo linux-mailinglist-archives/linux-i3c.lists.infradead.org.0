@@ -2,66 +2,67 @@ Return-Path: <linux-i3c-bounces+lists+linux-i3c=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-i3c@lfdr.de
 Delivered-To: lists+linux-i3c@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 301AD1679BE
-	for <lists+linux-i3c@lfdr.de>; Fri, 21 Feb 2020 10:48:45 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 054E21679CB
+	for <lists+linux-i3c@lfdr.de>; Fri, 21 Feb 2020 10:50:18 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hKM+TCytWfpIQbuJVvifmOBVITu8IlTk2f7D9EHLiW4=; b=LwyMchS2NbQ59C
-	pBipno5m5w6abZ9eWuC6dSQ0jXRXbWl+x2DAtVQ/wRFL2zp0Cj8pWNI/WyIeo0LR3LAgcMJgjmoeH
-	NZ3ocIZMpKYhsLJ4ys0+jmzopJBlTEQFS0IfHZJac+5bvTxDG+Ux4VR9+Ua5S72sB0MhPueh1VOcO
-	S2xAEj9dI3SkLGnNfqnE8OI48jWaq2yNmCVwt3/trjlu03feCHu6ymg3Lp9fBp8G5Z7SwiY/6rvKw
-	m8dNYt0910wchImZkpe6QYOGnob7Q4rLUyactjCE4U/HgOwZyEdy++slhqk29ByYcgrveGGrOux19
-	UBud7y/J0/uot4p7RvhA==;
+	List-Owner; bh=cdzomzBVPqKRspRpweH1ggAYDZdhBE8cpMJ3z5pJKVo=; b=NlcsWip4UCVl0B
+	fPr/6cl+4rfw9xTWKwxB6dEsrJg5Z83BoJqObL/TbEMtdoedTyflthZF3Sdi13m4Td43563nHaQ4o
+	8pR9zOoASk/8ThLY3qwbapkNZf3qXggFonWcjdC02qh6cdTEh/RpDMv12E3ZnAvUEOLWvm9211L/G
+	VkcIBPPof0TxdLYS+s0Rz5bblDDspUoLY2szJIkEZ9WYNbSQtpZ3h6mGCyJcLDywWJZJwiDJjLQXh
+	v9hSho7HddasbeKGpzpTs1Ttb8SM+G87s+4atUfN4gaf+mopWli65FrKVHVA1X7BXlCaHhEIRQbR2
+	GCQEHsb0UD1bs05Oe/CA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j54vL-0000YW-GQ
-	for lists+linux-i3c@lfdr.de; Fri, 21 Feb 2020 09:48:43 +0000
-Received: from mail-ot1-f67.google.com ([209.85.210.67])
+	id 1j54wq-0001t6-P0
+	for lists+linux-i3c@lfdr.de; Fri, 21 Feb 2020 09:50:16 +0000
+Received: from mail-ot1-f66.google.com ([209.85.210.66])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j54vJ-0000Xj-I7
- for linux-i3c@lists.infradead.org; Fri, 21 Feb 2020 09:48:42 +0000
-Received: by mail-ot1-f67.google.com with SMTP id j20so1494190otq.3
- for <linux-i3c@lists.infradead.org>; Fri, 21 Feb 2020 01:48:39 -0800 (PST)
+ id 1j54wo-0001sm-AT
+ for linux-i3c@lists.infradead.org; Fri, 21 Feb 2020 09:50:15 +0000
+Received: by mail-ot1-f66.google.com with SMTP id r16so1493295otd.2
+ for <linux-i3c@lists.infradead.org>; Fri, 21 Feb 2020 01:50:13 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=uIi0c0G5Zb0Jw5ypN9sLASPQpOpXkoB2JbMIvsoRlKU=;
- b=PjzF4r+Iqzdgmge0nku7GUd6dmVBFBtaGVXhoX5O8CFwY++ht8x/PVL/rBpQ5MJII4
- vTXupYHl9m+G+Bv25AqoUmjg71sHcBYiepRVfbmwQbnxBlOcvju2UUoef25fYD/UOfGC
- WHKZvLflb3+6fqaWEMAkF7lHnlz+IvsSL/0H2NSV0wLF6RafCJ2DSFopmh6TNhL1YJT2
- czmaDZ4nFRslkpwEKsdetzeMAqCp74AP5WpU9OtULxkfOcdReSTLm2VSrkSL6BWwngl2
- bD/y9eEkH4Qfa8Q7S+/zl/mAaBue2FSuUt+yGXXc9DycLF4bLwIj0FDdazN4H+BJwt2M
- r04A==
-X-Gm-Message-State: APjAAAW2qHa6/M3XuaEdSRbiVPUuh+UYqDHz3DgJq+5wwffnLckz5omZ
- XDFjiMWQji8FSyaWDgxOwu6eFDKEfai/3j/IqE0=
-X-Google-Smtp-Source: APXvYqzCfDGAqcLdudcohpMobUQi25VoP3sGfFSGSDz0m/c8bEwK2Ubq4fI8d2E03xtKyfavurE7PLjwAUBVVtlYtvQ=
-X-Received: by 2002:a9d:7984:: with SMTP id h4mr27799290otm.297.1582278518775; 
- Fri, 21 Feb 2020 01:48:38 -0800 (PST)
+ bh=LGtPhAVjIvRquefayqs6YiIA/tNdWVoN+WLDPh1u7gE=;
+ b=G6/r8fCBDUrVIy7f9mYTwRjmGGmMsK8ncsD3WjNuE06Jf78+a8zali5VYtHYc9vxWO
+ mKqWTY1f9XhUrvUDzWfiW2s4vB5E2DberrvAWJAQeSA6a2RsNUwQbLIFNv/7oqoHjYQM
+ LeXByOdrMrgj2WTj+2sHGahbZ5vLQAQy+Cno0xG5bC9i8Hd+lp2+MeiXam/afsM0r6P2
+ +AP7LDEGAMua0TByGMCRbMaqxvRey0uRUcG/RECW2zQrRSoiOcWAfsLdykPjXa0hMieP
+ ZBBs7FT0dSV93XJwabJo+gWg8UKOS0hTocn6lPHVpXbz992eB0sYRyTH2HnZAT4mtVbV
+ 3zeQ==
+X-Gm-Message-State: APjAAAW2sPFhuhLwVUP+0yLbQ1+CIvU/MUObHUv+WbwN+Sd5ritGqgjg
+ YnMqgld5vpG1Z8f1OBe3J2z3MdEnfa0Y+9ci32I=
+X-Google-Smtp-Source: APXvYqwm+9QUakxr4sAH21zwcX7ad8NwXiWnkq/zDR06hcy6RD3aCDm8gQ7zDkbZbqGMQTUgWgb5ROsz2Bqdvv3L3xg=
+X-Received: by 2002:a9d:5c0c:: with SMTP id o12mr12558550otk.145.1582278613276; 
+ Fri, 21 Feb 2020 01:50:13 -0800 (PST)
 MIME-Version: 1.0
 References: <20200220172403.26062-1-wsa+renesas@sang-engineering.com>
- <20200220172403.26062-4-wsa+renesas@sang-engineering.com>
- <CAMuHMdWaPfc050dZiRr+gAFzsdjSo9Vo70ztWgrMGPJxLUqupw@mail.gmail.com>
-In-Reply-To: <CAMuHMdWaPfc050dZiRr+gAFzsdjSo9Vo70ztWgrMGPJxLUqupw@mail.gmail.com>
+ <20200220172403.26062-5-wsa+renesas@sang-engineering.com>
+In-Reply-To: <20200220172403.26062-5-wsa+renesas@sang-engineering.com>
 From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Fri, 21 Feb 2020 10:48:27 +0100
-Message-ID: <CAMuHMdXGvRRJUU7fOszPuKcvHA2ttpLTvQ5=9h3vVWPYFUbjaQ@mail.gmail.com>
-Subject: Re: [RFC PATCH 3/7] i2c: allow DT nodes without 'compatible'
+Date: Fri, 21 Feb 2020 10:50:02 +0100
+Message-ID: <CAMuHMdW-foZ+o1RbvEH8xX_zPa0sJ_kqRX+u4=bFRFNCHbLdwg@mail.gmail.com>
+Subject: Re: [RFC PATCH 4/7] i2c: of: remove superfluous parameter from
+ exported function
 To: Wolfram Sang <wsa+renesas@sang-engineering.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200221_014841_598429_4DB5EB4E 
-X-CRM114-Status: GOOD (  14.41  )
+X-CRM114-CacheID: sfid-20200221_015014_360877_C7A970F8 
+X-CRM114-Status: UNSURE (   8.34  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: 0.5 (/)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
  Content analysis details:   (0.5 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [209.85.210.67 listed in list.dnswl.org]
+ no trust [209.85.210.66 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
@@ -69,7 +70,7 @@ X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
  0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
  provider [geert.uytterhoeven[at]gmail.com]
  0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [209.85.210.67 listed in wl.mailspike.net]
+ [209.85.210.66 listed in wl.mailspike.net]
  0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
  EnvelopeFrom freemail headers are different
  0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
@@ -98,39 +99,15 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-i3c" <linux-i3c-bounces@lists.infradead.org>
 Errors-To: linux-i3c-bounces+lists+linux-i3c=lfdr.de@lists.infradead.org
 
-On Fri, Feb 21, 2020 at 10:45 AM Geert Uytterhoeven
-<geert@linux-m68k.org> wrote:
-> On Thu, Feb 20, 2020 at 6:26 PM Wolfram Sang
-> <wsa+renesas@sang-engineering.com> wrote:
-> > Sometimes, we have unknown devices in a system and still want to block
-> > their address. For that, we allow DT nodes with only a 'reg' property.
-> > These devices will be bound to the "dummy" driver but with the name
-> > "reserved". That way, we can distinguish them and even hand them over to
-> > the "dummy" driver later when they are really requested using
-> > i2c_new_ancillary_device().
-> >
-> > Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
+On Thu, Feb 20, 2020 at 6:26 PM Wolfram Sang
+<wsa+renesas@sang-engineering.com> wrote:
+> 'dev' is only used for printing an error message. However, that
+> information is not needed because '%pOF' fully describes the location of
+> the error. Drop the 'dev' and remove the superfluous parameter.
 >
-> Thanks for your patch!
->
-> Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
 
-FTR, depending on the extra dummy removed.
-
-> but one question below.
->
-> > --- a/Documentation/devicetree/bindings/i2c/i2c-ocores.txt
-> > +++ b/Documentation/devicetree/bindings/i2c/i2c-ocores.txt
-> > @@ -50,7 +50,6 @@ Examples:
-> >                 reg-io-width = <1>;     /* 8 bit read/write */
-> >
-> >                 dummy@60 {
-> > -                       compatible = "dummy";
-> >                         reg = <0x60>;
-> >                 };
-> >         };
->
-> There's a second instance to remove 18 lines below.
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
 
 Gr{oetje,eeting}s,
 
