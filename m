@@ -2,67 +2,65 @@ Return-Path: <linux-i3c-bounces+lists+linux-i3c=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-i3c@lfdr.de
 Delivered-To: lists+linux-i3c@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 054E21679CB
-	for <lists+linux-i3c@lfdr.de>; Fri, 21 Feb 2020 10:50:18 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 58AD21679F9
+	for <lists+linux-i3c@lfdr.de>; Fri, 21 Feb 2020 10:54:33 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cdzomzBVPqKRspRpweH1ggAYDZdhBE8cpMJ3z5pJKVo=; b=NlcsWip4UCVl0B
-	fPr/6cl+4rfw9xTWKwxB6dEsrJg5Z83BoJqObL/TbEMtdoedTyflthZF3Sdi13m4Td43563nHaQ4o
-	8pR9zOoASk/8ThLY3qwbapkNZf3qXggFonWcjdC02qh6cdTEh/RpDMv12E3ZnAvUEOLWvm9211L/G
-	VkcIBPPof0TxdLYS+s0Rz5bblDDspUoLY2szJIkEZ9WYNbSQtpZ3h6mGCyJcLDywWJZJwiDJjLQXh
-	v9hSho7HddasbeKGpzpTs1Ttb8SM+G87s+4atUfN4gaf+mopWli65FrKVHVA1X7BXlCaHhEIRQbR2
-	GCQEHsb0UD1bs05Oe/CA==;
+	List-Owner; bh=mLRX7urTMR3xKzW356+KIPteHMYSf7kO3XL49rn1R3c=; b=mWbF1BGYGxsUvq
+	VgbXubPuotYru0Xk2DQtT+VdMgKrNfnUnNYlUctlm3KVgh/MdAwuJA+jMfIkDFXxU/gdJujN1DLvT
+	NgZmCbjQY/3dQLUCH8qGuXUX5iCUEbNQFpD7SRtcvo25WTsyQ9z56OCbVpe19E/ZwP/5ZSn0rEVC1
+	Wl7Syl/nZbNHEyAWx8rLo4TYvYNvQypIcKwRk+7rK/HTU5LVs6Clx7ek95VsQZGFpLlnv0ClW7to5
+	aMLovnY+tBFDKWfBEkc6DSzXqPM4I2hn8VskvlnkkSQ5i7mWay/qaYWjxtreKbpBeyd1IRf1Q3YGv
+	7yeoiuC1PiKPQs+nFGRw==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j54wq-0001t6-P0
-	for lists+linux-i3c@lfdr.de; Fri, 21 Feb 2020 09:50:16 +0000
-Received: from mail-ot1-f66.google.com ([209.85.210.66])
+	id 1j550y-0002mg-2T
+	for lists+linux-i3c@lfdr.de; Fri, 21 Feb 2020 09:54:32 +0000
+Received: from mail-ot1-f65.google.com ([209.85.210.65])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j54wo-0001sm-AT
- for linux-i3c@lists.infradead.org; Fri, 21 Feb 2020 09:50:15 +0000
-Received: by mail-ot1-f66.google.com with SMTP id r16so1493295otd.2
- for <linux-i3c@lists.infradead.org>; Fri, 21 Feb 2020 01:50:13 -0800 (PST)
+ id 1j550v-0002mI-Jb
+ for linux-i3c@lists.infradead.org; Fri, 21 Feb 2020 09:54:30 +0000
+Received: by mail-ot1-f65.google.com with SMTP id 77so1482721oty.6
+ for <linux-i3c@lists.infradead.org>; Fri, 21 Feb 2020 01:54:29 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=LGtPhAVjIvRquefayqs6YiIA/tNdWVoN+WLDPh1u7gE=;
- b=G6/r8fCBDUrVIy7f9mYTwRjmGGmMsK8ncsD3WjNuE06Jf78+a8zali5VYtHYc9vxWO
- mKqWTY1f9XhUrvUDzWfiW2s4vB5E2DberrvAWJAQeSA6a2RsNUwQbLIFNv/7oqoHjYQM
- LeXByOdrMrgj2WTj+2sHGahbZ5vLQAQy+Cno0xG5bC9i8Hd+lp2+MeiXam/afsM0r6P2
- +AP7LDEGAMua0TByGMCRbMaqxvRey0uRUcG/RECW2zQrRSoiOcWAfsLdykPjXa0hMieP
- ZBBs7FT0dSV93XJwabJo+gWg8UKOS0hTocn6lPHVpXbz992eB0sYRyTH2HnZAT4mtVbV
- 3zeQ==
-X-Gm-Message-State: APjAAAW2sPFhuhLwVUP+0yLbQ1+CIvU/MUObHUv+WbwN+Sd5ritGqgjg
- YnMqgld5vpG1Z8f1OBe3J2z3MdEnfa0Y+9ci32I=
-X-Google-Smtp-Source: APXvYqwm+9QUakxr4sAH21zwcX7ad8NwXiWnkq/zDR06hcy6RD3aCDm8gQ7zDkbZbqGMQTUgWgb5ROsz2Bqdvv3L3xg=
-X-Received: by 2002:a9d:5c0c:: with SMTP id o12mr12558550otk.145.1582278613276; 
- Fri, 21 Feb 2020 01:50:13 -0800 (PST)
+ bh=6KWuWbwpy5eV1ugbAOKbTPCDhSjq5tBX3gsYSurm6FU=;
+ b=ZZU3zhFUCraUhz1o4tkpiWdoCIkJQ6yeMwhKjWGSnG8VLbMVo4PKSQadGHW8S07A9b
+ Q+2Wz8E/4AzHcmV4VI7W3soRzi4SeCAc2KdPb5ZeJGeQSZ3RyegNtWIarwQzErsmHhKg
+ kCE3Q3pHAMGY1sBaHtKljIsfbPi84YqqShC8TCQHIOp5LKDChgkgAoik/zkOyRCzO0JV
+ 4hVg9lIvSkLQGYvl20jN+aKhgyowFk5KUENY4EVApl7nWkUSmDTSoW2WCXuliMB0RQp1
+ JwVRf9yaEZ4K/BewxUQTVNIhAOWhOumNIC9F+PRbestAn5qqeoLyuWeUCqgEiGErgM/G
+ BCGg==
+X-Gm-Message-State: APjAAAUivFI5+JqSdzDtG5sBF3Hfxw5YGiDkuAh5FpWVlncfE7jkhr5o
+ ozBQBM16a5jShZk3ZcWvd5usYNVf1XSwDQQtmP0=
+X-Google-Smtp-Source: APXvYqyhskulP9XNKEDIW8WGFVwSFpIZubz6Szsv+4aJV+5XVybq6Gl2c8lJKMieOTMpUoN9JopRyDO5qSQyZQelS5w=
+X-Received: by 2002:a9d:dc1:: with SMTP id 59mr27510706ots.250.1582278869027; 
+ Fri, 21 Feb 2020 01:54:29 -0800 (PST)
 MIME-Version: 1.0
 References: <20200220172403.26062-1-wsa+renesas@sang-engineering.com>
- <20200220172403.26062-5-wsa+renesas@sang-engineering.com>
-In-Reply-To: <20200220172403.26062-5-wsa+renesas@sang-engineering.com>
+ <20200220172403.26062-6-wsa+renesas@sang-engineering.com>
+In-Reply-To: <20200220172403.26062-6-wsa+renesas@sang-engineering.com>
 From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Fri, 21 Feb 2020 10:50:02 +0100
-Message-ID: <CAMuHMdW-foZ+o1RbvEH8xX_zPa0sJ_kqRX+u4=bFRFNCHbLdwg@mail.gmail.com>
-Subject: Re: [RFC PATCH 4/7] i2c: of: remove superfluous parameter from
- exported function
+Date: Fri, 21 Feb 2020 10:54:18 +0100
+Message-ID: <CAMuHMdXy=B6ZjC=X12yeOjSfr5-Z6HNL4vp0vQciMsW31i-CPw@mail.gmail.com>
+Subject: Re: [RFC PATCH 5/7] i2c: of: error message unification
 To: Wolfram Sang <wsa+renesas@sang-engineering.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200221_015014_360877_C7A970F8 
-X-CRM114-Status: UNSURE (   8.34  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20200221_015429_642692_91D3A950 
+X-CRM114-Status: GOOD (  11.77  )
 X-Spam-Score: 0.5 (/)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
  Content analysis details:   (0.5 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
  -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
- no trust [209.85.210.66 listed in list.dnswl.org]
+ no trust [209.85.210.65 listed in list.dnswl.org]
  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
  0.2 HEADER_FROM_DIFFERENT_DOMAINS From and EnvelopeFrom 2nd level
@@ -70,7 +68,7 @@ X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
  0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
  provider [geert.uytterhoeven[at]gmail.com]
  0.0 RCVD_IN_MSPIKE_H3      RBL: Good reputation (+3)
- [209.85.210.66 listed in wl.mailspike.net]
+ [209.85.210.65 listed in wl.mailspike.net]
  0.2 FREEMAIL_FORGED_FROMDOMAIN 2nd level domains in From and
  EnvelopeFrom freemail headers are different
  0.0 RCVD_IN_MSPIKE_WL      Mailspike good senders
@@ -99,14 +97,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-i3c" <linux-i3c-bounces@lists.infradead.org>
 Errors-To: linux-i3c-bounces+lists+linux-i3c=lfdr.de@lists.infradead.org
 
+Hi Wolfram,
+
+Thanks for your patch!
+
 On Thu, Feb 20, 2020 at 6:26 PM Wolfram Sang
 <wsa+renesas@sang-engineering.com> wrote:
-> 'dev' is only used for printing an error message. However, that
-> information is not needed because '%pOF' fully describes the location of
-> the error. Drop the 'dev' and remove the superfluous parameter.
+> - don't prefix the device if %pOF is provided. That information is
+>   enough.
+
+While that information is sufficient to identify the device, using a mix
+of dev_*() and pr_*("... %pOF...") makes it harder to grep for relevant
+information in the kernel log.  Hence I'm not convinced this is an
+improvement.
+
+> - move the prefix to pr_fmt
+> - change prefix from "of_i2c" to "i2c_of" because the code was moved
+>   out of the of-domain long ago
 >
 > Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
 
+Nevertheless:
 Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
 
 Gr{oetje,eeting}s,
