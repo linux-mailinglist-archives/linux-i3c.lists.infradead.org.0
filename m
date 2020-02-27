@@ -2,74 +2,93 @@ Return-Path: <linux-i3c-bounces+lists+linux-i3c=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-i3c@lfdr.de
 Delivered-To: lists+linux-i3c@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9A608171606
-	for <lists+linux-i3c@lfdr.de>; Thu, 27 Feb 2020 12:31:37 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 4BF9F171844
+	for <lists+linux-i3c@lfdr.de>; Thu, 27 Feb 2020 14:10:24 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
-	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=tY5PEU5JCewaYnW1S5ovDIeVYG8jTXpJanjt48pjdDk=; b=WGhaTw+WMwwqcKT+wo7adgE8O7
-	ruNF3j9xJTB/keqtX2tUajeoZWE78LizTHKEhjCF0M9yGeyGFLBeiPlr/qx6jDTiC2rz03PFwslvf
-	Po9wOck3d4tPqeoaVvsW4rq1d96lVZkQ0wlxcb/NiEaRosRceCLFayDMw6P9M3xiMshZu+lvHvl3Z
-	obE0sCmQQDjamz5u62OcX0PWf99QbbP1izQGN6srsNG/FZHjbqpntRVdZPmcRF10MKZdGooXPtxkD
-	7/9FvD64g9jgZVIsxd1IHVoBH8hRpANqWSZND/W4RNvIF7rO8bO1JF9tevmYqWHpF90xriFxm5GdP
-	k/rCY5RA==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:To:From
+	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=vdnWaD93fVFrouSTpYpvEOYBOgzrPlKvRsrIA5Tch4A=; b=MVjff7IYYYN59B
+	AW0ORWj+FpQtYR9ZhbH0IFyl9JJJffoj1+2noTo+bxLfsByLvrZMxVz6EK2IISBDU7eznEBOr0xrG
+	cHVWwhxJiB7Mm5L1eE/oLiyfus3nh825VpSfFSuFk4KXq8uuDfBHPEUpXCDlwOiKZEh5b5MGd2gDg
+	4GEUtwLLWdG8w9twTBnvCRyglnQjz4qXm/4FkkirBzMG/ezGNQjooDNZyvhYRkMCsEJ4Xhh28Lodx
+	ZazGd9KNYwdR+iMxHGKFZrA9I06fn1Q1aLP1Vu1iI7dQQt6uoVstavQ8qTFJVipBuU2KXDrGcmLHz
+	o4aK9zVs2I0ZUfJoOPcQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j7HOC-00065i-AP
-	for lists+linux-i3c@lfdr.de; Thu, 27 Feb 2020 11:31:36 +0000
-Received: from smtprelay-out1.synopsys.com ([149.117.73.133])
+	id 1j7Ivn-00048M-2R
+	for lists+linux-i3c@lfdr.de; Thu, 27 Feb 2020 13:10:23 +0000
+Received: from gateway34.websitewelcome.com ([192.185.149.72])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j7HO6-00062s-R5
- for linux-i3c@lists.infradead.org; Thu, 27 Feb 2020 11:31:34 +0000
-Received: from mailhost.synopsys.com (mdc-mailhost2.synopsys.com
- [10.225.0.210])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
- (No client certificate requested)
- by smtprelay-out1.synopsys.com (Postfix) with ESMTPS id 58A8C43B5E;
- Thu, 27 Feb 2020 11:31:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=synopsys.com; s=mail;
- t=1582803088; bh=0syuIutiUjjVU8By23MObQ0rqTkTVnHNZjjdVWTlCqQ=;
- h=From:To:Cc:Subject:Date:In-Reply-To:References:In-Reply-To:
- References:From;
- b=lAnsoNzvlDmMDq0uoorCMIboX8tc9QBfiOgezLXHISO68H7eBIyVjG9X7p58hnkHp
- A8wz6YpeeGHrKO2Z2KlDK1dHG07dlWBcMtWfQihxne9AmTcVc/SYVPQ0WFAULDjiCB
- PtZQVoHyc0GUxso8Q2Xh7WJ7QcHcAPmugXRC6EsbhpLgLnAIFEZcXkRWi/ImLBkc0s
- VeUj6mjHqz9Gy8p8KFJW7fRuz78AsLYRduTR74sR7Wmf7u1xumv8Ni4GNun1i2tPDf
- cdz2oEoKFmj9Z18y2xZZV1OzPQlaOKqiZQzE1czLOh/nrL7plvmEoNvRqPyIGE8d3N
- EoJPEglN+nIGQ==
-Received: from de02.synopsys.com (germany.internal.synopsys.com [10.225.17.21])
- by mailhost.synopsys.com (Postfix) with ESMTP id 94C1BA005F;
- Thu, 27 Feb 2020 11:31:26 +0000 (UTC)
-Received: from de02dwia024.internal.synopsys.com
- (de02dwia024.internal.synopsys.com [10.225.19.81])
- by de02.synopsys.com (Postfix) with ESMTP id 7EF5D3E9EB;
- Thu, 27 Feb 2020 12:31:26 +0100 (CET)
-From: Vitor Soares <Vitor.Soares@synopsys.com>
-To: pgaj@cadence.com,
-	bbrezillon@kernel.org,
-	linux-i3c@lists.infradead.org
-Subject: [PATCH v2 4/4] i3c: Simplify i3c_device_match_id()
-Date: Thu, 27 Feb 2020 12:31:09 +0100
-Message-Id: <8c5d6523e1c161783db834a3447954f7fd6267e6.1582796652.git.vitor.soares@synopsys.com>
-X-Mailer: git-send-email 2.7.4
-In-Reply-To: <cover.1582796652.git.vitor.soares@synopsys.com>
-References: <cover.1582796652.git.vitor.soares@synopsys.com>
-In-Reply-To: <cover.1582796652.git.vitor.soares@synopsys.com>
-References: <cover.1582796652.git.vitor.soares@synopsys.com>
+ id 1j7Ivj-00047i-KX
+ for linux-i3c@lists.infradead.org; Thu, 27 Feb 2020 13:10:21 +0000
+Received: from cm11.websitewelcome.com (cm11.websitewelcome.com [100.42.49.5])
+ by gateway34.websitewelcome.com (Postfix) with ESMTP id D4F576B2EEC
+ for <linux-i3c@lists.infradead.org>;
+ Thu, 27 Feb 2020 07:10:16 -0600 (CST)
+Received: from gator4166.hostgator.com ([108.167.133.22]) by cmsmtp with SMTP
+ id 7IvgjRLBaSl8q7Ivgj5crS; Thu, 27 Feb 2020 07:10:16 -0600
+X-Authority-Reason: nr=8
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=embeddedor.com; s=default; h=Content-Type:MIME-Version:Message-ID:Subject:
+ Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+ List-Subscribe:List-Post:List-Owner:List-Archive;
+ bh=qzDnfPXQnwdKlHtoPz0jeIpy5o9H6yWTrMabKluFuZg=; b=RyWYqttgdcI7GrTHQ98ocNUFIL
+ G8sByhHkV+6Bx16Q8Q+Mnnnkkfy4gC0h4yS8vMWLrhHfpZ5QfyradEaQlQvF7NG5orD2PcbTlDefY
+ QjPyzb8zIFv0h3GKVYOq94Ru6eGzgpFGLyMDICkiWvXOm/6fz2ZZkfhrsYrnWaVMAQpR3dw+EfcoK
+ 7QVD2EFoyNrY6dJvqgz6AiU6lCTWPbxqnjUumVicoGykBCuSKlpO07zvpWbFo6iXP92ojV2XilHBu
+ 6PA9dK0CD/5QpQ5XT8QGpsdU1UiUAKkxsgfYVejIbdSl+bvJwwAsaOHCL80aqz8L0KLFVyXkv3byu
+ nMw565cA==;
+Received: from [201.162.161.188] (port=40506 helo=embeddedor)
+ by gator4166.hostgator.com with esmtpa (Exim 4.92)
+ (envelope-from <gustavo@embeddedor.com>)
+ id 1j7Ive-000s4k-OE; Thu, 27 Feb 2020 07:10:15 -0600
+Date: Thu, 27 Feb 2020 07:13:07 -0600
+From: "Gustavo A. R. Silva" <gustavo@embeddedor.com>
+To: Vitor Soares <vitor.soares@synopsys.com>,
+ Boris Brezillon <bbrezillon@kernel.org>,
+ =?utf-8?Q?Przemys=C5=82aw?= Gaj <pgaj@cadence.com>
+Subject: [PATCH] i3c: master: Replace zero-length array with flexible-array
+ member
+Message-ID: <20200227131307.GA24935@embeddedor>
+MIME-Version: 1.0
+Content-Disposition: inline
+User-Agent: Mutt/1.9.4 (2018-02-28)
+X-AntiAbuse: This header was added to track abuse,
+ please include it with any abuse report
+X-AntiAbuse: Primary Hostname - gator4166.hostgator.com
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - embeddedor.com
+X-BWhitelist: no
+X-Source-IP: 201.162.161.188
+X-Source-L: No
+X-Exim-ID: 1j7Ive-000s4k-OE
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-Source-Sender: (embeddedor) [201.162.161.188]:40506
+X-Source-Auth: gustavo@embeddedor.com
+X-Email-Count: 4
+X-Source-Cap: Z3V6aWRpbmU7Z3V6aWRpbmU7Z2F0b3I0MTY2Lmhvc3RnYXRvci5jb20=
+X-Local-Domain: yes
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200227_033130_884923_B16D57C0 
-X-CRM114-Status: GOOD (  11.68  )
+X-CRM114-CacheID: sfid-20200227_051019_764998_8AF807F8 
+X-CRM114-Status: UNSURE (   6.75  )
+X-CRM114-Notice: Please train this message.
 X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
  Content analysis details:   (-0.2 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [192.185.149.72 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
  -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
@@ -88,94 +107,75 @@ List-Post: <mailto:linux-i3c@lists.infradead.org>
 List-Help: <mailto:linux-i3c-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-i3c>,
  <mailto:linux-i3c-request@lists.infradead.org?subject=subscribe>
-Cc: Boris Brezillon <boris.brezillon@collabora.com>,
- linux-kernel@vger.kernel.org, Vitor Soares <Vitor.Soares@synopsys.com>
-MIME-Version: 1.0
+Cc: linux-i3c@lists.infradead.org, linux-kernel@vger.kernel.org,
+ "Gustavo A. R. Silva" <gustavo@embeddedor.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-i3c" <linux-i3c-bounces@lists.infradead.org>
 Errors-To: linux-i3c-bounces+lists+linux-i3c=lfdr.de@lists.infradead.org
 
-From: Boris Brezillon <boris.brezillon@collabora.com>
+The current codebase makes use of the zero-length array language
+extension to the C90 standard, but the preferred mechanism to declare
+variable-length types such as these ones is a flexible array member[1][2],
+introduced in C99:
 
-Simply match against ->match_flags instead of trying to be smart and
-fix drivers inconsistent ID tables.
+struct foo {
+        int stuff;
+        struct boo array[];
+};
 
-Signed-off-by: Boris Brezillon <boris.brezillon@collabora.com>
-Signed-off-by: Vitor Soares <vitor.soares@synopsys.com>
+By making use of the mechanism above, we will get a compiler warning
+in case the flexible array does not occur last in the structure, which
+will help us prevent some kind of undefined behavior bugs from being
+inadvertently introduced[3] to the codebase from now on.
+
+Also, notice that, dynamic memory allocations won't be affected by
+this change:
+
+"Flexible array members have incomplete type, and so the sizeof operator
+may not be applied. As a quirk of the original implementation of
+zero-length arrays, sizeof evaluates to zero."[1]
+
+This issue was found with the help of Coccinelle.
+
+[1] https://gcc.gnu.org/onlinedocs/gcc/Zero-Length.html
+[2] https://github.com/KSPP/linux/issues/21
+[3] commit 76497732932f ("cxgb3/l2t: Fix undefined behaviour")
+
+Signed-off-by: Gustavo A. R. Silva <gustavo@embeddedor.com>
 ---
- drivers/i3c/device.c | 50 ++++++++++++++++++++++----------------------------
- 1 file changed, 22 insertions(+), 28 deletions(-)
+ drivers/i3c/master/dw-i3c-master.c   | 2 +-
+ drivers/i3c/master/i3c-master-cdns.c | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/i3c/device.c b/drivers/i3c/device.c
-index 9e2e140..bb8e60d 100644
---- a/drivers/i3c/device.c
-+++ b/drivers/i3c/device.c
-@@ -213,40 +213,34 @@ i3c_device_match_id(struct i3c_device *i3cdev,
- {
- 	struct i3c_device_info devinfo;
- 	const struct i3c_device_id *id;
-+	u16 manuf, part, ext_info;
-+	bool rndpid;
+diff --git a/drivers/i3c/master/dw-i3c-master.c b/drivers/i3c/master/dw-i3c-master.c
+index bd26c3b9634e..5c5306cd50ec 100644
+--- a/drivers/i3c/master/dw-i3c-master.c
++++ b/drivers/i3c/master/dw-i3c-master.c
+@@ -221,7 +221,7 @@ struct dw_i3c_xfer {
+ 	struct completion comp;
+ 	int ret;
+ 	unsigned int ncmds;
+-	struct dw_i3c_cmd cmds[0];
++	struct dw_i3c_cmd cmds[];
+ };
  
- 	i3c_device_get_info(i3cdev, &devinfo);
+ struct dw_i3c_master {
+diff --git a/drivers/i3c/master/i3c-master-cdns.c b/drivers/i3c/master/i3c-master-cdns.c
+index 54712793709e..3fee8bd7fe20 100644
+--- a/drivers/i3c/master/i3c-master-cdns.c
++++ b/drivers/i3c/master/i3c-master-cdns.c
+@@ -388,7 +388,7 @@ struct cdns_i3c_xfer {
+ 	struct completion comp;
+ 	int ret;
+ 	unsigned int ncmds;
+-	struct cdns_i3c_cmd cmds[0];
++	struct cdns_i3c_cmd cmds[];
+ };
  
--	/*
--	 * The lower 32bits of the provisional ID is just filled with a random
--	 * value, try to match using DCR info.
--	 */
--	if (!I3C_PID_RND_LOWER_32BITS(devinfo.pid)) {
--		u16 manuf = I3C_PID_MANUF_ID(devinfo.pid);
--		u16 part = I3C_PID_PART_ID(devinfo.pid);
--		u16 ext_info = I3C_PID_EXTRA_INFO(devinfo.pid);
--
--		/* First try to match by manufacturer/part ID. */
--		for (id = id_table; id->match_flags != 0; id++) {
--			if ((id->match_flags & I3C_MATCH_MANUF_AND_PART) !=
--			    I3C_MATCH_MANUF_AND_PART)
--				continue;
--
--			if (manuf != id->manuf_id || part != id->part_id)
--				continue;
--
--			if ((id->match_flags & I3C_MATCH_EXTRA_INFO) &&
--			    ext_info != id->extra_info)
--				continue;
--
--			return id;
--		}
--	}
-+	manuf = I3C_PID_MANUF_ID(devinfo.pid);
-+	part = I3C_PID_PART_ID(devinfo.pid);
-+	ext_info = I3C_PID_EXTRA_INFO(devinfo.pid);
-+	rndpid = I3C_PID_RND_LOWER_32BITS(devinfo.pid);
- 
--	/* Fallback to DCR match. */
- 	for (id = id_table; id->match_flags != 0; id++) {
- 		if ((id->match_flags & I3C_MATCH_DCR) &&
--		    id->dcr == devinfo.dcr)
--			return id;
-+		    id->dcr != devinfo.dcr)
-+			continue;
-+
-+		if ((id->match_flags & I3C_MATCH_MANUF) &&
-+		    id->manuf_id != manuf)
-+			continue;
-+
-+		if ((id->match_flags & I3C_MATCH_PART) &&
-+		    (rndpid || id->part_id != part))
-+			continue;
-+
-+		if ((id->match_flags & I3C_MATCH_EXTRA_INFO) &&
-+		    (rndpid || id->extra_info != ext_info))
-+			continue;
-+
-+		return id;
- 	}
- 
- 	return NULL;
+ struct cdns_i3c_data {
 -- 
-2.7.4
+2.25.0
 
 
 _______________________________________________
