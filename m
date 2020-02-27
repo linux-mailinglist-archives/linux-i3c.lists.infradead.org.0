@@ -2,8 +2,8 @@ Return-Path: <linux-i3c-bounces+lists+linux-i3c=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-i3c@lfdr.de
 Delivered-To: lists+linux-i3c@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id BE352171607
-	for <lists+linux-i3c@lfdr.de>; Thu, 27 Feb 2020 12:31:37 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 1C14417160A
+	for <lists+linux-i3c@lfdr.de>; Thu, 27 Feb 2020 12:31:40 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
@@ -11,59 +11,58 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=R1YbTHD/+dv/t0B+7iZ9Ldf/ZJ8xr3NwFUdE43QneTM=; b=BCResF0z65QGJNwtixoQaMzcBc
-	/EbiEB6dB9C6lPQsx5aUVl+Wct+pOOFBMoT1m/W4htQyZwem2PQxVBGexvPTRAUR/6ArhQpVk80H/
-	K6PFqt9LyP0G1WEkG/wyf0shuTt/WDGrTZ7rCFb6ap0h8tm8jWtC75V3kOGQNJarEyuOGpPUwTnF5
-	K0BbMyGuMsLsvvhe2gDXqb0m4dTGqd8phg2Xt6D5UlLLacV4XNF71RYd/b8xVkHkUeBbpdaueQ11L
-	Y5VG8xK5eBGeOyNMT1qfa+5cE1zwqV+B46Z+/apwvVOvsC1jWdIzZRGvi7lT56CMguMCp0OZeMeId
-	UJPZEt+Q==;
+	bh=0Om5UQ69KmbwomGKbPe1QRSul0s8/K9PAwBol1t4zT0=; b=h6NZKms887LpLKq47/VS6wQlfS
+	KK2HEBBK6FARVlvEezZtO3God/eIG7EnOf6ynwJ5Ks96Zrgx8Y5mP8MpDYIAnf+RyaXamA64y2EJG
+	TJ/wu51vsjr0Z4smWGh8drDYRgvhjqD5QBaSQpsVlAwUZYc3cV6VzBY0R5VqKq+RE2iRwydeWRFPR
+	VrsfO3qOV/Gcybj0DS/+LY2cIJobXeAWuACrkJKTQzz5kLITcCyfBWmQv7zEtfGbgoGxvaGVoaJ1g
+	5om4o8VDgkcgJ/G0Qp6sBfV2qoPMUi6e8ScILtw+BDMhVPvH7HhKlYdz2HZFhCyqXxYFv1o8TAy3S
+	/TKuUdgA==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j7HOC-00065p-FW
-	for lists+linux-i3c@lfdr.de; Thu, 27 Feb 2020 11:31:36 +0000
-Received: from us03-smtprelay2.synopsys.com ([149.117.87.133]
- helo=smtprelay-out1.synopsys.com)
+	id 1j7HOE-00066z-Ra
+	for lists+linux-i3c@lfdr.de; Thu, 27 Feb 2020 11:31:38 +0000
+Received: from smtprelay-out1.synopsys.com ([149.117.87.133])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j7HO9-00063S-9P
- for linux-i3c@lists.infradead.org; Thu, 27 Feb 2020 11:31:34 +0000
-Received: from mailhost.synopsys.com (mdc-mailhost1.synopsys.com
- [10.225.0.209])
+ id 1j7HO6-00062w-RI
+ for linux-i3c@lists.infradead.org; Thu, 27 Feb 2020 11:31:36 +0000
+Received: from mailhost.synopsys.com (mdc-mailhost2.synopsys.com
+ [10.225.0.210])
  (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
  (No client certificate requested)
- by smtprelay-out1.synopsys.com (Postfix) with ESMTPS id CADA1C0F39;
- Thu, 27 Feb 2020 11:31:32 +0000 (UTC)
+ by smtprelay-out1.synopsys.com (Postfix) with ESMTPS id 5B4D6C0AD1;
+ Thu, 27 Feb 2020 11:31:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=synopsys.com; s=mail;
- t=1582803093; bh=g1PNO3dJwapptFFDIh94Tq3o6pR2tpjxuF2ZTzqCpQ4=;
+ t=1582803090; bh=nnsAv9kQ8j3lGYt/imLE7LxPTTFBc+oOVMrkSeC4fMI=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:In-Reply-To:
  References:From;
- b=e/FbEKVO3uUAhW35HLE3UQQMuPOCPLX/uZojqRUIr5iCZ06DlOcAHPT1pLDS9dk1s
- XXdvqpCWEhwHva9WR/nuOe3aykLPC71mJvosJulSktwQruEaS6DuCBYCtPbX/ohugy
- syUjLN78NP6Daq9YoKM5+r9aPkEo/aGPFe6jcgsMibEAjPBcO3DUeM34tXtKq93xTP
- RrLPBZBmeuCQheBy8u95FRjhtfXZUCADjs7ezByPbYQTOFa+GLJmc8V6kZjZLrT7A0
- T+yL04MmPRZLj2qVtTcUCD4JvVVOALBxKzIi0aQ4Eosg/d2hRmdWEjjTd7gH9sFl/I
- IspoVc4sQmJ+w==
+ b=URetjbdaQJuKFWZwAWWsxk24JtycNe7lMt715a7o3mbnSwc7B0prMJMUMYx6bRO8N
+ 3JMS6WkgBFd8HrhMN62qbuoBGZvtEkJ153KZbv/5r83GkH37mmFV42PFv+EZLMHvq7
+ YKc/NLbH8W42KDLTlJGtQozymUwYjaMX3jwr68dC7N0FPTcEeFe0uZlN/ND91Deodr
+ 9x47ohEDpCwCrn5AlmXsJOJIdC5tXKVpmrxlOfnIKGXjnlH+SuBLVBcYxxXkaSJlaV
+ K0EKjMwi1ST8KdL8cj+X9mdzf48YhzxIRFBTOXwETSNj3REybPbhUlxvnrczm5yBC/
+ XuNHZg1UEc7Iw==
 Received: from de02.synopsys.com (germany.internal.synopsys.com [10.225.17.21])
- by mailhost.synopsys.com (Postfix) with ESMTP id 87526A005F;
+ by mailhost.synopsys.com (Postfix) with ESMTP id 817A5A005C;
  Thu, 27 Feb 2020 11:31:26 +0000 (UTC)
 Received: from de02dwia024.internal.synopsys.com
  (de02dwia024.internal.synopsys.com [10.225.19.81])
- by de02.synopsys.com (Postfix) with ESMTP id 6C9633E9E4;
+ by de02.synopsys.com (Postfix) with ESMTP id 6FBB83E9E7;
  Thu, 27 Feb 2020 12:31:26 +0100 (CET)
 From: Vitor Soares <Vitor.Soares@synopsys.com>
 To: pgaj@cadence.com,
 	bbrezillon@kernel.org,
 	linux-i3c@lists.infradead.org
-Subject: [PATCH v2 2/4] i3c: Add modalias sysfs attribute
-Date: Thu, 27 Feb 2020 12:31:07 +0100
-Message-Id: <a90f64f830128cd12762153de7828b775574c156.1582796652.git.vitor.soares@synopsys.com>
+Subject: [PATCH v2 3/4] i3c: Generate aliases for i3c modules
+Date: Thu, 27 Feb 2020 12:31:08 +0100
+Message-Id: <79687073b915182e06fccfb18adcedfd0fadbc99.1582796652.git.vitor.soares@synopsys.com>
 X-Mailer: git-send-email 2.7.4
 In-Reply-To: <cover.1582796652.git.vitor.soares@synopsys.com>
 References: <cover.1582796652.git.vitor.soares@synopsys.com>
 In-Reply-To: <cover.1582796652.git.vitor.soares@synopsys.com>
 References: <cover.1582796652.git.vitor.soares@synopsys.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200227_033133_470970_DEA902B2 
-X-CRM114-Status: UNSURE (   9.29  )
+X-CRM114-CacheID: sfid-20200227_033133_477890_0C04ABA4 
+X-CRM114-Status: UNSURE (   9.78  )
 X-CRM114-Notice: Please train this message.
 X-Spam-Score: -0.2 (/)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
@@ -98,53 +97,73 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-i3c" <linux-i3c-bounces@lists.infradead.org>
 Errors-To: linux-i3c-bounces+lists+linux-i3c=lfdr.de@lists.infradead.org
 
-Create modalias sysfs attribute for modalias devices.
+From: Boris Brezillon <boris.brezillon@collabora.com>
+
+This part was missing, thus preventing user space from loading modules
+automatically when MODALIAS uevents are received.
 
 Signed-off-by: Boris Brezillon <boris.brezillon@collabora.com>
 Signed-off-by: Vitor Soares <vitor.soares@synopsys.com>
 ---
- drivers/i3c/master.c | 22 ++++++++++++++++++++++
- 1 file changed, 22 insertions(+)
+ scripts/mod/devicetable-offsets.c |  7 +++++++
+ scripts/mod/file2alias.c          | 19 +++++++++++++++++++
+ 2 files changed, 26 insertions(+)
 
-diff --git a/drivers/i3c/master.c b/drivers/i3c/master.c
-index b6db828..925e1ed 100644
---- a/drivers/i3c/master.c
-+++ b/drivers/i3c/master.c
-@@ -241,12 +241,34 @@ static ssize_t hdrcap_show(struct device *dev,
- }
- static DEVICE_ATTR_RO(hdrcap);
+diff --git a/scripts/mod/devicetable-offsets.c b/scripts/mod/devicetable-offsets.c
+index 054405b..d3c237b 100644
+--- a/scripts/mod/devicetable-offsets.c
++++ b/scripts/mod/devicetable-offsets.c
+@@ -145,6 +145,13 @@ int main(void)
+ 	DEVID(i2c_device_id);
+ 	DEVID_FIELD(i2c_device_id, name);
  
-+static ssize_t modalias_show(struct device *dev,
-+			     struct device_attribute *da, char *buf)
++	DEVID(i3c_device_id);
++	DEVID_FIELD(i3c_device_id, match_flags);
++	DEVID_FIELD(i3c_device_id, dcr);
++	DEVID_FIELD(i3c_device_id, manuf_id);
++	DEVID_FIELD(i3c_device_id, part_id);
++	DEVID_FIELD(i3c_device_id, extra_info);
++
+ 	DEVID(spi_device_id);
+ 	DEVID_FIELD(spi_device_id, name);
+ 
+diff --git a/scripts/mod/file2alias.c b/scripts/mod/file2alias.c
+index c91eba7..f81cbe0 100644
+--- a/scripts/mod/file2alias.c
++++ b/scripts/mod/file2alias.c
+@@ -919,6 +919,24 @@ static int do_i2c_entry(const char *filename, void *symval,
+ 	return 1;
+ }
+ 
++static int do_i3c_entry(const char *filename, void *symval,
++			char *alias)
 +{
-+	struct i3c_device *i3c = dev_to_i3cdev(dev);
-+	struct i3c_device_info devinfo;
-+	u16 manuf, part, ext;
++	DEF_FIELD(symval, i3c_device_id, match_flags);
++	DEF_FIELD(symval, i3c_device_id, dcr);
++	DEF_FIELD(symval, i3c_device_id, manuf_id);
++	DEF_FIELD(symval, i3c_device_id, part_id);
++	DEF_FIELD(symval, i3c_device_id, extra_info);
 +
-+	i3c_device_get_info(i3c, &devinfo);
-+	manuf = I3C_PID_MANUF_ID(devinfo.pid);
-+	part = I3C_PID_PART_ID(devinfo.pid);
-+	ext = I3C_PID_EXTRA_INFO(devinfo.pid);
++	strcpy(alias, "i3c:");
++	ADD(alias, "dcr", match_flags & I3C_MATCH_DCR, dcr);
++	ADD(alias, "manuf", match_flags & I3C_MATCH_MANUF, manuf_id);
++	ADD(alias, "part", match_flags & I3C_MATCH_PART, part_id);
++	ADD(alias, "ext", match_flags & I3C_MATCH_EXTRA_INFO, extra_info);
 +
-+	if (I3C_PID_RND_LOWER_32BITS(devinfo.pid))
-+		return sprintf(buf, "i3c:dcr%02Xmanuf%04X", devinfo.dcr,
-+			       manuf);
-+
-+	return sprintf(buf, "i3c:dcr%02Xmanuf%04Xpart%04Xext%04X",
-+		       devinfo.dcr, manuf, part, ext);
++	return 1;
 +}
-+static DEVICE_ATTR_RO(modalias);
 +
- static struct attribute *i3c_device_attrs[] = {
- 	&dev_attr_bcr.attr,
- 	&dev_attr_dcr.attr,
- 	&dev_attr_pid.attr,
- 	&dev_attr_dynamic_address.attr,
- 	&dev_attr_hdrcap.attr,
-+	&dev_attr_modalias.attr,
- 	NULL,
- };
- ATTRIBUTE_GROUPS(i3c_device);
+ /* Looks like: spi:S */
+ static int do_spi_entry(const char *filename, void *symval,
+ 			char *alias)
+@@ -1386,6 +1404,7 @@ static const struct devtable devtable[] = {
+ 	{"vmbus", SIZE_hv_vmbus_device_id, do_vmbus_entry},
+ 	{"rpmsg", SIZE_rpmsg_device_id, do_rpmsg_entry},
+ 	{"i2c", SIZE_i2c_device_id, do_i2c_entry},
++	{"i3c", SIZE_i3c_device_id, do_i3c_entry},
+ 	{"spi", SIZE_spi_device_id, do_spi_entry},
+ 	{"dmi", SIZE_dmi_system_id, do_dmi_entry},
+ 	{"platform", SIZE_platform_device_id, do_platform_entry},
 -- 
 2.7.4
 
