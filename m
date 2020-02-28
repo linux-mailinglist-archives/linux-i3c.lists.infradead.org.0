@@ -2,55 +2,70 @@ Return-Path: <linux-i3c-bounces+lists+linux-i3c=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-i3c@lfdr.de
 Delivered-To: lists+linux-i3c@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 64FDE172022
-	for <lists+linux-i3c@lfdr.de>; Thu, 27 Feb 2020 15:41:29 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id DBC531736E2
+	for <lists+linux-i3c@lfdr.de>; Fri, 28 Feb 2020 13:12:15 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=us1ScOEH6QNOJwzDtLfwmXuSzjVYxMkIGKzoM2I4ww4=; b=PsgLkZjm7CUCZO
-	S6Q1eyXve7lmUig7ZGr45g5EynNdZAPM2wU2W+ONU5qpTguJA1HRuM63VjtOqrYwqOQry4gJkNxM4
-	OmBmc74rjPTy1I1Y70G4CWI/xJzNgHbMB8NQNMrZq7zQz2pmtBIMQ2P1llwT09EQARUJoCLbGvbxp
-	H1gcTwa3Z1qhhdfBTAV0AmAbEagYTD2gENBKUXhm5ZC9XB271nvoSQZbSWo7DCVVf4dZK6QfddDWH
-	oTWNmRiawmLTlU2rJVVVUgWeFuPX+lGdSlBAaN1aX+DCWwmRtH58MPd2HcWxfKJR80Dkv+dIksD+0
-	gXMWT/Wl+l9mSRgFX/HQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:To:Subject:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=YiXj9W8laQttG0T5FwccAaZEv4uh48dQ9QHXayJJJw8=; b=h/qeeiXKZ0hHT3
+	3DMdJz4FszEqrKBJJEQCwJF4qRISEvAeQ3oyqjbiqQsgeNqe+hoMaF7UaeocheqX2tTyGHDsQ0yPA
+	DRwqnEYI6HahEVUr3iXQMR6Mi8/+k7K5VRQd47mKpXDs/13k2oxNNeEo9CuzEARN+RDApNsc/HK7u
+	pA35Ov6fzXiaj3hgRA/hsKqpRI5fATcppzX01NcCkTRcCBWKzaz79ZXiWIL6w06FVGDJXlAyCTN9T
+	Tb4diCXlc2Ij0Gn0rZFjkD2MOC7qOl3k8X7ZsKy+MbmaOg/VV9+x5DqhEvZ8Xj7feKfZm/yuZb6oB
+	F9SYZKYz4LRF2jXqubxQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j7KLw-0004v9-5U
-	for lists+linux-i3c@lfdr.de; Thu, 27 Feb 2020 14:41:28 +0000
-Received: from bhuna.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e3e3])
+	id 1j7eV4-0002vQ-Ku
+	for lists+linux-i3c@lfdr.de; Fri, 28 Feb 2020 12:12:14 +0000
+Received: from hostingweb31-40.netsons.net ([89.40.174.40])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1j7KLt-0004uU-Aj
- for linux-i3c@lists.infradead.org; Thu, 27 Feb 2020 14:41:26 +0000
-Received: from localhost (unknown [IPv6:2a01:e0a:2c:6930:5cf4:84a1:2763:fe0d])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
- bits)) (No client certificate requested)
- (Authenticated sender: bbrezillon)
- by bhuna.collabora.co.uk (Postfix) with ESMTPSA id 312FB295F73;
- Thu, 27 Feb 2020 14:41:19 +0000 (GMT)
-Date: Thu, 27 Feb 2020 15:41:15 +0100
-From: Boris Brezillon <boris.brezillon@collabora.com>
-To: Vitor Soares <Vitor.Soares@synopsys.com>
-Subject: Re: [PATCH v2 2/4] i3c: Add modalias sysfs attribute
-Message-ID: <20200227154115.77c42274@collabora.com>
-In-Reply-To: <a90f64f830128cd12762153de7828b775574c156.1582796652.git.vitor.soares@synopsys.com>
-References: <cover.1582796652.git.vitor.soares@synopsys.com>
- <a90f64f830128cd12762153de7828b775574c156.1582796652.git.vitor.soares@synopsys.com>
-Organization: Collabora
-X-Mailer: Claws Mail 3.17.4 (GTK+ 2.24.32; x86_64-redhat-linux-gnu)
+ id 1j7eV1-0002tc-9v
+ for linux-i3c@lists.infradead.org; Fri, 28 Feb 2020 12:12:12 +0000
+Received: from [109.168.11.45] (port=49166 helo=[192.168.101.73])
+ by hostingweb31.netsons.net with esmtpsa
+ (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128) (Exim 4.92)
+ (envelope-from <luca@lucaceresoli.net>)
+ id 1j7eUh-001wPs-J2; Fri, 28 Feb 2020 13:11:51 +0100
+Subject: Re: [RFC PATCH 6/7] i2c: of: mark a whole array of regs as reserved
+To: Wolfram Sang <wsa+renesas@sang-engineering.com>, linux-i2c@vger.kernel.org
+References: <20200220172403.26062-1-wsa+renesas@sang-engineering.com>
+ <20200220172403.26062-7-wsa+renesas@sang-engineering.com>
+From: Luca Ceresoli <luca@lucaceresoli.net>
+Message-ID: <5bcda563-cbb6-c615-58fb-1f0fe9ed4c9d@lucaceresoli.net>
+Date: Fri, 28 Feb 2020 13:11:51 +0100
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.4.1
 MIME-Version: 1.0
+In-Reply-To: <20200220172403.26062-7-wsa+renesas@sang-engineering.com>
+Content-Language: en-US
+X-AntiAbuse: This header was added to track abuse,
+ please include it with any abuse report
+X-AntiAbuse: Primary Hostname - hostingweb31.netsons.net
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - lucaceresoli.net
+X-Get-Message-Sender-Via: hostingweb31.netsons.net: authenticated_id:
+ luca+lucaceresoli.net/only user confirmed/virtual account not confirmed
+X-Authenticated-Sender: hostingweb31.netsons.net: luca@lucaceresoli.net
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200227_064125_501261_6927904A 
-X-CRM114-Status: GOOD (  14.21  )
-X-Spam-Score: -0.0 (/)
+X-CRM114-CacheID: sfid-20200228_041211_503045_A1DF886E 
+X-CRM114-Status: UNSURE (   7.94  )
+X-CRM114-Notice: Please train this message.
+X-Spam-Score: 0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.3 on bombadil.infradead.org summary:
- Content analysis details:   (-0.0 points)
+ Content analysis details:   (0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [89.40.174.40 listed in list.dnswl.org]
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
 X-BeenThere: linux-i3c@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -62,69 +77,37 @@ List-Post: <mailto:linux-i3c@lists.infradead.org>
 List-Help: <mailto:linux-i3c-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-i3c>,
  <mailto:linux-i3c-request@lists.infradead.org?subject=subscribe>
-Cc: linux-kernel@vger.kernel.org, pgaj@cadence.com,
- linux-i3c@lists.infradead.org, bbrezillon@kernel.org
+Cc: devicetree@vger.kernel.org, Jacopo Mondi <jacopo@jmondi.org>,
+ linux-kernel@vger.kernel.org, Vladimir Zapolskiy <vz@mleia.com>,
+ linux-renesas-soc@vger.kernel.org, Kieran Bingham <kieran@bingham.xyz>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ =?UTF-8?Q?Niklas_S=c3=b6derlund?= <niklas.soderlund@ragnatech.se>,
+ linux-i3c@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-i3c" <linux-i3c-bounces@lists.infradead.org>
 Errors-To: linux-i3c-bounces+lists+linux-i3c=lfdr.de@lists.infradead.org
 
-On Thu, 27 Feb 2020 12:31:07 +0100
-Vitor Soares <Vitor.Soares@synopsys.com> wrote:
+Hi,
 
-> Create modalias sysfs attribute for modalias devices.
-
-					^i3c
-
-No need to send a new version, I'll fix it when applying.
-
+On 20/02/20 18:24, Wolfram Sang wrote:
+> Back then, 'reg' properties in I2C DT bindings only contained one
+> address and this address was assigned a device and, thus, blocked.
+> Meanwhile, chips using multiple addresses are common and the 'reg'
+> property can be an array described by 'reg-names'. This code enhances
+> I2C DT parsing, so it will reserve all addresses described in an array.
+> They will be bound to the 'dummy' driver as 'reserved' iff the first
+> address can be assigned successfully. If that is not the case, the array
+> is not further considered. If one later address of the array can not be
+> assigned, it will be reported but we don't bail out. The driver has to
+> decide if that address is critical or not.
 > 
-> Signed-off-by: Boris Brezillon <boris.brezillon@collabora.com>
-> Signed-off-by: Vitor Soares <vitor.soares@synopsys.com>
-> ---
->  drivers/i3c/master.c | 22 ++++++++++++++++++++++
->  1 file changed, 22 insertions(+)
-> 
-> diff --git a/drivers/i3c/master.c b/drivers/i3c/master.c
-> index b6db828..925e1ed 100644
-> --- a/drivers/i3c/master.c
-> +++ b/drivers/i3c/master.c
-> @@ -241,12 +241,34 @@ static ssize_t hdrcap_show(struct device *dev,
->  }
->  static DEVICE_ATTR_RO(hdrcap);
->  
-> +static ssize_t modalias_show(struct device *dev,
-> +			     struct device_attribute *da, char *buf)
-> +{
-> +	struct i3c_device *i3c = dev_to_i3cdev(dev);
-> +	struct i3c_device_info devinfo;
-> +	u16 manuf, part, ext;
-> +
-> +	i3c_device_get_info(i3c, &devinfo);
-> +	manuf = I3C_PID_MANUF_ID(devinfo.pid);
-> +	part = I3C_PID_PART_ID(devinfo.pid);
-> +	ext = I3C_PID_EXTRA_INFO(devinfo.pid);
-> +
-> +	if (I3C_PID_RND_LOWER_32BITS(devinfo.pid))
-> +		return sprintf(buf, "i3c:dcr%02Xmanuf%04X", devinfo.dcr,
-> +			       manuf);
-> +
-> +	return sprintf(buf, "i3c:dcr%02Xmanuf%04Xpart%04Xext%04X",
-> +		       devinfo.dcr, manuf, part, ext);
-> +}
-> +static DEVICE_ATTR_RO(modalias);
-> +
->  static struct attribute *i3c_device_attrs[] = {
->  	&dev_attr_bcr.attr,
->  	&dev_attr_dcr.attr,
->  	&dev_attr_pid.attr,
->  	&dev_attr_dynamic_address.attr,
->  	&dev_attr_hdrcap.attr,
-> +	&dev_attr_modalias.attr,
->  	NULL,
->  };
->  ATTRIBUTE_GROUPS(i3c_device);
+> Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
 
+Reviewed-by: Luca Ceresoli <luca@lucaceresoli.net>
+
+-- 
+Luca
 
 _______________________________________________
 linux-i3c mailing list
