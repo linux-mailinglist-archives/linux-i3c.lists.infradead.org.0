@@ -2,70 +2,156 @@ Return-Path: <linux-i3c-bounces+lists+linux-i3c=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-i3c@lfdr.de
 Delivered-To: lists+linux-i3c@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id A1C7B1984DF
-	for <lists+linux-i3c@lfdr.de>; Mon, 30 Mar 2020 21:50:14 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 6FA9D1A1E71
+	for <lists+linux-i3c@lfdr.de>; Wed,  8 Apr 2020 12:01:52 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:To:Date:Message-Id:
-	References:In-Reply-To:From:Subject:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=e7NHs80607U7/k1tZ8Mm8euhN0C34K2v8a0CjZFHHKY=; b=jWI7N2XTR9u3TP
-	3aHiqov6kHF7AeMCimj6uUWeDwJsNvYjqLUHts6/lImfG4ywqlC1/SgAkEUaVcr6qzrpyfmN9fyDg
-	KfnbSlYvaUXbZEXZeVlIXmTyhqVX7S7++zXY/d4NuGpugqwmm9tv049dSBcOlUbcXcblB6KL3fLFU
-	Ftpzvl4HN2+/3SdPWiXthKxElY+o9deIrXgJ/8+ckXqWsYV8iXSv1j1NPWJrpGkBJnPbmu5EJPY8e
-	7KQdlEKW/8F2Z+4n8Y0W/PoiA/5HkASPs29/pu9Ge0zqB2bGTKdm8euCIOUpysDe79tYorTVn8QHb
-	jX9xqrzqjV2qzmyjzJaQ==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=U4wVphzGwdNr1A+tJdtD8JzJ5qEBxtqNZekzAkooge0=; b=hWvCyXJKQZm0Jx
+	l/KQAp1NrwwDe1Y6uumF+iwrvouF+lVgLXAr85zGisWn52+i4q4rA4POTfkdJchLadBpK9Sp899WH
+	ya7H+qO09roDXyzY67m338j4llL6bZsMcnjV7z8kuuRUyGB/Z+Fqoz2924inXmZac8OoL24qD8VPk
+	VDfKnND0LtufDD7oaxKJBr2SO7eQe7oZDA4081ub7uKsRA9mvoIqdTdK14AkGZAohePEDi3DWlMQT
+	25qnfofJYyUQP416JyKmoQD0tHRepVF1mfvm9rhyY16a7X+G0UT/He1KrZsowGtjoM/EnpTGfUKFz
+	cdxotksdIwFltEvxBQog==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jJ0QH-0003Qy-D7
-	for lists+linux-i3c@lfdr.de; Mon, 30 Mar 2020 19:50:13 +0000
-Received: from mail.kernel.org ([198.145.29.99])
+	id 1jM7Wp-0004rV-6L
+	for lists+linux-i3c@lfdr.de; Wed, 08 Apr 2020 10:01:51 +0000
+Received: from mx0a-0014ca01.pphosted.com ([208.84.65.235])
  by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jJ0QE-0003KW-1A
- for linux-i3c@lists.infradead.org; Mon, 30 Mar 2020 19:50:11 +0000
-Subject: Re: [GIT PULL] i3c: Changes for 5.7
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1585597808;
- bh=fF5DwcqY4G4U6cpmzqWHasL6Ak99ZVQ75vcvbgBa2MA=;
- h=From:In-Reply-To:References:Date:To:Cc:From;
- b=wuEcZVSHH7yNfLJRxQDgTsaD9/lM22hp1sOBsUrR4+qK4MPGjVNAV41BV5fD2subS
- eJtBaxFhl/M8JHEGcD48xZNERJimNB+pIE62Ryyfrx1dZitcYmK2rFUDBV+m9v8kgD
- XOsSSzc6xiShvaraCKJugwJy+TZPiOWC+ak/TU0c=
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <20200329104816.5cbdb74f@collabora.com>
-References: <20200329104816.5cbdb74f@collabora.com>
-X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
-X-PR-Tracked-Message-Id: <20200329104816.5cbdb74f@collabora.com>
-X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/i3c/linux.git tags/i3c/for-5.7
-X-PR-Tracked-Commit-Id: c4b9de11d0101792c4d5458b18581f4f527862d1
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: c03cb66464742cf4b196b4863e4101b8cf9eb9be
-Message-Id: <158559780876.12131.2222508196297047884.pr-tracker-bot@kernel.org>
-Date: Mon, 30 Mar 2020 19:50:08 +0000
-To: Boris Brezillon <boris.brezillon@collabora.com>
+ id 1jLa76-0005jS-6L
+ for linux-i3c@lists.infradead.org; Mon, 06 Apr 2020 22:21:07 +0000
+Received: from pps.filterd (m0042385.ppops.net [127.0.0.1])
+ by mx0a-0014ca01.pphosted.com (8.16.0.42/8.16.0.42) with SMTP id
+ 036MGtnO003796; Mon, 6 Apr 2020 15:21:01 -0700
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cadence.com;
+ h=from : to : cc :
+ subject : date : message-id : mime-version : content-type; s=proofpoint;
+ bh=MNcSBIhmCTIftmQiPFgCaLyglA1gDCy+wCWF8yc2vxA=;
+ b=hrsS9f0HNYc4zZgV3Q0Wytq3NwRJ9r2w9gAkK1rYLUV3B3XmvLpz+ikL9KY14x3DmTRZ
+ 2ydY+zibFTMC/NG6gzlMS8PzdVU0S5ycGJr+dpqr4xbNIjMoVZVx/86/NJHROXXm9PDV
+ DUV8fJMOaWvT/uz5t3+76hdPoggMnWYwpAqzYiLQ1DEof9zWq4UNDtkPg/M6qBaIabnv
+ jP0zKMXGaQs/ULM76g0+PDHw/mEiIWlqiKWBUBx/81uKoDxH0AMl6mwaG6ZyvPk6YCEx
+ l1bYFLJG4bxUo/Z68N1lQ7pBOupa+mt3emR3RwnWRknOKCK7oGWHgJVNS+O/BXKHUuzR 5w== 
+Received: from nam10-bn7-obe.outbound.protection.outlook.com
+ (mail-bn7nam10lp2108.outbound.protection.outlook.com [104.47.70.108])
+ by mx0a-0014ca01.pphosted.com with ESMTP id 306psw07e9-1
+ (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+ Mon, 06 Apr 2020 15:21:01 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=mxnRac/RMDgHMddWxYgCM1tqi512TjOPMmootvAves7kN1yHhAm+X+RKdgFAlI6IOSLAEl5+oxa3muAScDxxNXul2+1O+hx/gFj4qIa/MvsbBjEt4Tmwj069TzxJkbL9yvI1IRDSV9jXr/uvnmeLmFJhHJ1S1C/puG4KjSaP7VhAmfiEONXCGCvaqiD4hYXpvSlvtDem3SEFGOOJjiLIhniDzQ4EIe5ZrZbS27XiLe7SsM6g1gV884NrvM/cnwBPkseX21ok0OsgQJYOg8Khh0vamonQaIhR7jOoIBtueQ7Ss6yQ38gdsH14IkNqiKYJjdvlV6J7C1RfoNHBZQgqKQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=MNcSBIhmCTIftmQiPFgCaLyglA1gDCy+wCWF8yc2vxA=;
+ b=Rk2KmRZMU+du9FCJto21CcRQIzmdCOFL5TxNd2DrmuKig7MSuu32JKcqa3XmZjJhYKgLq4EMLoQ5l599tI5m0SH8jEDPAFBkhVUJlNNsWASmEG+wwKdKoMUsS85v2VBIO+8Mbcokxug5758nu4S8vXIDaHQvg/ASBbStDmJh5P1+Uzwm6ED85q6gPx+5U4GTJELf5wEZLKTbwuVMruwiQ5n521XFcHXr/MGxG585F8XwmizZjsWqw4kHWsMvK3xo9qUz0SUo72MqdS6/AKhE83ZOo5isy0V/yLGEugjOH/wjzZmJS69uybrJN5Y62uDYpblFKsMTjG++tQAmtXGlAA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 199.43.4.23) smtp.rcpttodomain=synopsys.com smtp.mailfrom=cadence.com;
+ dmarc=pass (p=none sp=none pct=100) action=none header.from=cadence.com;
+ dkim=none (message not signed); arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cadence.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=MNcSBIhmCTIftmQiPFgCaLyglA1gDCy+wCWF8yc2vxA=;
+ b=j21qbalm3yTL72IrvImwMuYByo8i0VlwOjLhmpw+S3NbROII6gQGk8IRUAfvXgFORJ8TWbaO5qf8yjT1KrUWxruUpS/1qd1edI9iIxrrkwIU/nrJyYCrWmxzVVsI3rgd1cnFsH+9y7dVb24bKjg4ue7wV8QVBBtlvhsbd7+6kOc=
+Received: from BN6PR21CA0012.namprd21.prod.outlook.com (2603:10b6:404:8e::22)
+ by DM6PR07MB6714.namprd07.prod.outlook.com (2603:10b6:5:1cc::30) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.2878.15; Mon, 6 Apr
+ 2020 22:20:58 +0000
+Received: from BN8NAM12FT005.eop-nam12.prod.protection.outlook.com
+ (2603:10b6:404:8e:cafe::ec) by BN6PR21CA0012.outlook.office365.com
+ (2603:10b6:404:8e::22) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.2921.9 via Frontend
+ Transport; Mon, 6 Apr 2020 22:20:57 +0000
+Received-SPF: Pass (protection.outlook.com: domain of cadence.com designates
+ 199.43.4.23 as permitted sender) receiver=protection.outlook.com;
+ client-ip=199.43.4.23; helo=rmmaillnx1.cadence.com;
+Received: from rmmaillnx1.cadence.com (199.43.4.23) by
+ BN8NAM12FT005.mail.protection.outlook.com (10.13.182.167) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.2878.9 via Frontend Transport; Mon, 6 Apr 2020 22:20:55 +0000
+Received: from maileu3.global.cadence.com (maileu3.cadence.com [10.160.88.99])
+ by rmmaillnx1.cadence.com (8.14.4/8.14.4) with ESMTP id
+ 036MKpaN026351
+ (version=TLSv1/SSLv3 cipher=AES256-SHA bits=256 verify=OK);
+ Mon, 6 Apr 2020 18:20:53 -0400
+X-CrossPremisesHeadersFilteredBySendConnector: maileu3.global.cadence.com
+Received: from maileu3.global.cadence.com (10.160.88.99) by
+ maileu3.global.cadence.com (10.160.88.99) with Microsoft SMTP Server (TLS) id
+ 15.0.1367.3; Tue, 7 Apr 2020 00:20:50 +0200
+Received: from vleu-orange.cadence.com (10.160.88.83) by
+ maileu3.global.cadence.com (10.160.88.99) with Microsoft SMTP Server (TLS) id
+ 15.0.1367.3 via Frontend Transport; Tue, 7 Apr 2020 00:20:50 +0200
+Received: from vleu-orange.cadence.com (localhost.localdomain [127.0.0.1])
+ by vleu-orange.cadence.com (8.14.4/8.14.4) with ESMTP id 036MKoaP008193;
+ Tue, 7 Apr 2020 00:20:50 +0200
+Received: (from pthombar@localhost)
+ by vleu-orange.cadence.com (8.14.4/8.14.4/Submit) id 036MKm9O008168;
+ Tue, 7 Apr 2020 00:20:48 +0200
+From: Parshuram Thombare <pthombar@cadence.com>
+To: <bbrezillon@kernel.org>, <vitor.soares@synopsys.com>
+Subject: [PATCH v1 0/3] I3C mastership handover support
+Date: Tue, 7 Apr 2020 00:20:45 +0200
+Message-ID: <1586211645-8065-1-git-send-email-pthombar@cadence.com>
+X-Mailer: git-send-email 2.2.2
+MIME-Version: 1.0
+X-OrganizationHeadersPreserved: maileu3.global.cadence.com
+X-EOPAttributedMessage: 0
+X-Forefront-Antispam-Report: CIP:199.43.4.23; CTRY:US; LANG:en; SCL:1; SRV:;
+ IPV:CAL; SFV:NSPM; H:rmmaillnx1.cadence.com; PTR:InfoDomainNonexistent;
+ CAT:NONE; SFTY:;
+ SFS:(10009020)(4636009)(396003)(39850400004)(376002)(346002)(136003)(36092001)(46966005)(81156014)(356004)(54906003)(478600001)(110136005)(107886003)(81166006)(70586007)(82740400003)(86362001)(8676002)(6666004)(70206006)(36756003)(26826003)(5660300002)(4326008)(316002)(336012)(47076004)(2906002)(186003)(426003)(26005)(2616005)(8936002)(42186006);
+ DIR:OUT; SFP:1101; 
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: 5d715910-658c-422c-bfa4-08d7da78c63e
+X-MS-TrafficTypeDiagnostic: DM6PR07MB6714:
+X-Microsoft-Antispam-PRVS: <DM6PR07MB67143EDC2C4D3806946BCAF6C1C20@DM6PR07MB6714.namprd07.prod.outlook.com>
+X-MS-Oob-TLC-OOBClassifiers: OLM:9508;
+X-Forefront-PRVS: 0365C0E14B
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: ll+Us5ZuHoZPEhj8LPsTtzcm5ZtcyRAXelBrkc+h0A0QtnNzrpQArsbseOFscLf8MsSaiVCAjoXwPKzG8ZnjJHKwpz350QB9TKvagU0bPbvRYbR+7KEaay1AOOZFvJPEbLiq/YZ6r5KxVIcfTO60sCCANz1w+I70zy5JrBoFovfbG/08Dh8Hoc55ZIucfJ44oTNEONnDU81j4ExmKvQUIQEaKP5spenndVTVGEU5T1TbGCBZXBjBkg8ayX58ZYCSpTq4vRp1zecWwRv9TagN1kcelN261ZETIaY+yDx0N9tSLBgwqyU2zyHnqBZ6V3HA9e4Zf7we/7XN7LJEySItv0VVmlQjplO+aHpeEL3JDVSs+P7H8tk2XYDMfG5dIuXPN2lrqNC/tdLjgX7uUsh9OVgePAgaQCZm1xyewosI4Pv/UQzjexds+xn5r7FksVE79rsF5bsq3s7TLP+Ht07zEVfCXYEewSgS4qCkiLVeKR/Bvf+rJQfb6xMnbT5s8SDmdnMfpGRzRBvnWfPdByHSs08L+JEfaJIfVkkxzuBQGDk=
+X-OriginatorOrg: cadence.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Apr 2020 22:20:55.2836 (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5d715910-658c-422c-bfa4-08d7da78c63e
+X-MS-Exchange-CrossTenant-Id: d36035c5-6ce6-4662-a3dc-e762e61ae4c9
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=d36035c5-6ce6-4662-a3dc-e762e61ae4c9; Ip=[199.43.4.23];
+ Helo=[rmmaillnx1.cadence.com]
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR07MB6714
+X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.138, 18.0.676
+ definitions=2020-04-06_10:2020-04-06,
+ 2020-04-06 signatures=0
+X-Proofpoint-Spam-Details: rule=outbound_check_notspam policy=outbound_check
+ score=0 bulkscore=0
+ spamscore=0 clxscore=1011 adultscore=0 impostorscore=0 malwarescore=0
+ lowpriorityscore=0 phishscore=0 mlxlogscore=979 mlxscore=0 suspectscore=0
+ priorityscore=1501 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2003020000 definitions=main-2004060169
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200330_125010_100017_EC2BF171 
-X-CRM114-Status: UNSURE (   0.92  )
-X-CRM114-Notice: Please train this message.
-X-Spam-Score: -5.4 (-----)
+X-CRM114-CacheID: sfid-20200406_152105_258728_E880F23D 
+X-CRM114-Status: GOOD (  12.45  )
+X-Spam-Score: -0.9 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-5.4 points)
+ Content analysis details:   (-0.9 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
- -5.0 RCVD_IN_DNSWL_HI       RBL: Sender listed at https://www.dnswl.org/,
- high trust [198.145.29.99 listed in list.dnswl.org]
- 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.7 RCVD_IN_DNSWL_LOW      RBL: Sender listed at https://www.dnswl.org/,
+ low trust [208.84.65.235 listed in list.dnswl.org]
  -0.0 SPF_PASS               SPF: sender matches SPF record
+ 0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+ author's domain
+ -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
  valid
  -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
  envelope-from domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
- -0.2 DKIMWL_WL_HIGH         DKIMwl.org - Whitelisted High sender
+X-Mailman-Approved-At: Wed, 08 Apr 2020 03:01:49 -0700
 X-BeenThere: linux-i3c@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -77,29 +163,76 @@ List-Post: <mailto:linux-i3c@lists.infradead.org>
 List-Help: <mailto:linux-i3c-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-i3c>,
  <mailto:linux-i3c-request@lists.infradead.org?subject=subscribe>
-Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>,
- linux-i3c <linux-i3c@lists.infradead.org>,
- Linus Torvalds <torvalds@linux-foundation.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Vitor Soares <vitor.soares@synopsys.com>
-MIME-Version: 1.0
+Cc: mparab@cadence.com, pgaj@cadence.com,
+ Parshuram Thombare <pthombar@cadence.com>, linux-i3c@lists.infradead.org,
+ linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-i3c" <linux-i3c-bounces@lists.infradead.org>
 Errors-To: linux-i3c-bounces+lists+linux-i3c=lfdr.de@lists.infradead.org
 
-The pull request you sent on Sun, 29 Mar 2020 10:50:07 +0200:
+Hi,
 
-> git://git.kernel.org/pub/scm/linux/kernel/git/i3c/linux.git tags/i3c/for-5.7
+This patch series is to enable mastership handover feature in I3C
+master subsystem and Cadence's I3C controller driver.
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/c03cb66464742cf4b196b4863e4101b8cf9eb9be
 
-Thank you!
+[PATCH 1/3]
+i3c: master: split bus_init callback into bus_init and master_set_info
+There are 2 reasons for this split
+Currently bus_init callback is involved in
+a. Controller specific settings such as clock prescalar, enabling
+   different functionalities and finally enabling the controller.
+b. Allocating address to the main master and calling 
+   i3c_master_set_info, which basically create a I3C device for master
+   and add it to system. This is fine for main master, but for
+   secondary master this should be deferred until controller actually
+   owns the bus/mastership.
+   
+Another reason is, to support secondary master initialization without
+board info, controller specific bus mode setting need to be done twice
+First with pure bus mode and second time when actual bus mode is known
+based on data received through DEFSLVS, whereas master set info is
+supposed to be done only once.
+	      
+[PATCH 2/3]
+i3c: add mastership handover support to i3c master subsystem
+This patch add mastership handover support as per MIPI I3C
+spec v1.0. Main master and secondary masters starts in pure
+bus mode to allow enumeration (DAA) to happen in same bus mode.
+Secondary masters are not required to have information about
+other devices connected on the bus through board info, this
+information is derived from DEFSLVS received from main
+master. While acquiring mastership, requesting master always
+make sure that it has active dynamic address, and received
+DEFSLVS at least once. Mastership request state machine
+make sure that any pending DEFSLVS is processed, so that
+when device become master it always have correct view
+of the bus.
+
+[PATCH 3/3]
+i3c: master: add mastership handover support to cdns i3c master driver
+This patch adds mastership handover support to the Cadence
+I3C controller driver. Basically, this include necessary
+callbacks for mastership request.
+
+Regards,
+Parshuram Thombare
+
+Parshuram Thombare (3):
+  i3c: master: split bus_init callback into bus_init and master_set_info
+  i3c: add mastership handover support to i3c master subsystem
+  i3c: master: add mastership handover support to cdns i3c master driver
+
+ drivers/i3c/master.c                 | 490 ++++++++++++++++++++++++---
+ drivers/i3c/master/dw-i3c-master.c   |  29 +-
+ drivers/i3c/master/i3c-master-cdns.c | 385 ++++++++++++++++++---
+ include/linux/i3c/master.h           |  47 ++-
+ 4 files changed, 854 insertions(+), 97 deletions(-)
 
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.wiki.kernel.org/userdoc/prtracker
+2.17.1
+
 
 _______________________________________________
 linux-i3c mailing list
