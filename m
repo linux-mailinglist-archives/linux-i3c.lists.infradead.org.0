@@ -2,71 +2,54 @@ Return-Path: <linux-i3c-bounces+lists+linux-i3c=lfdr.de@lists.infradead.org>
 X-Original-To: lists+linux-i3c@lfdr.de
 Delivered-To: lists+linux-i3c@lfdr.de
 Received: from bombadil.infradead.org (bombadil.infradead.org [IPv6:2607:7c80:54:e::133])
-	by mail.lfdr.de (Postfix) with ESMTPS id 46CD51A9770
-	for <lists+linux-i3c@lfdr.de>; Wed, 15 Apr 2020 10:50:22 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 40BF11A9938
+	for <lists+linux-i3c@lfdr.de>; Wed, 15 Apr 2020 11:47:03 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20170209; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date
-	:Message-ID:References:To:From:Subject:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6pcwb2IeUNO2tqIJuiCBzMTMNiax/u1VML4UddDY+k0=; b=qFGidH2FBWUB5p
-	3UJSiMRFZaQLSmH1Udr2HVN1lkxF6cjPBfI/ShV4qhHCGG7cfXu24OMVAAGoNJEw/0lw6piZ4qsRN
-	t13slX5K5DTEoz+gBcDkKG7Kt/z8qxxHlBfhfM4KW+o/s3QM4LpO07zxonJSiJ0vip26+c0TqoAHk
-	7OI5mrb/G82AfVTN+GR4LpYonXI8YEvqeOWedSpDGzXX2EM7IznJwKdjJhAkvMIkvSC9MhAwDpUur
-	aJz7iopclbKfVHryUk5T7YuTNeW4LDeqZKoaDrvsB8EFhqgG5emk8TlP0E/EfweUHcmQRSIZr3H50
-	Ws5LD8NN42qfOARw+YzA==;
+	d=lists.infradead.org; s=bombadil.20170209; h=Sender:Content-Type:Cc:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	 bh=ycpMk1E2YzF2NM+0fTCyfLz2bx5FL/kPET7Z2g+YEiM=; b=npsJ7HPiAqvviWuUpeOZBrUfV
+	0HzaL8LfIo/KqBk4kBoN7P280vb0wU1YGzdG2i/PQRAj/unXSvnDXic+rKNGlnRs5xlQhKUh8EjzF
+	jZpeU+H4JiUTi4T/POSitp6ALyrdmQMD3u4G/RbsYp/JsEQoWDINeg+FH3wTmC7XTZsL/+i0WMPml
+	8ntkS4XBvgoxpSRAm8fKcVQa3Bz2soT5/X1kfkNyEn9G/SFkNQvIe+V1xaOe6eNgYLQZ4Q8RzYQGT
+	k0wklp0tVFUdVaNUqHoorxm5Hrw4oWHyU0JUCpXIBljeKABSeD4nlFZHMOtpWlaAgUa4or0wRFB3i
+	jPGvL5ekQ==;
 Received: from localhost ([127.0.0.1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1jOdkT-0007KI-1f
-	for lists+linux-i3c@lfdr.de; Wed, 15 Apr 2020 08:50:21 +0000
-Received: from perceval.ideasonboard.com
- ([2001:4b98:dc2:55:216:3eff:fef7:d647])
- by bombadil.infradead.org with esmtps (Exim 4.92.3 #3 (Red Hat Linux))
- id 1jOdkP-0007Jn-Nz
- for linux-i3c@lists.infradead.org; Wed, 15 Apr 2020 08:50:19 +0000
-Received: from [192.168.0.20]
- (cpc89242-aztw30-2-0-cust488.18-1.cable.virginm.net [86.31.129.233])
- by perceval.ideasonboard.com (Postfix) with ESMTPSA id 79A4E2D1;
- Wed, 15 Apr 2020 10:50:15 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
- s=mail; t=1586940616;
- bh=gou09fnjFJvhR1x9fvB0QuYMTNpfnFWwyMLgGzqgFXc=;
- h=Subject:From:To:Cc:References:Reply-To:Date:In-Reply-To:From;
- b=mciyrlifwnsfZbPwmMECsp60Sa5GaH5OEbXqLC3v7CwL3kuwpWl5iLGhLhSPZPkGu
- 8LTMN31DTnFJSHR3aPAjRJRoRap9fhmjaYqBr7gszmO+WsJTZoeax/RW3rwll5hgPe
- 33v+ipaQY6FkcyNH4WXrrqE9fW3o5Iu2Mstd/LyM=
-Subject: Re: [RFC PATCH v2 4/6] i2c: of: error message unification
-From: Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>
-To: Wolfram Sang <wsa+renesas@sang-engineering.com>, linux-i2c@vger.kernel.org
+	id 1jOedK-0005oI-0u
+	for lists+linux-i3c@lfdr.de; Wed, 15 Apr 2020 09:47:02 +0000
+Received: from sauhun.de ([88.99.104.3] helo=pokefinder.org)
+ by bombadil.infradead.org with esmtp (Exim 4.92.3 #3 (Red Hat Linux))
+ id 1jOedH-0005nA-E4
+ for linux-i3c@lists.infradead.org; Wed, 15 Apr 2020 09:47:00 +0000
+Received: from localhost (p54B33507.dip0.t-ipconnect.de [84.179.53.7])
+ by pokefinder.org (Postfix) with ESMTPSA id 5E9472C1F58;
+ Wed, 15 Apr 2020 11:46:57 +0200 (CEST)
+Date: Wed, 15 Apr 2020 11:46:57 +0200
+From: Wolfram Sang <wsa@the-dreams.de>
+To: Kieran Bingham <kieran@bingham.xyz>
+Subject: Re: [RFC PATCH v2 2/6] i2c: allow DT nodes without 'compatible'
+Message-ID: <20200415094656.GE1141@ninjato>
 References: <20200318150059.21714-1-wsa+renesas@sang-engineering.com>
- <20200318150059.21714-5-wsa+renesas@sang-engineering.com>
- <7014c94a-bb89-b282-52ee-49b42ab5aac1@bingham.xyz>
-Organization: Ideas on Board
-Message-ID: <4a63e7f5-8a0c-a9f1-640b-2f33c0076160@ideasonboard.com>
-Date: Wed, 15 Apr 2020 09:50:12 +0100
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
- Thunderbird/60.9.1
+ <20200318150059.21714-3-wsa+renesas@sang-engineering.com>
+ <74aa4084-588f-1b6f-2256-44588c48edf6@bingham.xyz>
 MIME-Version: 1.0
-In-Reply-To: <7014c94a-bb89-b282-52ee-49b42ab5aac1@bingham.xyz>
-Content-Language: en-GB
+In-Reply-To: <74aa4084-588f-1b6f-2256-44588c48edf6@bingham.xyz>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20200415_015017_937821_B5B64B09 
-X-CRM114-Status: GOOD (  16.37  )
-X-Spam-Score: -0.2 (/)
+X-CRM114-CacheID: sfid-20200415_024659_616877_4BA44B1F 
+X-CRM114-Status: GOOD (  10.74  )
+X-Spam-Score: -0.0 (/)
 X-Spam-Report: SpamAssassin version 3.4.4 on bombadil.infradead.org summary:
- Content analysis details:   (-0.2 points)
+ Content analysis details:   (-0.0 points)
  pts rule name              description
  ---- ---------------------- --------------------------------------------------
+ -0.0 RCVD_IN_DNSWL_NONE     RBL: Sender listed at https://www.dnswl.org/,
+ no trust [88.99.104.3 listed in list.dnswl.org]
  -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
  -0.0 SPF_PASS               SPF: sender matches SPF record
- -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
- envelope-from domain
- -0.1 DKIM_VALID Message has at least one valid DKIM or DK signature
- 0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
- valid
- -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
- author's domain
 X-BeenThere: linux-i3c@lists.infradead.org
 X-Mailman-Version: 2.1.29
 Precedence: list
@@ -78,126 +61,79 @@ List-Post: <mailto:linux-i3c@lists.infradead.org>
 List-Help: <mailto:linux-i3c-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-i3c>,
  <mailto:linux-i3c-request@lists.infradead.org?subject=subscribe>
-Reply-To: kieran.bingham+renesas@ideasonboard.com
-Cc: Jacopo Mondi <jacopo@jmondi.org>,
+Cc: Rob Herring <robh@kernel.org>, Jacopo Mondi <jacopo@jmondi.org>,
+ Niklas =?utf-8?Q?S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>,
  Geert Uytterhoeven <geert+renesas@glider.be>, linux-kernel@vger.kernel.org,
  Vladimir Zapolskiy <vz@mleia.com>, linux-renesas-soc@vger.kernel.org,
- Luca Ceresoli <luca@lucaceresoli.net>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- =?UTF-8?Q?Niklas_S=c3=b6derlund?= <niklas.soderlund@ragnatech.se>,
- linux-i3c@lists.infradead.org
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+ Wolfram Sang <wsa+renesas@sang-engineering.com>, linux-i2c@vger.kernel.org,
+ Luca Ceresoli <luca@lucaceresoli.net>, linux-i3c@lists.infradead.org,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Content-Type: multipart/mixed; boundary="===============1406786024054318606=="
 Sender: "linux-i3c" <linux-i3c-bounces@lists.infradead.org>
 Errors-To: linux-i3c-bounces+lists+linux-i3c=lfdr.de@lists.infradead.org
 
-Hi Wolfram,
 
-On 15/04/2020 09:17, Kieran Bingham wrote:
-> Hi Wolfram,
-> 
-> On 18/03/2020 15:00, Wolfram Sang wrote:
->> - don't prefix the device if %pOF is provided. That information is
->>   enough.
->> - move the prefix to pr_fmt
->> - change prefix from "of_i2c" to "i2c_of" because the code was moved
->>   out of the of-domain long ago
->> - drop error string for callers of of_i2c_register_device because it
->>   already reports enough (thanks to Tang Bin for the report!)
->>
->> Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
->> Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> 
-> Reviewed-by: Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>
-> 
->> ---
->>  drivers/i2c/i2c-core-of.c | 18 +++++++-----------
->>  1 file changed, 7 insertions(+), 11 deletions(-)
->>
->> diff --git a/drivers/i2c/i2c-core-of.c b/drivers/i2c/i2c-core-of.c
->> index 710704cd583e..f2d09ea0d336 100644
->> --- a/drivers/i2c/i2c-core-of.c
->> +++ b/drivers/i2c/i2c-core-of.c
->> @@ -8,6 +8,8 @@
->>   * Copyright (C) 2013, 2018 Wolfram Sang <wsa@the-dreams.de>
->>   */
->>  
->> +#define pr_fmt(fmt) "i2c_of: " fmt
->> +
->>  #include <dt-bindings/i2c/i2c.h>
->>  #include <linux/device.h>
->>  #include <linux/err.h>
->> @@ -28,7 +30,7 @@ int of_i2c_get_board_info(struct device_node *node, struct i2c_board_info *info)
+--===============1406786024054318606==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="SNIs70sCzqvszXB4"
+Content-Disposition: inline
 
 
-Perhaps not directly needed by this patch but,
+--SNIs70sCzqvszXB4
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-at some point will you rename of_i2c_* to i2c_of_* ?
+
+> > Sometimes, we have unknown devices in a system and still want to block
+> > their address. For that, we allow DT nodes with only a 'reg' property.
+> > These devices will be bound to the "dummy" driver but with the name
+> > "reserved". That way, we can distinguish them and even hand them over to
+> > the "dummy" driver later when they are really requested using
+> > i2c_new_ancillary_device().
+>=20
+> Oh how I long to be able to give these 'identifiable names' within the
+> system, but that will probably mess up all the driver matching and
+> binding, so would be quite tricky perhaps.
+
+I haven't found a way yet to use 'name' to give more meaningful
+descriptions to dummies. My best bet so far is to use additional links
+in sysfs.
 
 
->>  
->>  	ret = of_property_read_u32(node, "reg", &addr);
->>  	if (ret) {
->> -		pr_err("of_i2c: invalid reg on %pOF\n", node);
->> +		pr_err("invalid reg on %pOF\n", node);
->>  		return ret;
->>  	}
->>  
->> @@ -66,7 +68,7 @@ static struct i2c_client *of_i2c_register_device(struct i2c_adapter *adap,
->>  	struct i2c_board_info info;
->>  	int ret;
->>  
->> -	dev_dbg(&adap->dev, "of_i2c: register %pOF\n", node);
->> +	pr_debug("register %pOF\n", node);
->>  
->>  	ret = of_i2c_get_board_info(node, &info);
->>  	if (ret)
->> @@ -74,7 +76,7 @@ static struct i2c_client *of_i2c_register_device(struct i2c_adapter *adap,
->>  
->>  	client = i2c_new_client_device(adap, &info);
->>  	if (IS_ERR(client))
->> -		dev_err(&adap->dev, "of_i2c: Failure registering %pOF\n", node);
->> +		pr_err("failure registering %pOF (%ld)\n", node, PTR_ERR(client));
->>  
->>  	return client;
->>  }
->> @@ -88,7 +90,7 @@ void of_i2c_register_devices(struct i2c_adapter *adap)
->>  	if (!adap->dev.of_node)
->>  		return;
->>  
->> -	dev_dbg(&adap->dev, "of_i2c: walking child nodes\n");
->> +	dev_dbg(&adap->dev, "walking child nodes\n");
->>  
->>  	bus = of_get_child_by_name(adap->dev.of_node, "i2c-bus");
->>  	if (!bus)
->> @@ -99,12 +101,8 @@ void of_i2c_register_devices(struct i2c_adapter *adap)
->>  			continue;
->>  
->>  		client = of_i2c_register_device(adap, node);
->> -		if (IS_ERR(client)) {
->> -			dev_err(&adap->dev,
->> -				 "Failed to create I2C device for %pOF\n",
->> -				 node);
->> +		if (IS_ERR(client))
->>  			of_node_clear_flag(node, OF_POPULATED);
->> -		}
->>  	}
->>  
->>  	of_node_put(bus);
->> @@ -243,8 +241,6 @@ static int of_i2c_notify(struct notifier_block *nb, unsigned long action,
->>  
->>  		client = of_i2c_register_device(adap, rd->dn);
->>  		if (IS_ERR(client)) {
->> -			dev_err(&adap->dev, "failed to create client for '%pOF'\n",
->> -				 rd->dn);
->>  			put_device(&adap->dev);
->>  			of_node_clear_flag(rd->dn, OF_POPULATED);
->>  			return notifier_from_errno(PTR_ERR(client));
->>
-> 
+--SNIs70sCzqvszXB4
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEEOZGx6rniZ1Gk92RdFA3kzBSgKbYFAl6W2AwACgkQFA3kzBSg
+KbZ74Q//XCUnM5Uqs3MGl93+zlEkU9qid076otxKrc7nkRrR4PlkbIAd6KTkD74F
+ElytalAQei2cjwYeI6rj6gNh1QgIFn5Fp7VE3cmu/QGVGksVNkPlonP+gjsxbvSp
+j+UWFHfi5FxKDgFPdj+0N9UjqsnhLu1zOyAiLw6IXJOSd8uyEX87MWx3Ga60tzwN
+QlZ1B/7Yn1Ysg0Xxtxmr1xtBm+9BzJh0zlBbgSvswju+qLzAVVImbT+WeNloVilz
+PPoynShY7BhHHxMyPX8cXUYD6z8x2OqCDhPQn4Z+rsnq78Oqx+zLr2k/4RylC1BZ
+xSYjqa77r79swX/pn42ycef9pWfuS3tKnja0hFEt3FdIFTW1bJwGDsV1/Q7HFrSL
++z/ZB/+6EP5oHq95lKtWyaUohGSRjZiMTi2l5EuYW6hS5RyYBYMpHWjG22EwfqK/
+XiH/cPlD0FpEHem9TeiadOhH7DRKzZziLNLI9bNIL29jzQ3xu2LcPZUHp3zJvXD6
+aZoRH7JYWHoyXNrbS/EbPVNW7k4Q1ebgk3oTqz//BUjzqAciLnj6ZMWgqvDGt2ig
+XV1SMC20tyS2NlR6gvGt2tj9y3PEnAUJMHJgIXCv9tIvCRUmBsSBO5BRuc3hc5sO
++0+tMY/luasA3dfosRj5qwt46+zTB0YKYMRumDhBKmpFB1K5hvU=
+=XY5W
+-----END PGP SIGNATURE-----
+
+--SNIs70sCzqvszXB4--
+
+
+--===============1406786024054318606==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-i3c mailing list
 linux-i3c@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-i3c
+
+--===============1406786024054318606==--
+
